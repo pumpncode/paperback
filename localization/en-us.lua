@@ -859,6 +859,11 @@ return {
         text = {
           "Scored {C:paperback_stars}Stars{} give {X:chips,C:white}X#1#{} Chips",
           "for every other played {C:paperback_stars}Star"
+        },
+        unlock = {
+          "Have at least",
+          "{C:attention}#1# {C:paperback_stars}Stars{} in",
+          "your full deck"
         }
       },
       j_paperback_pyrite = {
