@@ -163,6 +163,11 @@ return {
         text = {
           "Earn {C:money}$#1#{} per {C:attention}#2#{} drawn",
           "at the start of round"
+        },
+        unlock = {
+          "{C:attention}Win{} a run with",
+          "{C:attention}#1#{} as your",
+          "most played hand"
         }
       },
       j_paperback_the_quiet = {

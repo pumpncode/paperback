@@ -14,6 +14,18 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'win' then
+      return PB_UTIL.get_most_played_hands()[1].key == 'Pair'
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { localize('Pair', 'poker_hands') }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
