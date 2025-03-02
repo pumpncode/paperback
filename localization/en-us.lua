@@ -686,6 +686,10 @@ return {
           "Skipping a {C:attention}blind{} creates",
           "a random {C:attention}Tag{}",
         },
+        unlock = {
+          "Have {C:attention}#1#{} or more",
+          "{C:attention}Tags{} at once"
+        }
       },
       j_paperback_union_card = {
         name = "Union Card",

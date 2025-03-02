@@ -226,6 +226,7 @@ function SMODS.calculate_context(context, return_table)
   return calculate_context_ref(context, return_table)
 end
 
+-- Used for Big Misser's unlock condition
 local emplace_ref = CardArea.emplace
 function CardArea.emplace(self, card, location, stay_flipped)
   if self == G.consumeables and G.GAME then
@@ -233,4 +234,12 @@ function CardArea.emplace(self, card, location, stay_flipped)
   end
 
   return emplace_ref(self, card, location, stay_flipped)
+end
+
+-- Used for Jimbo Adventure's unlock condition
+local add_tag_ref = add_tag
+function add_tag(tag)
+  local ret = add_tag_ref(tag)
+  check_for_unlock { tag_added = tag }
+  return ret
 end
