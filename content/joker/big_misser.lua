@@ -14,6 +14,12 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'win' and not G.GAME.round_resets.paperback_used_consumable_slot then
+      return true
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

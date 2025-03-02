@@ -225,3 +225,12 @@ function SMODS.calculate_context(context, return_table)
 
   return calculate_context_ref(context, return_table)
 end
+
+local emplace_ref = CardArea.emplace
+function CardArea.emplace(self, card, location, stay_flipped)
+  if self == G.consumeables and G.GAME then
+    G.GAME.round_resets.paperback_used_consumable_slot = true
+  end
+
+  return emplace_ref(self, card, location, stay_flipped)
+end

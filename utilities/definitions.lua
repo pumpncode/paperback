@@ -10,6 +10,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   if run_start then
     G.GAME.round_resets.paperback_ceramic_inc = 0
     G.GAME.round_resets.paperback_destroyed_cards = 0
+    G.GAME.round_resets.paperback_used_consumable_slot = false
   end
 end
 
