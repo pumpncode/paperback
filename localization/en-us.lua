@@ -866,6 +866,11 @@ return {
         text = {
           "Scored {C:paperback_crowns}Crowns{} earn",
           "between {C:money}$#1#{} and {C:money}$#2#"
+        },
+        unlock = {
+          "Have at least",
+          "{C:attention}#1# {C:paperback_crowns}Crowns{} in",
+          "your full deck"
         }
       },
       j_paperback_wheat_field = {

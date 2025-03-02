@@ -17,6 +17,26 @@ SMODS.Joker {
   },
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_deck' then
+      local crowns = 0
+
+      for _, v in ipairs(G.playing_cards) do
+        if v:is_suit('paperback_Crowns') then
+          crowns = crowns + 1
+        end
+      end
+
+      return crowns >= 20
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 20 }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
