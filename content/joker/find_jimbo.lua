@@ -16,6 +16,26 @@ SMODS.Joker {
   eternal_compat = true,
   unlocked = false,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'hand' then
+      self.paperback_unlock_ready = args.handname == 'High Card' and args.scoring_hand[1]:get_id() == 11
+    end
+
+    if args.type == 'round_win' and self.paperback_unlock_ready then
+      self.paperback_unlock_ready = nil
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        localize('High Card', 'poker_hands'),
+        localize('Jack', 'ranks')
+      }
+    }
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

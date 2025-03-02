@@ -251,6 +251,11 @@ return {
           "{V:1}#2#{} earns {C:money}$#3#{}",
           "{s:0.8}Card changes every round"
         },
+        unlock = {
+          "{C:attention}Win{} a round by",
+          "playing a {C:attention}#1#",
+          "with a scoring {C:attention}#2#"
+        }
       },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
