@@ -26,6 +26,13 @@ return {
       }
     },
     Joker = {
+      j_paperback_medic = {
+        name = "Medic",
+        text = {
+          "{C:attention}#1#s{} retrigger",
+          "cards an additional time",
+        }
+      },
       j_paperback_matcha = {
         name = "Matcha",
         text = {

@@ -48,7 +48,7 @@ SMODS.Enhancement {
 
         if (left == ctx.other_card or right == ctx.other_card) then
           return {
-            repetitions = 1,
+            repetitions = 1 + (G.GAME.round_resets.paperback_bandaged_inc or 0),
             message_card = ctx.other_card,
             juice_card = card,
           }

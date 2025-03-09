@@ -9,6 +9,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
 
   if run_start then
     G.GAME.round_resets.paperback_ceramic_inc = 0
+    G.GAME.round_resets.paperback_bandaged_inc = 0
   end
 end
 
@@ -135,6 +136,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "cream_liqueur",
   "champagne",
   "coffee",
+  "matcha",
   "epic_sauce",
   "dreamsicle",
   "popsicle_stick",
@@ -208,12 +210,11 @@ PB_UTIL.ENABLED_JOKERS = {
   "clothespin",
   "kintsugi_joker",
   "watercolor_joker",
-  -- "medic",
+  "medic",
   -- "festive_joker",
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",
-  "matcha",
   -- "jestrogen",
   -- "jestosterone",
   -- "marketable_plushie",
