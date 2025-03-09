@@ -30,10 +30,10 @@ SMODS.Joker {
   end,
 
   add_to_deck = function(self, card, from_debuff)
-    G.GAME.round_resets.paperback_bandaged_inc = (G.GAME.round_resets.paperback_bandaged_inc or 0) + 1
+    G.GAME.paperback.bandaged_inc = G.GAME.paperback.bandaged_inc + 1
   end,
 
   remove_from_deck = function(self, card, from_debuff)
-    G.GAME.round_resets.paperback_bandaged_inc = (G.GAME.round_resets.paperback_bandaged_inc or 1) - 1
+    G.GAME.paperback.bandaged_inc = G.GAME.paperback.bandaged_inc - 1
   end
 }

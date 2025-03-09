@@ -1,16 +1,10 @@
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
--- Load values that get reset at the start of each round
+-- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
-  G.GAME.current_round.paperback_scored_clips = 0
-
+  G.GAME.paperback.round.scored_clips = 0
   PB_UTIL.reset_weather_radio()
-
-  if run_start then
-    G.GAME.round_resets.paperback_ceramic_inc = 0
-    G.GAME.round_resets.paperback_bandaged_inc = 0
-  end
 end
 
 PB_UTIL.base_poker_hands = {
