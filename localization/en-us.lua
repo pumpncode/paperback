@@ -26,6 +26,16 @@ return {
       }
     },
     Joker = {
+      j_paperback_matcha = {
+        name = "Matcha",
+        text = {
+          "Gain {C:chips}+#1#{} chips when",
+          "a card is scored",
+          "{C:green}#2# in #3#{} chance to",
+          "consume on {C:mult}discard",
+          "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
+        }
+      },
       j_paperback_you_are_a_fool = {
         name = "You Are a Fool!",
         text = {

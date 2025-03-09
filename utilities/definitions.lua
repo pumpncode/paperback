@@ -213,7 +213,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",
-  -- "matcha",
+  "matcha",
   -- "jestrogen",
   -- "jestosterone",
   -- "marketable_plushie",
