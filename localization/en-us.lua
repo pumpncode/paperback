@@ -26,6 +26,14 @@ return {
       }
     },
     Joker = {
+      j_paperback_festive_joker = {
+        name = "Festive Joker",
+        text = {
+          "{C:attention}#1#s{} have a {C:green}#2# in #3#",
+          "chance to create a random",
+          "{C:attention}Consumable{} when scored",
+        }
+      },
       j_paperback_medic = {
         name = "Medic",
         text = {

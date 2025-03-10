@@ -205,7 +205,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "kintsugi_joker",
   "watercolor_joker",
   "medic",
-  -- "festive_joker",
+  "festive_joker",
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",
