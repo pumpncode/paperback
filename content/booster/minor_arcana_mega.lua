@@ -8,7 +8,7 @@ PB_UTIL.MinorArcanaBooster {
   },
   -- Since there is only one mega pack, compared to the 2 Tarot ones,
   -- we make the weight higher so that this is not incredibly rare
-  weight = 0.75,
+  weight = 0.6,
   cost = 9,
   discovered = true
 }

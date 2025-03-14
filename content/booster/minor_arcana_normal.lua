@@ -8,7 +8,7 @@ PB_UTIL.MinorArcanaBooster {
   },
   -- Since there is only one normal pack, compared to the 4 Tarot ones,
   -- we make the weight higher so that this is not incredibly rare
-  weight = 3,
+  weight = 2.4,
   cost = 5,
   discovered = true,
 }
