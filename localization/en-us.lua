@@ -462,9 +462,10 @@ return {
       j_paperback_mismatched_sock = {
         name = "Mismatched Sock",
         text = {
-          "This Joker gains {C:mult}+#1#{} Mult",
-          "if played hand contains no {C:attention}pairs{}",
-          "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
+          "This Joker gains {X:mult,C:white}X#1#",
+          "Mult if played hand does",
+          "not contain a {C:attention}#2#",
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)",
         },
       },
       j_paperback_quick_fix = {
