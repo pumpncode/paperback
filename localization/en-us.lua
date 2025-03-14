@@ -863,8 +863,10 @@ return {
       j_paperback_clothespin = {
         name = "Clothespin",
         text = {
-          "Clips {C:attention}held in hand{}",
-          "provide {C:chips}+#1#{} Chips",
+          "Gain {C:chips}+#1#{} Chips at {C:attention}end",
+          "{C:attention}of round{} for each {C:attention}Clip",
+          "in {C:attention}held hand",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
       j_paperback_watercolor_joker = {
