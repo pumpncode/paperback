@@ -444,10 +444,9 @@ return {
       j_paperback_solemn_lament = {
         name = "Solemn Lament",
         text = {
-          "Retrigger {C:attention}first{} scored card",
-          "{C:attention}once{} for every remaining",
-          "{C:chips}hand{} or {C:mult}discard{}",
-          "{C:inactive}(The lowest of the two)",
+          "Retrigger {C:attention}first{} scored",
+          "card {C:attention}once{} for every {C:chips}hand",
+          "and {C:mult}discard{} remaining"
         },
       },
       j_paperback_hole_in_one = {
