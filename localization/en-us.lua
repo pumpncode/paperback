@@ -776,9 +776,9 @@ return {
       j_paperback_meeple = {
         name = "Meeple",
         text = {
-          "Scored {C:attention}face cards{} have a",
-          "{C:green}#1# in #2#{} chance to",
-          "give {C:mult}+#3#{} Discard(s)"
+          "If played hand contains",
+          "a scoring {C:attention}face{} card, gain",
+          "{C:mult}+#1#{} discard this round",
         }
       },
       j_paperback_apple = {
