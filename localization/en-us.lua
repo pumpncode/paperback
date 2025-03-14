@@ -168,7 +168,7 @@ return {
         name = "Angel Investor",
         text = {
           "Skipping a {C:attention}blind{} gives",
-          "an {C:attention}Angel Investment Tag"
+          "{C:attention}#1#{} {C:money}Angel Investment Tags"
         }
       },
       j_paperback_ice_cube = {

@@ -334,11 +334,14 @@ end
 --- Adds a tag the same way vanilla does it
 --- @param tag string | table a tag key or a tag table
 --- @param event boolean? whether to send this in an event or not
-function PB_UTIL.add_tag(tag, event)
+--- @param silent boolean? whether to play a sound
+function PB_UTIL.add_tag(tag, event, silent)
   local func = function()
     add_tag(type(tag) == 'string' and Tag(tag) or tag)
-    play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
-    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+    if not silent then
+      play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+      play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+    end
     return true
   end
 
