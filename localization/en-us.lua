@@ -277,8 +277,8 @@ return {
         name = "Cream Liqueur",
         text = {
           "{C:attention}Tags{} earn {C:money}$#1#{} when activated",
-          "{C:green}#2# in #3#{} chance this card is",
-          "consumed at end of round"
+          "Consumed in {C:attention}#2#{} rounds",
+          "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
         }
       },
       j_paperback_coffee = {
