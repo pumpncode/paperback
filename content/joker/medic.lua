@@ -14,6 +14,10 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+  paperback = {
+    requires_enhancements = true,
+  },
+  enhancement_gate = 'm_paperback_bandaged',
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_bandaged
