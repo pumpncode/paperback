@@ -104,10 +104,9 @@ return {
       j_paperback_bismuth = {
         name = "Bismuth",
         text = {
-          "Played {C:attention}Wild Cards{} have",
-          "a {C:green}#1# in #2#{} chance to",
-          "gain {C:dark_edition}Foil{}, {C:dark_edition}Holographic",
-          "or {C:dark_edition}Polychrome{} edition"
+          "Played {V:1}#1#{} and {V:2}#2#{} have",
+          "a {C:green}#3# in #4#{} chance to gain {C:dark_edition}Foil",
+          "{C:dark_edition}Holographic{} or {C:dark_edition}Polychrome",
         }
       },
       j_paperback_deadringer = {
