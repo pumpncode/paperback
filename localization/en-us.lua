@@ -120,10 +120,9 @@ return {
       j_paperback_full_moon = {
         name = "Full Moon",
         text = {
-          "Using a {C:planet}Planet{} card",
-          "has a {C:green}#1# in #2#{} chance",
-          "to create {C:tarot}The Moon",
-          "{C:tarot}Tarot{} card"
+          "{C:planet}Planet{} cards have a",
+          "{C:green}#1# in #2#{} chance",
+          "to level up {C:attention}twice",
         }
       },
       j_paperback_sake_cup = {
