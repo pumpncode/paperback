@@ -10,6 +10,7 @@ function Game.init_game_object(self)
     ceramic_inc = 0,
     bandaged_inc = 0,
     weather_radio_hand = 'High Card',
+    destroyed_dark_suits = 0,
   }
   return ret
 end

@@ -691,9 +691,10 @@ return {
       j_paperback_paranoia = {
         name = "Paranoia",
         text = {
-          "After scoring a hand,",
-          "destroy all {C:paperback_dark_suit}dark suits{} played",
-          "and all {C:paperback_light_suit}light suits{} held in hand",
+          "{C:paperback_light_suit}Light suits{} give {C:mult}+#1#{} Mult",
+          "when {C:attention}scored{} for every {C:paperback_dark_suit}dark",
+          "{C:paperback_dark_suit}suit{} {C:attention}destroyed{} this run",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
       },
       j_paperback_unholy_alliance = {
