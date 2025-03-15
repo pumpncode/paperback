@@ -32,6 +32,7 @@ return {
           "{C:attention}#1#s{} have a {C:green}#2# in #3#",
           "chance to create a random",
           "{C:attention}Consumable{} when scored",
+          "{C:inactive}(Must have room)"
         }
       },
       j_paperback_medic = {
@@ -77,7 +78,8 @@ return {
           "face down, if scored hand",
           "contains a {C:attention}face up{} and",
           "{C:attention}face down{} card, create",
-          "a random consumable"
+          "a random consumable",
+          "{C:inactive}(Must have room)"
         }
       },
       j_paperback_weather_radio = {
@@ -130,7 +132,8 @@ return {
           "After a hand is played, {C:attention}#1#s",
           "{C:attention}held in hand{} have a {C:green}#2# in #3#",
           "chance to make the {C:planet}Planet",
-          "card for played {C:attention}poker hand"
+          "card for played {C:attention}poker hand",
+          "{C:inactive}(Must have room)"
         }
       },
       j_paperback_resurrections = {
@@ -601,6 +604,7 @@ return {
           "If played hand contains a {C:attention}Three of a Kind{},",
           "{C:green}#1# in #2#{} chance to create a random {C:planet}Planet{} card and",
           "{C:green}#1# in #3#{} chance to create a random {C:purple}Tarot{} card",
+          "{C:inactive}(Must have room)"
         },
       },
       j_paperback_triple_moon_goddess_minor_arcana = {
@@ -608,7 +612,8 @@ return {
         text = {
           "If played hand contains a {C:attention}Three of a Kind{},",
           "{C:green}#1# in #2#{} chance to create a random {C:tarot}Tarot{} card, and",
-          "{C:green}#1# in #3#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card"
+          "{C:green}#1# in #3#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card",
+          "{C:inactive}(Must have room)"
         },
       },
       j_paperback_derecho = {
