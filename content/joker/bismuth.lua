@@ -37,8 +37,8 @@ SMODS.Joker {
         G.GAME.probabilities.normal,
         card.ability.extra.odds,
         colours = {
-          G.C.SUITS[card.ability.extra.suit1],
-          G.C.SUITS[card.ability.extra.suit2],
+          G.C.SUITS[card.ability.extra.suit1] or G.C.PAPERBACK_CROWNS_LC,
+          G.C.SUITS[card.ability.extra.suit2] or G.C.PAPERBACK_STARS_LC,
         }
       }
     }

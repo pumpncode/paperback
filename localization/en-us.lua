@@ -847,8 +847,10 @@ return {
       j_paperback_pyrite = {
         name = "Pyrite",
         text = {
-          "Scored {C:paperback_crowns}Crowns{} earn",
-          "between {C:money}$#1#{} and {C:money}$#2#"
+          "Played {V:1}#1#{} have a",
+          "{C:green}#2# in #3#{} chance to spawn",
+          "a random {C:tarot}Tarot{} card",
+          "{C:inactive}(Must have room)"
         }
       },
       j_paperback_wheat_field = {
