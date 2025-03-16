@@ -364,7 +364,9 @@ PB_UTIL.DECK_SKINS = {
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
-  'minor_arcana_normal',
+  'minor_arcana_normal_1',
+  'minor_arcana_normal_2',
+  'minor_arcana_jumbo',
   'minor_arcana_mega',
 }
 
@@ -422,6 +424,18 @@ if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcanaBooster = SMODS.Booster:extend {
     group_key = 'paperback_minor_arcana_pack',
     draw_hand = true,
+
+    loc_vars = function(self, info_queue, card)
+      return {
+        -- Removes the underscore with a digit at the end of a key if it exists,
+        -- allowing us to make only one localization entry per type
+        key = self.key:gsub('_%d$', ''),
+        vars = {
+          card.ability.choose,
+          card.ability.extra
+        }
+      }
+    end,
 
     create_card = function(self, card, i)
       return {
