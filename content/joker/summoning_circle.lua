@@ -66,11 +66,11 @@ SMODS.Joker {
         local spawned = PB_UTIL.try_spawn_card {
           card = copied_card,
           strip_edition = copied_card.edition and copied_card.edition.negative,
-          func = function()
+          func = function(c)
             -- More Incantation support
-            if next(SMODS.find_mod('incantation')) then
-              copied_card.ability.qty = 1
-              copied_card:set_cost()
+            if c and next(SMODS.find_mod('incantation')) then
+              c.ability.qty = 1
+              c:set_cost()
             end
           end }
 

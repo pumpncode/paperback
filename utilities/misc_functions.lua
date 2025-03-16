@@ -381,11 +381,12 @@ function PB_UTIL.try_spawn_card(args)
   local buffer = area == G.jokers and 'joker_buffer' or 'consumeable_buffer'
 
   if #area.cards + G.GAME[buffer] < area.config.card_limit then
+    local added_card
     local function add()
       if args.card then
-        local c = copy_card(args.card, nil, nil, nil, args.strip_edition)
-        c:add_to_deck()
-        area:emplace(c)
+        added_card = copy_card(args.card, nil, nil, nil, args.strip_edition)
+        added_card:add_to_deck()
+        area:emplace(added_card)
       else
         SMODS.add_card(args)
       end
@@ -406,7 +407,7 @@ function PB_UTIL.try_spawn_card(args)
     end
 
     if args.func and type(args.func) == "function" then
-      args.func()
+      args.func(added_card)
     end
 
     return true
