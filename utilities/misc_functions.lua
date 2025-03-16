@@ -368,24 +368,37 @@ function PB_UTIL.poll_consumable_type(seed)
 end
 
 --- Tries to spawn a card into either the Jokers or Consumeable card areas, ensuring
---- that there is space available.
+--- that there is space available, using the respective buffer.
 --- DOES NOT TAKE INTO ACCOUNT ANY OTHER AREAS
---- @param args CreateCard | { instant: boolean?, func: function? } same arguments passed to SMODS.create_card, with the addition of 'instant' and 'func'
+--- @param args CreateCard | { card: Card?, strip_edition: boolean? } | { instant: boolean?, func: function? } info:
+--- Either a table passed to SMODS.create_card, which will create a new card.
+--- Or a table with 'card', which will copy the passed card and remove its edition based on 'strip_edition'.
 --- @return boolean? spawned whether the card was able to spawn
 function PB_UTIL.try_spawn_card(args)
-  local is_joker = (args.set == 'Joker' or args.key and args.key:sub(1, 1) == 'j')
+  local is_joker = args.card and (args.card.ability.set == 'Joker') or
+      (args.set == 'Joker' or (args.key and args.key:sub(1, 1) == 'j'))
   local area = args.area or (is_joker and G.jokers) or G.consumeables
   local buffer = area == G.jokers and 'joker_buffer' or 'consumeable_buffer'
 
   if #area.cards + G.GAME[buffer] < area.config.card_limit then
+    local function add()
+      if args.card then
+        local c = copy_card(args.card, nil, nil, nil, args.strip_edition)
+        c:add_to_deck()
+        area:emplace(c)
+      else
+        SMODS.add_card(args)
+      end
+    end
+
     if args.instant then
-      SMODS.add_card(args)
+      add()
     else
       G.GAME[buffer] = G.GAME[buffer] + 1
 
       G.E_MANAGER:add_event(Event {
         func = function()
-          SMODS.add_card(args)
+          add()
           G.GAME[buffer] = 0
           return true
         end

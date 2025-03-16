@@ -714,7 +714,7 @@ return {
         name = "Summoning Circle",
         text = {
           "If played hand contains a",
-          "{C:attention}Five of a Kind{}, create a copy",
+          "{C:attention}#1#{}, create a copy",
           "of a {C:attention}random consumable",
           "{C:inactive}(Must have room)",
         },
