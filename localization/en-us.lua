@@ -747,8 +747,8 @@ return {
       j_paperback_let_it_happen = {
         name = "Let it Happen",
         text = {
-          "If hand has not been played this Ante,",
-          "balance {C:mult}Mult{} and {C:chips}Chips{}",
+          "If hand has not been played this",
+          "{C:attention}Ante{}, balance {C:mult}Mult{} and {C:chips}Chips",
           "{C:inactive}(Hands played:{C:attention}#1#{C:inactive})",
         },
       },
