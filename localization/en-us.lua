@@ -1215,10 +1215,10 @@ return {
       m_paperback_soaked = {
         name = "Soaked Card",
         text = {
-          "Cards {C:attention}held in hand{}",
-          "score their {C:chips}chip value{}",
-          "{C:green}#1# in #2#{} chance to be",
-          "destroyed on {C:mult}discard",
+          "When scored, cards {C:attention}held",
+          "{C:attention}in hand{} score their {C:chips}chip",
+          "{C:chips}value{}, {C:green}#1# in #2#{} chance to",
+          "be destroyed on {C:mult}discard",
         }
       },
       m_paperback_wrapped = {
@@ -1320,7 +1320,8 @@ return {
       paperback_blue_clip = {
         name = "Blue Clip",
         text = {
-          "{X:chips,C:white}X#1#{} Chips for each",
+          "{X:chips,C:white}X#1#{} Chips when",
+          "{C:attention}scored{} for each",
           "{C:attention}Clip{} in {C:attention}held hand",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
         }
@@ -1328,7 +1329,8 @@ return {
       paperback_red_clip = {
         name = "Red Clip",
         text = {
-          "{C:mult}+#1#{} Mult for each",
+          "{C:mult}+#1#{} Mult when",
+          "{C:attention}scored{} for each",
           "{C:attention}Clip{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
@@ -1336,7 +1338,8 @@ return {
       paperback_orange_clip = {
         name = "Orange Clip",
         text = {
-          "Earn {C:money}$#1#{} for every {C:attention}#2#",
+          "Earn {C:money}$#1#{} when",
+          "{C:attention}scored{} for every {C:attention}#2#",
           "{C:attention}Clips{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
@@ -1344,10 +1347,10 @@ return {
       paperback_black_clip = {
         name = "Black Clip",
         text = {
-          "Retriggers if another",
-          "{C:attention}Clip{} is in {C:attention}played hand",
-          "and again if a {C:attention}Clip{} is",
-          "{C:attention}held in hand"
+          "Retriggers when {C:attention}scored",
+          "if another {C:attention}Clip{} is in",
+          "{C:attention}played hand{} and again if",
+          "a {C:attention}Clip{} is {C:attention}held in hand"
         }
       },
       paperback_white_clip = {
