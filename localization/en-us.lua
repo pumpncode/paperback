@@ -1063,8 +1063,10 @@ return {
       c_paperback_eight_of_wands = {
         name = "Eight of Wands",
         text = {
-          "Create a {C:dark_edition}Negative",
-          "{C:attention}Tag{} and lose {C:money}$#1#"
+          "Create a {C:dark_edition}Negative {C:attention}Tag{} and",
+          "lose {C:money}$#1#{}, plus {C:money}$#2#{} for every",
+          "Joker over {C:attention}#3#{} owned",
+          "{C:inactive}(Currently {C:money}$#4#{C:inactive})"
         }
       },
       c_paperback_nine_of_wands = {
