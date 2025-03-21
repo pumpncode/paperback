@@ -879,7 +879,7 @@ return {
       j_paperback_watercolor_joker = {
         name = "Watercolor Joker",
         text = {
-          "{C:attention}#1#s give",
+          "{C:attention}#1#s{} give",
           "{X:chips,C:white}X#2#{} Chips when scored",
         }
       },
@@ -1136,15 +1136,15 @@ return {
       v_paperback_celtic_cross = {
         name = "Celtic Cross",
         text = {
-          "{C:paperback_minor_arcana}Minor Arcana{} cards may",
-          "appear in the {C:money}Shop"
+          "Gain a {C:paperback_minor_arcana}Divination Tag{} when",
+          "clearing a {C:attention}Boss Blind"
         }
       },
       v_paperback_soothsay = {
         name = "Soothsay",
         text = {
-          "Gain a {C:paperback_minor_arcana}Divination Tag{} when",
-          "clearing a {C:attention}Boss Blind"
+          "{C:paperback_minor_arcana}Minor Arcana{} cards may",
+          "appear in the {C:money}Shop"
         }
       },
     },
