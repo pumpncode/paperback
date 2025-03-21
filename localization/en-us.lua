@@ -115,7 +115,7 @@ return {
         name = "Deadringer",
         text = {
           "Retrigger scored {C:attention}#1#s{} and {C:attention}#2#s",
-          "once, and {C:attention}#3#s{} twice"
+          "once, and scored {C:attention}#3#s{} twice"
         }
       },
       j_paperback_full_moon = {
