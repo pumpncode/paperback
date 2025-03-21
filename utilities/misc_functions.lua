@@ -860,3 +860,34 @@ function PB_UTIL.apply_plasma_effect(card)
 
   delay(0.6)
 end
+
+--- @param card (Card)
+--- @param context (CalcContext)
+function PB_UTIL.panorama_logic(card, context)
+  if context.individual and context.cardarea == G.play then
+    -- Reset the xMult if the current card is not the required suit
+    if not context.other_card:is_suit(card.ability.extra.suit) then
+      card.ability.extra.xMult = card.ability.extra.xMult_base
+      return
+    end
+
+    -- Give the xMult if the current card is the required suit
+    if context.other_card:is_suit(card.ability.extra.suit) then
+      local xMult = card.ability.extra.xMult
+      -- Upgrade the xMult if not blueprint
+      if not context.blueprint then
+        card.ability.extra.xMult = card.ability.extra.xMult + card.ability.extra.xMult_gain
+      end
+
+      return {
+        x_mult = xMult,
+        card = card
+      }
+    end
+  end
+
+  -- Quietly reset the xMult for the card at the end of played hand
+  if context.after and not context.blueprint then
+    card.ability.extra.xMult = card.ability.extra.xMult_base
+  end
+end
