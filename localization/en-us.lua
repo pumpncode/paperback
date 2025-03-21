@@ -114,7 +114,7 @@ return {
       j_paperback_deadringer = {
         name = "Deadringer",
         text = {
-          "Retrigger {C:attention}#1#s{} and {C:attention}#2#s",
+          "Retrigger scored {C:attention}#1#s{} and {C:attention}#2#s",
           "once, and {C:attention}#3#s{} twice"
         }
       },
