@@ -11,6 +11,7 @@ function Game.init_game_object(self)
     bandaged_inc = 0,
     weather_radio_hand = 'High Card',
     destroyed_dark_suits = 0,
+    last_tarot_energized = false,
   }
   return ret
 end
