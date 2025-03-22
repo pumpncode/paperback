@@ -1136,8 +1136,10 @@ return {
       v_paperback_celtic_cross = {
         name = "Celtic Cross",
         text = {
-          "Gain a {C:paperback_minor_arcana}Divination Tag{} when",
-          "clearing a {C:attention}Boss Blind"
+          "When clearing a {C:attention}Boss",
+          "{C:attention}Blind{}, the next shop will",
+          "have an additional {C:attention}free",
+          "{C:paperback_minor_arcana}Mega Minor Arcana Pack"
         }
       },
       v_paperback_soothsay = {
