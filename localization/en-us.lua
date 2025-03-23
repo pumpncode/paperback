@@ -139,12 +139,12 @@ return {
       j_paperback_resurrections = {
         name = "Resurrections",
         text = {
-          "Sold {C:attention}Jokers{} have a {C:green}#1# in #2#",
-          "chance to be {C:attention}resurrected",
+          "Sold {C:attention}Jokers{} have a",
+          "{C:green}#1# in #2#{} chance to {C:attention}return",
           "and gain {C:dark_edition}Negative{} edition",
           "with {C:money}-$#3#{} sell value",
-          "{s:0.9}Chance increases by {s:0.9,C:green}#4#{s:0.9} on fail",
-          "{s:0.9}Chance resets when activated"
+          "{s:0.8}Chance increases by {s:0.8,C:green}#4#{s:0.8} on fail",
+          "{s:0.8}Chance resets when activated"
         }
       },
       j_paperback_book_of_vengeance = {
