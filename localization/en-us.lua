@@ -5,7 +5,9 @@ return {
         name = "Paper Deck",
         text = {
           "{C:legendary}Paperback{C:attention} Jokers{} are {C:attention}3x",
-          "more likely to appear"
+          "more likely to appear,",
+          "start run with the",
+          "{C:attention,T:j_paperback_shopping_center}#1#{} Joker"
         }
       },
       b_paperback_proud = {
