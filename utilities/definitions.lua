@@ -112,6 +112,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "moai",
   "meeple",
   "solemn_lament",
+  "boundary_of_death",
   "furioso",
   "mismatched_sock",
   "basic_energy",
