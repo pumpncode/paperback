@@ -28,6 +28,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_joker_cd_i = {
+        name = 'Joker CD-i',
+        text = {
+          "This Joker has a {C:green}#1# in #2#{} chance",
+          "to create a random {C:planet}Planet{} card",
+          "if played hand has exactly {C:attention}#3#{} cards",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {

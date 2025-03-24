@@ -156,6 +156,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "grand_strategy",
   "great_wave",
   "let_it_happen",
+  "joker_cd_i",
   "prince_of_darkness",
   "jester_of_nihil",
   "wild_prize",
