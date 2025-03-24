@@ -28,6 +28,14 @@ return {
       }
     },
     Joker = {
+      j_paperback_blue_marble = {
+        name = "Blue Marble",
+        text = {
+          "If {C:attention}winning hand{} was all {V:1}#1#",
+          "make an {C:attention}#2# {C:planet}Planet{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_boundary_of_death = {
         name = "Boundary of Death",
         text = {
