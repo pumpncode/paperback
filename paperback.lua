@@ -99,14 +99,14 @@ for _, data in ipairs(PB_UTIL.DECK_SKINS) do
 
     local atlas_lc = SMODS.Atlas {
       key = key .. '_lc',
-      path = 'collabs/' .. key .. '_lc.png',
+      path = 'collabs/lc/' .. key .. '_lc.png',
       px = 71,
       py = 95
     }
 
     local atlas_hc = SMODS.Atlas {
       key = key .. '_hc',
-      path = 'collabs/' .. key .. '_hc.png',
+      path = 'collabs/hc/' .. key .. '_hc.png',
       px = 71,
       py = 95
     }
