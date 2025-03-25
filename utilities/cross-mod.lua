@@ -44,7 +44,7 @@ if JokerDisplay then
       -- Check for paperclips held in hand (without iterating over scoring_hand again)
       if G.hand and G.hand.cards then
         for _, v in pairs(G.hand.cards) do
-          if not scoring_hand_set[v] and PB_UTIL.has_paperclip(card) then
+          if not scoring_hand_set[v] and PB_UTIL.has_paperclip(v) then
             triggers = triggers + 1
             break -- Stop after finding one
           end
