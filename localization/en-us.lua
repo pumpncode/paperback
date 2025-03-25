@@ -28,6 +28,16 @@ return {
       }
     },
     Joker = {
+      j_paperback_touch_tone_joker = {
+        name = "Touch Tone Joker",
+        text = {
+          "When opening an {C:tarot}Arcana{},",
+          "{C:planet}Celestial{} or {C:spectral}Spectral{} pack",
+          "{C:attention}draw{} the {C:attention}first card{} in it",
+          "to your consumables",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_joker_cd_i = {
         name = 'Joker CD-i',
         text = {

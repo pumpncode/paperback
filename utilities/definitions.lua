@@ -180,6 +180,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "subterfuge",
   "the_world",
   "paranoia",
+  "touch_tone_joker",
   "jestrica",
   "you_are_a_fool",
   "alert",
