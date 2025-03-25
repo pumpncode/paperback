@@ -211,6 +211,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "tanghulu",
   "sweet_stick",
   "wheat_field",
+  "manilla_folder",
   "clothespin",
   "kintsugi_joker",
   "watercolor_joker",

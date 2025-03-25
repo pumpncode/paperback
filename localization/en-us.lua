@@ -28,6 +28,15 @@ return {
       }
     },
     Joker = {
+      j_paperback_manilla_folder = {
+        name = "Manilla Folder",
+        text = {
+          "Earn {C:money}$#1#{} at end of round",
+          "for each {C:attention}unique",
+          "{C:attention}Clip{} in your full deck",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
         text = {
