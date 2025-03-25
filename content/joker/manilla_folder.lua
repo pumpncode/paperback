@@ -14,6 +14,9 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+  paperback = {
+    requires_paperclips = true
+  },
 
   loc_vars = function(self, info_queue, card)
     local unique_clips = {}
