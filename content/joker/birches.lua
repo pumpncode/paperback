@@ -48,7 +48,7 @@ SMODS.Joker {
 
       reminder_text = {
         { text = "(" },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.SUITS["Diamonds"] },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.SUITS["paperback_Stars"] },
         { text = ")" },
       },
 
