@@ -28,6 +28,13 @@ return {
       }
     },
     Joker = {
+      j_paperback_the_normal_joker = {
+        name = "The Normal Joker",
+        text = {
+          "Retrigger all",
+          "{C:blue}Common {C:attention}Jokers"
+        }
+      },
       j_paperback_touch_tone_joker = {
         name = "Touch Tone Joker",
         text = {

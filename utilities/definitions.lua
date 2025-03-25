@@ -1,6 +1,11 @@
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
+-- Enable optional features
+SMODS.current_mod.optional_features = {
+  retrigger_joker = true
+}
+
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
@@ -190,6 +195,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "find_jimbo",
   -- "jimbocards",
   -- "banana_man",
+  "the_normal_joker",
   "jimbo_adventure",
   "ddakji",
   "pocket_pair",
