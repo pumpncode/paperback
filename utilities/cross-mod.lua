@@ -20,44 +20,33 @@ if JokerDisplay then
   JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)
     local triggers = calculate_card_triggers_ref(card, scoring_hand, held_in_hand)
 
-    -- Return 0 if the card is debuffed (calculate_card_triggers returns 0)
+    -- Return 0 if the card is debuffed
     if triggers == 0 then
       return 0
     end
 
     -- If card has a black paperclip
     if PB_UTIL.has_paperclip(card) and card.ability.paperback_black_clip then
-      -- Loop through scoring_hand and look for other clips
+      -- Store the scoring_hand for quick lookup
+      local scoring_hand_set = {}
+      for _, v in pairs(scoring_hand) do
+        scoring_hand_set[v] = true
+      end
+
+      -- Check for paperclips in scoring_hand (excluding current card)
       for k, v in pairs(scoring_hand) do
-        -- Only look for a clip on this card if it is not the scoring card
-        if v ~= card then
-          -- If it has a paperclip, add a trigger
-          if PB_UTIL.has_paperclip(v) then
-            triggers = triggers + 1
-            break
-          end
+        if v ~= card and PB_UTIL.has_paperclip(v) then
+          triggers = triggers + 1
+          break -- Stop after finding one
         end
       end
 
-      -- Loop through cards held in hand and check for paperclips
+      -- Check for paperclips held in hand (without iterating over scoring_hand again)
       if G.hand and G.hand.cards then
-        -- Loop through G.hand.cards
-        for k, v in pairs(G.hand.cards) do
-          local valid_card = true
-          -- Loop through scoring_hand and make sure the current card is not in the scoring_hand
-          for l, w in pairs(scoring_hand) do
-            if w == v then
-              valid_card = false
-              break
-            end
-          end
-
-          -- If it is held in hand, check if it has a paperclip and add a trigger
-          if valid_card then
-            if PB_UTIL.has_paperclip(v) then
-              triggers = triggers + 1
-              break
-            end
+        for _, v in pairs(G.hand.cards) do
+          if not scoring_hand_set[v] and PB_UTIL.has_paperclip(card) then
+            triggers = triggers + 1
+            break -- Stop after finding one
           end
         end
       end
