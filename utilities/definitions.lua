@@ -426,6 +426,7 @@ PB_UTIL.ENABLED_DECKS = {
 if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcanaBooster = SMODS.Booster:extend {
     group_key = 'paperback_minor_arcana_pack',
+    kind = 'paperback_minor_arcana',
     draw_hand = true,
 
     loc_vars = function(self, info_queue, card)

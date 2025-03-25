@@ -5,7 +5,8 @@ SMODS.Joker {
       packs = {
         Spectral = true,
         Arcana = true,
-        Celestial = true
+        Celestial = true,
+        paperback_minor_arcana = true
       }
     }
   },
