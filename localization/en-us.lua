@@ -1471,6 +1471,7 @@ return {
       paperback_investment_ex = "Investment!",
       paperback_plus_minor_arcana = "+1 M. Arcana",
       paperback_plus_consumable = "+1 Consumable",
+      paperback_plus_tag = "+1 Tag",
       paperback_edition_ex = "Edition!",
 
       paperback_ui_requires_restart = "Requires Restart",

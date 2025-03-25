@@ -12,7 +12,19 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.skip_blind then
-      PB_UTIL.add_tag(PB_UTIL.poll_tag("jimbo_adventure"))
+      return {
+        message = localize('paperback_plus_tag'),
+        func = function()
+          G.E_MANAGER:add_event(Event({
+            trigger = 'before',
+            delay = 0.0,
+            func = (function()
+              PB_UTIL.add_tag(PB_UTIL.poll_tag("jimbo_adventure"))
+              return true
+            end)
+          }))
+        end
+      }
     end
   end,
 }
