@@ -30,13 +30,15 @@ SMODS.Joker {
       local amount = #hands[card.ability.extra.hand]
 
       if amount > 0 then
-        for _ = 1, amount do
-          SMODS.calculate_effect({
-            dollars = card.ability.extra.money,
-          }, context.blueprint_card or card)
-        end
-
-        return nil, true
+        return {
+          func = function()
+            for _ = 1, amount do
+              SMODS.calculate_effect({
+                dollars = card.ability.extra.money,
+              }, context.blueprint_card or card)
+            end
+          end
+        }
       end
     end
   end
