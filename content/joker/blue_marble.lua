@@ -57,5 +57,25 @@ SMODS.Joker {
         }
       end
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      reminder_text = {
+        { text = '(' },
+        { ref_table = 'card.joker_display_values', ref_value = 'localized_suit' },
+        { text = ')' }
+      },
+
+      calc_function = function(card)
+        card.joker_display_values.localized_suit = localize(card.ability.extra.suit, 'suits_plural')
+      end,
+
+      style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children[2] then
+          reminder_text.children[2].config.colour = G.C.SUITS[card.ability.extra.suit]
+        end
+      end,
+    }
   end
 }
