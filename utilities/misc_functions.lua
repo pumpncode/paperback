@@ -838,6 +838,8 @@ function PB_UTIL.apply_plasma_effect(card)
   delay(0.6)
 end
 
+--- Logic for the Panorama Jokers
+--- @param self (SMODS.Center)
 --- @param card (Card)
 --- @param context (CalcContext)
 function PB_UTIL.panorama_logic(self, card, context)
@@ -869,6 +871,11 @@ function PB_UTIL.panorama_logic(self, card, context)
   end
 end
 
+--- Logic for the Stick Food Jokers
+---@param self (SMODS.Center)
+---@param card (Card)
+---@param context (CalcContext)
+---@return table
 function PB_UTIL.stick_food_joker_logic(self, card, context)
   -- Give the mult during play if card is the specified suit
   if context.individual and context.cardarea == G.play then
@@ -903,6 +910,24 @@ function PB_UTIL.stick_food_joker_logic(self, card, context)
       return {
         message = localize('k_safe_ex'),
         colour = G.C.CHIPS,
+        card = card
+      }
+    end
+  end
+end
+
+--- The logic for the Stick Jokers
+---@param self (SMODS.Center)
+---@param card (Card)
+---@param context (CalcContext)
+---@return table
+function PB_UTIL.stick_joker_logic(self, card, context)
+  if context.joker_main then
+    local xMult = PB_UTIL.calculate_stick_xMult(card)
+
+    if xMult ~= 1 then
+      return {
+        x_mult = xMult,
         card = card
       }
     end

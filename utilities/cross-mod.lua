@@ -91,7 +91,6 @@ if JokerDisplay then
 end
 
 --- JokerDisplay definition for the Panorama Jokers
---- @param card (Card)
 --- @param JokerDisplay (JokerDisplay)
 function PB_UTIL.panorama_joker_display_def(JokerDisplay)
   return {
@@ -146,7 +145,6 @@ function PB_UTIL.panorama_joker_display_def(JokerDisplay)
 end
 
 --- JokerDisplay definition for the Stick Food Jokers
----@param card (Card)
 ---@param JokerDisplay (JokerDisplay)
 function PB_UTIL.stick_food_joker_display_def(JokerDisplay)
   return {
@@ -198,6 +196,26 @@ function PB_UTIL.stick_food_joker_display_def(JokerDisplay)
       if reminder_text and reminder_text.children[2] then
         reminder_text.children[2].config.colour = G.C.SUITS[card.ability.extra.suit]
       end
+    end
+  }
+end
+
+--- JokerDisplay definition for the Stick Jokers
+---@param JokerDisplay any
+---@return table
+function PB_UTIL.stick_joker_display_def(JokerDisplay)
+  return {
+    text = {
+      {
+        border_nodes = {
+          { text = 'X' },
+          { ref_table = 'card.joker_display_values', ref_value = 'xMult' },
+        }
+      }
+    },
+
+    calc_function = function(card)
+      card.joker_display_values.xMult = PB_UTIL.calculate_stick_xMult(card)
     end
   }
 end
