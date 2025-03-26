@@ -15,6 +15,7 @@ if (SMODS.Mods["Bunco"] or {}).can_load then
   table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
 
+-- JokerDisplay hook to calculate retriggers from Paperback features
 if JokerDisplay then
   local calculate_card_triggers_ref = JokerDisplay.calculate_card_triggers
   JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)
@@ -87,4 +88,90 @@ if JokerDisplay then
 
     return triggers
   end
+end
+
+--- calc_function logic for the panorama jokers JokerDisplay
+--- @param card (Card)
+--- @param JokerDisplay (JokerDisplay)
+function PB_UTIL.panorama_joker_display_logic(card, JokerDisplay)
+  local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+  local current_mult = card.ability.extra.xMult_base
+  local total_multiplier = 1.0
+  local segment_multiplier = 1.0
+
+  if text ~= 'Unknown' then
+    for k, v in pairs(scoring_hand) do
+      if v:is_suit(card.ability.extra.suit) then
+        local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
+        for _ = 1, triggers do
+          segment_multiplier = segment_multiplier * current_mult
+          current_mult = current_mult + card.ability.extra.xMult_gain
+        end
+      else
+        total_multiplier = total_multiplier * segment_multiplier
+        segment_multiplier = 1
+        current_mult = card.ability.extra.xMult_base
+      end
+    end
+    total_multiplier = total_multiplier * segment_multiplier
+  end
+  card.joker_display_values.xMult = total_multiplier
+  card.joker_display_values.localized_text = localize(card.ability.extra.suit, 'suits_plural')
+end
+
+--- JokerDisplay definition for the Stick Food Jokers
+---@param card (Card)
+---@param JokerDisplay (JokerDisplay)
+function PB_UTIL.stick_food_joker_display_def(JokerDisplay)
+  return {
+    text = {
+      { text = '+' },
+      { ref_table = 'card.joker_display_values', ref_value = 'mult' },
+    },
+    text_config = {
+      colour = G.C.MULT
+    },
+
+    reminder_text = {
+      { text = '(' },
+      { ref_table = 'card.joker_display_values', ref_value = 'localized_suit', },
+      { text = ')' },
+    },
+
+    extra = {
+      {
+        { text = '(' },
+        { ref_table = 'card.joker_display_values', ref_value = 'odds' },
+        { text = ')' },
+      },
+    },
+    extra_config = {
+      colour = G.C.GREEN,
+      scale = 0.3,
+    },
+
+    calc_function = function(card)
+      local mult = 0
+      local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+
+      if text ~= 'Unknown' then
+        for _, scoring_card in pairs(scoring_hand) do
+          if scoring_card:is_suit(card.ability.extra.suit) then
+            local triggers = JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            mult = mult + card.ability.extra.mult * triggers
+          end
+        end
+      end
+
+      card.joker_display_values.mult = mult
+      card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+      card.joker_display_values.localized_suit = localize(card.ability.extra.suit, 'suits_plural')
+    end,
+
+    style_function = function(card, text, reminder_text, extra)
+      if reminder_text and reminder_text.children[2] then
+        reminder_text.children[2].config.colour = G.C.SUITS[card.ability.extra.suit]
+      end
+    end
+  }
 end

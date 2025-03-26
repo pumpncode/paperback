@@ -868,31 +868,3 @@ function PB_UTIL.panorama_logic(card, context)
     card.ability.extra.xMult = card.ability.extra.xMult_base
   end
 end
-
---- @param card (Card)
---- @param JokerDisplay (JokerDisplay)
-function PB_UTIL.panorama_joker_display_logic(card, JokerDisplay)
-  local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-  local current_mult = card.ability.extra.xMult_base
-  local total_multiplier = 1.0
-  local segment_multiplier = 1.0
-
-  if text ~= 'Unknown' then
-    for k, v in pairs(scoring_hand) do
-      if v:is_suit(card.ability.extra.suit) then
-        local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
-        for _ = 1, triggers do
-          segment_multiplier = segment_multiplier * current_mult
-          current_mult = current_mult + card.ability.extra.xMult_gain
-        end
-      else
-        total_multiplier = total_multiplier * segment_multiplier
-        segment_multiplier = 1
-        current_mult = card.ability.extra.xMult_base
-      end
-    end
-    total_multiplier = total_multiplier * segment_multiplier
-  end
-  card.joker_display_values.xMult = total_multiplier
-  card.joker_display_values.localized_text = localize(card.ability.extra.suit, 'suits_plural')
-end

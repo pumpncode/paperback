@@ -3,7 +3,8 @@ SMODS.Joker {
   config = {
     extra = {
       mult = 5,
-      odds = 4
+      odds = 4,
+      suit = 'Hearts'
     }
   },
   rarity = 1,
@@ -33,7 +34,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     -- Give the mult during play if card is a Heart
     if context.individual and context.cardarea == G.play then
-      if context.other_card:is_suit("Hearts") then
+      if context.other_card:is_suit(card.ability.extra.suit) then
         return {
           mult = 5,
           card = card
@@ -68,5 +69,9 @@ SMODS.Joker {
         }
       end
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return PB_UTIL.stick_food_joker_display_def(JokerDisplay)
   end
 }
