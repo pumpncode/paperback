@@ -90,33 +90,59 @@ if JokerDisplay then
   end
 end
 
---- calc_function logic for the panorama jokers JokerDisplay
+--- JokerDisplay definition for the Panorama Jokers
 --- @param card (Card)
 --- @param JokerDisplay (JokerDisplay)
-function PB_UTIL.panorama_joker_display_logic(card, JokerDisplay)
-  local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-  local current_mult = card.ability.extra.xMult_base
-  local total_multiplier = 1.0
-  local segment_multiplier = 1.0
+function PB_UTIL.panorama_joker_display_def(JokerDisplay)
+  return {
+    text = {
+      {
+        border_nodes = {
+          { text = "X" },
+          { ref_table = "card.joker_display_values", ref_value = "xMult", retrigger_type = "exp" },
+        }
+      }
+    },
 
-  if text ~= 'Unknown' then
-    for k, v in pairs(scoring_hand) do
-      if v:is_suit(card.ability.extra.suit) then
-        local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
-        for _ = 1, triggers do
-          segment_multiplier = segment_multiplier * current_mult
-          current_mult = current_mult + card.ability.extra.xMult_gain
+    reminder_text = {
+      { text = "(" },
+      { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.SUITS["Diamonds"] },
+      { text = ")" },
+    },
+
+    calc_function = function(card)
+      local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+      local current_mult = card.ability.extra.xMult_base
+      local total_multiplier = 1.0
+      local segment_multiplier = 1.0
+
+      if text ~= 'Unknown' then
+        for k, v in pairs(scoring_hand) do
+          if v:is_suit(card.ability.extra.suit) then
+            local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
+            for _ = 1, triggers do
+              segment_multiplier = segment_multiplier * current_mult
+              current_mult = current_mult + card.ability.extra.xMult_gain
+            end
+          else
+            total_multiplier = total_multiplier * segment_multiplier
+            segment_multiplier = 1
+            current_mult = card.ability.extra.xMult_base
+          end
         end
-      else
         total_multiplier = total_multiplier * segment_multiplier
-        segment_multiplier = 1
-        current_mult = card.ability.extra.xMult_base
+      end
+      card.joker_display_values.xMult = total_multiplier
+      card.joker_display_values.localized_text = localize(card.ability.extra.suit, 'suits_plural')
+    end,
+
+    style_function = function(card, text, reminder_text, extra)
+      if reminder_text and reminder_text.children[2] then
+        reminder_text.children[2].config.colour = G.C.SUITS[card.ability.extra.suit]
       end
     end
-    total_multiplier = total_multiplier * segment_multiplier
-  end
-  card.joker_display_values.xMult = total_multiplier
-  card.joker_display_values.localized_text = localize(card.ability.extra.suit, 'suits_plural')
+
+  }
 end
 
 --- JokerDisplay definition for the Stick Food Jokers

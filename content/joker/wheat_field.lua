@@ -31,30 +31,6 @@ SMODS.Joker {
     }
   end,
 
-  calculate = function(self, card, context)
-    return PB_UTIL.panorama_logic(card, context)
-  end,
-
-  joker_display_def = function(JokerDisplay)
-    return {
-      text = {
-        {
-          border_nodes = {
-            { text = "X" },
-            { ref_table = "card.joker_display_values", ref_value = "xMult", retrigger_type = "exp" },
-          }
-        }
-      },
-
-      reminder_text = {
-        { text = "(" },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.SUITS["paperback_Crowns"] },
-        { text = ")" },
-      },
-
-      calc_function = function(card)
-        PB_UTIL.panorama_joker_display_logic(card, JokerDisplay)
-      end,
-    }
-  end,
+  calculate = PB_UTIL.panorama_logic,
+  joker_display_def = PB_UTIL.panorama_joker_display_def
 }

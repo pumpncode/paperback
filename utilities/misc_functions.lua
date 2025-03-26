@@ -840,7 +840,7 @@ end
 
 --- @param card (Card)
 --- @param context (CalcContext)
-function PB_UTIL.panorama_logic(card, context)
+function PB_UTIL.panorama_logic(self, card, context)
   if context.individual and context.cardarea == G.play then
     -- Reset the xMult if the current card is not the required suit
     if not context.other_card:is_suit(card.ability.extra.suit) then
