@@ -4,7 +4,8 @@ SMODS.Joker {
     extra = {
       mult = 5,
       odds = 4,
-      suit = 'Hearts'
+      suit = 'Hearts',
+      stick_key = 'j_paperback_pop_stick'
     }
   },
   rarity = 1,
@@ -31,47 +32,6 @@ SMODS.Joker {
     }
   end,
 
-  calculate = function(self, card, context)
-    -- Give the mult during play if card is a Heart
-    if context.individual and context.cardarea == G.play then
-      if context.other_card:is_suit(card.ability.extra.suit) then
-        return {
-          mult = 5,
-          card = card
-        }
-      end
-    end
-
-    -- Check if the Joker needs to be eaten
-    if context.end_of_round and not context.blueprint and context.main_eval then
-      if pseudorandom("Cakepop") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        PB_UTIL.destroy_joker(card, function()
-          -- Remove Cakepop from the pool
-          G.GAME.pool_flags.cakepop_can_spawn = false
-
-          -- Create Popsicle Stick
-          SMODS.add_card {
-            key = 'j_paperback_pop_stick',
-            edition = card.edition
-          }
-        end)
-
-        return {
-          message = localize('k_eaten_ex'),
-          colour = G.C.MULT,
-          card = card
-        }
-      else
-        return {
-          message = localize('k_safe_ex'),
-          colour = G.C.CHIPS,
-          card = card
-        }
-      end
-    end
-  end,
-
-  joker_display_def = function(JokerDisplay)
-    return PB_UTIL.stick_food_joker_display_def(JokerDisplay)
-  end
+  calculate = PB_UTIL.stick_food_joker_logic,
+  joker_display_def = PB_UTIL.stick_food_joker_display_def,
 }

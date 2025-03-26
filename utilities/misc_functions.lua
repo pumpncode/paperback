@@ -868,3 +868,43 @@ function PB_UTIL.panorama_logic(self, card, context)
     card.ability.extra.xMult = card.ability.extra.xMult_base
   end
 end
+
+function PB_UTIL.stick_food_joker_logic(self, card, context)
+  -- Give the mult during play if card is the specified suit
+  if context.individual and context.cardarea == G.play then
+    if context.other_card:is_suit(card.ability.extra.suit) then
+      return {
+        mult = card.ability.extra.mult,
+        card = card
+      }
+    end
+  end
+
+  -- Check if the Joker needs to be eaten
+  if context.end_of_round and not context.blueprint and context.main_eval then
+    if pseudorandom(card.ability.extra.stick_key) < G.GAME.probabilities.normal / card.ability.extra.odds then
+      PB_UTIL.destroy_joker(card, function()
+        -- Remove this joker from the pool
+        G.GAME.pool_flags[card.config.center.original_key .. "_can_spawn"] = false
+
+        -- Create Popsicle Stick
+        SMODS.add_card {
+          key = card.ability.extra.stick_key,
+          edition = card.edition
+        }
+      end)
+
+      return {
+        message = localize('k_eaten_ex'),
+        colour = G.C.MULT,
+        card = card
+      }
+    else
+      return {
+        message = localize('k_safe_ex'),
+        colour = G.C.CHIPS,
+        card = card
+      }
+    end
+  end
+end
