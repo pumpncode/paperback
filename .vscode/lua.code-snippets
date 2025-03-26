@@ -55,9 +55,7 @@
       "\treturn {",
       "\t\t$1",
       "\t}",
-      "end,",
-      "",
-      "$0",
+      "end,$0",
     ]
   },
   "JokerDisplay Text Table": {
@@ -65,9 +63,7 @@
     "body": [
       "text = {",
       "\t$1",
-      "},",
-      "",
-      "$0",
+      "},$0",
     ]
   },
   "JokerDisplay Extra Table": {
@@ -77,9 +73,7 @@
       "\t{",
       "\t\t$1",
       "\t}",
-      "},",
-      "",
-      "$0",
+      "},$0",
     ],
   },
   "JokerDisplay Reminder Text Table": {
@@ -87,23 +81,19 @@
     "body": [
       "reminder_text = {",
       "\t$1",
-      "},",
-      "",
-      "$0",
+      "},$0",
     ]
   },
   "JokerDisplay text object": {
     "prefix": "jdtxt",
     "body": [
-      "{ text = '$1',$2 },",
-      "$0",
+      "{ text = '$1'$2 },$0",
     ]
   },
   "JokerDisply ref_table and ref_value object": {
     "prefix": "jdrt",
     "body": [
-      "{ ref_table = $1, ref_value = $2,$3 },",
-      "$0",
+      "{ ref_table = '$1', ref_value = '$2'$3 },$0",
     ]
   },
   "JokerDisplay odds display in extra": {
@@ -119,9 +109,7 @@
       "extra_config = {",
       "\tcolour = G.C.GREEN,",
       "\tscale = 0.3,",
-      "},",
-      "",
-      "$0",
+      "},$0",
     ]
   },
 }
