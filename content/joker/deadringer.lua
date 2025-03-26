@@ -33,5 +33,19 @@ SMODS.Joker {
         repetitions = card.ability.extra[context.other_card:get_id()]
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      reminder_text = {
+        { text = '(',   colour = G.C.UI.TEXT_INACTIVE },
+        { text = 'Ace', colour = G.C.IMPORTANT },
+        { text = ', ',  colour = G.C.UI.TEXT_INACTIVE },
+        { text = '7',   colour = G.C.IMPORTANT },
+        { text = ', ',  colour = G.C.UI.TEXT_INACTIVE },
+        { text = '9',   colour = G.C.IMPORTANT },
+        { text = ')',   colour = G.C.UI.TEXT_INACTIVE },
+      },
+    }
+  end,
 }
