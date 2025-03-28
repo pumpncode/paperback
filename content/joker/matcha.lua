@@ -12,7 +12,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 3,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
   perishable_compat = true,

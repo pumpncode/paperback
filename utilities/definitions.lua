@@ -492,7 +492,7 @@ if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcana = SMODS.Consumable:extend {
     set = 'paperback_minor_arcana',
     unlocked = true,
-    discovered = true,
+    discovered = false,
 
     loc_vars = function(self, info_queue, card)
       if not self.config then return end
