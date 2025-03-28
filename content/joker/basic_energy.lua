@@ -28,34 +28,26 @@ SMODS.Joker {
     -- Check that the card being consumed is not a copy made by this joker
     if context.using_consumeable and not context.consumeable.ability.paperback_energized then
       if pseudorandom("basic_energy") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        local eff_card = context.blueprint_card or card
-
-        return {
-          func = function()
-            G.E_MANAGER:add_event(Event({
-              trigger = 'after',
-              delay = 0.6,
-              func = function()
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
+        if PB_UTIL.can_spawn_card(G.consumeables, true) then
+          return {
+            -- Display a copy message, using the color of the set of the card being copied if possible
+            message = localize("paperback_copy_ex"),
+            colour = G.C.SECONDARY_SET[context.consumeable.ability.set] or G.C.GREEN,
+            func = function()
+              G.E_MANAGER:add_event(Event({
+                func = function()
                   -- Copy the card and mark it as a copy of this joker
                   local copy = copy_card(context.consumeable)
                   copy.ability.paperback_energized = true
                   copy:add_to_deck()
                   G.consumeables:emplace(copy)
-
-                  -- Display a copy message, using the color of the set of the card being copied if it exists
-                  -- otherwise just green
-                  SMODS.calculate_effect({
-                    message = localize("paperback_copy_ex"),
-                    colour = G.C.SECONDARY_SET[context.consumeable.ability.set] or G.C.GREEN,
-                    instant = true
-                  }, eff_card)
+                  G.GAME.consumeable_buffer = 0
+                  return true
                 end
-                return true
-              end
-            }))
-          end
-        }
+              }))
+            end
+          }
+        end
       end
     end
   end,

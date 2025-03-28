@@ -365,7 +365,7 @@ function PB_UTIL.try_spawn_card(args)
         added_card:add_to_deck()
         area:emplace(added_card)
       else
-        SMODS.add_card(args)
+        added_card = SMODS.add_card(args)
       end
     end
 
@@ -385,6 +385,24 @@ function PB_UTIL.try_spawn_card(args)
 
     if args.func and type(args.func) == "function" then
       args.func(added_card)
+    end
+
+    return true
+  end
+end
+
+--- Whether the area has space for a card to be added
+---@param area table|CardArea
+---@param inc_buffer boolean? Whether to increment the buffer
+---@return boolean?
+function PB_UTIL.can_spawn_card(area, inc_buffer)
+  local buffer =
+      (area == G.jokers and 'joker_buffer') or
+      (area == G.consumeables and 'consumeable_buffer') or nil
+
+  if area and #area.cards + (buffer and G.GAME[buffer] or 0) < area.config.card_limit then
+    if inc_buffer and buffer then
+      G.GAME[buffer] = G.GAME[buffer] + 1
     end
 
     return true

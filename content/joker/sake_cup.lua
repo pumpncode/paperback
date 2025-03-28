@@ -32,9 +32,7 @@ SMODS.Joker {
         local planet = PB_UTIL.get_planet_for_hand(context.scoring_name)
         local eff_card = context.blueprint_card or card
 
-        if planet and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-          G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-
+        if planet and PB_UTIL.can_spawn_card(G.consumeables, true) then
           return {
             message = localize('k_plus_planet'),
             colour = G.C.SECONDARY_SET.Planet,
