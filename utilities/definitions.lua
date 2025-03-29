@@ -296,6 +296,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "king_of_pentacles",
 }
 
+PB_UTIL.ENABLED_BLINDS = {
+  "quarter",
+}
+
 PB_UTIL.DECK_SKINS = {
   {
     id = 'steven_universe',

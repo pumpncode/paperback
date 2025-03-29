@@ -27,6 +27,16 @@ return {
         }
       }
     },
+    Blind = {
+      bl_paperback_quarter = {
+        name = "The Quarter",
+        text = {
+          "#1# in #2# cards",
+          "are debuffed"
+        },
+
+      }
+    },
     Joker = {
       j_paperback_manilla_folder = {
         name = "Manilla Folder",
@@ -1484,7 +1494,7 @@ return {
       paperback_edition_ex = "Edition!",
 
       paperback_ui_requires_restart = "Requires Restart",
-      paperback_ui_enable_jokers = "Enable Jokers",
+      paperback_ui_enable_blinds = "Enable Blinds",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
       paperback_ui_enable_enhancements = "Enable Enhancements",
       paperback_ui_enable_editions = "Enable Editions",

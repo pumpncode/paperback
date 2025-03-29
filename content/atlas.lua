@@ -14,6 +14,16 @@ SMODS.Atlas {
   path = 'MinorArcana.png'
 }
 
+-- Registers the atlas for Blinds
+SMODS.Atlas {
+  key = 'blinds_atlas',
+  px = 34,
+  py = 34,
+  path = 'Blinds.png',
+  frames = 21,
+  atlas_table = 'ANIMATION_ATLAS'
+}
+
 -- Registers the atlas for Planets
 SMODS.Atlas {
   key = 'planets_atlas',

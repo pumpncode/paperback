@@ -10,10 +10,8 @@ SMODS.load_file("utilities/cross-mod.lua")()
 -- Load the atlases
 SMODS.load_file("content/atlas.lua")()
 
--- Load Jokers if they are enabled
-if PB_UTIL.config.jokers_enabled then
-  PB_UTIL.register_items(PB_UTIL.ENABLED_JOKERS, "content/joker")
-end
+-- Load Jokers
+PB_UTIL.register_items(PB_UTIL.ENABLED_JOKERS, "content/joker")
 
 -- Load Minor Arcana if they are enabled
 if PB_UTIL.config.minor_arcana_enabled then
@@ -55,6 +53,7 @@ if PB_UTIL.config.enhancements_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")
 end
 
+-- Load editions if they are enabled
 if PB_UTIL.config.editions_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_EDITIONS, "content/edition")
 end
@@ -78,6 +77,11 @@ end
 -- Load Vouchers if they're enabled
 if PB_UTIL.config.vouchers_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_VOUCHERS, "content/voucher")
+end
+
+-- Load Blinds if they're enabled
+if PB_UTIL.config.blinds_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_BLINDS, "content/blind")
 end
 
 -- Load Tags if they're enabled

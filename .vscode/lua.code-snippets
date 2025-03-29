@@ -20,8 +20,6 @@
       "\tpos = { x = $4, y = $5 },",
       "\tatlas = \"jokers_atlas\",",
       "\tcost = $7,",
-      "\tunlocked = ${8|true,false|},",
-      "\tdiscovered = ${9|true,false|},",
       "\tblueprint_compat = ${10|true,false|},",
       "\teternal_compat = ${11|true,false|},",
       "\tperishable_compat = ${12|true,false|},",
