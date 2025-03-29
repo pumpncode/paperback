@@ -298,6 +298,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
 
 PB_UTIL.ENABLED_BLINDS = {
   "quarter",
+  "half",
 }
 
 PB_UTIL.DECK_SKINS = {

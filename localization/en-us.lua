@@ -34,8 +34,14 @@ return {
           "#1# in #2# cards",
           "are debuffed"
         },
-
-      }
+      },
+      bl_paperback_half = {
+        name = 'The Half',
+        text = {
+          'Halves all listed',
+          'probabilities'
+        }
+      },
     },
     Joker = {
       j_paperback_manilla_folder = {
