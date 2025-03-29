@@ -28,9 +28,8 @@ SMODS.Blind {
   end,
 
   recalc_debuff = function(self, card, from_blind)
-    if not G.GAME.blind.disabled and card.area ~= G.jokers then
+    if card.area ~= G.jokers then
       if pseudorandom('the_quarter') < G.GAME.probabilities.normal / G.GAME.blind.config.blind.odds then
-        card:set_debuff(true)
         return true
       end
       return false
