@@ -49,6 +49,13 @@ return {
           'this Ante are debuffed'
         }
       },
+      bl_paperback_rest = {
+        name = 'The Rest',
+        text = {
+          'Numbered cards are',
+          'drawn face down'
+        }
+      },
     },
     Joker = {
       j_paperback_ultra_rare = {
