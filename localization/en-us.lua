@@ -44,6 +44,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_ultra_rare = {
+        name = "Ultra Rare",
+        text = {
+          "When {C:attention}Blind{} is selected, create",
+          "a random {C:chips}Common{}, {C:green}Uncommon",
+          "and {C:mult}Rare{} temporary {C:dark_edition}Negative",
+          "{C:attention}Joker{} with {C:money}$#1#{} sell value"
+        }
+      },
       j_paperback_manilla_folder = {
         name = "Manilla Folder",
         text = {
@@ -1327,6 +1336,13 @@ return {
           "{C:attention}Basic Joker Energy{}"
         }
       },
+      paperback_temporary = {
+        name = "Temporary",
+        text = {
+          "Will be {C:mult}destroyed",
+          "when round ends"
+        }
+      },
       paperback_light_suits = {
         name = "Light Suits",
         text = {
@@ -1498,6 +1514,7 @@ return {
       paperback_plus_consumable = "+1 Consumable",
       paperback_plus_tag = "+1 Tag",
       paperback_edition_ex = "Edition!",
+      paperback_rare_ex = "Rare!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_blinds = "Enable Blinds",

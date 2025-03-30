@@ -11,12 +11,21 @@ pattern = "local cfg = (card and card.ability) or _c['config']"
 position = "after"
 match_indent = true
 payload = '''
--- Add the tooltip for Basic Joker Energy if the card is marked by it
-if card and card.ability and card.ability.paperback_energized then
-  info_queue[#info_queue + 1] = {
-    set = 'Other',
-    key = 'paperback_energized'
-  }
+-- Add the tooltip for Energized and Temporary
+if card and card.ability then
+  if card.ability.paperback_energized then
+    info_queue[#info_queue + 1] = {
+      set = 'Other',
+      key = 'paperback_energized'
+    }
+  end
+
+  if card.ability.paperback_temporary then
+    info_queue[#info_queue + 1] = {
+      set = 'Other',
+      key = 'paperback_temporary'
+    }
+  end
 end
 
 -- Add tooltips for items removed from the pool by the paperback config
