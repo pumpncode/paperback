@@ -49,8 +49,8 @@ return {
         text = {
           "When {C:attention}Blind{} is selected, create",
           "a random {C:chips}Common{}, {C:green}Uncommon",
-          "and {C:mult}Rare{} temporary {C:dark_edition}Negative",
-          "{C:attention}Joker{} with {C:money}$#1#{} sell value"
+          "and {C:mult}Rare{} Temporary {C:dark_edition}Negative",
+          "{C:attention}Jokers{} with {C:money}$#1#{} sell value"
         }
       },
       j_paperback_manilla_folder = {
@@ -1329,20 +1329,6 @@ return {
       }
     },
     Other = {
-      paperback_energized = {
-        name = "Energized",
-        text = {
-          "Cannot be copied by",
-          "{C:attention}Basic Joker Energy{}"
-        }
-      },
-      paperback_temporary = {
-        name = "Temporary",
-        text = {
-          "Will be {C:mult}destroyed",
-          "when round ends"
-        }
-      },
       paperback_light_suits = {
         name = "Light Suits",
         text = {
@@ -1401,6 +1387,22 @@ return {
           "Removed from pool",
           "due to {C:dark_edition}Editions{} being",
           "disabled in {C:legendary}Paperback",
+        }
+      },
+
+      -- Stickers
+      paperback_energized = {
+        name = "Energized",
+        text = {
+          "Cannot be copied by",
+          "{C:attention}#1#{}"
+        }
+      },
+      paperback_temporary = {
+        name = "Temporary",
+        text = {
+          "Will be {C:mult}destroyed",
+          "when round ends"
         }
       },
 
@@ -1578,6 +1580,8 @@ return {
       paperback_black_clip = "Black Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",
+      paperback_energized = "Energized",
+      paperback_temporary = "Temporary",
     }
   }
 }

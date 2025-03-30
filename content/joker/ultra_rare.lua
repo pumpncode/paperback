@@ -20,6 +20,7 @@ SMODS.Joker {
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+    info_queue[#info_queue + 1] = { set = 'Other', key = 'paperback_temporary' }
 
     return {
       vars = {
@@ -40,7 +41,7 @@ SMODS.Joker {
             }
 
             -- Mark the created Joker as temporary (it will be destroyed at the end of round)
-            c.ability.paperback_temporary = true
+            c:add_sticker('paperback_temporary', true)
 
             -- Set the sell value of the generated card to 0
             PB_UTIL.set_sell_value(c, card.ability.extra.sell_value)
@@ -56,13 +57,3 @@ SMODS.Joker {
     end
   end
 }
-
-local end_round_ref = end_round
-function end_round()
-  for _, v in ipairs(G.jokers and G.jokers.cards or {}) do
-    if v.ability.paperback_temporary then
-      PB_UTIL.destroy_joker(v)
-    end
-  end
-  return end_round_ref()
-end

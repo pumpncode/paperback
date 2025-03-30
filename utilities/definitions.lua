@@ -435,6 +435,11 @@ PB_UTIL.ENABLED_DECKS = {
   'silver',
 }
 
+PB_UTIL.ENABLED_STICKERS = {
+  'energized',
+  'temporary'
+}
+
 -- Define a Booster object with certain shared properties for Minor Arcana packs
 if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcanaBooster = SMODS.Booster:extend {

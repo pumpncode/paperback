@@ -95,6 +95,14 @@ SMODS.Atlas {
   py = 18
 }
 
+-- Register Stickers atlas
+SMODS.Atlas {
+  key = 'stickers_atlas',
+  path = 'Stickers.png',
+  px = 71,
+  py = 95
+}
+
 -- Register Paperclips atlas
 SMODS.Atlas {
   key = 'paperclips_atlas',

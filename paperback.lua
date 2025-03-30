@@ -63,6 +63,9 @@ if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
 
+-- Load stickers regardless of config
+PB_UTIL.register_items(PB_UTIL.ENABLED_STICKERS, 'content/stickers')
+
 -- Load custom suits and spectrums if they are enabled
 if PB_UTIL.config.suits_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")

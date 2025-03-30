@@ -38,7 +38,7 @@ SMODS.Joker {
                 func = function()
                   -- Copy the card and mark it as a copy of this joker
                   local copy = copy_card(context.consumeable)
-                  copy.ability.paperback_energized = true
+                  copy:add_sticker('paperback_energized', true)
                   copy:add_to_deck()
                   G.consumeables:emplace(copy)
                   G.GAME.consumeable_buffer = 0
