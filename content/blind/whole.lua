@@ -1,7 +1,7 @@
 SMODS.Blind {
   key = 'whole',
   boss = {
-    min = 2
+    min = 3
   },
   mult = 1,
   boss_colour = HEX('B7C977'),
