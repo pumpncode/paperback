@@ -79,7 +79,7 @@ SMODS.Joker {
       },
 
       calc_function = function(card)
-        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { (G.GAME and G.GAME.probabilities.nomral or 1), card.ability.extra.odds } }
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
         card.joker_display_values.localized_suit1 = localize(card.ability.extra.suit1, 'suits_plural')
         card.joker_display_values.localized_suit2 = localize(card.ability.extra.suit2, 'suits_plural')
       end,
