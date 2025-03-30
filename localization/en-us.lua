@@ -42,6 +42,13 @@ return {
           'probabilities'
         }
       },
+      bl_paperback_whole = {
+        name = 'The Whole',
+        text = {
+          'Ranks scored previously',
+          'this Ante are debuffed'
+        }
+      },
     },
     Joker = {
       j_paperback_ultra_rare = {
