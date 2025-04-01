@@ -1451,10 +1451,9 @@ return {
       paperback_black_clip = {
         name = "Black Clip",
         text = {
-          "Retriggers when {C:attention}scored",
-          "if another {C:attention}Clip{} is in",
-          "{C:attention}played hand{} and again if",
-          "a {C:attention}Clip{} is {C:attention}held in hand"
+          "Retriggers when",
+          "{C:attention}scored{} if a {C:attention}Clip",
+          "is {C:attention}held in hand",
         }
       },
       paperback_white_clip = {

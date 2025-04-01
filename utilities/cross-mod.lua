@@ -34,18 +34,10 @@ if JokerDisplay then
 
     -- If card has a black paperclip
     if card.ability.paperback_black_clip then
-      -- Check for paperclips in scoring_hand (excluding current card)
-      for _, v in pairs(scoring_hand or {}) do
-        if v ~= card and PB_UTIL.has_paperclip(v) then
-          triggers = triggers + 1
-          break -- Stop after finding one
-        end
-      end
-
       -- Check for paperclips held in hand (without iterating over scoring_hand again)
       if G.hand and G.hand.cards then
         for _, v in pairs(G.hand.cards) do
-          if not scoring_hand_set[v] and PB_UTIL.has_paperclip(v) then
+          if not scoring_hand_set[v] and not v.debuff and PB_UTIL.has_paperclip(v) then
             triggers = triggers + 1
             break -- Stop after finding one
           end
