@@ -3,7 +3,8 @@ SMODS.Joker {
   config = {
     extra = {
       xMult = 1,
-      xMult_gain = 0.2
+      xMult_gain = 0.2,
+      revive_treshold = 6.6
     }
   },
   rarity = 2,
@@ -57,6 +58,22 @@ SMODS.Joker {
       return {
         x_mult = card.ability.extra.xMult
       }
+    end
+
+    -- Revive ability when mult is 6.6x or higher
+    if not context.blueprint and context.end_of_round and context.game_over then
+      if card.ability.extra.xMult >= card.ability.extra.revive_treshold then
+        PB_UTIL.destroy_joker(card)
+
+        -- Set the saved joker as this one (Mr Bones is hardcoded...)
+        G.GAME.paperback.saved_by = self.key
+
+        return {
+          message = localize('k_saved_ex'),
+          saved = true,
+          colour = G.C.MULT
+        }
+      end
     end
   end
 }

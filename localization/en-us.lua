@@ -1551,7 +1551,8 @@ return {
       paperback_a_hands_minus = "-#1# Hands",
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
-      paperback_a_round_minus = "-#1# Round"
+      paperback_a_round_minus = "-#1# Round",
+      paperback_saved = "Saved by #1#",
     },
     suits_singular = {
       paperback_Crowns = "Crown",

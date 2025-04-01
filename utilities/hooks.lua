@@ -13,6 +13,7 @@ function Game.init_game_object(self)
     destroyed_dark_suits = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
+    saved_by = nil,
   }
   return ret
 end
@@ -127,6 +128,9 @@ G.FUNCS.cash_out = function(e)
       cashing_out = true
     }
   })
+
+  -- Reset the joker that saved the run when cashing out
+  G.GAME.paperback.saved_by = nil
 
   cash_out_ref(e)
 end
