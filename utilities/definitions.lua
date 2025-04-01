@@ -9,7 +9,8 @@ SMODS.current_mod.optional_features = {
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
-  PB_UTIL.reset_weather_radio()
+  G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
+  G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
 end
 
 PB_UTIL.base_poker_hands = {
@@ -167,6 +168,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "wild_prize",
   "deadringer",
   "bicycle",
+  "joke_master",
   "pride_flag",
   "bismuth",
   "cherry_blossoms",

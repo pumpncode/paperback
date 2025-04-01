@@ -58,6 +58,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_joke_master = {
+        name = "Joke Master",
+        text = {
+          "Gain {C:mult}+#1#{} Mult if played",
+          "hand is a {C:attention}#2#{}",
+          "{s:0.8}hand changes every round",
+          "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_ultra_rare = {
         name = "Ultra Rare",
         text = {

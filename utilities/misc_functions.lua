@@ -951,3 +951,14 @@ function PB_UTIL.stick_joker_logic(self, card, context)
     end
   end
 end
+
+--- Gets a random hand that has been unlocked by the player
+---@param seed string
+---@return string hand the name of the hand, for example "Five of a Kind"
+function PB_UTIL.get_random_visible_hand(seed)
+  local hands = {}
+  for k, v in pairs(G.GAME.hands) do
+    if v.visible then hands[#hands + 1] = k end
+  end
+  return pseudorandom_element(hands, pseudoseed(seed))
+end

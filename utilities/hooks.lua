@@ -9,11 +9,13 @@ function Game.init_game_object(self)
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
-    weather_radio_hand = 'High Card',
     destroyed_dark_suits = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     saved_by = nil,
+
+    weather_radio_hand = 'High Card',
+    joke_master_hand = 'High Card',
   }
   return ret
 end
