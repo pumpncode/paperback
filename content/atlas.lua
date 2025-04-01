@@ -16,10 +16,19 @@ SMODS.Atlas {
 
 -- Registers the atlas for Blinds
 SMODS.Atlas {
-  key = 'blinds_atlas',
+  key = 'music_blinds_atlas',
   px = 34,
   py = 34,
-  path = 'Blinds.png',
+  path = 'MusicBlinds.png',
+  frames = 21,
+  atlas_table = 'ANIMATION_ATLAS'
+}
+
+SMODS.Atlas {
+  key = 'wingding_blinds_atlas',
+  px = 34,
+  py = 34,
+  path = 'WingdingBlinds.png',
   frames = 21,
   atlas_table = 'ANIMATION_ATLAS'
 }

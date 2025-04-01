@@ -5,7 +5,7 @@ SMODS.Blind {
   },
   mult = 1,
   boss_colour = HEX('B7C977'),
-  atlas = 'blinds_atlas',
+  atlas = 'music_blinds_atlas',
   pos = { y = 7 },
 
   recalc_debuff = function(self, card, from_blind)

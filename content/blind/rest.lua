@@ -5,7 +5,7 @@ SMODS.Blind {
   },
   mult = 1,
   boss_colour = HEX('90CDAF'),
-  atlas = 'blinds_atlas',
+  atlas = 'music_blinds_atlas',
   pos = { y = 8 },
 
   stay_flipped = function(self, area, card)

@@ -4,7 +4,7 @@ SMODS.Blind {
     min = 1
   },
   boss_colour = HEX("E27A7A"),
-  atlas = 'blinds_atlas',
+  atlas = 'music_blinds_atlas',
   pos = { y = 5 },
 
   odds = 4,

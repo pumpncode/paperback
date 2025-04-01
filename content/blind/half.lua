@@ -4,7 +4,7 @@ SMODS.Blind {
     min = 2
   },
   boss_colour = HEX('D1AB88'),
-  atlas = 'blinds_atlas',
+  atlas = 'music_blinds_atlas',
   pos = { y = 6 },
 
   set_blind = function(self)
