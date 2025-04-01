@@ -8,7 +8,7 @@ SMODS.Joker {
       suit = "paperback_Stars",
     }
   },
-  rarity = 1,
+  rarity = 2,
   pos = { x = 2, y = 10 },
   atlas = "jokers_atlas",
   cost = 6,
