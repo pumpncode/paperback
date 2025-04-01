@@ -58,6 +58,16 @@ return {
       },
     },
     Joker = {
+      j_paperback_high_speed_rail = {
+        name = "High Speed Rail",
+        text = {
+          "When {C:chips}buying{} or {C:mult}selling",
+          "{C:attention}Jokers{}, {C:chips}gain{} or {C:mult}lose",
+          "Mult equal to their",
+          "{C:money}sell value{}, respectively",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        }
+      },
       j_paperback_joke_master = {
         name = "Joke Master",
         text = {

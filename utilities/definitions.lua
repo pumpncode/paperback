@@ -159,6 +159,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "angel_investor",
   "shopping_center",
   -- "tutor",
+  "high_speed_rail",
   "grand_strategy",
   "great_wave",
   "let_it_happen",
