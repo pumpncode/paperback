@@ -73,6 +73,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_shooting_star = {
+        name = "Shooting Star",
+        text = {
+          "Scored {V:1}#1#{} have a",
+          "{C:green}#2# in #3#{} chance to",
+          "create the {C:planet}Planet{} card",
+          "for played {C:attention}poker hand"
+        }
+      },
       j_paperback_black_star = {
         name = "Black Star",
         text = {
