@@ -210,6 +210,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "rock_candy",
   "rockin_stick",
   "birches",
+  "black_star",
   "fraudulent_joker",
   "pyrite",
   "tanghulu",

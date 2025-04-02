@@ -73,6 +73,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_black_star = {
+        name = "Black Star",
+        text = {
+          "Scored {C:paperback_dark_suit}dark suits",
+          "become {V:1}#1#"
+        }
+      },
       j_paperback_high_speed_rail = {
         name = "High Speed Rail",
         text = {
