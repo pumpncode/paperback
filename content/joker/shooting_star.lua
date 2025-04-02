@@ -14,7 +14,7 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   paperback = {
-    requires_custom_suits = true
+    requires_stars = true
   },
 
   loc_vars = function(self, info_queue, card)

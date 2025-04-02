@@ -73,6 +73,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_blue_star = {
+        name = "Blue Star",
+        text = {
+          "Gain {X:chips,C:white}X#1#{} Chips for each scored {V:1}#2#",
+          "Lose {X:chips,C:white}X#3#{} Chips for each scored {V:2}#4#",
+          "{C:inactive}(Currently {X:chips,C:white}X#5#{C:inactive} Chips)"
+        }
+      },
       j_paperback_shooting_star = {
         name = "Shooting Star",
         text = {
