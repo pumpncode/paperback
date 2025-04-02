@@ -56,6 +56,13 @@ return {
           'drawn face down'
         }
       },
+      bl_paperback_flat = {
+        name = 'The Flat',
+        text = {
+          'Decrease rank of',
+          'played cards'
+        }
+      }
     },
     Joker = {
       j_paperback_high_speed_rail = {
