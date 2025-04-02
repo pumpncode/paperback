@@ -62,7 +62,15 @@ return {
           'Decrease rank of',
           'played cards'
         }
-      }
+      },
+
+      bl_paperback_sharp = {
+        name = 'The Sharp',
+        text = {
+          'Increase rank of',
+          'played cards'
+        }
+      },
     },
     Joker = {
       j_paperback_high_speed_rail = {

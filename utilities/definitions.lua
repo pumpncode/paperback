@@ -306,6 +306,7 @@ PB_UTIL.ENABLED_BLINDS = {
   "whole",
   "rest",
   "flat",
+  "sharp",
 }
 
 PB_UTIL.DECK_SKINS = {
