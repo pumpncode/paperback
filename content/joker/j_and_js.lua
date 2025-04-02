@@ -7,10 +7,10 @@ SMODS.Joker {
       rounds_reset = 3,
     }
   },
-  rarity = 1,
+  rarity = 2,
   pos = { x = 11, y = 8 },
   atlas = "jokers_atlas",
-  cost = 4,
+  cost = 6,
   blueprint_compat = true,
   eternal_compat = false,
   perishable_compat = true,
