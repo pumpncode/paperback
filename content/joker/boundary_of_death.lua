@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       odds = 4,
-      rank = 4,
+      rank = "4",
       retriggers = 4
     }
   },
@@ -20,7 +20,7 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        localize(PB_UTIL.get_rank_from_id(card.ability.extra.rank).key, 'ranks'),
+        localize(card.ability.extra.rank, 'ranks'),
         G.GAME.probabilities.normal,
         card.ability.extra.odds,
         card.ability.extra.retriggers
@@ -29,8 +29,10 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.repetition and context.cardarea == G.play and context.other_card:get_id() == card.ability.extra.rank then
-      if pseudorandom('boundary_of_death') < G.GAME.probabilities.normal / card.ability.extra.odds then
+    if context.repetition and context.cardarea == G.play then
+      local is_rank = PB_UTIL.is_rank(context.other_card, card.ability.extra.rank)
+
+      if is_rank and pseudorandom('boundary_of_death') < G.GAME.probabilities.normal / card.ability.extra.odds then
         return {
           repetitions = card.ability.extra.retriggers
         }

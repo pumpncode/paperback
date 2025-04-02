@@ -2,9 +2,9 @@ SMODS.Joker {
   key = 'deadringer',
   config = {
     extra = {
-      [14] = 1,
-      [7] = 1,
-      [9] = 2
+      ["Ace"] = 1,
+      ["7"] = 1,
+      ["9"] = 2
     }
   },
   rarity = 2,
@@ -19,7 +19,7 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     local vars = {}
     for k, _ in pairs(card.ability.extra) do
-      vars[#vars + 1] = localize(PB_UTIL.get_rank_from_id(k).key, 'ranks')
+      vars[#vars + 1] = localize(k, 'ranks')
     end
 
     return {
@@ -28,9 +28,9 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.cardarea == G.play and context.repetition then
+    if context.cardarea == G.play and context.repetition and not SMODS.has_no_rank(context.other_card) then
       return {
-        repetitions = card.ability.extra[context.other_card:get_id()]
+        repetitions = card.ability.extra[context.other_card.base.value]
       }
     end
   end,
