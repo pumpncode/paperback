@@ -8,6 +8,10 @@ SMODS.Blind {
   pos = { y = 3 },
 
   calculate = function(self, blind, context)
+    if blind.disabled then
+      return
+    end
+
     if context.after then
       PB_UTIL.use_consumable_animation(nil, context.full_hand, function()
         for k, v in pairs(context.full_hand) do
