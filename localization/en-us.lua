@@ -73,6 +73,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_j_and_js = {
+        name = "J&J's",
+        text = {
+          "If played hand contains a",
+          "{C:attention}Spectrum{}, create {C:attention}#1#{} random {C:attention}Tags",
+          "Consumed in {C:attention}#2#{} rounds",
+          "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
+        }
+      },
       j_paperback_blue_star = {
         name = "Blue Star",
         text = {

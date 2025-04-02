@@ -1,41 +1,37 @@
 SMODS.Joker {
-  key = "cream_liqueur",
+  key = "j_and_js",
   config = {
     extra = {
-      rounds_reset = 3,
+      tags = 2,
       rounds = 3,
-      money = 5
+      rounds_reset = 3,
     }
   },
   rarity = 1,
-  pos = { x = 5, y = 6 },
+  pos = { x = 11, y = 8 },
   atlas = "jokers_atlas",
   cost = 4,
-  unlocked = true,
-  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
-  soul_pos = nil,
-  pools = {
-    Food = true
+  perishable_compat = true,
+  paperback = {
+    requires_custom_suits = true
   },
+
+  in_pool = function(self, args)
+    return PB_UTIL.spectrum_played() or PB_UTIL.has_modded_suit_in_deck()
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.money,
+        card.ability.extra.tags,
         card.ability.extra.rounds
       }
     }
   end,
 
   calculate = function(self, card, context)
-    if context.paperback and context.paperback.using_tag then
-      return {
-        dollars = card.ability.extra.money
-      }
-    end
-
     if not context.blueprint and context.paperback and context.paperback.tag_acquired then
       if card.ability.extra.rounds > 0 and card.ability.extra.rounds < card.ability.extra.rounds_reset then
         card.ability.extra.rounds = card.ability.extra.rounds_reset
@@ -43,6 +39,22 @@ SMODS.Joker {
         return {
           message = localize('k_reset')
         }
+      end
+    end
+
+    if context.before and context.main_eval then
+      -- We can't check for a hand exactly, because we don't know which mod is adding it
+      for k, _ in pairs(context.poker_hands) do
+        if k:find('Spectrum', nil, true) then
+          for i = 1, card.ability.extra.tags do
+            -- Only play sound on the last tag
+            PB_UTIL.add_tag(PB_UTIL.poll_tag('j_and_js'), true, i < card.ability.extra.tags)
+          end
+
+          return {
+            message = localize('paperback_plus_tag')
+          }
+        end
       end
     end
 
@@ -54,8 +66,7 @@ SMODS.Joker {
 
         return {
           message = localize('paperback_consumed_ex'),
-          -- Brown color taken from the sprite
-          colour = HEX("C4A07D")
+          colour = G.C.MULT
         }
       else
         return {
@@ -67,17 +78,5 @@ SMODS.Joker {
         }
       end
     end
-  end,
-
-  joker_display_def = function(JokerDisplay)
-    return {
-      reminder_text = {
-        { text = '(',                       colour = G.C.UI.TEXT_INACTIVE },
-        { ref_table = 'card.ability.extra', ref_value = 'rounds',         colour = G.C.IMPORTANT },
-        { text = '/',                       colour = G.C.UI.TEXT_INACTIVE },
-        { ref_table = 'card.ability.extra', ref_value = 'rounds_reset',   colour = G.C.UI.TEXT_INACTIVE },
-        { text = ')',                       colour = G.C.UI.TEXT_INACTIVE },
-      }
-    }
   end
 }

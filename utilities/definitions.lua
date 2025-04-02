@@ -213,6 +213,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "black_star",
   "shooting_star",
   "blue_star",
+  "j_and_js",
   "fraudulent_joker",
   "pyrite",
   "tanghulu",

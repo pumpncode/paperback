@@ -178,3 +178,16 @@ SMODS.calculate_repetitions = function(card, context, reps)
 
   return calculate_repetitions_ref(card, context, reps)
 end
+
+-- New context for when a tag is added
+local add_tag_ref = add_tag
+function add_tag(tag)
+  SMODS.calculate_context {
+    paperback = {
+      tag_acquired = true,
+      tag = tag
+    }
+  }
+
+  return add_tag_ref(tag)
+end

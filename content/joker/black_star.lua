@@ -30,7 +30,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not context.blueprint and context.after then
+    if not context.blueprint and context.after and context.main_eval then
       local cards = {}
 
       for _, v in ipairs(context.scoring_hand) do
