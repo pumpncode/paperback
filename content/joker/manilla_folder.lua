@@ -18,6 +18,12 @@ SMODS.Joker {
     requires_paperclips = true
   },
 
+  in_pool = function(self, args)
+    for _, v in ipairs(G.playing_cards or {}) do
+      if PB_UTIL.has_paperclip(v) then return true end
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
     local unique_clips = {}
     local amount = 0
