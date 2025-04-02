@@ -20,17 +20,7 @@ SMODS.Joker {
     requires_crowns = true,
   },
 
-  loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        localize(card.ability.extra.suit, 'suits_plural'),
-        tostring(card.ability.extra.xMult_base),
-        tostring(card.ability.extra.xMult_gain),
-        localize(card.ability.extra.suit, 'suits_singular')
-      }
-    }
-  end,
-
+  loc_vars = PB_UTIL.panorama_loc_vars,
   calculate = PB_UTIL.panorama_logic,
   joker_display_def = PB_UTIL.panorama_joker_display_def
 }

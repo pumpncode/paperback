@@ -915,9 +915,9 @@ return {
       j_paperback_evergreens = {
         name = "Evergreens",
         text = {
-          "{C:spades}Spades{} give {X:mult,C:white}X#1#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#2#{} Mult for each ",
-          "consecutively scored {C:spades}Spade{}",
+          "{C:spades}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "consecutively scored {C:spades}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
       },

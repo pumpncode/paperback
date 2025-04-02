@@ -18,17 +18,7 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
-  loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        localize(card.ability.extra.suit, 'suits_plural'),
-        card.ability.extra.xMult_base,
-        card.ability.extra.xMult_gain,
-        localize(card.ability.extra.suit, 'suits_singular')
-      }
-    }
-  end,
-
+  loc_vars = PB_UTIL.panorama_loc_vars,
   calculate = PB_UTIL.panorama_logic,
   joker_display_def = PB_UTIL.panorama_joker_display_def
 }

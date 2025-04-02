@@ -892,6 +892,23 @@ function PB_UTIL.panorama_logic(self, card, context)
   end
 end
 
+--- Loc Vars function for the Panorama Jokers
+---@param self table
+---@param info_queue table
+---@param card Card
+---@return table
+function PB_UTIL.panorama_loc_vars(self, info_queue, card)
+  return {
+    vars = {
+      localize(card.ability.extra.suit, 'suits_plural'),
+      tostring(card.ability.extra.xMult_base),
+      tostring(card.ability.extra.xMult_gain),
+      localize(card.ability.extra.suit, 'suits_plural'),
+
+    }
+  }
+end
+
 --- Logic for the Stick Food Jokers
 ---@param self (SMODS.Center)
 ---@param card (Card)
