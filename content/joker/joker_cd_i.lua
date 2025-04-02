@@ -28,11 +28,13 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.before and context.main_eval and #context.full_hand == card.ability.extra.cards then
-      if PB_UTIL.try_spawn_card { set = 'Planet' } then
-        return {
-          message = localize('k_plus_planet'),
-          colour = G.C.SECONDARY_SET.Planet
-        }
+      if pseudorandom('joker_cd_i') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if PB_UTIL.try_spawn_card { set = 'Planet' } then
+          return {
+            message = localize('k_plus_planet'),
+            colour = G.C.SECONDARY_SET.Planet
+          }
+        end
       end
     end
   end
