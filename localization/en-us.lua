@@ -78,6 +78,13 @@ return {
           'are debuffed'
         }
       },
+      bl_paperback_coda = {
+        name = 'The Coda',
+        text = {
+          'Cards can not',
+          'be moved',
+        }
+      },
     },
     Joker = {
       j_paperback_j_and_js = {
