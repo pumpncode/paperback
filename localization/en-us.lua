@@ -71,6 +71,13 @@ return {
           'played cards'
         }
       },
+      bl_paperback_natural = {
+        name = 'The Natural',
+        text = {
+          'Leveled Hands',
+          'are debuffed'
+        }
+      },
     },
     Joker = {
       j_paperback_j_and_js = {
