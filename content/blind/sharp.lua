@@ -3,6 +3,14 @@ SMODS.Blind {
   boss = {
     min = 1,
   },
+  in_pool = function(self)
+    if G.GAME.bosses_used.bl_paperback_flat == 0 then
+      return true
+    end
+
+    return false
+  end,
+
   boss_colour = HEX('5D5EA3'),
   atlas = 'music_blinds_atlas',
   pos = { y = 3 },
