@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "matcha",
   config = {
     extra = {
-      odds = 8,
+      odds = 5,
       a_chips = 2,
       chips = 0
     }
