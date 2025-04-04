@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "big_misser",
   config = {
     extra = {
-      Xmult_mod = 1,
+      Xmult_mod = 0.75,
       Xmult = 0
     }
   },
