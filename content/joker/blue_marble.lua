@@ -3,8 +3,6 @@ SMODS.Joker {
   config = {
     extra = {
       suit = 'Clubs',
-      planet = 'c_earth',
-      ready = false
     }
   },
   rarity = 1,
@@ -18,16 +16,9 @@ SMODS.Joker {
   perishable_compat = true,
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.planet]
-
     return {
       vars = {
         localize(card.ability.extra.suit, 'suits_plural'),
-        localize {
-          type = 'name_text',
-          set = 'Planet',
-          key = card.ability.extra.planet
-        },
         colours = {
           G.C.SUITS[card.ability.extra.suit]
         }
@@ -50,7 +41,7 @@ SMODS.Joker {
     if context.end_of_round and context.main_eval and card.ability.extra.ready then
       card.ability.extra.ready = false
 
-      if PB_UTIL.try_spawn_card { key = card.ability.extra.planet } then
+      if PB_UTIL.try_spawn_card { set = 'Planet' } then
         return {
           message = localize('k_plus_planet'),
           colour = G.C.SECONDARY_SET.Planet

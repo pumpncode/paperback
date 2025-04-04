@@ -186,8 +186,8 @@ return {
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
-          "If {C:attention}winning hand{} was all {V:1}#1#",
-          "make an {C:attention}#2# {C:planet}Planet{} card",
+          "If {C:attention}winning hand{} was all {V:1}#1#{},",
+          "create a {C:attention}random {C:planet}Planet{} card",
           "{C:inactive}(Must have room)"
         }
       },
