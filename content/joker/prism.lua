@@ -13,12 +13,9 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   paperback = {
-    requires_custom_suits = true
+    requires_custom_suits = true,
+    requires_spectrum_or_suit = true
   },
-
-  in_pool = function(self, args)
-    return PB_UTIL.spectrum_played() or PB_UTIL.has_modded_suit_in_deck()
-  end,
 
   loc_vars = function(self, info_queue, card)
     return {
