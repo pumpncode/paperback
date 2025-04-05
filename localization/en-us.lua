@@ -87,6 +87,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_king_me = {
+        name = "King Me",
+        text = {
+          "Scored {V:1}#1#{} increase",
+          "their rank by {C:attention}#2#"
+        }
+      },
       j_paperback_gambit = {
         name = "Gambit",
         text = {

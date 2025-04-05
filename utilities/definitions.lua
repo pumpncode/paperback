@@ -223,6 +223,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "wheat_field",
   "solar_eclipse",
   "gambit",
+  "king_me",
   "manilla_folder",
   "clothespin",
   "kintsugi_joker",
