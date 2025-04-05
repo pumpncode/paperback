@@ -87,6 +87,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_prism = {
+        name = "Prism",
+        text = {
+          "If played hand contains a {C:attention}#1#",
+          "convert all {C:attention}scored cards{} into",
+          "random {C:attention}different suits"
+        }
+      },
       j_paperback_master_spark = {
         name = "Master Spark",
         text = {

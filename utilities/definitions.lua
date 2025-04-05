@@ -215,6 +215,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "blue_star",
   "j_and_js",
   "master_spark",
+  "prism",
   "fraudulent_joker",
   "pyrite",
   "tanghulu",
