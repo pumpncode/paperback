@@ -87,6 +87,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_solar_eclipse = {
+        name = "Solar Eclipse",
+        text = {
+          "Scored {C:paperback_light_suit}light suits",
+          "become {V:1}#1#"
+        }
+      },
       j_paperback_prism = {
         name = "Prism",
         text = {
