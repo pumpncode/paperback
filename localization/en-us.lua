@@ -87,6 +87,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_master_spark = {
+        name = "Master Spark",
+        text = {
+          "If played hand contains a {C:attention}Spectrum{},",
+          "destroy all cards {C:attention}held in hand{} and",
+          "all played cards gain {C:dark_edition}Polychrome",
+          "{S:1.1,C:red,E:2}self destructs",
+        }
+      },
       j_paperback_j_and_js = {
         name = "J&J's",
         text = {

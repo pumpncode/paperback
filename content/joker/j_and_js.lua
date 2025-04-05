@@ -44,17 +44,15 @@ SMODS.Joker {
 
     if context.before and context.main_eval then
       -- We can't check for a hand exactly, because we don't know which mod is adding it
-      for k, _ in pairs(context.poker_hands) do
-        if k:find('Spectrum', nil, true) then
-          for i = 1, card.ability.extra.tags do
-            -- Only play sound on the last tag
-            PB_UTIL.add_tag(PB_UTIL.poll_tag('j_and_js'), true, i < card.ability.extra.tags)
-          end
-
-          return {
-            message = localize('paperback_plus_tag')
-          }
+      if PB_UTIL.contains_spectrum(context.poker_hands) then
+        for i = 1, card.ability.extra.tags do
+          -- Only play sound on the last tag
+          PB_UTIL.add_tag(PB_UTIL.poll_tag('j_and_js'), true, i < card.ability.extra.tags)
         end
+
+        return {
+          message = localize('paperback_plus_tag')
+        }
       end
     end
 
