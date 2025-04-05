@@ -87,6 +87,16 @@ return {
       },
     },
     Joker = {
+      j_paperback_gambit = {
+        name = "Gambit",
+        text = {
+          "If played hand contains a",
+          "scoring {V:1}#1#{}, destroy the",
+          "first non-{V:1}#1#{} card in hand",
+          "and give its {C:chips}chip value{} to",
+          "the first scored {V:1}#1#"
+        }
+      },
       j_paperback_solar_eclipse = {
         name = "Solar Eclipse",
         text = {
