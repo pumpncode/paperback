@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = 'the_world',
-  rarity = 3,
+  rarity = 2,
   pos = { x = 0, y = 6 },
   atlas = 'jokers_atlas',
   cost = 9,
