@@ -996,8 +996,9 @@ return {
         name = "Meeple",
         text = {
           "If played hand contains",
-          "a scoring {C:attention}face{} card, gain",
-          "{C:mult}+#1#{} discard this round",
+          "a scoring {C:attention}face{} card,",
+          "{C:green}#1# in #2#{} chance to gain",
+          "{C:mult}+#3#{} discard this round",
         }
       },
       j_paperback_apple = {
