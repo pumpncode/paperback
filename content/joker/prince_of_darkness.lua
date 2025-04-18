@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       unique_suits = 2,
-      x_mult = 3,
+      x_mult = 2,
       hands = 2,
       hands_remaining = 0
     }
