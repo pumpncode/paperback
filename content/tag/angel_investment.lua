@@ -8,6 +8,9 @@ SMODS.Tag {
   atlas = 'tags_atlas',
   pos = { x = 0, y = 0 },
   discovered = false,
+  in_pool = function(self, args)
+    return false
+  end,
 
   loc_vars = function(self, info_queue)
     local dollars = math.min(self.config.max,
