@@ -4,7 +4,7 @@ SMODS.Joker {
   config = {
     extra = {
       copying = nil,
-      max_multiplier = 1.5,
+      max_multiplier = 2.5,
       multiplier = 1
     }
   },
