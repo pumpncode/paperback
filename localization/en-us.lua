@@ -1371,7 +1371,8 @@ return {
         name = "Angel Investment Tag",
         text = {
           "Earn {C:money}$#1#{} per {C:money}$#2#{} you have",
-          "{C:inactive}(Will give {C:money}$#3#{C:inactive})"
+          "{C:inactive}(Max of {C:money}$#3#{C:inactive})",
+          "{C:inactive}(Will give {C:money}$#4#{C:inactive})"
         }
       },
       tag_paperback_divination = {
