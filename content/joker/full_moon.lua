@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'full_moon',
   config = {
     extra = {
-      odds = 2
+      odds = 3
     }
   },
   rarity = 2,
