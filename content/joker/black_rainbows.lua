@@ -7,7 +7,7 @@ SMODS.Joker {
       suit2 = 'Clubs'
     }
   },
-  rarity = 3,
+  rarity = 2,
   pos = { x = 7, y = 3 },
   atlas = 'jokers_atlas',
   cost = 8,
