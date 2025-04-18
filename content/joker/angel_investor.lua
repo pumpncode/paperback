@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "angel_investor",
   config = {
     extra = {
-      tags = 2
+      tags = 1
     }
   },
   rarity = 1,
