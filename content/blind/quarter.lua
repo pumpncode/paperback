@@ -27,12 +27,23 @@ SMODS.Blind {
     }
   end,
 
-  recalc_debuff = function(self, card, from_blind)
-    if card.area ~= G.jokers then
+  set_blind = function(self)
+    for k, v in pairs(G.playing_cards) do
       if pseudorandom('the_quarter') < G.GAME.probabilities.normal / G.GAME.blind.config.blind.odds then
-        return true
+        SMODS.debuff_card(v, true, 'The Quarter')
       end
-      return false
     end
   end,
+
+  disable = function(self)
+    for k, v in pairs(G.playing_cards) do
+      SMODS.debuff_card(v, false, 'The Quarter')
+    end
+  end,
+
+  defeat = function(self)
+    for k, v in pairs(G.playing_cards) do
+      SMODS.debuff_card(v, false, 'The Quarter')
+    end
+  end
 }
