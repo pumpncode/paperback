@@ -1,7 +1,7 @@
 SMODS.Joker {
   key = 'ghost_cola',
   config = {},
-  rarity = 2,
+  rarity = 3,
   pos = { x = 5, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
@@ -39,21 +39,8 @@ SMODS.Joker {
             end
           })
 
-          -- Creates the negative spectral card
-          G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 1.2,
-            func = (function()
-              SMODS.add_card {
-                set = 'Spectral',
-                key_append = 'ghost_cola',
-                edition = 'e_negative'
-              }
-              card:juice_up()
-              return true
-            end
-            )
-          }))
+          -- Creates the spectral card
+          PB_UTIL.try_spawn_card { set = 'Spectral' }
 
           -- Make Ghost Cola extinct
           G.GAME.pool_flags.ghost_cola_can_spawn = false
