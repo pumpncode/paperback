@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "ddakji",
   config = {
     extra = {
-      odds = 3
+      odds = 4
     }
   },
   rarity = 3,
