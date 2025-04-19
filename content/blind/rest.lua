@@ -9,9 +9,21 @@ SMODS.Blind {
   pos = { y = 8 },
 
   stay_flipped = function(self, area, card)
-    if not card:is_face() then
-      return true
+    if area == G.hand then
+      if not card:is_face() then
+        return true
+      end
     end
-    return false
+  end,
+
+  disable = function(self)
+    for k, v in pairs(G.hand.cards) do
+      if v.facing == 'back' then
+        v:flip()
+      end
+      for k, v in pairs(G.playing_cards) do
+        v.ability.wheel_flipped = nil
+      end
+    end
   end
 }
