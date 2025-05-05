@@ -366,8 +366,8 @@ return {
         text = {
           "If {C:attention}first hand{} of round",
           "defeated the {C:attention}Boss Blind{},",
-          "destroys itself and makes a",
-          "copy of {C:attention}Joker{} to the right"
+          "destroys itself and the Joker to its left",
+          "makes a copy of {C:attention}Joker{} to the right"
         }
       },
       j_paperback_b_soda = {
