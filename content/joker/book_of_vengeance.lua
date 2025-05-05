@@ -41,10 +41,17 @@ SMODS.Joker {
     if not context.blueprint and context.end_of_round and context.main_eval
         and G.GAME.blind.boss and G.GAME.current_round.hands_played <= 1 then
       local other_joker
+      local Left_joker
 
       for i, v in ipairs(G.jokers.cards) do
         if v == card then
           other_joker = G.jokers.cards[i + 1]
+          break
+        end
+      end
+      for i, v in ipairs(G.jokers.cards) do
+        if v == card then
+          Left_joker = G.jokers.cards[i - 1]
           break
         end
       end
@@ -57,6 +64,8 @@ SMODS.Joker {
             copy:add_to_deck()
             G.jokers:emplace(copy)
           end
+        end)
+        PB_UTIL.destroy_joker(Left_joker, function()
         end)
 
         return {
