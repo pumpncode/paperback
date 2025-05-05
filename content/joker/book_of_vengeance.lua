@@ -56,7 +56,7 @@ SMODS.Joker {
         end
       end
 
-      if other_joker and other_joker ~= card then
+      if (other_joker and other_joker ~= card) and (Left_joker and Left_joker ~= card) then
         PB_UTIL.destroy_joker(card, function()
           if #G.jokers.cards <= G.jokers.config.card_limit then
             local strip_edition = other_joker.edition and other_joker.edition.negative
