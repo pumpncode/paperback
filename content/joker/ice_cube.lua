@@ -23,14 +23,14 @@ SMODS.Joker {
       vars = {
         card.ability.extra.x_mult_mod,
         card.ability.extra.rounds_left,
-        math.max(1, #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod)
+        (#PB_UTIL.get_owned_food() + (card.area ~= G.jokers and 1 or 0)) * card.ability.extra.x_mult_mod
       }
     }
   end,
 
   calculate = function(self, card, context)
     if context.joker_main then
-      local x_mult = math.max(1, #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod)
+      local x_mult = #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod
 
       if x_mult > 1 then
         return {

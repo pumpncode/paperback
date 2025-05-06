@@ -28,7 +28,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if not context.blueprint and context.destroying_card and #context.full_hand == 1 then
-      if context.destroying_card:is_face() then
+      if context.destroying_card:is_face(true) then
         if card.ability.extra.current < card.ability.extra.max then
           -- If played hand is a single face card and the destroyed amount is
           -- less than the limit, destroy it and increase the count
