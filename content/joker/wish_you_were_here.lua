@@ -26,10 +26,6 @@ SMODS.Joker {
     }
   end,
 
-  set_ability = function(self, card, initial, delay_sprites)
-    PB_UTIL.set_sell_value(card, 0)
-  end,
-
   calculate = function(self, card, context)
     if context.joker_main then
       local mult = card.ability.extra.mult_mod * card.sell_cost
