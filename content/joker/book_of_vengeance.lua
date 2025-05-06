@@ -41,15 +41,17 @@ SMODS.Joker {
     if not context.blueprint and context.end_of_round and context.main_eval
         and G.GAME.blind.boss and G.GAME.current_round.hands_played <= 1 then
       local other_joker
+      local left_joker
 
       for i, v in ipairs(G.jokers.cards) do
         if v == card then
           other_joker = G.jokers.cards[i + 1]
+          Left_joker = G.jokers.cards[i - 1]
           break
         end
       end
 
-      if other_joker and other_joker ~= card then
+      if (other_joker and other_joker ~= card) and (Left_joker and Left_joker ~= card) then
         PB_UTIL.destroy_joker(card, function()
           if #G.jokers.cards <= G.jokers.config.card_limit then
             local strip_edition = other_joker.edition and other_joker.edition.negative
@@ -57,6 +59,8 @@ SMODS.Joker {
             copy:add_to_deck()
             G.jokers:emplace(copy)
           end
+        end)
+        PB_UTIL.destroy_joker(Left_joker, function()
         end)
 
         return {
