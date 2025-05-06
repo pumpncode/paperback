@@ -717,7 +717,7 @@ return {
         name = "Blue Bonnets",
         text = {
           "{C:clubs}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:clubs}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
@@ -725,8 +725,8 @@ return {
       j_paperback_great_wave = {
         name = "Great Wave",
         text = {
-          "Retrigger {C:attention}rightmost{} scored card",
-          "{C:attention}once{} for every {C:attention}played card{}",
+          "Retrigger {C:attention}rightmost{} scoring card",
+          "{C:attention}once{} for every {C:attention}scoring card{}",
         },
       },
       j_paperback_caramel_apple = {
@@ -775,7 +775,7 @@ return {
         name = "Autumn Leaves",
         text = {
           "{C:diamonds}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:diamonds}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
@@ -904,7 +904,7 @@ return {
         name = "Cherry Blossoms",
         text = {
           "{C:hearts}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:hearts}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
@@ -972,7 +972,7 @@ return {
         name = "Evergreens",
         text = {
           "{C:spades}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:spades}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
@@ -1079,7 +1079,7 @@ return {
         name = "Wheat Field",
         text = {
           "{C:paperback_crowns}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:paperback_crowns}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },
@@ -1104,7 +1104,7 @@ return {
         name = "Birches",
         text = {
           "{C:paperback_stars}#1#{} give {X:mult,C:white}X#2#{} Mult when scored.",
-          "Increases by {X:mult,C:white}X#3#{} Mult for each ",
+          "Increases by {X:mult,C:white}X#3#{} Mult for each",
           "consecutively scored {C:paperback_stars}#4#{}",
           "{C:inactive}(Resets after each hand played)",
         },

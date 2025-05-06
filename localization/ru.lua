@@ -334,13 +334,14 @@ return {
           "{C:inactive}(Сбрасывается после каждой сыгранной руки)",
         },
       },
-      j_paperback_great_wave = {
-        name = "Большая волна",
-        text = {
-          "Повторно активируйте {C:attention}самую правую{} набранную карту",
-          "{C:attention}один раз{} за каждую {C:attention}сыгранную карту{}",
-        },
-      },
+      -- Needs updating
+      -- j_paperback_great_wave = {
+      --   name = "Большая волна",
+      --   text = {
+      --     "Повторно активируйте {C:attention}самую правую{} набранную карту",
+      --     "{C:attention}один раз{} за каждую {C:attention}сыгранную карту{}",
+      --   },
+      -- },
       j_paperback_caramel_apple = {
         name = "Карамельное яблоко",
         text = {

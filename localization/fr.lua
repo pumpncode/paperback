@@ -268,14 +268,15 @@ return {
           "{C:inactive}(Est réinitialisé après chaque main jouée)",
         },
       },
-      j_paperback_great_wave = {
-        name = "La Vague",
-        text = {
-          "Recompte la carte comptée",
-          "{C:attention}la plus à gauche{}",
-          "{C:attention}1 fois{} par {C:chips}main{} restante",
-        },
-      },
+      -- Needs updating
+      -- j_paperback_great_wave = {
+      --   name = "La Vague",
+      --   text = {
+      --     "Recompte la carte comptée",
+      --     "{C:attention}la plus à gauche{}",
+      --     "{C:attention}1 fois{} par {C:chips}main{} restante",
+      --   },
+      -- },
       j_paperback_caramel_apple = {
         name = "Pomme d'amour",
         text = {

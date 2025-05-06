@@ -223,14 +223,15 @@ return {
           "{C:inactive}(Reseta após cada mão jogada)",
         },
       },
-      j_paperback_great_wave = {
-        name = "Grande Onda",
-        text = {
-          "Reativa a {C:attention}primeira carta jogada{}",
-          "usada na pontuação {C:attention}uma vez{}",
-          "para cada {C:chips}mão{} restante",
-        },
-      },
+      -- Needs updating
+      -- j_paperback_great_wave = {
+      --   name = "Grande Onda",
+      --   text = {
+      --     "Reativa a {C:attention}primeira carta jogada{}",
+      --     "usada na pontuação {C:attention}uma vez{}",
+      --     "para cada {C:chips}mão{} restante",
+      --   },
+      -- },
       j_paperback_caramel_apple = {
         name = "Maçã Caramelada",
         text = {

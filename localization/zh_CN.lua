@@ -516,7 +516,7 @@ return {
       j_paperback_great_wave = {
         name = "巨浪",
         text = {
-          "打出的{C:attention}每张牌{}使{C:attention}最右侧{}",
+          "每张{C:attention}计分牌{}使{C:attention}最右侧{}",
           "的计分牌{C:attention}重新触发{}一次",
         },
       },

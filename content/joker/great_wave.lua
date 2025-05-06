@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = "great_wave",
-  rarity = 2,
+  rarity = 3,
   pos = { x = 4, y = 2 },
   atlas = "jokers_atlas",
   cost = 8,
@@ -16,7 +16,7 @@ SMODS.Joker {
         if context.other_card == context.scoring_hand[#context.scoring_hand] then
           return {
             message = localize('k_again_ex'),
-            repetitions = #G.play.cards,
+            repetitions = #context.scoring_hand,
             card = card
           }
         end
