@@ -46,12 +46,12 @@ SMODS.Joker {
       for i, v in ipairs(G.jokers.cards) do
         if v == card then
           other_joker = G.jokers.cards[i + 1]
-          Left_joker = G.jokers.cards[i - 1]
+          left_joker = G.jokers.cards[i - 1]
           break
         end
       end
 
-      if (other_joker and other_joker ~= card) and (Left_joker and Left_joker ~= card) then
+      if (other_joker and other_joker ~= card) and (left_joker and left_joker ~= card) then
         PB_UTIL.destroy_joker(card, function()
           if #G.jokers.cards <= G.jokers.config.card_limit then
             local strip_edition = other_joker.edition and other_joker.edition.negative
@@ -60,7 +60,7 @@ SMODS.Joker {
             G.jokers:emplace(copy)
           end
         end)
-        PB_UTIL.destroy_joker(Left_joker, function()
+        PB_UTIL.destroy_joker(left_joker, function()
         end)
 
         return {
