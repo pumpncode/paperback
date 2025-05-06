@@ -32,7 +32,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.individual and (context.cardarea == G.play or context.cardarea == 'unscored') then
+    if context.individual and context.cardarea == G.play then
       if context.other_card:is_suit(card.ability.extra.suit) then
         if pseudorandom("pyrite") < G.GAME.probabilities.normal / card.ability.extra.odds then
           local eff_card = context.blueprint_card or card

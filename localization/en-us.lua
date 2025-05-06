@@ -1068,16 +1068,14 @@ return {
         text = {
           "Scored {C:paperback_stars}Stars{} give {X:chips,C:white}X1{} Chips,",
           "{X:chips,C:white}+X#1#{} for each other played {C:paperback_stars}Star"
-          -- NOTE scored?
         }
       },
       j_paperback_pyrite = {
         name = "Pyrite",
         text = {
-          "Played {V:1}#1#{} have a",
-          "{C:green}#2# in #3#{} chance to create",
-          "a random {C:tarot}Tarot{} card",
-          -- NOTE scored?
+          "Played {V:1}#1#{} have a {C:green}#2# in #3#{}",
+          "chance to create a random",
+          "{C:tarot}Tarot{} card when scored",
           "{C:inactive}(Must have room)"
         }
       },
