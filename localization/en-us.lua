@@ -162,9 +162,10 @@ return {
       j_paperback_high_speed_rail = {
         name = "High Speed Rail",
         text = {
-          "When {C:blue}buying{} or {C:red}selling{} {C:attention}Jokers{},",
-          "this Joker {C:blue}gains{} or {C:red}loses{} Mult",
-          "equal to their {C:money}sell value{}, respectively",
+          "This Joker {C:blue}gains{} Mult equal to",
+          "the {C:money}cost{} of {C:blue}bought{} {C:attention}Jokers{}",
+          "This Joker {C:red}loses{} Mult equal to",
+          "the {C:money}sell value{} of {C:red}sold{} {C:attention}Jokers{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
