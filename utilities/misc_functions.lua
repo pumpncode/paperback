@@ -923,7 +923,7 @@ function PB_UTIL.panorama_loc_vars(self, info_queue, card)
       localize(card.ability.extra.suit, 'suits_plural'),
       tostring(card.ability.extra.xMult_base),
       tostring(card.ability.extra.xMult_gain),
-      localize(card.ability.extra.suit, 'suits_plural'),
+      localize(card.ability.extra.suit, 'suits_singular'),
 
     }
   }

@@ -26,7 +26,7 @@ SMODS.Joker {
         G.GAME.probabilities.normal,
         card.ability.extra.retrigger_odds,
         card.ability.extra.money_odds,
-        card.ability.extra.a_money_low,
+        SMODS.signed_dollars(card.ability.extra.a_money_low),
         card.ability.extra.a_money_high,
       }
     }
