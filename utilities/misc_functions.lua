@@ -180,15 +180,24 @@ function PB_UTIL.modify_sell_value(card, amount)
   card:set_cost()
 end
 
---- Sets the extra_value field of this card to an amount that will result in its
---- sell cost being equal to amount
+--- Sets the base sell cost of `card` to `amount`.
+--- (total sell cost is base plus `card.ability.extra_value`)
 ---@param card table | Card
+---@param amount integer
+function PB_UTIL.set_base_sell_value(card, amount)
+  if not card.set_cost then return end
+  card.ability.paperback_forced_base_sell_cost = amount
+  card:set_cost()
+end
+
+--- Sets the sell cost of `card` to `amount`.
+--- Also clears `card.ability.extra_value`.
+---@param card table | Card`
 ---@param amount integer
 function PB_UTIL.set_sell_value(card, amount)
   if not card.set_cost then return end
-  -- This is called just so it calculates the cost of the card... a bit silly
-  card:set_cost()
-  card.ability.extra_value = amount - math.max(1, math.floor(card.cost / 2))
+  card.ability.paperback_forced_base_sell_cost = amount
+  card.ability.extra_value = nil
   card:set_cost()
 end
 
