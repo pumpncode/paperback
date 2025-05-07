@@ -33,9 +33,11 @@ SMODS.Joker {
         -- Find the lowest card in the scoring_hand
         for i, current_card in ipairs(context.scoring_hand) do
           if i ~= 1 then
-            if current_card:get_chip_bonus() < lowest_chip_bonus then
+            local current_chip_bonus = current_card:get_chip_bonus()
+            if current_chip_bonus < lowest_chip_bonus then
               lowest_chip_cards = { current_card }
-            elseif current_card:get_chip_bonus() == lowest_chip_bonus then
+              lowest_chip_bonus = current_chip_bonus
+            elseif current_chip_bonus == lowest_chip_bonus then
               table.insert(lowest_chip_cards, current_card)
             end
           end
