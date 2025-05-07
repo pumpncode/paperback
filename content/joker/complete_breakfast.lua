@@ -2,8 +2,8 @@ SMODS.Joker {
   key = 'complete_breakfast',
   config = {
     extra = {
-      mult = 10,
-      chips = 100,
+      mult = 5,
+      chips = 50,
       odds = 8,
       -- For compatibility with Oops! All 6s
       chance_multiplier = 1
