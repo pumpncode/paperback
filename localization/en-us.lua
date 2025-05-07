@@ -596,7 +596,7 @@ return {
         name = "Pop-Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -631,7 +631,7 @@ return {
         name = "Sticky Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -942,7 +942,7 @@ return {
         name = "Pointy Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -960,7 +960,7 @@ return {
         name = "Popsicle Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1044,7 +1044,7 @@ return {
         name = "Rockin' Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1060,7 +1060,7 @@ return {
         name = "Sweet Stick",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have...",
+          "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
