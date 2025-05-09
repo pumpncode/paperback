@@ -1564,7 +1564,7 @@ return {
         text = {
           "{X:chips,C:white}X#1#{} Chips when",
           "{C:attention}scored{} for each",
-          "{C:attention}Clip{} {C:attention}held in hand",
+          "{C:attention}Clip{} in {C:attention}held hand",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
         }
       },
@@ -1573,7 +1573,7 @@ return {
         text = {
           "{C:mult}+#1#{} Mult when",
           "{C:attention}scored{} for each",
-          "{C:attention}Clip{} {C:attention}held in hand",
+          "{C:attention}Clip{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
       },
@@ -1582,7 +1582,7 @@ return {
         text = {
           "Earn {C:money}$#1#{} when",
           "{C:attention}scored{} for every {C:attention}#2#",
-          "{C:attention}Clips{} {C:attention}held in hand",
+          "{C:attention}Clips{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
