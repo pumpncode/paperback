@@ -77,6 +77,11 @@ if PB_UTIL.config.suits_enabled then
   end
 end
 
+-- Load custom ranks if they are enabled
+if PB_UTIL.config.ranks_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_RANKS, "content/rank")
+end
+
 -- Load Vouchers if they're enabled
 if PB_UTIL.config.vouchers_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_VOUCHERS, "content/voucher")

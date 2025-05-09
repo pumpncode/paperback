@@ -101,7 +101,11 @@ PB_UTIL.requirement_map = {
   requires_editions = {
     setting = 'editions_enabled',
     tooltip = 'paperback_requires_editions'
-  }
+  },
+  requires_ranks = {
+    setting = 'ranks_enabled',
+    tooltip = 'paperback_requires_ranks'
+  },
 }
 
 -- Disable specific items by commenting them out
@@ -426,6 +430,10 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
 
 PB_UTIL.ENABLED_EDITIONS = {
   'dichrome'
+}
+
+PB_UTIL.ENABLED_RANKS = {
+  'apostle'
 }
 
 PB_UTIL.ENABLED_SUITS = {

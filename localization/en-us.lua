@@ -1532,6 +1532,14 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_ranks = {
+        name = "Requires Ranks",
+        text = {
+          "Removed from pool due",
+          "to {C:dark_edition}Ranks{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
 
       -- Stickers
       paperback_energized = {
@@ -1669,6 +1677,7 @@ return {
       paperback_ui_custom_suits_enabled = "Enable Custom Suits",
       paperback_ui_enable_vouchers = "Enable Vouchers",
       paperback_ui_enable_tags = "Enable Tags",
+      paperback_ui_enable_ranks = "Enable Ranks",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",
@@ -1682,6 +1691,9 @@ return {
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round",
       paperback_saved = "Saved by #1#",
+    },
+    ranks = {
+      paperback_Apostle = 'Apostle',
     },
     suits_singular = {
       paperback_Crowns = "Crown",
@@ -1697,6 +1709,7 @@ return {
       ['paperback_Straight Spectrum (Royal)'] = "Royal Spectrum",
       ['paperback_Spectrum House'] = "Spectrum House",
       ['paperback_Spectrum Five'] = "Spectrum Five",
+      ['paperback_Straight Flush (Rapture)'] = "Rapture",
     },
     poker_hand_descriptions = {
       ['paperback_Spectrum'] = {
