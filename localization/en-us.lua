@@ -81,7 +81,8 @@ return {
       bl_paperback_coda = {
         name = 'The Coda',
         text = {
-          'Cards cannot be moved',
+          'Cards and Jokers',
+          'cannot be moved',
         }
       },
     },
