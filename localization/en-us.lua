@@ -52,8 +52,8 @@ return {
       bl_paperback_rest = {
         name = 'The Rest',
         text = {
-          'Numbered cards are',
-          'drawn face down'
+          '#1# in #2# numbered cards',
+          'are drawn face down'
         }
       },
       bl_paperback_flat = {
