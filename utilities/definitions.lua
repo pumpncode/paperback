@@ -200,7 +200,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "weather_radio",
   "power_surge",
   "find_jimbo",
-  -- "jimbocards",
+  "jimbocards",
   -- "banana_man",
   "the_normal_joker",
   "jimbo_adventure",
