@@ -97,5 +97,17 @@ SMODS.Joker {
 
 function PB_UTIL.reset_skydiver(card)
   local highest_rank = PB_UTIL.get_sorted_ranks()[1]
+  if PB_UTIL.config.ranks_enabled then
+    local apostle_in_deck = false
+    for _, v in pairs(G.playing_cards or {}) do
+      if PB_UTIL.is_rank(v, 'paperback_Apostle') then
+        apostle_in_deck = true
+        break
+      end
+    end
+    if highest_rank.key == 'paperback_Apostle' and not apostle_in_deck then
+      highest_rank = PB_UTIL.get_sorted_ranks()[2]
+    end
+  end
   card.ability.extra.lowest_rank = highest_rank.key
 end
