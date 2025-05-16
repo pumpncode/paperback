@@ -87,6 +87,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_plague_doctor = {
+        name = "Plague Doctor",
+        text = {
+          "If played hand is a High Card,",
+          "convert the scoring card into",
+          "an {C:attention}Apostle{}. Each {C:attention}Apostle{}",
+          "held in hand gives {X:mult,C:white}X#1#{} Mult"
+        }
+      },
       j_paperback_king_me = {
         name = "King Me",
         text = {
