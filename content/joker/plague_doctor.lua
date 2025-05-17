@@ -66,7 +66,7 @@ SMODS.Joker {
       if context.other_card:get_id() == SMODS.Ranks['paperback_Apostle'].id then
         if context.other_card.debuff then
           return {
-            message = localize(k_debuffed),
+            message = localize('k_debuffed'),
             colour = G.C.RED
           }
         else
