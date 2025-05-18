@@ -345,9 +345,8 @@ end
 --- @return SMODS.ConsumableType
 function PB_UTIL.poll_consumable_type(seed)
   local types = {}
-
-  for _, v in pairs(SMODS.ConsumableTypes) do
-    types[#types + 1] = v
+  for _, k in ipairs(SMODS.ConsumableType.ctype_buffer) do
+    types[#types + 1] = SMODS.ConsumableTypes[k]
   end
 
   return pseudorandom_element(types, pseudoseed(seed))
