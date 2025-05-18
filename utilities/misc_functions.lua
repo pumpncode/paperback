@@ -305,7 +305,8 @@ function PB_UTIL.poll_tag(seed, options)
   if tag_key == "tag_orbital" then
     local available_hands = {}
 
-    for k, hand in pairs(G.GAME.hands) do
+    for _, k in ipairs(G.handlist) do
+      local hand = G.GAME.hands[k]
       if hand.visible then
         available_hands[#available_hands + 1] = k
       end
@@ -996,7 +997,8 @@ end
 ---@return string hand the name of the hand, for example "Five of a Kind"
 function PB_UTIL.get_random_visible_hand(seed)
   local hands = {}
-  for k, v in pairs(G.GAME.hands) do
+  for _, k in ipairs(G.handlist) do
+    local v = G.GAME.hands[k]
     if v.visible then hands[#hands + 1] = k end
   end
   return pseudorandom_element(hands, pseudoseed(seed))
