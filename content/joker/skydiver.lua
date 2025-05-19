@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'skydiver',
   config = {
     extra = {
-      x_mult = 3,
+      x_mult = 2,
       lowest_rank = 'Ace',
     }
   },
