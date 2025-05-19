@@ -934,9 +934,9 @@ return {
       j_paperback_unholy_alliance = {
         name = "Unholy Alliance",
         text = {
-          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "This Joker gains {C:chips}+#1#{} Chips",
           "when a card or Joker is {C:attention}destroyed{}",
-          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
         },
       },
       j_paperback_summoning_circle = {

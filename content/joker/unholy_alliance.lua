@@ -2,9 +2,9 @@ SMODS.Joker {
   key = 'unholy_alliance',
   config = {
     extra = {
-      xMult = 1,
-      xMult_gain = 0.2,
-      revive_treshold = 6.6
+      a_chips = 12,
+      chips = 0,
+      revive_treshold = 666
     }
   },
   rarity = 2,
@@ -21,48 +21,46 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.xMult_gain,
-        card.ability.extra.xMult,
+        card.ability.extra.a_chips,
+        card.ability.extra.chips,
       }
     }
   end,
 
   calculate = function(self, card, context)
-    -- Gains mult when jokers are destroyed
+    -- Gains chips when jokers are destroyed
     if not context.blueprint and context.paperback and context.paperback.destroying_joker then
       -- Make sure that this joker isn't being removed
       if card ~= context.paperback.destroyed_joker then
-        card.ability.extra.xMult = card.ability.extra.xMult + card.ability.extra.xMult_gain
+        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
 
-        return {
-          message = localize {
-            type = 'variable',
-            key = 'a_xmult',
-            vars = { card.ability.extra.xMult_gain }
+        return { message = localize { type = 'variable',
+            key = 'a_chips',
+            vars = { card.ability.extra.a_chips }
           },
-          colour = G.C.MULT
+          colour = G.C.CHIPS
         }
       end
     end
 
-    -- Gains mult when playing cards are destroyed. Each card destroyed provides the specified mult_mod
+    -- Gains chips when playing cards are destroyed. Each card destroyed provides the specified chip_mod
     if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
-      card.ability.extra.xMult = card.ability.extra.xMult + (#context.removed * card.ability.extra.xMult_gain)
+      card.ability.extra.chips = card.ability.extra.chips + (#context.removed * card.ability.extra.a_chips)
 
       card_eval_status_text(card, 'extra', nil, nil, nil,
-        { message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.xMult } } })
+        { message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } } })
     end
 
-    -- Gives the mult when scoring
-    if context.joker_main and card.ability.extra.xMult > 1 then
+    -- Gives the chips when scoring
+    if context.joker_main then
       return {
-        x_mult = card.ability.extra.xMult
+        chips = card.ability.extra.chips
       }
     end
 
-    -- Revive ability when mult is 6.6x or higher
+    -- Revive ability when chips is 666 or higher
     if not context.blueprint and context.end_of_round and context.game_over then
-      if card.ability.extra.xMult >= card.ability.extra.revive_treshold then
+      if card.ability.extra.chips >= card.ability.extra.revive_treshold then
         PB_UTIL.destroy_joker(card)
 
         -- Set the saved joker as this one (Mr Bones is hardcoded...)
