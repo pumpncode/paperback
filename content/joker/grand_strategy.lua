@@ -43,18 +43,13 @@ SMODS.Joker {
 
 -- Returns a table of all the unique special effects in the deck
 PB_UTIL.special_cards_in_deck = function()
-  local enhancements, editions, seals = {}, {}, {}
+  local enhancements, seals = {}, {}
 
   if G.playing_cards then
     for _, v in pairs(G.playing_cards) do
       -- Check for an enhancement
       for k, _ in pairs(SMODS.get_enhancements(v)) do
         PB_UTIL.add_unique_value(enhancements, k)
-      end
-
-      -- Check for an edition
-      if v.edition then
-        PB_UTIL.add_unique_value(editions, v.edition.type)
       end
 
       -- Check for a seal
@@ -66,7 +61,6 @@ PB_UTIL.special_cards_in_deck = function()
 
   local total =
       (enhancements and #enhancements or 0)
-      + (editions and #editions or 0)
       + (seals and #seals or 0)
 
   return total
