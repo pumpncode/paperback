@@ -8,7 +8,7 @@ SMODS.Enhancement {
   replace_base_card = true,
   config = {
     extra = {
-      money = 3
+      money = 2
     }
   },
 
