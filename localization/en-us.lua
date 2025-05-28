@@ -235,9 +235,10 @@ return {
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
-          "If {C:attention}winning hand{} was all {V:1}#1#{},",
-          "create a {C:attention}random {C:planet}Planet{} card",
-          "{C:inactive}(Must have room)"
+          "{C:green}#1# in #2#{} chance to create",
+          "a random {C:planet}Planet{} card if",
+          "{C:attention}scoring hand{} contains a {V:3}#3#{}",
+          "{C:inactive}(Must have room)",
         }
       },
       j_paperback_boundary_of_death = {
