@@ -3,6 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       suit = 'Clubs',
+      odds = 3,
     }
   },
   rarity = 1,
@@ -18,7 +19,9 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        localize(card.ability.extra.suit, 'suits_plural'),
+        G.GAME.probabilities.normal,
+        card.ability.extra.odds,
+        localize(card.ability.extra.suit, 'suits_singular'),
         colours = {
           G.C.SUITS[card.ability.extra.suit]
         }
@@ -27,25 +30,22 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not context.blueprint and context.after and context.main_eval then
-      card.ability.extra.ready = true
-
-      for _, v in ipairs(context.full_hand) do
-        if not v:is_suit(card.ability.extra.suit) then
-          card.ability.extra.ready = false
-          break
+    if context.before then
+      -- Check scoring hand for any club
+      for _, v in ipairs(context.scoring_hand) do
+        if v:is_suit(card.ability.extra.suit) then
+          -- Planet spawn
+          roll = pseudorandom('blue_marble_planet')
+          if roll < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if PB_UTIL.try_spawn_card { set = 'Planet' } then
+              return {
+                message = localize('k_plus_planet'),
+                colour = G.C.SECONDARY_SET.Planet
+              }
+            end
+            break
+          end
         end
-      end
-    end
-
-    if context.end_of_round and context.main_eval and card.ability.extra.ready then
-      card.ability.extra.ready = false
-
-      if PB_UTIL.try_spawn_card { set = 'Planet' } then
-        return {
-          message = localize('k_plus_planet'),
-          colour = G.C.SECONDARY_SET.Planet
-        }
       end
     end
   end,
@@ -59,7 +59,7 @@ SMODS.Joker {
       },
 
       calc_function = function(card)
-        card.joker_display_values.localized_suit = localize(card.ability.extra.suit, 'suits_plural')
+        card.joker_display_values.localized_suit = localize(card.ability.extra.suit, 'suits_singular')
       end,
 
       style_function = function(card, text, reminder_text, extra)
