@@ -380,3 +380,63 @@ function PB_UTIL.paperclip_tooltip(type)
     vars = vars
   }
 end
+
+-- text display function for plague doctor's quotes
+-- adapted from vanilla attention_text()
+--- @param args table
+function PB_UTIL.plague_quote(args)
+  args = args or {}
+  args.text = args.text or 'test'
+  args.scale = args.scale or 1
+  args.colour = copy_table(args.colour or G.C.WHITE)
+  args.hold = (args.hold or 0) + 0.1*(G.SPEEDFACTOR)
+
+  args.cover_colour = copy_table(G.C.CLEAR)
+
+  args.uibox_config = {
+    align = 'cm',
+    offset = args.offset or { x = 0, y = 0 },
+    major = args.major or nil
+  }
+
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0,
+    blockable = false,
+    blocking = true,
+    func = function()
+      args.AT = UIBox{
+        T = {0, 0, 0, 0},
+        definition = {
+          n = G.UIT.ROOT, config = {
+            align = 'cm',
+            minw = 0.001,
+            minh = 0.001,
+            padding = 0.03,
+            r = 0.1,
+            emboss = nil,
+            colour = args.cover_colour
+          }, nodes = {
+            { n = G.UIT.O, config = { draw_layer = 1, object = DynaText({scale = args.scale, string = args.text, maxw = args.maxw, colours = {args.colour}, float = true, shadow = true, silent = true, args.scale, pop_in = 0, pop_in_rate = 1, rotate = nil})}},
+          }
+        },
+        config = args.uibox_config
+      }
+      args.AT.attention_text = true
+      args.text = args.AT.UIRoot.children[1].config.object
+      return true
+    end
+  }))
+
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = args.hold,
+    blockable = false,
+    blocking = true,
+    func = function()
+      args.start_time = G.TIMERS.TOTAL
+      args.text:pop_out(3)
+      return true
+    end
+  }))
+end
