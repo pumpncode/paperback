@@ -87,6 +87,21 @@ return {
       },
     },
     Joker = {
+      j_paperback_white_night = {
+        name = "WhiteNight",
+        text = {
+          "Destroy all non-{C:attention}Apostle{} cards played",
+          "after hand is scored. Scored {C:attention}Apostles{} give",
+          "{X:mult,C:white}X#1#{} Mult. Playing a hand containing no",
+          "{C:attention}Apostles destroys{} a random Joker.",
+          "Discarded {C:attention}Apostles{} are {C:attention}destroyed{}"
+        },
+        unlock = {
+          "Have #1# or more",
+          "{C:attention}Apostles{} in",
+          "your deck"
+        }
+      },
       j_paperback_plague_doctor = {
         name = "Plague Doctor",
         text = {

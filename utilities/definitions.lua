@@ -158,7 +158,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "blue_marble",
   "triple_moon_goddess",
   "plague_doctor",
-  -- "white_night",
+  "white_night",
   -- "one_sin_and_hundreds_of_good_deeds",
   "angel_investor",
   "shopping_center",
