@@ -95,7 +95,6 @@ SMODS.Joker {
           end
         end
 
-        print(possible_jokers)
         local joker_to_destroy = pseudorandom_element(possible_jokers, pseudoseed('paperback_white_night'))
 
         if joker_to_destroy then PB_UTIL.destroy_joker(joker_to_destroy) end
