@@ -42,6 +42,7 @@ SMODS.Joker {
           SMODS.add_card({
             set = 'Joker',
             key = 'j_paperback_white_night',
+            edition = card.edition.key,
             stickers = { "eternal" }
           })
           return true
@@ -96,7 +97,7 @@ SMODS.Joker {
           end
         }))
 
-        quote = (apostleCount > 12) and 12 or apostleCount
+        local quote = (apostleCount > 12) and 12 or apostleCount
         G.E_MANAGER:add_event(Event({
           trigger = 'after',
           delay = 0.1,
@@ -131,6 +132,7 @@ SMODS.Joker {
             SMODS.add_card({
               set = 'Joker',
               key = 'j_paperback_white_night',
+              edition = card.edition.key,
               stickers = { "eternal" }
             })
             return true
