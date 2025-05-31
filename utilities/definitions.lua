@@ -20,6 +20,7 @@ PB_UTIL.credits = {
       'PaperMoon',
       '「S_C_R_U_B_Y」',
       'Firch',
+      'Fennex'
     }
   },
   developers = {
@@ -429,6 +430,20 @@ PB_UTIL.DECK_SKINS = {
     name = "Chrono Trigger",
     suits = {
       'Spades'
+    }
+  },
+  {
+    id = 'deltarune',
+    name = "Deltarune",
+    suits = {
+      'paperback_Stars'
+    }
+  },
+  {
+    id = 'celeste',
+    name = "Celeste",
+    suits = {
+      'paperback_Crowns'
     }
   }
 }
