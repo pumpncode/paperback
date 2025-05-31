@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "white_night",
   config = {
     extra = {
-      xMult = 2
+      xMult = 1.5
     }
   },
   rarity = 4,
