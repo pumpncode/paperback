@@ -42,7 +42,7 @@ SMODS.Joker {
           SMODS.add_card({
             set = 'Joker',
             key = 'j_paperback_white_night',
-            edition = card.edition.key,
+            edition = card.edition,
             stickers = { "eternal" }
           })
           return true
@@ -106,7 +106,7 @@ SMODS.Joker {
               text = localize('paperback_plague_quote_' .. quote .. '_1'),
               colour = G.C.RED,
               major = G.play,
-              hold = 4*G.SETTINGS.GAMESPEED,
+              hold = 4 * G.SETTINGS.GAMESPEED,
               offset = { x = 0, y = -3 },
               scale = 0.6
             })
@@ -114,7 +114,7 @@ SMODS.Joker {
               text = localize('paperback_plague_quote_' .. quote .. '_2'),
               colour = G.C.RED,
               major = G.play,
-              hold = 4*G.SETTINGS.GAMESPEED,
+              hold = 4 * G.SETTINGS.GAMESPEED,
               offset = { x = 0, y = -2.2 },
               scale = 0.6
             })
@@ -132,7 +132,7 @@ SMODS.Joker {
             SMODS.add_card({
               set = 'Joker',
               key = 'j_paperback_white_night',
-              edition = card.edition.key,
+              edition = card.edition,
               stickers = { "eternal" }
             })
             return true
