@@ -41,7 +41,7 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do
-      if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(v, 'paperback_Apostle') then
         return true
       end
     end
@@ -75,7 +75,7 @@ SMODS.Joker {
 
     if context.before and SMODS.find_card('j_paperback_white_night', true) then
       local target = SMODS.find_card('j_paperback_white_night', true)[1]
-      if #context.full_hand == 1 and context.full_hand[1]:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if #context.full_hand == 1 and PB_UTIL.is_rank(context.full_hand[1], 'paperback_Apostle') then
         PB_UTIL.destroy_joker(target)
         card.ability.extra.fed = true
         return {

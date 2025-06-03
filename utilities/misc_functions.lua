@@ -713,7 +713,8 @@ function PB_UTIL.is_rank(card, rank)
   local id = card:get_id()
 
   if type(rank) == 'string' then
-    return SMODS.Ranks[rank].id == id
+    local rank_obj = SMODS.Ranks[rank]
+    return rank_obj and rank_obj.id == id
   elseif type(rank) == 'number' then
     return id == rank
   end

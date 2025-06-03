@@ -29,7 +29,7 @@ SMODS.Joker {
   add_to_deck = function(self, card, from_debuff)
     local apostleCount = 0
     for _, v in ipairs(G.playing_cards) do
-      if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(v, 'paperback_Apostle') then
         apostleCount = apostleCount + 1
       end
     end
@@ -59,13 +59,13 @@ SMODS.Joker {
     if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
       local apostleCount = 0
       for _, v in ipairs(G.playing_cards) do
-        if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+        if PB_UTIL.is_rank(v, 'paperback_Apostle') then
           apostleCount = apostleCount + 1
         end
       end
 
       local to_apostle = context.scoring_hand[1]
-      if context.scoring_name == 'High Card' and to_apostle:get_id() ~= SMODS.Ranks['paperback_Apostle'].id then
+      if context.scoring_name == 'High Card' and not PB_UTIL.is_rank(to_apostle, 'paperback_Apostle') then
         apostleCount = apostleCount + 1
         G.E_MANAGER:add_event(Event({
           trigger = 'after',
@@ -142,7 +142,7 @@ SMODS.Joker {
     end
 
     if context.individual and context.cardarea == G.hand and not context.end_of_round then
-      if context.other_card:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(context.other_card, 'paperback_Apostle') then
         if context.other_card.debuff then
           return {
             message = localize('k_debuffed'),

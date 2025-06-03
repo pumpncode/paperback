@@ -15,7 +15,7 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do
-      if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(v, 'paperback_Apostle') then
         return true
       end
     end
@@ -26,7 +26,7 @@ SMODS.Joker {
       if args.handname == 'Straight Flush' then
         -- if hand contains Straight Flush and an Apostle, it is a rapture
         for _, card in pairs(args.scoring_hand) do
-          if card:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+          if PB_UTIL.is_rank(card, 'paperback_Apostle') then
             return true
           end
         end
@@ -39,7 +39,7 @@ SMODS.Joker {
       local apostle = false
       -- Check for apostle
       for _, v in ipairs(context.scoring_hand) do
-        if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+        if PB_UTIL.is_rank(v, 'paperback_Apostle') then
           apostle = true
           break
         end

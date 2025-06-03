@@ -40,10 +40,10 @@ SMODS.Joker {
   end,
 
   check_for_unlock = function(self, args)
-    if args.type == 'modify_deck' and SMODS.Ranks['paperback_Apostle'] then
+    if args.type == 'modify_deck' then
       local count = 0
       for _, v in ipairs(G.playing_cards) do
-        if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then count = count + 1 end
+        if PB_UTIL.is_rank(v, 'paperback_Apostle') then count = count + 1 end
         if count >= 12 then return true end
       end
     end
@@ -52,7 +52,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-      if context.other_card:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(context.other_card, 'paperback_Apostle') then
         if context.other_card.debuff then
           return {
             message = localize('k_debuffed'),
@@ -67,13 +67,13 @@ SMODS.Joker {
     end
 
     if context.destroy_card and not context.blueprint and context.cardarea == G.play then
-      if context.destroy_card:get_id() ~= SMODS.Ranks['paperback_Apostle'].id then
+      if not PB_UTIL.is_rank(context.destroy_card, 'paperback_Apostle') then
         return { remove = true }
       end
     end
 
     if context.discard and not context.blueprint then
-      if context.other_card:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+      if PB_UTIL.is_rank(context.other_card, 'paperback_Apostle') then
         return { remove = true }
       end
     end
@@ -81,7 +81,7 @@ SMODS.Joker {
     if context.after and not context.blueprint then
       local played_apostles = false
       for _, v in ipairs(context.full_hand) do
-        if v:get_id() == SMODS.Ranks['paperback_Apostle'].id then
+        if PB_UTIL.is_rank(v, 'paperback_Apostle') then
           played_apostles = true
           break
         end
