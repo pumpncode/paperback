@@ -289,9 +289,9 @@ return {
       j_paperback_boundary_of_death = {
         name = "Boundary of Death",
         text = {
-          "Scored {C:attention}#1#s{} have a",
+          "{C:attention}#1#s{} have a",
           "{C:green}#2# in #3#{} chance to",
-          "retrigger {C:attention}#4#{} times"
+          "instead give {C:red}+#4#{} Mult"
         }
       },
       j_paperback_festive_joker = {
