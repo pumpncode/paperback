@@ -87,6 +87,23 @@ return {
       },
     },
     Joker = {
+      j_paperback_one_sin_and_hundreds_of_good_deeds = {
+        name = "One Sin and Hundreds of Good Deeds",
+        text = {
+          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
+          "give {C:mult}+#1#{} Mult when scored",
+          "{C:inactive}''It feeds on evil''",
+        },
+      },
+      j_paperback_one_sin_and_hundreds_of_good_deeds_fed = {
+        name = "{C:red}One Sin and Hundreds of Good Deeds{}",
+        text = {
+          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
+          "give {C:mult}+Mult{} for each",
+          "remaining card in deck when scored",
+          "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive})",
+        },
+      },
       j_paperback_white_night = {
         name = "WhiteNight",
         text = {
@@ -100,6 +117,19 @@ return {
           "Have #1# or more",
           "{C:attention}Apostles{} in",
           "your deck"
+        }
+      },
+      j_paperback_as_above_so_below = {
+        name = "As Above, So Below",
+        text = {
+          "Playing a five-card poker hand with an",
+          "{C:attention}Apostle{} creates a {C:purple}Tarot{} card,",
+          "if poker hand also contains a {C:attention}Straight{}",
+          "create a {C:spectral}Spectral{} card instead",
+          "{C:inactive}(Must have room)"
+        },
+        unlock = {
+          "Play a {C:attention}Rapture{}"
         }
       },
       j_paperback_plague_doctor = {
@@ -389,9 +419,9 @@ return {
       j_paperback_book_of_vengeance = {
         name = "Book of Vengeance",
         text = {
-          "If {C:attention}first hand{} of round defeated the {C:attention}Boss Blind{},",
+          "After defeating a {C:attention}Boss Blind{},",
           "destroys itself and the {C:attention}Joker{} to its left,",
-          "then makes a copy of {C:attention}Joker{} to the right"
+          "then makes a copy of {C:attention}Joker{} to its right"
         }
       },
       j_paperback_b_soda = {
@@ -407,7 +437,8 @@ return {
       j_paperback_angel_investor = {
         name = "Angel Investor",
         text = {
-          "Skipping a {C:attention}Blind{} gives",
+          "Skipping a {C:attention}Blind{} or defeating",
+          "a {C:attention}Boss Blind{} gives",
           "an {C:money}Angel Investment Tag"
         }
       },
@@ -688,9 +719,10 @@ return {
       j_paperback_solemn_lament = {
         name = "Solemn Lament",
         text = {
-          "Retrigger {C:attention}first{} scored",
-          "card {C:attention}once{} for every {C:blue}hand",
-          "and {C:red}discard{} remaining"
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "if played hand contains both {C:paperback_dark_suit}dark suits{}",
+          "and {C:paperback_light_suit}light suits{}",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
       j_paperback_hole_in_one = {
@@ -1674,6 +1706,7 @@ return {
       -- Text shown at the bottom while opening booster
       paperback_minor_arcana_pack = "Minor Arcana Pack",
 
+      paperback_confessed_ex = "Confessed!",
       paperback_polychrome_ex = "Polychrome!",
       paperback_destroyed_ex = "Destroyed!",
       paperback_doubled_ex = "Doubled!",
@@ -1721,7 +1754,7 @@ return {
 
       paperback_plague_quote_4_1 = 'To the apostles he gave the name Boanerges,',
       paperback_plague_quote_4_2 = 'which means "Sons of Thunder".',
-      
+
       paperback_plague_quote_5_1 = 'Show us the father, and that',
       paperback_plague_quote_5_2 = 'will be enough for us.',
 
