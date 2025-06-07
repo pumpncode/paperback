@@ -1402,6 +1402,13 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_king_of_swords = {
+        name = "King of Swords",
+        text = {
+          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
+          "from a selected Joker"
+        }
+      },
       c_paperback_ace_of_pentacles = {
         name = "Ace of Pentacles",
         text = {

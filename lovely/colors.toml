@@ -38,4 +38,5 @@ payload = '''
   paperback_minor_arcana = G.C.PAPERBACK_MINOR_ARCANA,
   paperback_black = G.C.PAPERBACK_BLACK,
   paperback_pink = G.C.PAPERBACK_PINK,
+  paperback_perishable = G.C.PERISHABLE,
 '''
