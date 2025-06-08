@@ -72,22 +72,37 @@ local eval_card_ref = eval_card
 function eval_card(card, context)
   local ret, ret2 = eval_card_ref(card, context)
 
-  if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card and PB_UTIL.has_paperclip(card) then
-    G.GAME.paperback.round.scored_clips = G.GAME.paperback.round.scored_clips + 1
+  if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card then
+    if PB_UTIL.has_paperclip(card) then
+      G.GAME.paperback.round.scored_clips = G.GAME.paperback.round.scored_clips + 1
 
-    -- Add a new context for our Paperclips when held in hand
-    for _, v in ipairs(G.hand.cards) do
-      local key = PB_UTIL.has_paperclip(v)
-      local clip = SMODS.Stickers[key]
+      -- Add a new context for our Paperclips when held in hand
+      for _, v in ipairs(G.hand.cards) do
+        local key = PB_UTIL.has_paperclip(v)
+        local clip = SMODS.Stickers[key]
 
-      if clip and clip.calculate and type(clip.calculate) == "function" then
-        clip:calculate(v, {
-          paperback = {
-            clip_scored = true,
-            other_card = card
-          }
-        })
+        if clip and clip.calculate and type(clip.calculate) == "function" then
+          clip:calculate(v, {
+            paperback = {
+              clip_scored = true,
+              other_card = card
+            }
+          })
+        end
       end
+    end
+
+    -- Add context used by Stained enhancement when cards are scored
+    for _, v in ipairs(G.hand.cards) do
+      local effects_table = v:calculate_enhancement {
+        paperback = {
+          other_card = card,
+          playing_card_scored = true,
+          original_context = context
+        }
+      }
+
+      SMODS.trigger_effects({ { enhancement = effects_table } }, v)
     end
   end
 
