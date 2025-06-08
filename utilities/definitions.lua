@@ -164,6 +164,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "surfer",
   "apple",
   "joker_cookie",
+  "double_dutchman",
   "nachos",
   "crispy_taco",
   "soft_taco",

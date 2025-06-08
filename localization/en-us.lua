@@ -87,6 +87,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_double_dutchman = {
+        name = "Double Dutchman",
+        text = {
+          "Cards {C:attention}held in hand{} have a {C:green}#1# in #2#",
+          "chance to gain random",
+          "{C:attention}enhancements{}, {C:attention}seals{} or {C:attention}editions",
+          "for the next {C:attention}#3#{} hands"
+        }
+      },
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
         name = "One Sin and Hundreds of Good Deeds",
         text = {
