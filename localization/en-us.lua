@@ -87,6 +87,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_langely = {
+        name = "L'angely",
+        text = {
+          "Earns half the {C:money}sell value{} of all",
+          "Jokers when defeating a {C:attention}Big Blind.",
+          "When defeating a {C:attention}Boss Blind{}, earn",
+          "the full {C:money}sell value{} of all Jokers"
+        }
+      },
       j_paperback_double_dutchman = {
         name = "Double Dutchman",
         text = {

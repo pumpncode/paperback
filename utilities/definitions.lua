@@ -268,6 +268,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "watercolor_joker",
   "medic",
   "festive_joker",
+  "langely",
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",
