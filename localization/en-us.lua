@@ -1524,6 +1524,13 @@ return {
           "{C:green}#1# in #2#{} chance to",
           "{C:red}break{} when scored"
         }
+      },
+      m_paperback_stained = {
+        name = "Stained Card",
+        text = {
+          "While held in hand, scored",
+          "cards gain {C:mult}+#1#{} Mult"
+        }
       }
     },
     Edition = {

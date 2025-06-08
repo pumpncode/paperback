@@ -473,6 +473,7 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "ceramic",
   "wrapped",
   "bandaged",
+  "stained",
 }
 
 PB_UTIL.ENABLED_EDITIONS = {
