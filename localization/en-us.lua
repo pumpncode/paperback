@@ -1402,6 +1402,14 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_three_of_swords = {
+        name = "Three of Swords",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_king_of_swords = {
         name = "King of Swords",
         text = {

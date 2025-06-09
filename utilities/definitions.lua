@@ -318,7 +318,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "king_of_wands",
   "ace_of_swords",
   -- "two_of_swords",
-  -- "three_of_swords",
+  "three_of_swords",
   -- "four_of_swords",
   -- "five_of_swords",
   -- "six_of_swords",
