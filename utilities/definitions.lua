@@ -473,6 +473,7 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "ceramic",
   "wrapped",
   "bandaged",
+  "domino",
   "stained",
 }
 

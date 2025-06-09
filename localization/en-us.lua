@@ -1525,6 +1525,14 @@ return {
           "{C:red}break{} when scored"
         }
       },
+      m_paperback_domino = {
+        name = "Domino Card",
+        text = {
+          "Gives {C:mult}+#1#{} Mult for every played",
+          "or discarded rank this round",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
       m_paperback_stained = {
         name = "Stained Card",
         text = {
