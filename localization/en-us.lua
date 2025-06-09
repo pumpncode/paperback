@@ -1418,6 +1418,14 @@ return {
           "{C:attention}#2#s{}"
         }
       },
+      c_paperback_knight_of_swords = {
+        name = "Knight of Swords",
+        text = {
+          "Create a random {C:paperback_minor_arcana}Minor Arcana{} card",
+          "and a random {C:tarot}Tarot{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
       c_paperback_king_of_swords = {
         name = "King of Swords",
         text = {
