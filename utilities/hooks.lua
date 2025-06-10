@@ -14,6 +14,8 @@ function Game.init_game_object(self)
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',
     domino_ranks = {},
+    banned_run_keys = {},
+
     saved_by = nil,
 
     weather_radio_hand = 'High Card',
