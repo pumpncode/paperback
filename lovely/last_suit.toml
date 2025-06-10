@@ -1,0 +1,17 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "for i=1, #G.play.cards do"
+position = "after"
+match_indent = true
+payload = '''
+  print(rank)
+  if not SMODS.has_no_suit(G.play.cards[i]) then
+    G.GAME.paperback.last_scored_suit = G.play.cards[i].base.suit
+  end
+'''

@@ -1402,6 +1402,15 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_two_of_swords = {
+        name = "Two of Swords",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to last {C:attention}scored{} suit",
+          "{C:inactive}(Currently: {V:1}#2#{C:inactive})",
+        }
+      },
       c_paperback_three_of_swords = {
         name = "Three of Swords",
         text = {
