@@ -1410,6 +1410,13 @@ return {
           "{C:attention}#2#s{}"
         }
       },
+      c_paperback_seven_of_swords = {
+        name = "Seven of Swords",
+        text = {
+          "Add a {C:attention}Gold Clip{} to",
+          "{C:attention}#1#{} selected card"
+        }
+      },
       c_paperback_page_of_swords = {
         name = "Page of Swords",
         text = {
@@ -1697,6 +1704,14 @@ return {
           "is {C:attention}held in hand",
         }
       },
+      paperback_gold_clip = {
+        name = "Gold Clip",
+        text = {
+          "Earn {C:money}$#1#{} at the end of round",
+          "for each scored clip {C:attention}Clip{}",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
       paperback_white_clip = {
         name = "White Clip",
         text = {
@@ -1876,6 +1891,7 @@ return {
       paperback_orange_clip = "Orange Clip",
       paperback_pink_clip = "Pink Clip",
       paperback_black_clip = "Black Clip",
+      paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",

@@ -322,7 +322,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "four_of_swords",
   -- "five_of_swords",
   -- "six_of_swords",
-  -- "seven_of_swords",
+  "seven_of_swords",
   -- "eight_of_swords",
   -- "nine_of_swords",
   -- "ten_of_swords",
@@ -673,4 +673,5 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "pink_clip",
   "black_clip",
   "white_clip",
+  "gold_clip",
 }
