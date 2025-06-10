@@ -11,6 +11,10 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
+
+  if run_start then
+    G.GAME.paperback.banned_run_keys = {}
+  end
 end
 
 PB_UTIL.credits = {

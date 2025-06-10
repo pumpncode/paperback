@@ -12,6 +12,7 @@ function Game.init_game_object(self)
     destroyed_dark_suits = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
+    banned_run_keys = {},
     saved_by = nil,
 
     weather_radio_hand = 'High Card',
