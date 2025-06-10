@@ -1419,6 +1419,14 @@ return {
           "{C:attention}#2#s{}"
         }
       },
+      c_paperback_four_of_swords = {
+        name = "Four of Swords",
+        text = {
+          "Converts up to {C:attention}#1#",
+          "selected cards to",
+          "random {C:attention}Face{} cards"
+        }
+      },
       c_paperback_seven_of_swords = {
         name = "Seven of Swords",
         text = {

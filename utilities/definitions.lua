@@ -314,12 +314,12 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "ten_of_wands",
   "page_of_wands",
   "knight_of_wands",
-  "queen_of_wands", -- WANDS
-  "king_of_wands",
+  "queen_of_wands",
+  "king_of_wands", -- WANDS
   "ace_of_swords",
   "two_of_swords",
   "three_of_swords",
-  -- "four_of_swords",
+  "four_of_swords",
   -- "five_of_swords",
   -- "six_of_swords",
   "seven_of_swords",
@@ -329,7 +329,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "page_of_swords",
   "knight_of_swords",
   -- "queen_of_swords",
-  "king_of_swords",
+  "king_of_swords", -- SWORDS
   "ace_of_pentacles",
   -- "two_of_pentacles",
   -- "three_of_pentacles",
@@ -343,7 +343,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "page_of_pentacles",
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
-  -- "king_of_pentacles",
+  -- "king_of_pentacles", -- PENTACLES
 }
 
 PB_UTIL.ENABLED_BLINDS = {
