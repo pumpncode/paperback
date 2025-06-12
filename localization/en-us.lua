@@ -1427,6 +1427,13 @@ return {
           "random {C:attention}Face{} cards"
         }
       },
+      c_paperback_six_of_swords = {
+        name = "Six of Swords",
+        text = {
+          "Add a {C:attention}Yellow Clip{} to",
+          "{C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_seven_of_swords = {
         name = "Seven of Swords",
         text = {
@@ -1729,6 +1736,16 @@ return {
           "is {C:attention}held in hand",
         }
       },
+      paperback_yellow_clip = {
+        name = "Yellow Clip",
+        text = {
+          "If {C:attention}scored{} while a {C:attention}Clip",
+          "is {C:attention}held in hand{} it has",
+          "a {C:green}#1# in #2#{} chance for {C:red}+#3#{} Mult,",
+          "a {C:green}#1# in #4#{} chance for {X:mult,C:white}X#5#{} Mult",
+          "and a {C:green}#1# in #6#{} chance for {C:money}$#7#{}",
+        }
+      },
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
@@ -1916,6 +1933,7 @@ return {
       paperback_orange_clip = "Orange Clip",
       paperback_pink_clip = "Pink Clip",
       paperback_black_clip = "Black Clip",
+      paperback_yellow_clip = "Yellow Clip",
       paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",

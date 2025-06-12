@@ -23,7 +23,6 @@ SMODS.Enhancement {
     if context.cardarea == G.play and context.main_scoring then
       local count = 0
       for _ in pairs(G.GAME.paperback.domino_ranks) do count = count + 1 end
-      print(count)
       return {
         mult = card.ability.extra.scaling * count
       }
