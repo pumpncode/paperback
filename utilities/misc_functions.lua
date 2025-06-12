@@ -1031,3 +1031,20 @@ function PB_UTIL.count_used_consumables(set, count_repeats)
   end
   return count
 end
+
+--- Creates an array of all the highlighted cards in the given area sorted by their X position
+---@param area CardArea|table
+---@return (Card|table)[] cards the sorted array
+function PB_UTIL.get_sorted_by_position(area)
+  local cards = {}
+
+  for i = 1, #area.highlighted do
+    cards[i] = area.highlighted[i]
+  end
+
+  table.sort(cards, function(a, b)
+    return a.T.x < b.T.x
+  end)
+
+  return cards
+end
