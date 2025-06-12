@@ -83,6 +83,14 @@ function PB_UTIL.set_paperclip(card, type)
   end
 end
 
+---Fetches a random paperclip type using a given seed
+---@param seed string
+function PB_UTIL.poll_paperclip(seed)
+  local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
+  clip = string.sub(clip, 1, #clip - 5)
+  return clip
+end
+
 ---Checks if a provided card is classified as a "Food Joker"
 ---@param card table | string a center key or a card
 ---@return boolean

@@ -17,8 +17,7 @@ PB_UTIL.MinorArcana {
   use = function(self, card, area)
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
       for _, v in ipairs(G.hand.highlighted) do
-        local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed('eight_of_swords'))
-        clip = string.sub(clip, 1, #clip - 5)
+        local clip = PB_UTIL.poll_paperclip('eight_of_swords')
         PB_UTIL.set_paperclip(v, clip)
       end
     end)
