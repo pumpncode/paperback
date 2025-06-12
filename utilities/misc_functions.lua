@@ -1012,3 +1012,22 @@ function PB_UTIL.get_random_visible_hand(seed)
   end
   return pseudorandom_element(hands, pseudoseed(seed))
 end
+
+--- Counts consumables of a given set used in the current run
+---@param set string
+---@param count_repeats? boolean if only unique cards should be counted
+---@return integer
+function PB_UTIL.count_used_consumables(set, count_repeats)
+  local count = 0
+  local repeats = count_repeats and true
+  for _, v in pairs(G.GAME.consumeable_usage) do
+    if v.set == set then
+      if count_repeats then
+        count = count + v.count
+      else
+        count = count + 1
+      end
+    end
+  end
+  return count
+end

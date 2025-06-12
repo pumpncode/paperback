@@ -1172,6 +1172,15 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      j_paperback_oracle = {
+        name = "Oracle",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#",
+          "Mult for every {C:attention}unique",
+          "{C:paperback_minor_arcana}Minor Arcana{} card used",
+          "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive}Mult)",
+        },
+      }
     },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {

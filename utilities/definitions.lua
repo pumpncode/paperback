@@ -164,6 +164,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "mismatched_sock",
   "basic_energy",
   "reference_card",
+  "oracle",
   "skydiver",
   "surfer",
   "apple",
