@@ -1488,6 +1488,14 @@ return {
           "from a selected Joker"
         }
       },
+      c_paperback_queen_of_swords = {
+        name = "Queen of Swords",
+        text = {
+          "Converts {C:attention}#1#{} random cards in",
+          "full deck with {C:attention}different suits",
+          "to the selected card's {C:attention}suit"
+        }
+      },
       c_paperback_ace_of_pentacles = {
         name = "Ace of Pentacles",
         text = {
