@@ -327,7 +327,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "five_of_swords",
   "six_of_swords",
   "seven_of_swords",
-  -- "eight_of_swords",
+  "eight_of_swords",
   "nine_of_swords",
   -- "ten_of_swords",
   "page_of_swords",
@@ -669,7 +669,7 @@ if PB_UTIL.config.suits_enabled then
   }
 end
 
---- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink"
+--- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink" | "yellow" | "gold"
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "red_clip",

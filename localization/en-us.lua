@@ -1441,6 +1441,13 @@ return {
           "{C:attention}#1#{} selected card"
         }
       },
+      c_paperback_eight_of_swords = {
+        name = "Eight of Swords",
+        text = {
+          "Adds random {C:attention}Clip{} to",
+          "up to {C:attention}#1#{} selected cards"
+        }
+      },
       c_paperback_nine_of_swords = {
         name = "Nine of Swords",
         text = {
