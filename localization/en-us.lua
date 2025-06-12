@@ -1451,9 +1451,18 @@ return {
       c_paperback_nine_of_swords = {
         name = "Nine of Swords",
         text = {
-          "Destroy selected Joker.",
+          "Destroy selected Joker",
           "It is {C:red}unable{} to appear again",
           "for {C:attention}the remainder of the run{}"
+        }
+      },
+      c_paperback_ten_of_swords = {
+        name = "Ten of Swords",
+        text = {
+          "Has a #1# in #2# chance to",
+          "{C:attention}destroy{} cards in deck",
+          "with the same {C:attention}rank",
+          "as selected card"
         }
       },
       c_paperback_page_of_swords = {
