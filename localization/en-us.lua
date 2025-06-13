@@ -1190,6 +1190,15 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      j_paperback_oracle = {
+        name = "Oracle",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#",
+          "Mult for every {C:attention}unique",
+          "{C:paperback_minor_arcana}Minor Arcana{} card used",
+          "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive}Mult)",
+        },
+      }
     },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {
@@ -1420,6 +1429,110 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_two_of_swords = {
+        name = "Two of Swords",
+        text = {
+          "Converts up to",
+          "{C:attention}#1#{} selected cards",
+          "to last {C:attention}scored{} suit",
+          "{C:inactive}(Currently: {V:1}#2#{C:inactive})",
+        }
+      },
+      c_paperback_three_of_swords = {
+        name = "Three of Swords",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
+      c_paperback_four_of_swords = {
+        name = "Four of Swords",
+        text = {
+          "Converts up to {C:attention}#1#",
+          "selected cards to",
+          "random {C:attention}Face{} cards"
+        }
+      },
+      c_paperback_five_of_swords = {
+        name = "Five of Swords",
+        text = {
+          "Select {C:attention}#1#{} cards, destroy the",
+          "rightmost two and give the",
+          "leftmost a random {C:attention}edition{},",
+          "{C:attention}seal{} or {C:attention}enhancement",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
+      c_paperback_six_of_swords = {
+        name = "Six of Swords",
+        text = {
+          "Add a {C:attention}Yellow Clip{} to",
+          "{C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_seven_of_swords = {
+        name = "Seven of Swords",
+        text = {
+          "Add a {C:attention}Gold Clip{} to",
+          "{C:attention}#1#{} selected card"
+        }
+      },
+      c_paperback_eight_of_swords = {
+        name = "Eight of Swords",
+        text = {
+          "Adds random {C:attention}Clip{} to",
+          "up to {C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_nine_of_swords = {
+        name = "Nine of Swords",
+        text = {
+          "Destroy selected Joker",
+          "It is {C:red}unable{} to appear again",
+          "for {C:attention}the remainder of the run{}"
+        }
+      },
+      c_paperback_ten_of_swords = {
+        name = "Ten of Swords",
+        text = {
+          "Has a #1# in #2# chance to",
+          "{C:attention}destroy{} cards in deck",
+          "with the same {C:attention}rank",
+          "as selected card"
+        }
+      },
+      c_paperback_page_of_swords = {
+        name = "Page of Swords",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
+      c_paperback_knight_of_swords = {
+        name = "Knight of Swords",
+        text = {
+          "Create a random {C:paperback_minor_arcana}Minor Arcana{} card",
+          "and a random {C:tarot}Tarot{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
+      c_paperback_king_of_swords = {
+        name = "King of Swords",
+        text = {
+          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
+          "from a selected Joker"
+        }
+      },
+      c_paperback_queen_of_swords = {
+        name = "Queen of Swords",
+        text = {
+          "Converts {C:attention}#1#{} random cards in",
+          "full deck with {C:attention}different suits",
+          "to the selected card's {C:attention}suit"
+        }
+      },
       c_paperback_ace_of_pentacles = {
         name = "Ace of Pentacles",
         text = {
@@ -1534,6 +1647,21 @@ return {
           "Retrigger {C:attention}adjacent{} cards",
           "{C:green}#1# in #2#{} chance to",
           "{C:red}break{} when scored"
+        }
+      },
+      m_paperback_domino = {
+        name = "Domino Card",
+        text = {
+          "Gives {C:mult}+#1#{} Mult for every played",
+          "or discarded rank this round",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
+      m_paperback_stained = {
+        name = "Stained Card",
+        text = {
+          "While held in hand, scored",
+          "cards gain {C:mult}+#1#{} Mult"
         }
       }
     },
@@ -1667,6 +1795,24 @@ return {
           "Retriggers when",
           "{C:attention}scored{} if a {C:attention}Clip",
           "is {C:attention}held in hand",
+        }
+      },
+      paperback_yellow_clip = {
+        name = "Yellow Clip",
+        text = {
+          "If {C:attention}scored{} while a {C:attention}Clip",
+          "is {C:attention}held in hand{} it has",
+          "a {C:green}#1# in #2#{} chance for {C:red}+#3#{} Mult,",
+          "a {C:green}#1# in #4#{} chance for {X:mult,C:white}X#5#{} Mult",
+          "and a {C:green}#1# in #6#{} chance for {C:money}$#7#{}",
+        }
+      },
+      paperback_gold_clip = {
+        name = "Gold Clip",
+        text = {
+          "Earn {C:money}$#1#{} at the end of round",
+          "for each scored clip {C:attention}Clip{}",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
       paperback_white_clip = {
@@ -1848,6 +1994,8 @@ return {
       paperback_orange_clip = "Orange Clip",
       paperback_pink_clip = "Pink Clip",
       paperback_black_clip = "Black Clip",
+      paperback_yellow_clip = "Yellow Clip",
+      paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",

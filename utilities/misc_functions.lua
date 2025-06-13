@@ -83,6 +83,14 @@ function PB_UTIL.set_paperclip(card, type)
   end
 end
 
+---Fetches a random paperclip type using a given seed
+---@param seed string
+function PB_UTIL.poll_paperclip(seed)
+  local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
+  clip = string.sub(clip, 1, #clip - 5)
+  return clip
+end
+
 ---Checks if a provided card is classified as a "Food Joker"
 ---@param card table | string a center key or a card
 ---@return boolean
@@ -1003,4 +1011,40 @@ function PB_UTIL.get_random_visible_hand(seed)
     if v.visible then hands[#hands + 1] = k end
   end
   return pseudorandom_element(hands, pseudoseed(seed))
+end
+
+--- Counts consumables of a given set used in the current run
+---@param set string
+---@param count_repeats? boolean if only unique cards should be counted
+---@return integer
+function PB_UTIL.count_used_consumables(set, count_repeats)
+  local count = 0
+  local repeats = count_repeats and true
+  for _, v in pairs(G.GAME.consumeable_usage) do
+    if v.set == set then
+      if count_repeats then
+        count = count + v.count
+      else
+        count = count + 1
+      end
+    end
+  end
+  return count
+end
+
+--- Creates an array of all the highlighted cards in the given area sorted by their X position
+---@param area CardArea|table
+---@return (Card|table)[] cards the sorted array
+function PB_UTIL.get_sorted_by_position(area)
+  local cards = {}
+
+  for i = 1, #area.highlighted do
+    cards[i] = area.highlighted[i]
+  end
+
+  table.sort(cards, function(a, b)
+    return a.T.x < b.T.x
+  end)
+
+  return cards
 end

@@ -11,6 +11,10 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
+
+  if run_start then
+    G.GAME.paperback.banned_run_keys = {}
+  end
 end
 
 PB_UTIL.credits = {
@@ -160,6 +164,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "mismatched_sock",
   "basic_energy",
   "reference_card",
+  "oracle",
   "skydiver",
   "surfer",
   "apple",
@@ -316,22 +321,22 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "ten_of_wands",
   "page_of_wands",
   "knight_of_wands",
-  "queen_of_wands", -- WANDS
-  "king_of_wands",
+  "queen_of_wands",
+  "king_of_wands", -- WANDS
   "ace_of_swords",
-  -- "two_of_swords",
-  -- "three_of_swords",
-  -- "four_of_swords",
-  -- "five_of_swords",
-  -- "six_of_swords",
-  -- "seven_of_swords",
-  -- "eight_of_swords",
-  -- "nine_of_swords",
-  -- "ten_of_swords",
-  -- "page_of_swords",
-  -- "knight_of_swords",
-  -- "queen_of_swords",
-  -- "king_of_swords",
+  "two_of_swords",
+  "three_of_swords",
+  "four_of_swords",
+  "five_of_swords",
+  "six_of_swords",
+  "seven_of_swords",
+  "eight_of_swords",
+  "nine_of_swords",
+  "ten_of_swords",
+  "page_of_swords",
+  "knight_of_swords",
+  "queen_of_swords",
+  "king_of_swords", -- SWORDS
   "ace_of_pentacles",
   -- "two_of_pentacles",
   -- "three_of_pentacles",
@@ -345,7 +350,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "page_of_pentacles",
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
-  -- "king_of_pentacles",
+  -- "king_of_pentacles", -- PENTACLES
 }
 
 PB_UTIL.ENABLED_BLINDS = {
@@ -475,6 +480,8 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "ceramic",
   "wrapped",
   "bandaged",
+  "domino",
+  "stained",
 }
 
 PB_UTIL.ENABLED_EDITIONS = {
@@ -665,7 +672,7 @@ if PB_UTIL.config.suits_enabled then
   }
 end
 
---- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink"
+--- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink" | "yellow" | "gold"
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "red_clip",
@@ -673,4 +680,6 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "pink_clip",
   "black_clip",
   "white_clip",
+  "yellow_clip",
+  "gold_clip",
 }
