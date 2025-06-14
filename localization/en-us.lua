@@ -500,6 +500,14 @@ return {
           "free {C:attention}Buffoon Pack"
         }
       },
+      j_paperback_mexican_train = {
+        name = "Mexican Train",
+        text = {
+          "Scored {C:attention}#1#{} give {C:money}$#2#",
+          "when {c:attention}scored{} this round and",
+          "increase the payout by {C:money}$#3#"
+        }
+      },
       j_paperback_jester_of_nihil = {
         name = "Jester of Nihil",
         text = {

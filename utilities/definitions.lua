@@ -222,6 +222,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "river",
   "evergreens",
   "backpack",
+  "mexican_train",
   "resurrections",
   "summoning_circle",
   "union_card",
