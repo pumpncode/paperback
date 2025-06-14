@@ -2,11 +2,11 @@ SMODS.Joker {
   key = "oracle",
   config = {
     extra = {
-      Xmult_mod = 0.15,
-      Xmult = 1
+      Xchip_mod = 0.15,
+      Xchip = 1
     }
   },
-  rarity = 1,
+  rarity = 2,
   pos = { x = 15, y = 9 },
   atlas = 'jokers_atlas',
   cost = 6,
@@ -19,23 +19,23 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
-    card.ability.extra.Xmult = 1 + (PB_UTIL.count_used_consumables("paperback_minor_arcana", false))
-        * card.ability.extra.Xmult_mod
+    card.ability.extra.Xchip = 1 + (PB_UTIL.count_used_consumables("paperback_minor_arcana", false))
+        * card.ability.extra.Xchip_mod
     return {
       vars = {
-        card.ability.extra.Xmult_mod,
-        card.ability.extra.Xmult
+        card.ability.extra.Xchip_mod,
+        card.ability.extra.Xchip
       }
     }
   end,
 
   calculate = function(self, card, context)
-    card.ability.extra.Xmult = 1 + (PB_UTIL.count_used_consumables("paperback_minor_arcana", false))
-        * card.ability.extra.Xmult_mod
+    card.ability.extra.Xchip = 1 + (PB_UTIL.count_used_consumables("paperback_minor_arcana", false))
+        * card.ability.extra.Xchip_mod
 
     if context.joker_main then
       return {
-        x_mult = card.ability.extra.Xmult,
+        x_chips = card.ability.extra.Xchip,
       }
     end
 
@@ -52,7 +52,7 @@ SMODS.Joker {
         {
           border_nodes = {
             { text = 'X' },
-            { ref_table = 'card.ability.extra', ref_value = 'Xmult' }
+            { ref_table = 'card.ability.extra', ref_value = 'Xchip' }
           }
         }
       },

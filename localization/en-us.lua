@@ -1183,10 +1183,10 @@ return {
       j_paperback_oracle = {
         name = "Oracle",
         text = {
-          "This Joker gains {X:mult,C:white}X#1#",
-          "Mult for every {C:attention}unique",
+          "This Joker gains {X:chips,C:white}X#1#",
+          "Chips for every {C:attention}unique",
           "{C:paperback_minor_arcana}Minor Arcana{} card used",
-          "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive}Mult)",
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
         },
       }
     },
