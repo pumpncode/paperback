@@ -23,6 +23,7 @@ PB_UTIL.MinorArcana {
       -- For some reason set_perishable just ignores the parameter, while set_rental properly uses it
       joker.ability.perishable = nil
       joker.ability.perish_tally = nil
+      SMODS.recalc_debuff(joker)
     end)
   end
 }
