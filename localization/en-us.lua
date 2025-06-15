@@ -1666,6 +1666,15 @@ return {
       }
     },
     Other = {
+      undiscovered_paperback_minor_arcana = {
+        name = "Not Discovered",
+        text = {
+          "Purchase or use",
+          "this card in an",
+          "unseeded run to",
+          "learn what it does",
+        },
+      },
       paperback_light_suits = {
         name = "Light Suits",
         text = {
