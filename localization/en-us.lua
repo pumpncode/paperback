@@ -303,6 +303,15 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
+      j_paperback_spotty_joker = {
+        name = "Spotty Joker",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "if {C:attention}scoring hand{} contains a {C:attention}#2#,",
+          "otherwise lose {X:mult,C:white}X#3#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
+        }
+      },
       j_paperback_medic = {
         name = "Medic",
         text = {
