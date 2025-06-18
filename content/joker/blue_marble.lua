@@ -32,6 +32,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.before then
       -- Check scoring hand for any club
+      local roll
       for _, v in ipairs(context.scoring_hand) do
         if v:is_suit(card.ability.extra.suit) then
           -- Planet spawn
