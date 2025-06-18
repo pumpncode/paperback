@@ -23,7 +23,10 @@ SMODS.Joker {
         count = count + 1
       until not PB_UTIL.has_paperclip(_card) or count > #G.playing_cards
       PB_UTIL.set_paperclip(_card, PB_UTIL.poll_paperclip "clippy")
-      juice_card(card)
+      local key = "paperback_clippy_msg_" .. math.random(1, 8)
+      return {
+        message = localize(key)
+      }
     end
   end
 }

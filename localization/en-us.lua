@@ -1958,6 +1958,16 @@ return {
 
       paperback_plague_quote_12_1 = 'Have I not chosen you, the Twelve?',
       paperback_plague_quote_12_2 = 'Yet one of you is a devil.',
+
+      -- Clippy messages
+      paperback_clippy_msg_1 = "Save file?",
+      paperback_clippy_msg_2 = "i'm Clippy!",
+      paperback_clippy_msg_3 = "Hi!",
+      paperback_clippy_msg_4 = "Keyboard is on!",
+      paperback_clippy_msg_5 = "I'll help!",
+      paperback_clippy_msg_6 = "Ask me!",
+      paperback_clippy_msg_7 = "Should I leave?",
+      paperback_clippy_msg_8 = "Mouse is on!",
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",
