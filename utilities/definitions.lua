@@ -268,6 +268,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "gambit",
   "king_me",
   "manilla_folder",
+  "clippy",
   "clothespin",
   "kintsugi_joker",
   "watercolor_joker",

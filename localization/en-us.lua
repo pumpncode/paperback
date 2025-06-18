@@ -251,6 +251,14 @@ return {
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
+      j_paperback_clippy = {
+        name = "Clippy",
+        text = {
+          "Add a random {C:attention}Clip{} to a",
+          "random card in your deck",
+          "when {C:attention}Blind{} is selected",
+        }
+      },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
         text = {
