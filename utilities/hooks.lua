@@ -9,6 +9,7 @@ function Game.init_game_object(self)
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
+    stained_inc = 0,
     destroyed_dark_suits = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
@@ -94,19 +95,6 @@ function eval_card(card, context)
           })
         end
       end
-    end
-
-    -- Add context used by Stained enhancement when cards are scored
-    for _, v in ipairs(G.hand.cards) do
-      local effects_table = v:calculate_enhancement {
-        paperback = {
-          other_card = card,
-          playing_card_scored = true,
-          original_context = context
-        }
-      }
-
-      SMODS.trigger_effects({ { enhancement = effects_table } }, v)
     end
   end
 

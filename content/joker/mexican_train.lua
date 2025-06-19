@@ -28,7 +28,7 @@ SMODS.Joker {
           type = 'name_text',
           set = 'Enhanced',
           key = 'm_paperback_domino'
-        } .. 's',
+        },
         card.ability.extra.dollars,
         card.ability.extra.scaling,
       }

@@ -87,6 +87,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_pinot_noir = {
+        name = "Pinot Noir",
+        text = {
+          "The next {C:attention}#1#{} times a {C:attention}#2#",
+          "triggers, give {C:mult}#3#{} additional Mult"
+        }
+      },
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
         name = "One Sin and Hundreds of Good Deeds",
         text = {
@@ -520,7 +527,7 @@ return {
       j_paperback_mexican_train = {
         name = "Mexican Train",
         text = {
-          "Scored {C:attention}#1#{} give {C:money}$#2#",
+          "Scored {C:attention}#1#s{} give {C:money}$#2#",
           "when {c:attention}scored{} this round and",
           "increase the payout by {C:money}$#3#"
         }
@@ -1667,8 +1674,9 @@ return {
       m_paperback_stained = {
         name = "Stained Card",
         text = {
-          "While held in hand, scored",
-          "cards gain {C:mult}+#1#{} Mult"
+          "If {C:attention}held in hand{} after a",
+          "hand is played, scored cards",
+          "permanently gain {C:mult}#1#{} Mult"
         }
       }
     },

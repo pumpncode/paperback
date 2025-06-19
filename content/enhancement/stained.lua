@@ -5,7 +5,6 @@ SMODS.Enhancement {
   config = {
     extra = {
       mult_mod = 1,
-      held = false
     }
   },
 
@@ -17,30 +16,29 @@ SMODS.Enhancement {
     }
   end,
 
-  update = function(self, card, dt)
-    if G.hand then
-      for k, v in pairs(G.hand.cards) do
-        if v == card then
-          card.ability.extra.held = true
-          break
-        end
-        card.ability.extra.held = false
-      end
-    end
-  end,
-
-
   calculate = function(self, card, context)
-    if context.paperback and context.paperback.playing_card_scored then
-      if context.paperback.other_card and card.ability.extra.held then
-        context.paperback.other_card.ability.perma_mult = (context.paperback.other_card.ability.perma_mult or 0) +
-            card.ability.extra.mult_mod
-        return {
-          card = context.paperback.other_card,
-          message = localize('k_upgrade_ex'),
-          colour = G.C.MULT,
-        }
+    if context.main_scoring and context.cardarea == G.hand then
+      local triggered
+
+      for _, v in ipairs(context.scoring_hand) do
+        v.ability.perma_mult = (v.ability.perma_mult or 0)
+            + card.ability.extra.mult_mod
+            + math.max(0, G.GAME.paperback.stained_inc)
+
+        G.E_MANAGER:add_event(Event {
+          func = function()
+            v:juice_up()
+            return true
+          end
+        })
+
+        triggered = true
       end
+
+      return triggered and {
+        message = localize('k_upgrade_ex'),
+        colour = G.C.MULT
+      }
     end
   end
 }
