@@ -517,6 +517,15 @@ return {
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
+      j_paperback_telamon = {
+        name = "Telamon",
+        text = {
+          "If {C:attention}final hand{} contains",
+          "a {C:attention}#1#{}, create a random",
+          "{C:attention}Swords{} {C:paperback_minor_arcana}Minor Arcana{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_backpack = {
         name = "Backpack",
         text = {

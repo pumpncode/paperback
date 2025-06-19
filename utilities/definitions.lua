@@ -238,6 +238,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "you_are_a_fool",
   "alert",
   "legacy",
+  "telamon",
   "weather_radio",
   "power_surge",
   "find_jimbo",
