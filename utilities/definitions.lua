@@ -277,7 +277,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "watercolor_joker",
   "medic",
   "festive_joker",
-  -- "somellier",
+  "sommelier",
   "spotty_joker",
   -- "winter_melon",
   -- "freezer",

@@ -327,6 +327,17 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
         }
       },
+      j_paperback_sommelier = {
+        name = "Sommelier",
+        text = {
+          "If the {C:attention}first discard{}",
+          "of a round contains",
+          " a {C:attention}#1#{},",
+          "the first discarded",
+          "{C:attention}#1#{} gains",
+          "a random {C:attention}Seal",
+        }
+      },
       j_paperback_medic = {
         name = "Medic",
         text = {
