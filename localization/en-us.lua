@@ -335,7 +335,7 @@ return {
           " a {C:attention}#1#{},",
           "the first discarded",
           "{C:attention}#1#{} gains",
-          "a random {C:attention}Seal",
+          "a random {C:attention}seal",
         }
       },
       j_paperback_medic = {
