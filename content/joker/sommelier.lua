@@ -5,7 +5,7 @@ SMODS.Joker {
       active = true
     }
   },
-  rarity = 1,
+  rarity = 2,
   pos = { x = 18, y = 0 },
   atlas = 'jokers_atlas',
   cost = 6,
@@ -15,6 +15,9 @@ SMODS.Joker {
   eternal_compat = false,
   soul_pos = nil,
   enhancement_gate = "m_paperback_stained",
+  paperback = {
+    requires_enhancements = true
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_stained
