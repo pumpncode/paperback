@@ -16,13 +16,18 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.setting_blind then
-      local count = 0
-      local _card
-      repeat
-        _card = pseudorandom_element(G.playing_cards, pseudoseed("clippy" .. count))
-        count = count + 1
-      until not PB_UTIL.has_paperclip(_card) or count > #G.playing_cards
-      PB_UTIL.set_paperclip(_card, PB_UTIL.poll_paperclip "clippy")
+      local clip = PB_UTIL.poll_paperclip "clippy"
+      for _, v in ipairs(G.playing_cards) do
+        if not PB_UTIL.has_paperclip(v) then
+          PB_UTIL.set_paperclip(v, clip)
+          local key = "paperback_clippy_msg_" .. math.random(1, 8)
+          return {
+            message = localize(key)
+          }
+        end
+      end
+      local _card = pseudorandom_element(G.playing_cards, pseudoseed("clippy"))
+      PB_UTIL.set_paperclip(v, clip)
       local key = "paperback_clippy_msg_" .. math.random(1, 8)
       return {
         message = localize(key)
