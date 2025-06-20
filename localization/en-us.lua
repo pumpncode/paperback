@@ -87,6 +87,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_blood_rain = {
+        name = "Blood Rain",
+        text = {
+          "{C:attention}#1#s{} give {C:mult}Mult{} equal",
+          "to the {C:attention}rank{} of held cards",
+          "instead of their {C:chips}chip value"
+        }
+      },
       j_paperback_pinot_noir = {
         name = "Pinot Noir",
         text = {

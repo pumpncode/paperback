@@ -15,6 +15,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  paperback = {
+    requires_minor_arcana = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

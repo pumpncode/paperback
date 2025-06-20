@@ -232,6 +232,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "moribund",
   "subterfuge",
   "the_world",
+  "blood_rain",
   "paranoia",
   "touch_tone_joker",
   "jestrica",
