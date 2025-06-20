@@ -1542,8 +1542,7 @@ return {
       c_paperback_ten_of_swords = {
         name = "Ten of Swords",
         text = {
-          "Has a #1# in #2# chance to",
-          "{C:attention}destroy{} cards in deck",
+          "{C:attention}Destroy{} cards in deck",
           "with the same {C:attention}rank",
           "as selected card"
         }
