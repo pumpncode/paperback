@@ -13,22 +13,13 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+  enhancement_gate = 'm_paperback_stained',
   pools = {
     Food = true
   },
   paperback = {
     requires_enhancements = true
   },
-
-  in_pool = function(self, args)
-    if G.playing_cards then
-      for _, v in ipairs(G.playing_cards) do
-        if SMODS.has_enhancement(v, 'm_paperback_stained') then
-          return true
-        end
-      end
-    end
-  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_stained
