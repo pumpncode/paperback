@@ -6,19 +6,6 @@ PB_UTIL.MinorArcana {
   atlas = 'minor_arcana_atlas',
   pos = { x = 2, y = 5 },
 
-  loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        G.GAME.probabilities.normal,
-        card.ability.odds,
-      }
-    }
-  end,
-
-  can_use = function(self, card)
-    return #G.hand.highlighted >= card.ability.max_highlighted
-  end,
-
   use = function(self, card, area)
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
       for _, k in ipairs(G.hand.highlighted) do
