@@ -111,6 +111,24 @@ return {
           "triggers, give {C:mult}#3#{} additional Mult"
         }
       },
+      j_paperback_langely = {
+        name = "L'angely",
+        text = {
+          "Earns half the {C:money}sell value{} of all",
+          "Jokers when defeating a {C:attention}Big Blind.",
+          "When defeating a {C:attention}Boss Blind{}, earn",
+          "the full {C:money}sell value{} of all Jokers"
+        }
+      },
+      j_paperback_double_dutchman = {
+        name = "Double Dutchman",
+        text = {
+          "Cards {C:attention}held in hand{} have a {C:green}#1# in #2#",
+          "chance to gain random",
+          "{C:attention}enhancements{}, {C:attention}seals{} or {C:attention}editions",
+          "for the next {C:attention}#3#{} hands"
+        }
+      },
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
         name = "One Sin and Hundreds of Good Deeds",
         text = {
@@ -801,7 +819,7 @@ return {
         name = "Solemn Lament",
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
-          "if played hand contains both {C:paperback_dark_suit}dark suits{}",
+          "if scored hand contains both {C:paperback_dark_suit}dark suits{}",
           "and {C:paperback_light_suit}light suits{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
