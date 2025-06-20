@@ -266,6 +266,18 @@ return {
           "when {C:attention}Blind{} is selected",
         }
       },
+      j_paperback_jimbos_joyous_joker_jamboree = {
+        name = "Jimbo's Joyous Joker Jamboree",
+        text = {
+          "Create a random {C:paperback_minor_arcana}Minor Arcana{}",
+          "card for every {C:attention}#1#{C:inactive} [#2#]{} scored cards",
+        },
+        unlock = {
+          "Have {C:attention}#1#{} or more",
+          "{C:attention}suits{} in",
+          "your deck"
+        }
+      },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
         text = {

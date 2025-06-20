@@ -243,6 +243,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "power_surge",
   "find_jimbo",
   -- "jimbocards",
+  "jimbos_joyous_joker_jamboree",
   -- "banana_man",
   "the_normal_joker",
   "jimbo_adventure",
