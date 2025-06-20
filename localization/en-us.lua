@@ -87,6 +87,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_the_one_who_waits = {
+        name = "The One Who Waits",
+        text = {
+          "If played hand has a {C:attention}scoring{} {V:1}#1#",
+          "{C:green}#2# in #3#{} chance to gain {X:mult,C:white}X#4#{} Mult",
+          "{C:green}#2# in #5#{} chance to spawn a {C:tarot}#6#{} Tarot",
+          "{C:inactive}(Must have room) (Currently {X:mult,C:white}X#7#{C:inactive} Mult)",
+        }
+      },
       j_paperback_blood_rain = {
         name = "Blood Rain",
         text = {

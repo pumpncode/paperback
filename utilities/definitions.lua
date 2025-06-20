@@ -152,6 +152,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "wish_you_were_here",
   "quick_fix",
   "sacrificial_lamb",
+  "the_one_who_waits",
   "unholy_alliance",
   "stamp",
   "solar_system",
