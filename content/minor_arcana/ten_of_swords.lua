@@ -2,23 +2,9 @@ PB_UTIL.MinorArcana {
   key = 'ten_of_swords',
   config = {
     max_highlighted = 1,
-    odds = 2
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 2, y = 5 },
-
-  loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        G.GAME.probabilities.normal,
-        card.ability.odds,
-      }
-    }
-  end,
-
-  can_use = function(self, card)
-    return #G.hand.highlighted >= card.ability.max_highlighted
-  end,
 
   use = function(self, card, area)
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
@@ -27,17 +13,13 @@ PB_UTIL.MinorArcana {
         if SMODS.has_no_rank(k) then
           for _, v in ipairs(G.playing_cards) do
             if SMODS.has_no_rank(v) then
-              if pseudorandom("queen_of_swords") < G.GAME.probabilities.normal / card.ability.odds then
-                table.insert(cards, v)
-              end
+              table.insert(cards, v)
             end
           end
         else
           for _, v in ipairs(G.playing_cards) do
             if PB_UTIL.is_rank(v, k:get_id()) then
-              if pseudorandom("queen_of_swords") < G.GAME.probabilities.normal / card.ability.odds then
-                table.insert(cards, v)
-              end
+              table.insert(cards, v)
             end
           end
         end

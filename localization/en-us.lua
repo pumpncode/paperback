@@ -87,6 +87,30 @@ return {
       },
     },
     Joker = {
+      j_paperback_the_one_who_waits = {
+        name = "The One Who Waits",
+        text = {
+          "If played hand has a {C:attention}scoring{} {V:1}#1#",
+          "{C:green}#2# in #3#{} chance to gain {X:mult,C:white}X#4#{} Mult",
+          "{C:green}#2# in #5#{} chance to spawn a {C:tarot}#6#{} Tarot",
+          "{C:inactive}(Must have room) (Currently {X:mult,C:white}X#7#{C:inactive} Mult)",
+        }
+      },
+      j_paperback_blood_rain = {
+        name = "Blood Rain",
+        text = {
+          "{C:attention}#1#s{} give {C:mult}Mult{} equal",
+          "to the {C:attention}rank{} of held cards",
+          "instead of their {C:chips}chip value"
+        }
+      },
+      j_paperback_pinot_noir = {
+        name = "Pinot Noir",
+        text = {
+          "The next {C:attention}#1#{} times a {C:attention}#2#",
+          "triggers, give {C:mult}#3#{} additional Mult"
+        }
+      },
       j_paperback_langely = {
         name = "L'angely",
         text = {
@@ -269,6 +293,26 @@ return {
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
+      j_paperback_clippy = {
+        name = "Clippy",
+        text = {
+          "Add a random {C:attention}Clip{} to a",
+          "random card in your deck",
+          "when {C:attention}Blind{} is selected",
+        }
+      },
+      j_paperback_jimbos_joyous_joker_jamboree = {
+        name = "Jimbo's Joyous Joker Jamboree",
+        text = {
+          "Create a random {C:paperback_minor_arcana}Minor Arcana{}",
+          "card for every {C:attention}#1#{C:inactive} [#2#]{} scored cards",
+        },
+        unlock = {
+          "Have {C:attention}#1#{} or more",
+          "{C:attention}suits{} in",
+          "your deck"
+        }
+      },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
         text = {
@@ -319,6 +363,26 @@ return {
           "chance to create a random",
           "{C:attention}Consumable{} when scored",
           "{C:inactive}(Must have room)"
+        }
+      },
+      j_paperback_spotty_joker = {
+        name = "Spotty Joker",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "if {C:attention}scoring hand{} contains a {C:attention}#2#,",
+          "otherwise lose {X:mult,C:white}X#3#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
+        }
+      },
+      j_paperback_sommelier = {
+        name = "Sommelier",
+        text = {
+          "If the {C:attention}first discard{}",
+          "of a round contains",
+          " a {C:attention}#1#{},",
+          "the first discarded",
+          "{C:attention}#1#{} gains",
+          "a random {C:attention}seal",
         }
       },
       j_paperback_medic = {
@@ -511,11 +575,28 @@ return {
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
+      j_paperback_telamon = {
+        name = "Telamon",
+        text = {
+          "If {C:attention}final hand{} contains",
+          "a {C:attention}#1#{}, create a random",
+          "{C:attention}Swords{} {C:paperback_minor_arcana}Minor Arcana{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
       j_paperback_backpack = {
         name = "Backpack",
         text = {
           "{C:money}Shops{} have an additional",
           "free {C:attention}Buffoon Pack"
+        }
+      },
+      j_paperback_mexican_train = {
+        name = "Mexican Train",
+        text = {
+          "Scored {C:attention}#1#s{} give {C:money}$#2#",
+          "when {c:attention}scored{} this round and",
+          "increase the payout by {C:money}$#3#"
         }
       },
       j_paperback_jester_of_nihil = {
@@ -1193,10 +1274,10 @@ return {
       j_paperback_oracle = {
         name = "Oracle",
         text = {
-          "This Joker gains {X:mult,C:white}X#1#",
-          "Mult for every {C:attention}unique",
+          "This Joker gains {X:chips,C:white}X#1#",
+          "Chips for every {C:attention}unique",
           "{C:paperback_minor_arcana}Minor Arcana{} card used",
-          "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive}Mult)",
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
         },
       }
     },
@@ -1496,8 +1577,7 @@ return {
       c_paperback_ten_of_swords = {
         name = "Ten of Swords",
         text = {
-          "Has a #1# in #2# chance to",
-          "{C:attention}destroy{} cards in deck",
+          "{C:attention}Destroy{} cards in deck",
           "with the same {C:attention}rank",
           "as selected card"
         }
@@ -1660,8 +1740,9 @@ return {
       m_paperback_stained = {
         name = "Stained Card",
         text = {
-          "While held in hand, scored",
-          "cards gain {C:mult}+#1#{} Mult"
+          "If {C:attention}held in hand{} after a",
+          "hand is played, scored cards",
+          "permanently gain {C:mult}#1#{} Mult"
         }
       }
     },
@@ -1676,6 +1757,15 @@ return {
       }
     },
     Other = {
+      undiscovered_paperback_minor_arcana = {
+        name = "Not Discovered",
+        text = {
+          "Purchase or use",
+          "this card in an",
+          "unseeded run to",
+          "learn what it does",
+        },
+      },
       paperback_light_suits = {
         name = "Light Suits",
         text = {
@@ -1942,6 +2032,16 @@ return {
 
       paperback_plague_quote_12_1 = 'Have I not chosen you, the Twelve?',
       paperback_plague_quote_12_2 = 'Yet one of you is a devil.',
+
+      -- Clippy messages
+      paperback_clippy_msg_1 = "Save file?",
+      paperback_clippy_msg_2 = "i'm Clippy!",
+      paperback_clippy_msg_3 = "Hi!",
+      paperback_clippy_msg_4 = "Keyboard is on!",
+      paperback_clippy_msg_5 = "I'll help!",
+      paperback_clippy_msg_6 = "Ask me!",
+      paperback_clippy_msg_7 = "Should I leave?",
+      paperback_clippy_msg_8 = "Mouse is on!",
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",

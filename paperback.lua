@@ -26,6 +26,14 @@ if PB_UTIL.config.minor_arcana_enabled then
     collection_rows = { 7, 7 }
   }
 
+  -- Register the sprite for undiscovered Minor Arcana
+  SMODS.UndiscoveredSprite {
+    key           = 'minor_arcana',
+    prefix_config = { key = true },
+    atlas         = "minor_arcana_atlas",
+    pos           = { x = 0, y = 8 }
+  }
+
   -- Register Minor Arcana cards
   PB_UTIL.register_items(PB_UTIL.ENABLED_MINOR_ARCANA, "content/minor_arcana")
 
@@ -72,10 +80,10 @@ if PB_UTIL.config.suits_enabled then
 
   -- Register Spectrum poker hand some other Spectrum mods are not installed
   if not (
-    next(SMODS.find_mod('Bunco'))
-    or next(SMODS.find_mod("SixSuits"))
-    or next(SMODS.find_mod("SpectrumFramework"))
-    ) then
+        next(SMODS.find_mod('Bunco'))
+        or next(SMODS.find_mod("SixSuits"))
+        or next(SMODS.find_mod("SpectrumFramework"))
+      ) then
     PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
     PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
   end
