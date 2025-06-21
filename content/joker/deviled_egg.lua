@@ -15,6 +15,9 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
   perishable_compat = true,
+  pools = {
+    Food = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.rounds_left } }
