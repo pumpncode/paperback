@@ -34,7 +34,9 @@ SMODS.Joker {
       if card ~= context.paperback.destroyed_joker then
         card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
 
-        return { message = localize { type = 'variable',
+        return {
+          message = localize {
+            type = 'variable',
             key = 'a_chips',
             vars = { card.ability.extra.a_chips }
           },
@@ -63,12 +65,9 @@ SMODS.Joker {
       if card.ability.extra.chips >= card.ability.extra.revive_treshold then
         PB_UTIL.destroy_joker(card)
 
-        -- Set the saved joker as this one (Mr Bones is hardcoded...)
-        G.GAME.paperback.saved_by = self.key
-
         return {
           message = localize('k_saved_ex'),
-          saved = true,
+          saved = 'paperback_saved_unholy_alliance',
           colour = G.C.MULT
         }
       end

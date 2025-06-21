@@ -1980,6 +1980,7 @@ return {
       paperback_plus_tag = "+1 Tag",
       paperback_edition_ex = "Edition!",
       paperback_rare_ex = "Rare!",
+      paperback_saved_unholy_alliance = "Saved by Unholy Alliance",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_blinds = "Enable Blinds",
@@ -2050,7 +2051,6 @@ return {
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round",
-      paperback_saved = "Saved by #1#",
     },
     ranks = {
       paperback_Apostle = 'Apostle',

@@ -18,8 +18,6 @@ function Game.init_game_object(self)
     jjjj_count = 0,
     banned_run_keys = {},
 
-    saved_by = nil,
-
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
   }
@@ -139,9 +137,6 @@ G.FUNCS.cash_out = function(e)
       cashing_out = true
     }
   })
-
-  -- Reset the joker that saved the run when cashing out
-  G.GAME.paperback.saved_by = nil
 
   cash_out_ref(e)
 end
