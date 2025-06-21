@@ -87,14 +87,22 @@ return {
       },
     },
     Joker = {
+      j_paperback_deviled_egg = {
+        name = "Deviled Egg",
+        text = {
+          "The first scored card",
+          "each round becomes {C:attention}Gold{}.",
+          "Eaten in {C:attention}#1#{} rounds"
+        }
+      },
       j_paperback_pear = {
         name = "Pear",
         text = {
-          "If played hand contains a {C:attention}#1#{},",
-          "this Joker gains {C:chips}+#2#{} Chips. If it",
-          "does not, this Joker loses {C:chips}-#3#{} Chips.",
-          "{C:red,E:2}Eaten{} if Chips are lower than 0",
-          "{C:inactive}(Currently {C:chips}+#4# {C:inactive}Chips)"
+          "This Joker gains {C:chips}+#2#{} Chips if played",
+          "hand contains a {C:attention}#1#{}. Otherwise,",
+          "this Joker loses {C:chips}-#3#{} Chips.",
+          "Eaten if Chips are lower than 0",
+          "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
         }
       },
       j_paperback_the_one_who_waits = {

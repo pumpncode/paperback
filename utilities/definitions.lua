@@ -179,6 +179,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "b_soda",
   "ice_cube",
   "cream_liqueur",
+  "deviled_egg",
   "champagne",
   "coffee",
   "matcha",
