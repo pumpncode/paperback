@@ -1013,6 +1013,23 @@ function PB_UTIL.get_random_visible_hand(seed)
   return pseudorandom_element(hands, pseudoseed(seed))
 end
 
+--- Gets the next suit in the Da Capo cycle Spades -> Hearts -> Clubs -> Diamonds -> None -> Spades
+---@param current_suit string current suit in the Da Capo cycle
+---@return string hand the next suit
+function PB_UTIL.da_capo_cycle(current_suit)
+  local suits = { 'Clubs', 'Spades', 'Diamonds', 'Hearts', 'None' }
+  if current_suit == 'None' then
+    return 'Clubs'
+  end
+  for k, v in ipairs(suits) do
+    if current_suit == v then
+      return suits[k + 1]
+    end
+  end
+  -- In case current_suit ever gets modified externally to a value unaccounted for, set it to Clubs
+  return 'Clubs'
+end
+
 --- Counts consumables of a given set used in the current run
 ---@param set string
 ---@param count_repeats? boolean if only unique cards should be counted

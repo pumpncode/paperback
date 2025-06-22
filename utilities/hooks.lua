@@ -20,6 +20,7 @@ function Game.init_game_object(self)
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
+    da_capo_suit = 'Clubs'
   }
   return ret
 end

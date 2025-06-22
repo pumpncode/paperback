@@ -696,6 +696,16 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
         }
       },
+      j_paperback_da_capo = {
+        name = "Da Capo",
+        text = {
+          "Gives {X:mult,C:white}X#1#{} Mult and {C:attention}debuffs",
+          "all but one {C:attention}suit{} every hand",
+          "in the subsequent order:",
+          "{C:clubs}Clubs{}, {C:spades}Spades{}, {C:diamonds}Diamonds{}, {C:hearts}Hearts{}, {C:inactive}None{}",
+          "{C:inactive}(Currently: {V:1}#2#{C:inactive}){}",
+        }
+      },
       j_paperback_complete_breakfast = {
         name = "Complete Breakfast",
         text = {
@@ -2061,6 +2071,13 @@ return {
       paperback_clippy_msg_6 = "Ask me!",
       paperback_clippy_msg_7 = "Should I leave?",
       paperback_clippy_msg_8 = "Mouse is on!",
+
+      -- Da Capo messages
+      paperback_da_capo_Clubs = "Movement 1",
+      paperback_da_capo_Spades = "Movement 2",
+      paperback_da_capo_Diamonds = "Movement 3",
+      paperback_da_capo_Hearts = "Movement 4",
+      paperback_da_capo_None = "Finale!",
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",
