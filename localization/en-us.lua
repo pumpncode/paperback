@@ -138,6 +138,13 @@ return {
           "the full {C:money}sell value{} of all Jokers"
         }
       },
+      j_paperback_pedrillo = {
+        name = "Pedrillo",
+        text = {
+          "If scoring hand contains a {C:attention}#1#{},",
+          "uprade the played {C:attention}poker hand{}"
+        }
+      },
       j_paperback_double_dutchman = {
         name = "Double Dutchman",
         text = {
