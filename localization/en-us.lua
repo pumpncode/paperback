@@ -141,7 +141,7 @@ return {
       j_paperback_pedrillo = {
         name = "Pedrillo",
         text = {
-          "If scoring hand contains a {C:attention}#1#{},",
+          "If scoring hand contains a {C:attention}Queen{},",
           "uprade the played {C:attention}poker hand{}"
         }
       },
