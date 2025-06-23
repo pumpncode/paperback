@@ -1347,6 +1347,16 @@ return {
         },
       }
     },
+    Spectral = {
+      c_paperback_apostle_of_cups = {
+        name = "Apostle of Cups",
+        text = {
+          "Selected Joker",
+          "becomes {C:dark_edition}Negative",
+          "{C:attention}#1#{} Joker slot",
+        }
+      },
+    },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {
         name = "Ace of Cups",

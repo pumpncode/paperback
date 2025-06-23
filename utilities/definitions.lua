@@ -327,7 +327,8 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "page_of_cups",
   "knight_of_cups",
   "queen_of_cups",
-  "king_of_cups", -- CUPS
+  "king_of_cups",
+  "apostle_of_cups", -- CUPS
   "ace_of_wands",
   "two_of_wands",
   "three_of_wands",
@@ -564,7 +565,8 @@ if PB_UTIL.config.minor_arcana_enabled then
       return {
         set = 'paperback_minor_arcana',
         area = G.pack_cards,
-        skip_materialize = true
+        skip_materialize = true,
+        soulable = true -- Allow creating Apostle cards
       }
     end,
 
