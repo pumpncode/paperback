@@ -8,4 +8,5 @@ return {
   vouchers_enabled = true,
   tags_enabled = true,
   ranks_enabled = true,
+  spectrals_enabled = true,
 }

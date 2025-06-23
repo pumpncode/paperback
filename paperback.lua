@@ -56,6 +56,11 @@ if PB_UTIL.config.minor_arcana_enabled then
   }
 end
 
+-- Load Spectral cards if they are enabled
+if PB_UTIL.config.spectrals_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_SPECTRALS, "content/spectrals")
+end
+
 -- Load enhancements if they are enabled
 if PB_UTIL.config.enhancements_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")

@@ -327,8 +327,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "page_of_cups",
   "knight_of_cups",
   "queen_of_cups",
-  "king_of_cups",
-  "apostle_of_cups", -- CUPS
+  "king_of_cups", -- CUPS
   "ace_of_wands",
   "two_of_wands",
   "three_of_wands",
@@ -371,6 +370,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
   -- "king_of_pentacles", -- PENTACLES
+}
+
+PB_UTIL.ENABLED_SPECTRALS = {
+  "apostle_of_cups",
 }
 
 PB_UTIL.ENABLED_BLINDS = {

@@ -66,6 +66,11 @@ SMODS.current_mod.config_tab = function()
                 label = localize('paperback_ui_custom_suits_enabled'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'suits_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_enable_spectrals'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'spectrals_enabled'
               }
             }
           }

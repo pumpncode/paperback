@@ -2072,6 +2072,7 @@ return {
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",
       paperback_ui_paperclips = "Paperclips",
+      paperback_ui_enable_spectrals = "Enable Spectral Cards",
 
       -- Plague Doctor's quotes
       paperback_plague_quote_1_1 = 'On this rock I will build my church, and the',
