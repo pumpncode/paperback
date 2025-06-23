@@ -87,6 +87,30 @@ return {
       },
     },
     Joker = {
+      j_paperback_the_dynasty = {
+        name = "The Dynasty",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult if played",
+          "hand contains",
+          "a {C:attention}#2#"
+        }
+      },
+      j_paperback_lurid_joker = {
+        name = "Zealous Joker",
+        text = {
+          "{C:chips}+#1#{} Chips if played",
+          "hand contains",
+          "a {C:attention}#2#"
+        }
+      },
+      j_paperback_zealous_joker = {
+        name = "Lurid Joker",
+        text = {
+          "{C:mult}+#1#{} Mult if played",
+          "hand contains",
+          "a {C:attention}#2#"
+        }
+      },
       j_paperback_deviled_egg = {
         name = "Deviled Egg",
         text = {

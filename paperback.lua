@@ -78,12 +78,8 @@ PB_UTIL.register_items(PB_UTIL.ENABLED_STICKERS, 'content/stickers')
 if PB_UTIL.config.suits_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
 
-  -- Register Spectrum poker hand some other Spectrum mods are not installed
-  if not (
-        next(SMODS.find_mod('Bunco'))
-        or next(SMODS.find_mod("SixSuits"))
-        or next(SMODS.find_mod("SpectrumFramework"))
-      ) then
+  -- Register Spectrum poker hand if some other Spectrum mods are not installed
+  if PB_UTIL.should_load_spectrum_items() then
     PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
     PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
   end
