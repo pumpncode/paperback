@@ -41,23 +41,17 @@ SMODS.Joker {
 
     -- At end of round decrease the amount of rounds left, destroying
     -- itself if it ever goes below 1
-    if not context.blueprint and context.end_of_round and context.main_eval then
-      card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
-
-      if card.ability.extra.rounds_left < 1 then
-        PB_UTIL.destroy_joker(card)
-
-        return {
-          message = localize('paperback_melted_ex')
-        }
-      end
-
+    if context.final_scoring_step and (hand_chips * mult > G.GAME.blind.chips) and not context.blueprint then
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.5,
+        func = function()
+          PB_UTIL.destroy_joker(card)
+          return true
+        end
+      })
       return {
-        message = localize {
-          type = 'variable',
-          key = 'paperback_a_round_minus',
-          vars = { 1 }
-        }
+        message = localize('paperback_melted_ex')
       }
     end
   end
