@@ -293,6 +293,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "spotty_joker",
   "langely",
   "pedrillo",
+  "nichola",
   -- "winter_melon",
   -- "freezer",
   -- "perke_os",

@@ -87,6 +87,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_nichola = {
+        name = "Nichola",
+        text = {
+          "{C:attention}Face{} cards {C:attention}held in",
+          "{C:attention}hand{} count in {C:attention}scoring"
+        }
+      },
       j_paperback_the_dynasty = {
         name = "The Dynasty",
         text = {
