@@ -13,7 +13,8 @@ if PB_UTIL.should_load_spectrum_items() then
     eternal_compat = true,
     perishable_compat = true,
     paperback = {
-      requires_custom_suits = true
+      requires_custom_suits = true,
+      requires_spectrum_or_suit = true
     },
 
     loc_vars = function(self, info_queue, card)
