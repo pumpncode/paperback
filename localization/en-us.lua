@@ -1351,7 +1351,7 @@ return {
       c_paperback_apostle_of_cups = {
         name = "Apostle of Cups",
         text = {
-          "Selected Joker",
+          "Selected {C:attention}playing card",
           "becomes {C:dark_edition}Negative",
           "{C:attention}#1#{} Joker slot",
         }

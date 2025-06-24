@@ -19,18 +19,16 @@ SMODS.Consumable {
   end,
 
   can_use = function(self, card)
-    return G.jokers
-        and #G.jokers.cards < G.jokers.config.card_limit
-        and #G.jokers.highlighted == 1
-        and not G.jokers.highlighted[1].edition
+    return G.hand and G.jokers
+        and #G.hand.highlighted == 1
+        and not G.hand.highlighted[1].edition
   end,
 
   use = function(self, card, area, copier)
-    local joker = G.jokers.highlighted[1]
+    local other_card = G.hand.highlighted[1]
 
     PB_UTIL.use_consumable_animation(card, nil, function()
-      joker:set_edition('e_negative')
-
+      other_card:set_edition('e_negative')
       G.jokers:change_size(card.ability.extra.delta)
     end)
   end
