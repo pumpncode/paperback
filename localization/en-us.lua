@@ -87,6 +87,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_milk_tea = {
+        name = "Milk Tea",
+        text = {
+          "Balance {C:attention}#1#%{} of {C:chips}Chips{} and {C:mult}Mult",
+          "Reduces by {C:attention}#2#%{} if after balancing",
+          "{C:mult}Mult{} ended up {C:attention}greater{} than {C:chips}Chips"
+        }
+      },
       j_paperback_nichola = {
         name = "Nichola",
         text = {
@@ -2057,6 +2065,7 @@ return {
       paperback_edition_ex = "Edition!",
       paperback_rare_ex = "Rare!",
       paperback_saved_unholy_alliance = "Saved by Unholy Alliance",
+      paperback_reduced_ex = "Reduced!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_blinds = "Enable Blinds",

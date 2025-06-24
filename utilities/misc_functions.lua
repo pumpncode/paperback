@@ -828,11 +828,15 @@ end
 
 --- Balances chips and shows the cosmetic effects just like Plasma deck
 ---@param card (table|Card)?
-function PB_UTIL.apply_plasma_effect(card)
+---@param only_visual boolean whether to only do the visual effects
+function PB_UTIL.apply_plasma_effect(card, only_visual)
   -- Actually balance the chips and mult
-  local tot = hand_chips + mult
-  hand_chips = mod_chips(math.floor(tot / 2))
-  mult = mod_mult(math.floor(tot / 2))
+  if not only_visual then
+    local tot = hand_chips + mult
+    hand_chips = mod_chips(math.floor(tot / 2))
+    mult = mod_mult(math.floor(tot / 2))
+  end
+
   update_hand_text({ delay = 0 }, { mult = mult, chips = hand_chips })
 
   -- Cosmetic effects

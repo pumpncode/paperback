@@ -184,6 +184,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "coffee",
   "matcha",
   "pinot_noir",
+  "milk_tea",
   "epic_sauce",
   "dreamsicle",
   "popsicle_stick",
