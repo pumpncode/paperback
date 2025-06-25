@@ -539,6 +539,7 @@ PB_UTIL.ENABLED_DECKS = {
   'paper',
   'proud',
   'silver',
+  'passionate',
 }
 
 PB_UTIL.ENABLED_STICKERS = {

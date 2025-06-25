@@ -25,7 +25,15 @@ return {
           "{C:paperback_minor_arcana,T:v_paperback_celtic_cross}#1#{} voucher",
           "and a {C:paperback_minor_arcana,T:c_paperback_nine_of_cups}#2#"
         }
-      }
+      },
+      b_paperback_passionate = {
+        name = "Passionate Deck",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain a",
+          "{C:attention,T:tag_paperback_high_risk}#1#",
+        }
+      },
     },
     Blind = {
       bl_paperback_quarter = {
