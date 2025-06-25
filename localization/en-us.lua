@@ -26,6 +26,14 @@ return {
           "and a {C:paperback_minor_arcana,T:c_paperback_nine_of_cups}#2#"
         }
       },
+      b_paperback_dreamer = {
+        name = "Dreamer Deck",
+        text = {
+          "Start run with an",
+          "{C:paperback_minor_arcana,T:c_paperback_apostle_of_wands}#1#",
+          "{C:attention}#2#{} Joker slot"
+        }
+      },
       b_paperback_passionate = {
         name = "Passionate Deck",
         text = {

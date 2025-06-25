@@ -539,6 +539,7 @@ PB_UTIL.ENABLED_DECKS = {
   'paper',
   'proud',
   'silver',
+  -- 'dreamer',  TODO: Add Apostle of Wands
   'passionate',
 }
 
