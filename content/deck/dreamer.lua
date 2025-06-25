@@ -10,11 +10,11 @@ if PB_UTIL.config.minor_arcana_enabled then
       }
     },
 
-    loc_vars = function(self, info_queue, card)
+    loc_vars = function(self)
       return {
         vars = {
           localize { type = 'name_text', key = 'c_paperback_apostle_of_wands', set = 'Spectral' },
-          card.joker_slot
+          self.config.joker_slot
         }
       }
     end
