@@ -1380,6 +1380,13 @@ return {
           "{C:attention}#1#{} Joker slot",
         }
       },
+      c_paperback_apostle_of_swords = {
+        name = "Apostle of Swords",
+        text = {
+          "Destroy selected {C:attention}Joker{}",
+          "{C:attention}#1#{} Antes"
+        }
+      },
     },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {
