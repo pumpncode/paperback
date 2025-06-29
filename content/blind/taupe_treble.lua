@@ -15,7 +15,7 @@ SMODS.Blind {
     end
   end,
   mult = 2,
-  boss_colour = HEX("#ab9c84"),
+  boss_colour = HEX("AB9C84"),
   atlas = 'music_blinds_atlas',
   pos = { y = 13 },
 
