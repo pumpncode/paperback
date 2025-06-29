@@ -391,6 +391,7 @@ PB_UTIL.ENABLED_BLINDS = {
   "sharp",
   "natural",
   "coda",
+  "taupe_treble"
 }
 
 PB_UTIL.DECK_SKINS = {

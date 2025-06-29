@@ -101,6 +101,13 @@ return {
           'cannot be moved',
         }
       },
+      bl_paperback_taupe_treble = {
+        name = 'Taupe Treble',
+        text = {
+          'Must play an',
+          'Enhanced card'
+        }
+      },
     },
     Joker = {
       j_paperback_milk_tea = {
