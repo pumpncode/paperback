@@ -1807,9 +1807,9 @@ return {
         name = "Ceramic Card",
         text = {
           "Earns between {C:money}$#1#{}",
-          "and {C:money}$#2#{} when scored",
-          "{C:green}#3# in #4#{} chance to",
-          "{C:red}destroy{} card"
+          "and {C:money}$#2#{} when scored,",
+          "{C:red}Destroy{} card if",
+          "{C:mult}Mult{} ended up {C:attention}greater{} than {C:chips}Chips"
         }
       },
       m_paperback_soaked = {
