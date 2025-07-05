@@ -1,6 +1,5 @@
 Partner_API.Partner {
   key = "faker",
-  name = "Faker",
   unlocked = false,
   discovered = true,
   pos = { x = 2, y = 0 },

@@ -25,6 +25,7 @@ if (SMODS.Mods["partner"] or {}).can_load then
   }
   -- list of Partner keys
   local partners = {
+    "aftermath",
     "faker",
   }
 

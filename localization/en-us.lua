@@ -2079,6 +2079,15 @@ return {
           "a {C:attention}single card{}, destroy it",
         }
       },
+      pnr_paperback_aftermath = {
+        name = "Aftermath",
+        text = {
+          "Scored {C:attention}face cards{}",
+          "gain {C:chips}+#1#{} Chips",
+          "when scored",
+        }
+      },
+    },
   },
   misc = {
     dictionary = {
