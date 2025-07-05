@@ -15,6 +15,22 @@ if (SMODS.Mods["Bunco"] or {}).can_load then
   table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
 
+if (SMODS.Mods["partner"] or {}).can_load then
+  -- Register the Partner cross-mod atlas
+  SMODS.Atlas {
+    key = 'partners_atlas',
+    path = 'Partners.png',
+    px = 46,
+    py = 58,
+  }
+  -- list of Partner keys
+  local partners = {
+    "faker",
+  }
+
+  PB_UTIL.register_items(partners, "content/partner")
+end
+
 -- JokerDisplay hook to calculate retriggers from Paperback features
 if JokerDisplay then
   local calculate_card_triggers_ref = JokerDisplay.calculate_card_triggers

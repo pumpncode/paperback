@@ -2064,6 +2064,21 @@ return {
         }
       },
     },
+    Partner = {
+      pnr_paperback_faker = {
+        name = "Faker",
+        text = {
+          "{C:attention}Once a round{} if",
+          "a played hand was a",
+          "{C:attention}single card{}, destroy it",
+        }
+      },
+      pnr_paperback_faker_buffed = {
+        text = {
+          "If a played hand was",
+          "a {C:attention}single card{}, destroy it",
+        }
+      },
   },
   misc = {
     dictionary = {
