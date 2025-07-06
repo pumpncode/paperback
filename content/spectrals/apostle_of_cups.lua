@@ -11,6 +11,7 @@ SMODS.Consumable {
 
   hidden = true,
   soul_set = "paperback_minor_arcana",
+  soul_rate = 0.001,
 
   loc_vars = function(self, info_queue, card)
     return {

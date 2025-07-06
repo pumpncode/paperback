@@ -11,6 +11,7 @@ SMODS.Consumable {
 
   hidden = true,
   soul_set = "paperback_minor_arcana",
+  soul_rate = 0.001,
 
   can_use = function(self, card)
     -- Prevent destroying eternal jokers
