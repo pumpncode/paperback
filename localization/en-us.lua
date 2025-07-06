@@ -2015,7 +2015,7 @@ return {
         name = "Gold Clip",
         text = {
           "Earn {C:money}$#1#{} at the end of round",
-          "for each scored clip {C:attention}Clip{}",
+          "for each scored {C:attention}Clip{}",
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
