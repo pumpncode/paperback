@@ -1264,10 +1264,10 @@ return {
       j_paperback_apple = {
         name = "Apple",
         text = {
-          "Scored {C:hearts}Hearts{} have a",
-          "{C:green}#1# in #2#{} chance to create",
-          "a {C:dark_edition}Negative {C:attention}Consumable",
-          "{S:1.1,C:red,E:2}self destructs",
+          "When buying a {C:attention}Consumable{}, has a",
+          "{C:green}#1# in #2#{} chance to create a",
+          "{C:dark_edition}Negative{} copy and a",
+          "{C:green}#1# in #2#{} chance to {S:1.1,C:red,E:2}self destruct",
         }
       },
       j_paperback_heretical_joker = {
