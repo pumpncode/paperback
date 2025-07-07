@@ -375,7 +375,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
 
 PB_UTIL.ENABLED_SPECTRALS = {
   "apostle_of_cups",
-  --"apostle_of_wands",
+  "apostle_of_wands",
   "apostle_of_swords",
   --"apostle_of_pentacles",
 
@@ -545,7 +545,7 @@ PB_UTIL.ENABLED_DECKS = {
   'paper',
   'proud',
   'silver',
-  -- 'dreamer', --TODO: Add Apostle of Wands
+  'dreamer',
   'passionate',
 }
 

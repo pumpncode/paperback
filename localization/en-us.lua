@@ -1387,6 +1387,14 @@ return {
           "{C:attention}#1#{} Joker slot",
         }
       },
+      c_paperback_apostle_of_wands = {
+        name = "Apostle of Wands",
+        text = {
+          "Create a non-{C:legendary}Legendary{} Joker",
+          "of {C:attention}your choice{}",
+          "{C:inactive}(No duplicates)"
+        }
+      },
       c_paperback_apostle_of_swords = {
         name = "Apostle of Swords",
         text = {
