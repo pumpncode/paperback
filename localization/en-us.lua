@@ -2073,6 +2073,22 @@ return {
       },
     },
     Partner = {
+      pnr_paperback_virtual = {
+        name = "Virtual",
+        text = {
+          "Retrigger the {C:attention}first scoring",
+          "{C:paperback_light_suit}Light Suit{} in each played hand",
+          "if no {C:paperback_dark_suit}Dark Suits{} were played",
+        }
+      },
+      pnr_paperback_aftermath = {
+        name = "Aftermath",
+        text = {
+          "Scored {C:attention}face cards{}",
+          "gain {C:chips}+#1#{} Chips",
+          "when scored",
+        }
+      },
       pnr_paperback_faker = {
         name = "Faker",
         text = {
@@ -2085,14 +2101,6 @@ return {
         text = {
           "If a played hand was",
           "a {C:attention}single card{}, destroy it",
-        }
-      },
-      pnr_paperback_aftermath = {
-        name = "Aftermath",
-        text = {
-          "Scored {C:attention}face cards{}",
-          "gain {C:chips}+#1#{} Chips",
-          "when scored",
         }
       },
     },
