@@ -78,29 +78,12 @@ SMODS.Joker {
       local jokers = SMODS.find_card(card.ability.extra.copying)
       local other_joker = pseudorandom_element(jokers, pseudoseed("forgery_dupes"))
 
-      -- This part is a copy of how the base game does it
       if other_joker and not context.no_blueprint then
-        context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
-        context.blueprint_card = context.blueprint_card or card
-
-        if context.blueprint > #G.jokers.cards + 1 then return end
-
-        local other_joker_ret = other_joker:calculate_joker(context)
-        local eff_card = context.blueprint_card or card
-        context.blueprint = nil
-        context.blueprint_card = nil
+        local other_joker_ret = SMODS.blueprint_effect(card, other_joker, context)
 
         if other_joker_ret then
-          other_joker_ret.card = eff_card
-
           -- Multiply the returned effects if they're mult, xmult or chips
-          for k, v in pairs(other_joker_ret) do
-            if PB_UTIL.is_valid_forgery_effect(k) and type(v) == "number" then
-              PB_UTIL.modify_forgery_effect(card, k, v, other_joker_ret)
-            end
-          end
-
-          ret = other_joker_ret
+          ret = PB_UTIL.modify_forgery_effect(card, other_joker_ret)
         end
       elseif not other_joker then
         card.ability.extra.copying = nil
@@ -136,30 +119,42 @@ PB_UTIL.forgery_mod_effects = {
   Xmult_mod = 'x_mult',
 }
 
-function PB_UTIL.modify_forgery_effect(card, key, value, effects)
-  local eff_type = PB_UTIL.forgery_mod_effects[key]
+function PB_UTIL.modify_forgery_effect(card, effects)
+  local new_effects = {}
 
-  -- If the effect is a 'mod' effect
-  if eff_type then
-    -- Create what the message would look like
-    local message = localize {
-      type = 'variable',
-      key = 'a_' .. eff_type .. (value < 0 and '_minus' or ''),
-      vars = { value }
-    }
-
-    -- If the message sent by the other joker is the same as the expected one
-    -- we remove it so the actual multiplied value will show instead of the
-    -- original one
-    if effects.message == message then
-      effects.message = nil
-    end
-
-    -- Remove the 'mod' effect
-    effects[key] = nil
+  for k, v in pairs(effects) do
+    new_effects[k] = v
   end
 
-  effects[eff_type or key] = value * card.ability.extra.multiplier
+  for key, value in pairs(effects) do
+    if PB_UTIL.is_valid_forgery_effect(key) and type(value) == "number" then
+      local eff_type = PB_UTIL.forgery_mod_effects[key]
+
+      -- If the effect is a 'mod' effect
+      if eff_type then
+        -- Create what the message would look like
+        local message = localize {
+          type = 'variable',
+          key = 'a_' .. eff_type .. (value < 0 and '_minus' or ''),
+          vars = { value }
+        }
+
+        -- If the message sent by the other joker is the same as the expected one
+        -- we remove it so the actual multiplied value will show instead of the
+        -- original one
+        if new_effects.message == message then
+          new_effects.message = nil
+        end
+
+        -- Remove the 'mod' effect
+        new_effects[key] = nil
+      end
+
+      new_effects[eff_type or key] = value * card.ability.extra.multiplier
+    end
+  end
+
+  return new_effects
 end
 
 function PB_UTIL.is_valid_forgery_effect(effect)
