@@ -1,7 +1,7 @@
 PB_UTIL.MinorArcanaBooster {
-  key = 'minor_arcana_jumbo',
+  key = 'minor_arcana_jumbo_2',
   atlas = 'boosters_atlas',
-  pos = { x = 2, y = 0 },
+  pos = { x = 4, y = 0 },
   config = {
     extra = 5,
     choose = 1

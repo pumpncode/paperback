@@ -516,7 +516,9 @@ PB_UTIL.DECK_SKINS = {
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_normal_1',
   'minor_arcana_normal_2',
-  'minor_arcana_jumbo',
+  'minor_arcana_normal_3',
+  'minor_arcana_jumbo_1',
+  'minor_arcana_jumbo_2',
   'minor_arcana_mega',
 }
 
