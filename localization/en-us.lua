@@ -34,6 +34,15 @@ return {
           "{C:attention}#2#{} Joker slot"
         }
       },
+      b_paperback_antique = {
+        name = "Antique Deck",
+        text = {
+          "{C:tarot}Arcana Packs{} no longer",
+          "appear in the shop",
+          "{C:paperback_minor_arcana}Minor Arcana Packs",
+          "are {C:attention}3X{} more common"
+        }
+      },
       b_paperback_passionate = {
         name = "Passionate Deck",
         text = {

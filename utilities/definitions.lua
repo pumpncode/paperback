@@ -546,6 +546,7 @@ PB_UTIL.ENABLED_DECKS = {
   'proud',
   'silver',
   'dreamer',
+  'antique',
   'passionate',
 }
 
