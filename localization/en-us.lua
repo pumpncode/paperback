@@ -122,7 +122,7 @@ return {
       j_paperback_milk_tea = {
         name = "Milk Tea",
         text = {
-          "Balance {C:attention}#1#%{} of {C:chips}Chips{} and {C:mult}Mult",
+          "{C:purple}Balance{} {C:attention}#1#%{} of {C:chips}Chips{} and {C:mult}Mult",
           "Reduces by {C:attention}#2#%{} if after balancing",
           "{C:mult}Mult{} ended up {C:attention}greater{} than {C:chips}Chips"
         }
