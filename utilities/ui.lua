@@ -409,9 +409,9 @@ function PB_UTIL.plague_quote(args)
   }))
 end
 
--- Functions to create a selected card, from All in Jest
-
-SMODS.jest_no_back_card_collection_UIBox = function(_pool, rows, args)
+-- Functions to create an UI for selecting a card, from All in Jest
+-- Used by Apostle of Wands
+function PB_UTIL.apostle_of_wands_collection_UIBox(_pool, rows, args)
   args = args or {}
   args.w_mod = args.w_mod or 1
   args.h_mod = args.h_mod or 1
@@ -447,10 +447,13 @@ SMODS.jest_no_back_card_collection_UIBox = function(_pool, rows, args)
 
   local options = {}
   for i = 1, math.ceil(#pool / cards_per_page) do
-    table.insert(options, localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#pool / cards_per_page)))
+    table.insert(
+      options,
+      localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#pool / cards_per_page))
+    )
   end
 
-  G.FUNCS.SMODS_card_collection_page = function(e)
+  G.FUNCS.paperback_card_collection_page = function(e)
     if not e or not e.cycle_config then return end
     for j = 1, #G.your_collection do
       for i = #G.your_collection[j].cards, 1, -1 do
@@ -474,7 +477,7 @@ SMODS.jest_no_back_card_collection_UIBox = function(_pool, rows, args)
     INIT_COLLECTION_CARD_ALERTS()
   end
 
-  G.FUNCS.SMODS_card_collection_page { cycle_config = { current_option = 1 } }
+  G.FUNCS.paperback_card_collection_page { cycle_config = { current_option = 1 } }
 
   local t = create_UIBox_generic_options({
     back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_" .. G.ACTIVE_MOD_UI.id or 'your_collection',
@@ -492,7 +495,7 @@ SMODS.jest_no_back_card_collection_UIBox = function(_pool, rows, args)
             w = 4.5,
             cycle_shoulders = true,
             opt_callback =
-            'SMODS_card_collection_page',
+            'paperback_card_collection_page',
             current_option = 1,
             colour = G.C.RED,
             no_pips = true,
@@ -504,9 +507,11 @@ SMODS.jest_no_back_card_collection_UIBox = function(_pool, rows, args)
   })
   return t
 end
-G.FUNCS.jest_select = function(e)
+
+G.FUNCS.paperback_select_joker = function(e)
   local c1 = e.config.ref_table
-  if c1 and c1:is(Card) then
+
+  if c1 and c1.is and type(c1.is) == "function" and c1:is(Card) then
     G.E_MANAGER:add_event(Event({
       trigger = 'after',
       delay = 0.1,
@@ -514,22 +519,46 @@ G.FUNCS.jest_select = function(e)
         local card = copy_card(c1)
         card:add_to_deck()
         e.config.data[1]:emplace(card)
+
         G.SETTINGS.paused = false
         if G.OVERLAY_MENU ~= nil then
           G.OVERLAY_MENU:remove()
           G.OVERLAY_MENU = nil
         end
+
         return true
       end
     }))
   end
 end
-function jest_create_select_card_ui(card, area)
+
+function PB_UTIL.create_select_card_ui(card, area)
   local t2 = {
     n = G.UIT.ROOT,
-    config = { ref_table = card, minw = 0.6, maxw = 1, padding = 0.1, align = 'bm', colour = G.C.GREEN, shadow = true, r = 0.08, minh = 0.3, one_press = true, button = 'jest_select', data = { area }, hover = true },
+    config = {
+      ref_table = card,
+      minw = 0.6,
+      maxw = 1,
+      padding = 0.1,
+      align = 'bm',
+      colour = G.C.GREEN,
+      shadow = true,
+      r = 0.08,
+      minh = 0.3,
+      one_press = true,
+      button = 'paperback_select_joker',
+      data = { area },
+      hover = true
+    },
     nodes = {
-      { n = G.UIT.T, config = { text = "Select", colour = G.C.WHITE, scale = 0.5 } }
+      {
+        n = G.UIT.T,
+        config = {
+          text = localize('paperback_ui_select'),
+          colour = G.C.WHITE,
+          scale = 0.5
+        }
+      }
     }
   }
 
