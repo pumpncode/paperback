@@ -15,7 +15,7 @@ PB_UTIL.MinorArcana {
     end
 
     PB_UTIL.use_consumable_animation(card, nil, function()
-      PB_UTIL.destroy_playing_cards(cards)
+      SMODS.destroy_cards(cards)
 
       if G.GAME.dollars ~= 0 then
         ease_dollars(-G.GAME.dollars, true)

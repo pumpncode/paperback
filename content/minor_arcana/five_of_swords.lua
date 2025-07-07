@@ -62,7 +62,7 @@ PB_UTIL.MinorArcana {
         target:set_edition(edition, true)
       end
 
-      PB_UTIL.destroy_playing_cards(cards)
+      SMODS.destroy_cards(cards)
     end)
   end
 }

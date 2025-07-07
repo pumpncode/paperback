@@ -23,7 +23,7 @@ PB_UTIL.MinorArcana {
             end
           end
         end
-        PB_UTIL.destroy_playing_cards(cards)
+        SMODS.destroy_cards(cards)
       end
     end)
   end

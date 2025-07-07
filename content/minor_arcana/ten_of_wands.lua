@@ -29,7 +29,7 @@ PB_UTIL.MinorArcana {
       if left then
         left.ability.perma_bonus = (left.ability.perma_bonus or 0) + increase
       end
-      PB_UTIL.destroy_playing_cards(cards)
+      SMODS.destroy_cards(cards)
     end)
   end
 }
