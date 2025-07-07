@@ -31,9 +31,15 @@ SMODS.Consumable {
         local selectable_jokers = {}
 
         for _, v in ipairs(G.P_CENTER_POOLS.Joker) do
-          if v.rarity ~= 4 and not next(SMODS.find_card(v.key)) then
+          -- Only shows discovered non-legendary and non-owned jokers
+          if v.discovered and v.rarity ~= 4 and not next(SMODS.find_card(v.key)) then
             selectable_jokers[#selectable_jokers + 1] = v
           end
+        end
+
+        -- If the list of jokers is empty, we want at least one option so the user can leave the menu
+        if #selectable_jokers <= 0 then
+          selectable_jokers[#selectable_jokers + 1] = G.P_CENTERS.j_joker
         end
 
         G.FUNCS.overlay_menu {
