@@ -30,6 +30,13 @@ SMODS.Joker {
     }
   end,
 
+  set_ability = function(self, card, initial, delay_sprites)
+    -- 1 in 100 chance to have a different sprite
+    if initial and pseudorandom("pear_joke", 1, 100) == 1 then
+      card.children.center:set_sprite_pos { x = 17, y = 3 }
+    end
+  end,
+
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
       if next(context.poker_hands['Pair']) then
