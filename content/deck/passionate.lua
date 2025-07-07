@@ -3,6 +3,9 @@ if PB_UTIL.config.tags_enabled then
     key = 'passionate',
     atlas = 'decks_atlas',
     pos = { x = 5, y = 0 },
+    config = {
+      no_interest = true
+    },
 
     loc_vars = function(self, info_queue, card)
       return {

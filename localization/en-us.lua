@@ -49,6 +49,7 @@ return {
           "After defeating each",
           "{C:attention}Boss Blind{}, gain a",
           "{C:attention,T:tag_paperback_high_risk}#1#",
+          "Earn no {C:money}Interest"
         }
       },
     },
