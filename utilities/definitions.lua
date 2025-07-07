@@ -482,7 +482,35 @@ PB_UTIL.DECK_SKINS = {
     suits = {
       'paperback_Crowns'
     }
-  }
+  },
+  {
+    id = 'primarina',
+    name = "Pokemon (Primarina)",
+    suits = {
+      'Hearts'
+    }
+  },
+  {
+    id = 'serperior',
+    name = "Pokemon (Serperior)",
+    suits = {
+      'Clubs'
+    }
+  },
+  {
+    id = 'delphox',
+    name = "Pokemon (Delphox)",
+    suits = {
+      'Diamonds'
+    }
+  },
+  {
+    id = 'gardevoir',
+    name = "Pokemon (Gardevoir)",
+    suits = {
+      'Spades'
+    }
+  },
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
