@@ -51,7 +51,7 @@ Partner_API.Partner {
           }
         else
           return {
-            repetitions = card.ability.extra.retriggers * 2,
+            repetitions = card.ability.extra.retriggers,
             card = card,
             message = localize("k_again_ex"),
           }
