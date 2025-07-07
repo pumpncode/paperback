@@ -31,12 +31,10 @@ Partner_API.Partner {
 
   calculate = function(self, card, context)
     if context.before then
-      print("reactivating partner")
       card.ability.extra.active = true
     end
 
     if context.repetitions and context.cardarea == G.play then
-      print("card being scored")
       for k, v in ipairs(context.full_hand) do
         if PB_UTIL.is_suit(v, 'dark') then
           card.ability.extra.active = false
@@ -44,7 +42,6 @@ Partner_API.Partner {
         end
       end
       if PB_UTIL.is_suit(context.other_card, 'light') and card.ability.extra.active then
-        print("found a light suit while active")
         card.ability.extra.active = false
         if next(SMODS.find_card("j_paperback_paranoia")) then
           return {
