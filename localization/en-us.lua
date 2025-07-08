@@ -1220,6 +1220,14 @@ return {
           "{C:inactive}(Currently next {C:chips}#4#{C:inactive} hands)",
         },
       },
+      j_paperback_giga_size = {
+        name = "GIGA SIZE",
+        text = {
+          "This Joker gains {X:mult,C:white}X#2#{} Mult",
+          "for every hand played in current {C:attention}Blind{}",
+          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+        },
+      },
       j_paperback_popsicle_stick = {
         name = "Popsicle Stick",
         text = {

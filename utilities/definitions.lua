@@ -214,6 +214,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "let_it_happen",
   "joker_cd_i",
   "prince_of_darkness",
+  "giga_size",
   "jester_of_nihil",
   "wild_prize",
   "deadringer",
