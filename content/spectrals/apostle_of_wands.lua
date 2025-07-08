@@ -7,7 +7,7 @@ SMODS.Consumable {
   },
   set = "Spectral",
   atlas = 'spectral_atlas',
-  pos = { x = 0, y = 0 },
+  pos = { x = 1, y = 0 },
 
   hidden = true,
   soul_set = "paperback_minor_arcana",
