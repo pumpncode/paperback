@@ -213,6 +213,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "great_wave",
   "let_it_happen",
   "joker_cd_i",
+  "determination",
   "prince_of_darkness",
   "giga_size",
   "jester_of_nihil",

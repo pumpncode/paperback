@@ -436,6 +436,14 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
+      j_paperback_determination = {
+        name = 'Determination',
+        text = {
+          "Prevents death, on death",
+          "{C:attention}#1#{} Ante, {C:attention}#1#{} hand size",
+          "and {C:red}self destructs"
+        }
+      },
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
@@ -2153,7 +2161,9 @@ return {
       paperback_edition_ex = "Edition!",
       paperback_rare_ex = "Rare!",
       paperback_saved_unholy_alliance = "Saved by Unholy Alliance",
+      paperback_saved_determination = "Saved by Determination",
       paperback_reduced_ex = "Reduced!",
+      paperback_determination_ex = "NGAAAHH!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_blinds = "Enable Blinds",
