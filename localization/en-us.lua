@@ -1131,7 +1131,15 @@ return {
           "{X:mult,C:white}X#1#{} Mult if",
           "{C:attention}#2#{} unique {C:attention}enhancements{}",
           "or {C:attention}seals{} are in your full deck",
-          "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
+          "{C:inactive}(Currently {C:attention}X#1#{C:inactive} Chips)",
+        },
+      },
+      j_paperback_ready_to_fly = {
+        name = "Ready to Fly",
+        text = {
+          "This Joker gains {X:chips,C:white}X#2#{} Chips",
+          "whenever an adjacent Joker is {C:attention}triggerred",
+          "{C:inactive}(Currently {X:chips,C:white}X#1#{C:inactive} Chips)",
         },
       },
       j_paperback_solar_system = {

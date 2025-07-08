@@ -3,7 +3,8 @@ PB_UTIL.config = SMODS.current_mod.config
 
 -- Enable optional features
 SMODS.current_mod.optional_features = {
-  retrigger_joker = true
+  retrigger_joker = true,
+  post_trigger = true,
 }
 
 -- Update values that get reset at the start of each round
@@ -210,6 +211,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "tutor",
   "high_speed_rail",
   "grand_strategy",
+  "ready_to_fly",
   "great_wave",
   "let_it_happen",
   "joker_cd_i",
