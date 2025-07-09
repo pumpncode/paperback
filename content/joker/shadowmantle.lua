@@ -41,6 +41,11 @@ SMODS.Joker {
     if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
       if pseudorandom('shadowmantle') < G.GAME.probabilities.normal / card.ability.extra.odds then
         PB_UTIL.add_tag("tag_negative", true)
+        return {
+          message = localize('paperback_plus_tag'),
+          colour = G.C.BLACK,
+          message_card = context.blueprint_card or card
+        }
       end
     end
   end
