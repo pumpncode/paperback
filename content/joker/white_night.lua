@@ -67,7 +67,7 @@ SMODS.Joker {
     end
 
     if context.destroy_card and not context.blueprint and context.cardarea == G.play then
-      if not PB_UTIL.is_rank(context.destroy_card, 'paperback_Apostle') then
+      if not PB_UTIL.is_rank(context.destroy_card, 'paperback_Apostle') and not context.destroy_card.debuff then
         return { remove = true }
       end
     end
