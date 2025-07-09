@@ -2260,6 +2260,7 @@ return {
       paperback_clippy_msg_6 = "Ask me!",
       paperback_clippy_msg_7 = "Should I leave?",
       paperback_clippy_msg_8 = "Mouse is on!",
+      paperback_clippy_msg_full = "Storage full!",
 
       -- Da Capo messages
       paperback_da_capo_Clubs = "Movement 1",

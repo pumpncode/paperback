@@ -15,19 +15,21 @@ SMODS.Joker {
   },
 
   calculate = function(self, card, context)
+    local unclipped = {}
     if context.setting_blind then
       local clip = PB_UTIL.poll_paperclip "clippy"
       for _, v in ipairs(G.playing_cards) do
         if not PB_UTIL.has_paperclip(v) then
-          PB_UTIL.set_paperclip(v, clip)
-          local key = "paperback_clippy_msg_" .. math.random(1, 8)
-          return {
-            message = localize(key)
-          }
+          table.insert(unclipped, v)
         end
       end
-      local _card = pseudorandom_element(G.playing_cards, pseudoseed("clippy"))
-      PB_UTIL.set_paperclip(v, clip)
+      if #unclipped == 0 then
+        return {
+          message = localize("paperback_clippy_msg_full")
+        }
+      end
+      local _card = pseudorandom_element(unclipped, pseudoseed("clippy"))
+      PB_UTIL.set_paperclip(_card, clip)
       local key = "paperback_clippy_msg_" .. math.random(1, 8)
       return {
         message = localize(key)
