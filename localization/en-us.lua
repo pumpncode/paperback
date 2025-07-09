@@ -29,7 +29,7 @@ return {
       b_paperback_dreamer = {
         name = "Dreamer Deck",
         text = {
-          "Start run with an",
+          "Start run with a {C:paperback_temporary}temporary",
           "{C:paperback_minor_arcana,T:c_paperback_apostle_of_wands}#1#",
           "{C:attention}#2#{} Joker slot"
         }

@@ -39,4 +39,5 @@ payload = '''
   paperback_black = G.C.PAPERBACK_BLACK,
   paperback_pink = G.C.PAPERBACK_PINK,
   paperback_perishable = G.C.PERISHABLE,
+  paperback_temporary = G.C.PAPERBACK_TEMPORARY,
 '''

@@ -13,13 +13,18 @@ SMODS.Sticker {
   end,
 }
 
--- Hook end_round to destroy Jokers with this sticker
-
+-- Hook end_round to destroy Jokers and Consumables with this sticker
 local end_round_ref = end_round
 function end_round()
   for _, v in ipairs(G.jokers and G.jokers.cards or {}) do
     if v.ability.paperback_temporary then
       PB_UTIL.destroy_joker(v)
+    end
+  end
+
+  for _, v in ipairs(G.consumeables and G.consumeables.cards or {}) do
+    if v.ability.paperback_temporary then
+      SMODS.destroy_cards(v)
     end
   end
 
