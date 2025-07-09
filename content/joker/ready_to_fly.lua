@@ -4,7 +4,7 @@ SMODS.Joker {
   pos = { x = 16, y = 0 },
   atlas = 'jokers_atlas',
   cost = 6,
-  config = { extra = { xchips = 1, scaling = 0.05, left = nil, right = nil } },
+  config = { extra = { xchips = 1, scaling = 0.05 } },
   unlocked = true,
   discovered = false,
   blueprint_compat = false,
@@ -19,28 +19,25 @@ SMODS.Joker {
     }
   end,
 
-  update = function(self, card, dt)
-    if G.STAGE == G.STAGES.RUN then
+  calculate = function(self, card, context)
+    if context.post_trigger then
+      local left_joker = nil
+      local right_joker = nil
       for i = 1, #G.jokers.cards do
         if G.jokers.cards[i] == card then
           if i > 1 then
-            card.ability.extra.left = G.jokers.cards[i - 1]
+            left_joker = G.jokers.cards[i - 1]
           else
-            card.ability.extra.left = nil
+            left_joker = nil
           end
           if i <= #G.jokers.cards then
-            card.ability.extra.right = G.jokers.cards[i + 1]
+            right_joker = G.jokers.cards[i + 1]
           else
-            card.ability.extra.right = nil
+            right_joker = nil
           end
         end
       end
-    end
-  end,
-
-  calculate = function(self, card, context)
-    if context.post_trigger then
-      if (card.ability.extra.left and context.other_card == card.ability.extra.left) or (card.ability.extra.right and context.other_card == card.ability.extra.right) then
+      if (left_joker and context.other_card == left_joker) or (right_joker and context.other_card == right_joker) then
         card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.scaling
         return {
           message = localize('k_upgrade_ex'),

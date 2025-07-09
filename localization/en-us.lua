@@ -214,7 +214,7 @@ return {
         name = "Pedrillo",
         text = {
           "If scoring hand contains a {C:attention}Queen{},",
-          "upgrade the played {C:attention}poker hand{}"
+          "uprade the played {C:attention}poker hand{}"
         }
       },
       j_paperback_double_dutchman = {
@@ -634,7 +634,7 @@ return {
         text = {
           "{X:mult,C:white}X#1#{} Mult for every",
           "{C:attention}Food Joker{} you have",
-          "{s:0.9}Melts if {s:0.9,C:attention}score catches fire",
+          "Melts in {C:attention}#2#{} rounds",
           "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
         }
       },
@@ -1131,7 +1131,7 @@ return {
           "{X:mult,C:white}X#1#{} Mult if",
           "{C:attention}#2#{} unique {C:attention}enhancements{}",
           "or {C:attention}seals{} are in your full deck",
-          "{C:inactive}(Currently {C:attention}X#1#{C:inactive} Chips)",
+          "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
         },
       },
       j_paperback_ready_to_fly = {
@@ -1718,7 +1718,7 @@ return {
       c_paperback_eight_of_swords = {
         name = "Eight of Swords",
         text = {
-          "Adds random {C:attention}Clips{} to",
+          "Adds random {C:attention}Clip{} to",
           "up to {C:attention}#1#{} selected cards"
         }
       },
