@@ -1162,7 +1162,7 @@ return {
         name = "Ready to Fly",
         text = {
           "This Joker gains {X:chips,C:white}X#2#{} Chips",
-          "whenever an adjacent Joker is {C:attention}triggerred",
+          "whenever an adjacent Joker is {C:attention}triggered",
           "{C:inactive}(Currently {X:chips,C:white}X#1#{C:inactive} Chips)",
         },
       },
