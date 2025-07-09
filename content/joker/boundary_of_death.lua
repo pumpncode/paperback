@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       odds = 4,
-      mult = 50
+      mult = 46
     }
   },
   rarity = 3,
@@ -76,13 +76,15 @@ SMODS.Joker {
 
 local get_chip_mult_ref = Card.get_chip_mult
 function Card.get_chip_mult(self)
+  local amt = get_chip_mult_ref(self)
+
   if SMODS.has_enhancement(self, 'm_mult') then
     local _, joker = next(SMODS.find_card('j_paperback_boundary_of_death', false))
 
     if joker and pseudorandom("boundary_of_death") < G.GAME.probabilities.normal / joker.ability.extra.odds then
-      return joker.ability.extra.mult
+      amt = amt + joker.ability.extra.mult
     end
   end
 
-  return get_chip_mult_ref(self)
+  return amt
 end

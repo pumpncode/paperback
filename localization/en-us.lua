@@ -466,7 +466,7 @@ return {
         text = {
           "{C:attention}#1#s{} have a",
           "{C:green}#2# in #3#{} chance to",
-          "instead give {C:red}+#4#{} Mult"
+          "additionally give {C:red}+#4#{} Mult"
         }
       },
       j_paperback_festive_joker = {
