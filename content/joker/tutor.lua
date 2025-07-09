@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = "tutor",
-  rarity = 3,
+  rarity = 1,
   pos = { x = 4, y = 10 },
   atlas = "jokers_atlas",
   cost = 6,
