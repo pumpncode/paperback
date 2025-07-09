@@ -26,7 +26,6 @@ function Card.get_chip_bonus(self)
       end
       return (self.base.nominal + self.ability.bonus + (self.ability.perma_bonus or 0)) * multiplier
     end
-  else
-    return get_chip_bonus_ref(self)
   end
+  return get_chip_bonus_ref(self)
 end
