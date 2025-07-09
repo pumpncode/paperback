@@ -214,7 +214,7 @@ return {
         name = "Pedrillo",
         text = {
           "If scoring hand contains a {C:attention}Queen{},",
-          "uprade the played {C:attention}poker hand{}"
+          "upgrade the played {C:attention}poker hand{}"
         }
       },
       j_paperback_double_dutchman = {
@@ -335,6 +335,14 @@ return {
           "Gains {X:chips,C:white}X#1#{} Chips when a {V:1}#2#{} scores",
           "Loses {X:chips,C:white}X#3#{} Chips when a {V:2}#4#{} scores",
           "{C:inactive}(Currently {X:chips,C:white}X#5#{C:inactive} Chips)"
+        }
+      },
+      j_paperback_shadowmantle = {
+        name = "ShadowMantle", -- Not a typo, equipment in deltarune is written without a space
+        text = {
+          "Scored {V:1}#1#{} have a",
+          "{C:green}#2# in #3#{} chance to create",
+          "a {C:dark_edition}Negative {C:attention}Tag{}",
         }
       },
       j_paperback_shooting_star = {
@@ -634,7 +642,7 @@ return {
         text = {
           "{X:mult,C:white}X#1#{} Mult for every",
           "{C:attention}Food Joker{} you have",
-          "Melts in {C:attention}#2#{} rounds",
+          "{s:0.9}Melts if {s:0.9,C:attention}score catches fire",
           "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
         }
       },
@@ -1131,7 +1139,7 @@ return {
           "{X:mult,C:white}X#1#{} Mult if",
           "{C:attention}#2#{} unique {C:attention}enhancements{}",
           "or {C:attention}seals{} are in your full deck",
-          "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
+          "{C:inactive}(Currently {C:attention}X#1#{C:inactive} Chips)",
         },
       },
       j_paperback_ready_to_fly = {
@@ -1718,7 +1726,7 @@ return {
       c_paperback_eight_of_swords = {
         name = "Eight of Swords",
         text = {
-          "Adds random {C:attention}Clip{} to",
+          "Adds random {C:attention}Clips{} to",
           "up to {C:attention}#1#{} selected cards"
         }
       },

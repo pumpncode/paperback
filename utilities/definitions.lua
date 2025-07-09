@@ -273,6 +273,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "black_star",
   "shooting_star",
   "blue_star",
+  "shadowmantle",
   "zealous_joker",
   "lurid_joker",
   "the_dynasty",
