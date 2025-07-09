@@ -930,6 +930,13 @@ return {
           "{C:attention}card slot",
         },
       },
+      j_paperback_tutor = {
+        name = "Tutor",
+        text = {
+          "{C:attention}Numbered cards{} have",
+          "{C:attention}double{} their total {C:chips}Chip{} value",
+        },
+      },
       j_paperback_ghost_cola = {
         name = "Ghost Cola",
         text = {
