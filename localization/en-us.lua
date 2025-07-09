@@ -582,6 +582,15 @@ return {
           "once, and scored {C:attention}#3#s{} twice"
         }
       },
+      j_paperback_ncj = {
+        name = "NoCopyrightJokers",
+        text = {
+          "This Joker gives {C:chips}+#1#{} Chips for",
+          "every {C:money}dollar{} of {C:attention}sell value",
+          "from all other owned Jokers",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+        }
+      },
       j_paperback_full_moon = {
         name = "Full Moon",
         text = {

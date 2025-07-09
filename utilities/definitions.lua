@@ -221,6 +221,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jester_of_nihil",
   "wild_prize",
   "deadringer",
+  "ncj",
   "bicycle",
   "joke_master",
   "pride_flag",
