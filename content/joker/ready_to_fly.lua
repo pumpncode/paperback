@@ -38,11 +38,13 @@ SMODS.Joker {
         end
       end
       if (left_joker and context.other_card == left_joker) or (right_joker and context.other_card == right_joker) then
-        card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.scaling
-        return {
-          message = localize('k_upgrade_ex'),
-          message_card = card
-        }
+        if not context.blueprint then
+          card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.scaling
+          return {
+            message = localize('k_upgrade_ex'),
+            message_card = card
+          }
+        end
       end
     end
 
