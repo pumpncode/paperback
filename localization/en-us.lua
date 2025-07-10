@@ -426,6 +426,15 @@ return {
           "{C:blue}Common {C:attention}Jokers"
         }
       },
+      j_paperback_better_call_jimbo = {
+        name = "Better Call Jimbo",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult for",
+          "every {C:money}$#2#{} owned",
+          "Earn no {C:money}Interest{}",
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_touch_tone_joker = {
         name = "Touch Tone Joker",
         text = {

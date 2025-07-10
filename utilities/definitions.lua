@@ -259,6 +259,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jimbos_joyous_joker_jamboree",
   -- "banana_man",
   "the_normal_joker",
+  "better_call_jimbo",
   "jimbo_adventure",
   "ddakji",
   "pocket_pair",
