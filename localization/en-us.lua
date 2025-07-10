@@ -767,6 +767,14 @@ return {
           "{s:0.8}Card changes every round"
         },
       },
+      j_paperback_forlorn = {
+        name = "Forlorn",
+        text = {
+          "If {C:attention}scoring hand{} contains only",
+          "{V:1}#1#{}, destroy a random",
+          "card {C:attention}held in hand",
+        },
+      },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
         text = {
@@ -2207,6 +2215,7 @@ return {
       paperback_saved_determination = "Saved by Determination",
       paperback_reduced_ex = "Reduced!",
       paperback_determination_ex = "NGAAAHH!",
+      paperback_forlorn_destruction = "Sorry...",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_enable_blinds = "Enable Blinds",
