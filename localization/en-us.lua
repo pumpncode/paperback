@@ -1352,8 +1352,7 @@ return {
         text = {
           "When buying a {C:attention}Consumable{}, has a",
           "{C:green}#1# in #2#{} chance to create a",
-          "{C:dark_edition}Negative{} copy and a",
-          "{C:green}#1# in #2#{} chance to {S:1.1,C:red,E:2}self destruct",
+          "{C:dark_edition}Negative{} copy and {S:1.1,C:red,E:2}self destruct",
         }
       },
       j_paperback_heretical_joker = {
