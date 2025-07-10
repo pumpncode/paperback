@@ -597,7 +597,7 @@ return {
         text = {
           "This Joker gives {C:chips}+#1#{} Chips for",
           "every {C:money}dollar{} of {C:attention}sell value",
-          "from all other owned Jokers",
+          "from all owned Jokers",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },

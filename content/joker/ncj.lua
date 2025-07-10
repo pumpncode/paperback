@@ -5,7 +5,6 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   config = {
     extra = {
-      chips = 0,
       scaling = 8
     }
   },
@@ -14,29 +13,34 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
-
   loc_vars = function(self, info_queue, card)
+    local in_shop = card.area and card.area.config.type == 'shop'
+    local sell_cost = in_shop and card.sell_cost or 0
+
+    if G.jokers then
+      for _, v in ipairs(G.jokers.cards) do
+        sell_cost = sell_cost + v.sell_cost
+      end
+    end
+
     return {
       vars = {
         card.ability.extra.scaling,
-        card.ability.extra.chips
+        math.max(0, sell_cost * card.ability.extra.scaling)
       }
     }
   end,
-  calculate = function(self, card, context)
-    if G.jokers then
-      local sell_cost = 0
-      for i = 1, #G.jokers.cards do
-        if G.jokers.cards[i] ~= card then
-          sell_cost = sell_cost + G.jokers.cards[i].sell_cost
-        end
-      end
-      card.ability.extra.chips = sell_cost * card.ability.extra.scaling
-    end
 
+  calculate = function(self, card, context)
     if context.joker_main then
+      local sell_cost = 0
+
+      for _, v in ipairs(G.jokers.cards) do
+        sell_cost = sell_cost + v.sell_cost
+      end
+
       return {
-        chips = card.ability.extra.chips
+        chips = math.max(0, sell_cost * card.ability.extra.scaling)
       }
     end
   end
