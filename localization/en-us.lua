@@ -246,10 +246,10 @@ return {
       j_paperback_white_night = {
         name = "WhiteNight",
         text = {
-          "Destroy all non-{C:attention}Apostle{} cards played",
-          "after hand is scored. Scored {C:attention}Apostles{} give",
-          "{X:mult,C:white}X#1#{} Mult. Playing a hand containing no",
-          "{C:attention}Apostles destroys{} a random Joker.",
+          "Destroy all scored non-{C:attention}Apostle{} cards",
+          "at the end of the hand. Scored {C:attention}Apostles{}",
+          "give {X:mult,C:white}X#1#{} Mult. Playing a hand containing",
+          "no {C:attention}Apostles destroys{} a random Joker.",
           "Discarded {C:attention}Apostles{} are {C:attention}destroyed{}"
         },
         unlock = {
