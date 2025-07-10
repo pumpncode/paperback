@@ -26,18 +26,7 @@ SMODS.Joker {
     }
   end,
 
-  remove_from_deck = function(self, card, from_debuff)
-    G.GAME.modifiers.no_interest = false
-  end,
-
   calculate = function(self, card, context)
-    if context.end_of_round then
-      G.GAME.modifiers.no_interest = true
-    end
-
-    if card.debuff then
-      G.GAME.modifiers.no_interest = false
-    end
     if context.joker_main then
       return {
         x_mult = 1 + math.max(0,
