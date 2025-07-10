@@ -1257,7 +1257,7 @@ return {
           "If played hand contains only",
           "{C:paperback_light_suit}Light Suits{} this Joker",
           "gains {C:mult}+#1#{}, lose {C:mult}+#1#{}",
-          "when a {C:paperback_light_suit}Dark Suit{} is scored",
+          "when a {C:paperback_dark_suit}Dark Suit{} is scored",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
       },
