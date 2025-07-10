@@ -1173,7 +1173,7 @@ return {
           "{X:mult,C:white}X#1#{} Mult if",
           "{C:attention}#2#{} unique {C:attention}enhancements{}",
           "or {C:attention}seals{} are in your full deck",
-          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
+          "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
         },
       },
       j_paperback_ready_to_fly = {
