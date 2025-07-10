@@ -1900,7 +1900,7 @@ return {
         text = {
           "Earns between {C:money}$#1#{}",
           "and {C:money}$#2#{} when scored,",
-          "{C:red}Destroy{} card if",
+          "{C:red}Shatter{} card if",
           "{C:mult}Mult{} ended up ",
           "{C:attention}greater{} than {C:chips}Chips",
           "while played or held"
