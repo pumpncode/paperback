@@ -1156,7 +1156,7 @@ return {
           "{X:mult,C:white}X#1#{} Mult if",
           "{C:attention}#2#{} unique {C:attention}enhancements{}",
           "or {C:attention}seals{} are in your full deck",
-          "{C:inactive}(Currently {C:attention}X#1#{C:inactive} Chips)",
+          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
         },
       },
       j_paperback_ready_to_fly = {
@@ -1241,6 +1241,16 @@ return {
           "{C:attention}#1#{}, create a copy",
           "of a {C:attention}random consumable",
           "{C:inactive}(Must have room)",
+        },
+      },
+      j_paperback_the_sun = {
+        name = "The Sun",
+        text = {
+          "If played hand contains only",
+          "{C:paperback_light_suit}Light Suits{} this Joker",
+          "gains {C:mult}+#1#{}, lose {C:mult}+#1#{}",
+          "when a {C:paperback_light_suit}Dark Suit{} is scored",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
       },
       j_paperback_pointy_stick = {

@@ -237,6 +237,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "mexican_train",
   "resurrections",
   "summoning_circle",
+  "the_sun",
   "union_card",
   "book_of_vengeance",
   "moribund",
