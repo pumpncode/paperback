@@ -8,11 +8,19 @@ SMODS.current_mod.config_tab = function()
         n = G.UIT.R,
         config = { align = 'cm', minh = 1 },
         nodes = {
-          { n = G.UIT.T, config = { text = localize('paperback_ui_requires_restart'), colour = G.C.RED, scale = 0.5 } }
+          {
+            n = G.UIT.T,
+            config = {
+              text = localize('paperback_ui_requires_restart'),
+              colour = G.C.RED,
+              scale = 0.5
+            }
+          }
         }
       },
       {
         n = G.UIT.R,
+        config = { align = 'cm' },
         nodes = {
           {
             n = G.UIT.C,
@@ -72,6 +80,36 @@ SMODS.current_mod.config_tab = function()
                 ref_table = PB_UTIL.config,
                 ref_value = 'spectrals_enabled'
               }
+            }
+          }
+        }
+      },
+      {
+        n = G.UIT.R,
+        config = { align = 'cm', minh = 1 },
+        nodes = {
+          {
+            n = G.UIT.T,
+            config = {
+              text = localize('paperback_ui_no_requires_restart'),
+              colour = G.C.GREEN,
+              scale = 0.5
+            }
+          }
+        }
+      },
+      {
+        n = G.UIT.R,
+        config = { align = 'cm' },
+        nodes = {
+          {
+            n = G.UIT.C,
+            nodes = {
+              create_toggle {
+                label = localize('paperback_ui_plague_doctor_quotes'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'plague_doctor_quotes_enabled'
+              },
             }
           }
         }

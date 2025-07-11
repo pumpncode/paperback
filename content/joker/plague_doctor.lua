@@ -97,30 +97,32 @@ SMODS.Joker {
           end
         }))
 
-        local quote = (apostleCount > 12) and 12 or apostleCount
-        G.E_MANAGER:add_event(Event({
-          trigger = 'after',
-          delay = 0.1,
-          func = function()
-            PB_UTIL.plague_quote({
-              text = localize('paperback_plague_quote_' .. quote .. '_1'),
-              colour = G.C.RED,
-              major = G.play,
-              hold = 4 * G.SETTINGS.GAMESPEED,
-              offset = { x = 0, y = -3 },
-              scale = 0.6
-            })
-            PB_UTIL.plague_quote({
-              text = localize('paperback_plague_quote_' .. quote .. '_2'),
-              colour = G.C.RED,
-              major = G.play,
-              hold = 4 * G.SETTINGS.GAMESPEED,
-              offset = { x = 0, y = -2.2 },
-              scale = 0.6
-            })
-            return true
-          end
-        }))
+        if PB_UTIL.config.plague_doctor_quotes_enabled then
+          local quote = (apostleCount > 12) and 12 or apostleCount
+          G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+              PB_UTIL.plague_quote({
+                text = localize('paperback_plague_quote_' .. quote .. '_1'),
+                colour = G.C.RED,
+                major = G.play,
+                hold = 4 * G.SETTINGS.GAMESPEED,
+                offset = { x = 0, y = -3 },
+                scale = 0.6
+              })
+              PB_UTIL.plague_quote({
+                text = localize('paperback_plague_quote_' .. quote .. '_2'),
+                colour = G.C.RED,
+                major = G.play,
+                hold = 4 * G.SETTINGS.GAMESPEED,
+                offset = { x = 0, y = -2.2 },
+                scale = 0.6
+              })
+              return true
+            end
+          }))
+        end
       end
 
       if apostleCount >= 12 then

@@ -2253,6 +2253,7 @@ return {
       paperback_freezer_ex = "Dinner Time!",
 
       paperback_ui_requires_restart = "Requires Restart",
+      paperback_ui_no_requires_restart = "Doesn't Require Restart",
       paperback_ui_enable_blinds = "Enable Blinds",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
       paperback_ui_enable_enhancements = "Enable Enhancements",
@@ -2267,6 +2268,7 @@ return {
       paperback_ui_localization = "Localization",
       paperback_ui_paperclips = "Paperclips",
       paperback_ui_enable_spectrals = "Enable Spectral Cards",
+      paperback_ui_plague_doctor_quotes = "Plague Doctor Quotes",
       paperback_ui_select = "Select",
 
       -- Plague Doctor's quotes
