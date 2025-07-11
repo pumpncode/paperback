@@ -554,9 +554,10 @@ G.FUNCS.paperback_select_joker = function(e)
       trigger = 'after',
       delay = 0.1,
       func = function()
-        local card = copy_card(c1)
-        card:add_to_deck()
-        e.config.data[1]:emplace(card)
+        SMODS.add_card {
+          key = c1.config.center_key,
+          area = e.config.data[1]
+        }
 
         G.SETTINGS.paused = false
         if G.OVERLAY_MENU ~= nil then
