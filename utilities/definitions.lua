@@ -171,6 +171,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "skydiver",
   "surfer",
   "apple",
+  "freezer",
   "joker_cookie",
   "double_dutchman",
   "nachos",
