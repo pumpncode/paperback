@@ -121,6 +121,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_chaplin = {
+        name = "Chaplin",
+        text = {
+          "When buying a {C:attention}Voucher{}, also",
+          "gain the {C:attention}upgraded{} version"
+        }
+      },
       j_paperback_milk_tea = {
         name = "Milk Tea",
         text = {
@@ -1000,7 +1007,7 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)",
         },
       },
-      j_paperback_wild_draw_four = {
+      j_paperback_wild_plus_four = {
         name = "Wild +4",
         text = {
           "{C:attention}+#1#{} hand size"
