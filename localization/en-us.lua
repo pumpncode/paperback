@@ -379,6 +379,15 @@ return {
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
+      j_paperback_aurora_borealis = {
+        name = "Aurora Borealis",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "for each {C:attention}editioned Joker{} card",
+          "{s:0.9,C:dark_edition}Negatives{s:0.9,C:inactive} are excluded{}",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
       j_paperback_joke_master = {
         name = "Joke Master",
         text = {

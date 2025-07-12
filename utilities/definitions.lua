@@ -216,6 +216,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "tutor",
   "its_tv_time",
   "high_speed_rail",
+  "aurora_borealis",
   "grand_strategy",
   "ready_to_fly",
   "great_wave",
