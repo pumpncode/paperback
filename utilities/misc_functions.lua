@@ -1049,3 +1049,37 @@ function PB_UTIL.tenna_check(card, suit)
   end
   return false
 end
+
+--- Wrapper function around SMODS.pseudorandom_probability
+---@param obj Card|table
+---@param seed string|number
+---@param base_numerator number|nil -- If skipped, defaults to 1
+---@param base_denominator number|nil -- If skipped, tries to access `obj.ability.extra.odds`
+---@param key string|nil -- If skipped, sets to `"paperback_" .. seed`
+---@return boolean
+function PB_UTIL.chance(obj, seed, base_numerator, base_denominator, key)
+  return SMODS.pseudorandom_probability(
+    obj,
+    seed,
+    base_numerator or 1,
+    base_denominator or (obj.ability and obj.ability.extra and obj.ability.extra.odds),
+    key or ('paperback_' .. seed)
+  )
+end
+
+--- Wrapper function around SMODS.get_probability_vars
+---@param obj Card|table
+---@param key string|nil -- If skipped, tries to set it to `obj.config.center_key`
+---@param base_numerator number|nil -- If skipped, defaults to 1
+---@param base_denominator number|nil -- If skipped, tries to access `obj.ability.extra.odds`
+---@return number numerator
+---@return number denominator
+function PB_UTIL.chance_vars(obj, key, base_numerator, base_denominator)
+  return SMODS.get_probability_vars(
+    obj,
+    base_numerator or 1,
+    base_denominator or (obj.ability and obj.ability.extra and obj.ability.extra.odds),
+    key or (obj.config and obj.config.center_key),
+    false
+  )
+end
