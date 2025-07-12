@@ -836,6 +836,13 @@ return {
           "{S:1.1,C:attention,E:2}Food Joker"
         }
       },
+      j_paperback_everything_must_go = {
+        name = "Everything Must Go!",
+        text = {
+          "Shops have {C:attention}#1#{} additional",
+          "{C:attention}Voucher{} for sale"
+        }
+      },
       j_paperback_card_sleeve = {
         name = "Card Sleeve",
         text = {

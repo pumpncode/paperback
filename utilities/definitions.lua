@@ -212,6 +212,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "angel_investor",
   "card_sleeve",
   "shopping_center",
+  "everything_must_go",
   "tutor",
   "its_tv_time",
   "high_speed_rail",
