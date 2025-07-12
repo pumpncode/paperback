@@ -738,6 +738,14 @@ return {
           "increase the payout by {C:money}$#3#"
         }
       },
+      j_paperback_chocolate_joker = {
+        name = "Chocolate Joker",
+        text = {
+          "This Joker gains {X:chips,C:white}X#1#{} Chips",
+          "for each {C:attention}Joker{} card",
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
+        }
+      },
       j_paperback_jester_of_nihil = {
         name = "Jester of Nihil",
         text = {

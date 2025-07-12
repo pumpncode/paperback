@@ -241,6 +241,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "evergreens",
   "backpack",
   "mexican_train",
+  "chocolate_joker",
   "resurrections",
   "summoning_circle",
   "the_sun",
