@@ -1374,6 +1374,14 @@ return {
           "{C:inactive}(Hands played:{C:attention}#1#{C:inactive})",
         },
       },
+      j_paperback_in_case_i_make_it = {
+        name = "In Case I Make It",
+        text = {
+          "Every played {C:attention}rankless card{}",
+          "permanently gains",
+          "{C:chips}+#1#{} Chips when scored",
+        },
+      },
       j_paperback_evergreens = {
         name = "Evergreens",
         text = {

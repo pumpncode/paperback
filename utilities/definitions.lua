@@ -221,6 +221,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "ready_to_fly",
   "great_wave",
   "let_it_happen",
+  "in_case_i_make_it",
   "joker_cd_i",
   "determination",
   "prince_of_darkness",
