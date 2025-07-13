@@ -190,8 +190,8 @@ return {
         text = {
           "If played hand has a {C:attention}scoring{} {V:1}#1#",
           "{C:green}#2# in #3#{} chance to gain {X:mult,C:white}X#4#{} Mult",
-          "{C:green}#2# in #5#{} chance to spawn a {C:tarot}#6#{} Tarot",
-          "{C:inactive}(Must have room) (Currently {X:mult,C:white}X#7#{C:inactive} Mult)",
+          "{C:green}#5# in #6#{} chance to spawn a {C:tarot}#7#{} Tarot",
+          "{C:inactive}(Must have room) (Currently {X:mult,C:white}X#8#{C:inactive} Mult)",
         }
       },
       j_paperback_blood_rain = {
@@ -1162,8 +1162,8 @@ return {
         name = "[[WILD PRIZE!1!]]",
         text = {
           "{C:attention}Wild Cards{} have a {C:green}#1# in #2#{} chance",
-          "to {C:attention}retrigger{} and a {C:green}#1# in #3#{} chance",
-          "to earn between {C:money}#4#{} and {C:money}$#5#{} when scored",
+          "to {C:attention}retrigger{} and a {C:green}#3# in #4#{} chance",
+          "to earn between {C:money}#5#{} and {C:money}$#6#{} when scored",
         },
       },
       j_paperback_wish_you_were_here = {
@@ -1197,7 +1197,7 @@ return {
         text = {
           "If played hand contains a {C:attention}Three of a Kind{},",
           "{C:green}#1# in #2#{} chance to create a random {C:planet}Planet{} card and",
-          "{C:green}#1# in #3#{} chance to create a random {C:purple}Tarot{} card",
+          "{C:green}#3# in #4#{} chance to create a random {C:purple}Tarot{} card",
           "{C:inactive}(Must have room)"
         },
       },
@@ -1206,7 +1206,7 @@ return {
         text = {
           "If played hand contains a {C:attention}Three of a Kind{},",
           "{C:green}#1# in #2#{} chance to create a random {C:tarot}Tarot{} card and",
-          "{C:green}#1# in #3#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card",
+          "{C:green}#3# in #4#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card",
           "{C:inactive}(Must have room)"
         },
       },
@@ -2172,8 +2172,8 @@ return {
           "If {C:attention}scored{} while a {C:attention}Clip",
           "is {C:attention}held in hand{} it has",
           "a {C:green}#1# in #2#{} chance for {C:red}+#3#{} Mult,",
-          "a {C:green}#1# in #4#{} chance for {X:mult,C:white}X#5#{} Mult",
-          "and a {C:green}#1# in #6#{} chance for {C:money}$#7#{}",
+          "a {C:green}#4# in #5#{} chance for {X:mult,C:white}X#6#{} Mult",
+          "and a {C:green}#7# in #8#{} chance for {C:money}$#9#{}",
         }
       },
       paperback_gold_clip = {

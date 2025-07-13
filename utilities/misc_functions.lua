@@ -929,7 +929,7 @@ function PB_UTIL.stick_food_joker_logic(self, card, context)
 
   -- Check if the Joker needs to be eaten
   if context.end_of_round and not context.blueprint and context.main_eval then
-    if pseudorandom(card.ability.extra.stick_key) < G.GAME.probabilities.normal / card.ability.extra.odds then
+    if PB_UTIL.chance(card, card.ability.extra.stick_key) then
       PB_UTIL.destroy_joker(card, function()
         -- Remove this joker from the pool
         G.GAME.pool_flags[card.config.center.original_key .. "_can_spawn"] = false
