@@ -2302,7 +2302,23 @@ return {
           "All starting {C:attention}Aces",
           "are {C:dark_edition}Polychrome"
         }
-      }
+      },
+
+      sleeve_paperback_silver = {
+        name = "Silver Sleeve",
+        text = {
+          "Start run with the",
+          "{C:paperback_minor_arcana,T:v_paperback_celtic_cross}#1#{} voucher",
+          "and a {C:paperback_minor_arcana,T:c_paperback_nine_of_cups}#2#"
+        }
+      },
+      sleeve_paperback_silver_buff = {
+        name = "Silver Sleeve",
+        text = {
+          "Start run with the",
+          "{C:paperback_minor_arcana,T:v_paperback_soothsay}#1#{} voucher"
+        }
+      },
     }
   },
   misc = {
