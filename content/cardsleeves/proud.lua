@@ -1,6 +1,7 @@
 if PB_UTIL.config.suits_enabled then
-  CardSleeves.Sleeve {
+  PB_UTIL.Sleeve {
     key = 'proud',
+    deck_buff = 'b_paperback_proud',
     atlas = 'card_sleeves_atlas',
     pos = { x = 1, y = 0 },
     paperback = {
@@ -8,14 +9,9 @@ if PB_UTIL.config.suits_enabled then
       create_stars = true
     },
 
-    loc_vars = function(self, info_queue, card)
-      return {
-        key = self.get_current_deck_key() == 'b_paperback_proud' and self.key .. '_buff'
-      }
-    end,
-
     apply = function(self, sleeve)
-      if self.get_current_deck_key() == 'b_paperback_proud' then
+      if self:is_buffed() then
+        -- Apply polychrome to all Aces
         G.E_MANAGER:add_event(Event {
           func = function()
             for _, v in ipairs(G.playing_cards or {}) do

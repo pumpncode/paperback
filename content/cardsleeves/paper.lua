@@ -1,13 +1,12 @@
-CardSleeves.Sleeve {
-  key = 'paper',
-  atlas = 'card_sleeves_atlas',
-  pos = { x = 0, y = 0 },
+PB_UTIL.Sleeve {
+  key       = 'paper',
+  deck_buff = 'b_paperback_paper',
+  atlas     = 'card_sleeves_atlas',
+  pos       = { x = 0, y = 0 },
 
-  loc_vars = function(self)
-    local deck = self.get_current_deck_key()
-
+  loc_vars  = function(self)
     return {
-      key = deck == 'b_paperback_paper' and (self.key .. '_buff') or nil,
+      key = self:loc_key(),
       vars = {
         localize {
           type = 'name_text',
@@ -18,8 +17,8 @@ CardSleeves.Sleeve {
     }
   end,
 
-  apply = function(self, sleeve)
-    if self.get_current_deck_key() == 'b_paperback_paper' then
+  apply     = function(self, sleeve)
+    if self:is_buffed() then
       -- Apply negative to the created Shopping Center
       G.E_MANAGER:add_event(Event {
         blocking = false,

@@ -1,6 +1,7 @@
 if PB_UTIL.config.minor_arcana_enabled and PB_UTIL.config.vouchers_enabled then
-  CardSleeves.Sleeve {
+  PB_UTIL.Sleeve {
     key = 'silver',
+    deck_buff = 'b_paperback_silver',
     atlas = 'card_sleeves_atlas',
     pos = { x = 2, y = 0 },
     config = {
@@ -12,12 +13,10 @@ if PB_UTIL.config.minor_arcana_enabled and PB_UTIL.config.vouchers_enabled then
       }
     },
 
-    loc_vars = function(self, info_queue)
-      local buffed = self.get_current_deck_key() == 'b_paperback_silver'
-
+    loc_vars = function(self)
       return {
-        key = buffed and self.key .. '_buff',
-        vars = buffed and {
+        key = self:loc_key(),
+        vars = self:is_buffed() and {
           localize { type = 'name_text', key = 'v_paperback_soothsay', set = 'Voucher' }
         } or {
           localize { type = 'name_text', key = 'v_paperback_celtic_cross', set = 'Voucher' },
@@ -27,7 +26,7 @@ if PB_UTIL.config.minor_arcana_enabled and PB_UTIL.config.vouchers_enabled then
     end,
 
     apply = function(self, sleeve)
-      if self.get_current_deck_key() == 'b_paperback_silver' then
+      if self:is_buffed() then
         -- A copy of how vouchers are normally applied through the original Sleeve apply function
         G.GAME.used_vouchers.v_paperback_soothsay = true
         G.GAME.starting_voucher_count = (G.GAME.starting_voucher_count or 0) + 1

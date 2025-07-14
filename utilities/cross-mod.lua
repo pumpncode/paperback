@@ -49,6 +49,22 @@ if next(SMODS.find_mod('CardSleeves')) then
     'antique',
   }
 
+  PB_UTIL.Sleeve = CardSleeves.Sleeve:extend {
+    is_buffed = function(self)
+      return self.get_current_deck_key() == self.deck_buff
+    end,
+
+    loc_key = function(self)
+      return self:is_buffed() and (self.key .. '_buff')
+    end,
+
+    loc_vars = function(self, info_queue, card)
+      return {
+        key = self:loc_key()
+      }
+    end
+  }
+
   PB_UTIL.register_items(sleeves, "content/cardsleeves")
 end
 
