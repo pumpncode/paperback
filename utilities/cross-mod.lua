@@ -240,14 +240,17 @@ function PB_UTIL.should_load_spectrum_items()
   )
 end
 
--- Load All in Jest joker(s)
-if (SMODS.Mods["allinjest"] or {}).can_load then
-  -- AIJ Jokers
-  local jokers = {
-    "moon_waltz"
+PB_UTIL.ENABLED_CROSS_MOD_JOKERS = {
+  ['allinjest'] = {
+    'moon_waltz'
   }
+}
 
-  for k, v in ipairs(jokers) do
-    table.insert(PB_UTIL.ENABLED_JOKERS, v)
+-- Load cross mod Jokers
+for mod, jokers in pairs(PB_UTIL.ENABLED_CROSS_MOD_JOKERS) do
+  if next(SMODS.find_mod(mod)) then
+    for _, joker in ipairs(jokers) do
+      table.insert(PB_UTIL.ENABLED_JOKERS, mod .. '/' .. joker)
+    end
   end
 end
