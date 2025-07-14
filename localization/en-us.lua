@@ -2270,6 +2270,24 @@ return {
         }
       },
     },
+    Sleeve = {
+      sleeve_paperback_paper = {
+        name = "Paper Sleeve",
+        text = {
+          "{C:legendary}Paperback{C:attention} Jokers{} are {C:attention}3X",
+          "more likely to appear,",
+          "start run with the",
+          "{C:attention,T:j_paperback_shopping_center}#1#{} Joker"
+        }
+      },
+      sleeve_paperback_paper_buff = {
+        name = "Paper Sleeve",
+        text = {
+          "Start with a {C:dark_edition}Negative{}",
+          "{C:attention,T:j_paperback_shopping_center}#1#{} Joker"
+        }
+      }
+    }
   },
   misc = {
     dictionary = {

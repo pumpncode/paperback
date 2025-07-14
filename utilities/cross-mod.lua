@@ -15,7 +15,7 @@ if (SMODS.Mods["Bunco"] or {}).can_load then
   table.insert(PB_UTIL.dark_suits, prefix .. '_Halberds')
 end
 
-if (SMODS.Mods["partner"] or {}).can_load then
+if next(SMODS.find_mod('partner')) then
   -- Register the Partner cross-mod atlas
   SMODS.Atlas {
     key = 'partners_atlas',
@@ -31,6 +31,21 @@ if (SMODS.Mods["partner"] or {}).can_load then
   }
 
   PB_UTIL.register_items(partners, "content/partner")
+end
+
+if next(SMODS.find_mod('CardSleeves')) then
+  SMODS.Atlas {
+    key = 'card_sleeves_atlas',
+    path = 'CardSleeves.png',
+    px = 73,
+    py = 95
+  }
+
+  local sleeves = {
+    'paper',
+  }
+
+  PB_UTIL.register_items(sleeves, "content/cardsleeves")
 end
 
 -- JokerDisplay hook to calculate retriggers from Paperback features
