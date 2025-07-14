@@ -2334,6 +2334,22 @@ return {
           "Start with an {C:attention}#1#",
           "of each suit"
         }
+      },
+
+      sleeve_paperback_antique = {
+        name = "Antique Sleeve",
+        text = {
+          "{C:tarot}Arcana Packs{} no longer",
+          "appear in the shop",
+          "{C:paperback_minor_arcana}Minor Arcana Packs",
+          "are {C:attention}3X{} more common"
+        }
+      },
+      sleeve_paperback_antique_buff = {
+        name = "Antique Sleeve",
+        text = {
+          "{C:paperback_minor_arcana}Minor Arcana Packs{} are {C:money}free",
+        }
       }
     }
   },

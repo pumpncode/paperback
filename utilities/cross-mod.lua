@@ -46,6 +46,7 @@ if next(SMODS.find_mod('CardSleeves')) then
     'proud',
     'silver',
     'dreamer',
+    'antique',
   }
 
   PB_UTIL.register_items(sleeves, "content/cardsleeves")
