@@ -24,7 +24,17 @@ SMODS.Rank {
   },
 
   in_pool = function(self, args)
-    -- for now, never spawn this naturally
+    -- Hardcoded Dreamer sleeve able to spawn Apostles for now, since
+    -- I can't figure out a better way
+    if args and args.initial_deck then
+      local deck = (G.GAME.selected_back or {}).name
+      local sleeve = G.GAME.selected_sleeve
+
+      if deck == 'b_paperback_dreamer' and sleeve == 'sleeve_paperback_dreamer' then
+        return true
+      end
+    end
+
     return false
   end
 }

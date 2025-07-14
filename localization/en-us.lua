@@ -2319,6 +2319,22 @@ return {
           "{C:paperback_minor_arcana,T:v_paperback_soothsay}#1#{} voucher"
         }
       },
+
+      sleeve_paperback_dreamer = {
+        name = "Dreamer's Sleeve",
+        text = {
+          "Start run with a {C:paperback_temporary}temporary",
+          "{C:paperback_minor_arcana,T:c_paperback_apostle_of_wands}#1#",
+          "{C:attention}#2#{} Joker slot"
+        }
+      },
+      sleeve_paperback_dreamer_buff = {
+        name = "Dreamer's Sleeve",
+        text = {
+          "Start with an {C:attention}#1#",
+          "of each suit"
+        }
+      }
     }
   },
   misc = {
