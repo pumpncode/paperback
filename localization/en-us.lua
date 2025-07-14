@@ -1345,9 +1345,8 @@ return {
         text = {
           "If scoring hand contains a {C:hearts}Heart{} and",
           "{C:attention}#1#{} other unique suits, this Joker gives",
-          "{X:mult,C:white}X#2#{} Mult for the next {C:chips}#3#{} hands",
-          "{C:inactive}(counting this hand){}",
-          "{C:inactive}(Currently next {C:chips}#4#{C:inactive} hands)",
+          "{X:mult,C:white}X#2#{} Mult for {C:attention}this hand{} and {C:attention}the next #3#",
+          "{C:inactive}(Currently the next {C:attention}#4#{C:inactive} hands)"
         },
       },
       j_paperback_giga_size = {
@@ -1634,9 +1633,9 @@ return {
       c_paperback_nine_of_cups = {
         name = "Nine of Cups",
         text = {
-          "Destroy selected {C:attention}Joker{} and create",
-          "a new {C:attention}Joker{} of higher {C:attention}rarity{}",
-          "{C:inactive}(equal rarity if impossible)",
+          "Destroy selected {C:attention}Joker{} and",
+          "create a new {C:attention}Joker{} of equal",
+          "{C:attention}rarity{}, or higher if possible",
           "{C:inactive}(Cannot create a {C:legendary}Legendary{C:inactive})"
         }
       },
