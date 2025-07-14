@@ -2350,6 +2350,25 @@ return {
         text = {
           "{C:paperback_minor_arcana}Minor Arcana Packs{} are {C:money}free",
         }
+      },
+
+      sleeve_paperback_passionate = {
+        name = "Passionate Sleeve",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain a",
+          "{C:attention,T:tag_paperback_high_risk}#1#",
+          "Earn no {C:money}Interest"
+        }
+      },
+      sleeve_paperback_passionate_buff = {
+        name = "Passionate Sleeve",
+        text = {
+          "Every other {C:attention}Boss Blind{} is",
+          "replaced with a {C:attention}Showdown Blind",
+          "Defeating a {C:attention}Showdown Blind",
+          "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
+        }
       }
     }
   },
