@@ -1531,7 +1531,17 @@ return {
           "{C:paperback_minor_arcana}Minor Arcana{} card used",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
         },
-      }
+      },
+      -- Cross-Mod jokers start here
+      j_paperback_moon_waltz = {
+        name = "Moon Waltz",
+        text = {
+          "This Joker has a {C:green}#3#{} in {C:green}#4#{} chance of gaining",
+          "half of a used {C:planet}Moon{} or",
+          "{C:planet}Asteroid{} card's {C:mult}+Mult{} or {C:chips}+Chips{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult and {C:chips}+#2#{C:inactive} Chips)",
+        },
+      },
     },
     Spectral = {
       c_paperback_apostle_of_cups = {

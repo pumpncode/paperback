@@ -239,3 +239,15 @@ function PB_UTIL.should_load_spectrum_items()
     or next(SMODS.find_mod("SpectrumFramework"))
   )
 end
+
+-- Load All in Jest joker(s)
+if (SMODS.Mods["allinjest"] or {}).can_load then
+  -- AIJ Jokers
+  local jokers = {
+    "moon_waltz"
+  }
+
+  for k, v in ipairs(jokers) do
+    table.insert(PB_UTIL.ENABLED_JOKERS, v)
+  end
+end
