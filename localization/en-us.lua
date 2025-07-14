@@ -2286,6 +2286,22 @@ return {
           "Start with a {C:dark_edition}Negative{}",
           "{C:attention,T:j_paperback_shopping_center}#1#{} Joker"
         }
+      },
+
+      sleeve_paperback_proud = {
+        name = "Proud Sleeve",
+        text = {
+          "Start with a full set of",
+          "{C:hearts}Hearts{}, {C:diamonds}Diamonds{}, {C:spades}Spades",
+          "{C:clubs}Clubs{}, {C:paperback_crowns}Crowns{} and {C:paperback_stars}Stars"
+        }
+      },
+      sleeve_paperback_proud_buff = {
+        name = "Proud Sleeve",
+        text = {
+          "All starting {C:attention}Aces",
+          "are {C:dark_edition}Polychrome"
+        }
       }
     }
   },

@@ -43,6 +43,7 @@ if next(SMODS.find_mod('CardSleeves')) then
 
   local sleeves = {
     'paper',
+    'proud',
   }
 
   PB_UTIL.register_items(sleeves, "content/cardsleeves")
