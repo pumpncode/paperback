@@ -10,10 +10,8 @@ SMODS.load_file("utilities/cross-mod.lua")()
 -- Load the atlases
 SMODS.load_file("content/atlas.lua")()
 
--- Load Jokers if they are enabled
-if PB_UTIL.config.jokers_enabled then
-  PB_UTIL.register_items(PB_UTIL.ENABLED_JOKERS, "content/joker")
-end
+-- Load Jokers
+PB_UTIL.register_items(PB_UTIL.ENABLED_JOKERS, "content/joker")
 
 -- Load Minor Arcana if they are enabled
 if PB_UTIL.config.minor_arcana_enabled then
@@ -26,6 +24,14 @@ if PB_UTIL.config.minor_arcana_enabled then
     shop_rate = 0,                                 -- These will not appear in the shop
     default = 'c_paperback_two_of_cups',           -- Card to spawn if pool is empty
     collection_rows = { 7, 7 }
+  }
+
+  -- Register the sprite for undiscovered Minor Arcana
+  SMODS.UndiscoveredSprite {
+    key           = 'minor_arcana',
+    prefix_config = { key = true },
+    atlas         = "minor_arcana_atlas",
+    pos           = { x = 0, y = 8 }
   }
 
   -- Register Minor Arcana cards
@@ -50,11 +56,17 @@ if PB_UTIL.config.minor_arcana_enabled then
   }
 end
 
+-- Load Spectral cards if they are enabled
+if PB_UTIL.config.spectrals_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_SPECTRALS, "content/spectrals")
+end
+
 -- Load enhancements if they are enabled
 if PB_UTIL.config.enhancements_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_ENHANCEMENTS, "content/enhancement")
 end
 
+-- Load editions if they are enabled
 if PB_UTIL.config.editions_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_EDITIONS, "content/edition")
 end
@@ -64,24 +76,33 @@ if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_PAPERCLIPS, "content/paperclip")
 end
 
+-- Load stickers regardless of config
+PB_UTIL.register_items(PB_UTIL.ENABLED_STICKERS, 'content/stickers')
+
 -- Load custom suits and spectrums if they are enabled
 if PB_UTIL.config.suits_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_SUITS, "content/suit")
 
-  -- Register Spectrum poker hand some other Spectrum mods are not installed
-  if not (
-    next(SMODS.find_mod('Bunco'))
-    or next(SMODS.find_mod("SixSuits"))
-    or next(SMODS.find_mod("SpectrumFramework"))
-    ) then
+  -- Register Spectrum poker hand if some other Spectrum mods are not installed
+  if PB_UTIL.should_load_spectrum_items() then
     PB_UTIL.register_items(PB_UTIL.ENABLED_POKER_HANDS, "content/pokerhand")
     PB_UTIL.register_items(PB_UTIL.ENABLED_PLANETS, "content/planet")
   end
 end
 
+-- Load custom ranks if they are enabled
+if PB_UTIL.config.ranks_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_RANKS, "content/rank")
+end
+
 -- Load Vouchers if they're enabled
 if PB_UTIL.config.vouchers_enabled then
   PB_UTIL.register_items(PB_UTIL.ENABLED_VOUCHERS, "content/voucher")
+end
+
+-- Load Blinds if they're enabled
+if PB_UTIL.config.blinds_enabled then
+  PB_UTIL.register_items(PB_UTIL.ENABLED_BLINDS, "content/blind")
 end
 
 -- Load Tags if they're enabled
@@ -103,14 +124,14 @@ for _, data in ipairs(PB_UTIL.DECK_SKINS) do
 
     local atlas_lc = SMODS.Atlas {
       key = key .. '_lc',
-      path = 'collabs/' .. key .. '_lc.png',
+      path = 'collabs/lc/' .. key .. '_lc.png',
       px = 71,
       py = 95
     }
 
     local atlas_hc = SMODS.Atlas {
       key = key .. '_hc',
-      path = 'collabs/' .. key .. '_hc.png',
+      path = 'collabs/hc/' .. key .. '_hc.png',
       px = 71,
       py = 95
     }
@@ -187,6 +208,10 @@ for _, v in ipairs(objects) do
 
       if config.requires_stars then
         ret = ret and PB_UTIL.has_suit_in_deck('paperback_Stars', true)
+      end
+
+      if config.requires_spectrum_or_suit then
+        ret = ret and (PB_UTIL.spectrum_played() or PB_UTIL.has_modded_suit_in_deck())
       end
 
       return ret, dupes

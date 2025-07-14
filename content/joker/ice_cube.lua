@@ -11,7 +11,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 4,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
   pools = {
@@ -23,14 +23,14 @@ SMODS.Joker {
       vars = {
         card.ability.extra.x_mult_mod,
         card.ability.extra.rounds_left,
-        math.max(1, #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod)
+        (#PB_UTIL.get_owned_food() + (card.area ~= G.jokers and 1 or 0)) * card.ability.extra.x_mult_mod
       }
     }
   end,
 
   calculate = function(self, card, context)
     if context.joker_main then
-      local x_mult = math.max(1, #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod)
+      local x_mult = #PB_UTIL.get_owned_food() * card.ability.extra.x_mult_mod
 
       if x_mult > 1 then
         return {
@@ -41,23 +41,17 @@ SMODS.Joker {
 
     -- At end of round decrease the amount of rounds left, destroying
     -- itself if it ever goes below 1
-    if not context.blueprint and context.end_of_round and context.main_eval then
-      card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
-
-      if card.ability.extra.rounds_left < 1 then
-        PB_UTIL.destroy_joker(card)
-
-        return {
-          message = localize('paperback_melted_ex')
-        }
-      end
-
+    if context.final_scoring_step and (hand_chips * mult > G.GAME.blind.chips) and not context.blueprint then
+      G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 0.5,
+        func = function()
+          PB_UTIL.destroy_joker(card)
+          return true
+        end
+      })
       return {
-        message = localize {
-          type = 'variable',
-          key = 'paperback_a_round_minus',
-          vars = { 1 }
-        }
+        message = localize('paperback_melted_ex')
       }
     end
   end

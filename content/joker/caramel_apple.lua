@@ -3,7 +3,9 @@ SMODS.Joker {
   config = {
     extra = {
       mult = 5,
-      odds = 4
+      odds = 4,
+      suit = 'Clubs',
+      stick_key = 'j_paperback_pointy_stick'
     }
   },
   rarity = 1,
@@ -11,7 +13,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
   soul_pos = nil,
@@ -21,52 +23,17 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         card.ability.extra.mult,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
+        numerator,
+        denominator
       }
     }
   end,
 
-  calculate = function(self, card, context)
-    -- Give the mult during play if card is a Club
-    if context.individual and context.cardarea == G.play then
-      if context.other_card:is_suit("Clubs") then
-        return {
-          mult = 5,
-          card = card
-        }
-      end
-    end
-
-    -- Check if the Joker needs to be eaten
-    if context.end_of_round and not context.blueprint and context.main_eval then
-      if pseudorandom("Caramel Apple") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        PB_UTIL.destroy_joker(card, function()
-          -- Remove Caramel Apple from the pool
-          G.GAME.pool_flags.caramel_apple_can_spawn = false
-
-          -- Create Popsicle Stick
-          SMODS.add_card {
-            key = 'j_paperback_pointy_stick',
-            edition = card.edition
-          }
-        end)
-
-        return {
-          message = localize('k_eaten_ex'),
-          colour = G.C.MULT,
-          card = card
-        }
-      else
-        return {
-          message = localize('k_safe_ex'),
-          colour = G.C.CHIPS,
-          card = card
-        }
-      end
-    end
-  end
+  calculate = PB_UTIL.stick_food_joker_logic,
+  joker_display_def = PB_UTIL.stick_food_joker_display_def,
 }

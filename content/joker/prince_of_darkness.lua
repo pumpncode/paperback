@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       unique_suits = 2,
-      x_mult = 3,
+      x_mult = 2,
       hands = 2,
       hands_remaining = 0
     }
@@ -13,7 +13,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 7,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
@@ -24,7 +24,7 @@ SMODS.Joker {
       vars = {
         card.ability.extra.unique_suits,
         card.ability.extra.x_mult,
-        card.ability.extra.hands,
+        math.max(0, card.ability.extra.hands - 1),
         card.ability.extra.hands_remaining
       }
     }

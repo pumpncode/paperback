@@ -7,7 +7,7 @@ SMODS.Enhancement {
     extra = {
       a_money_low = 1,
       a_money_high = 5,
-      odds = 3,
+      mult_gt_chip = false
     }
   },
 
@@ -16,8 +16,6 @@ SMODS.Enhancement {
       vars = {
         card.ability.extra.a_money_low,
         card.ability.extra.a_money_high + G.GAME.paperback.ceramic_inc,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
       }
     }
   end,
@@ -32,12 +30,14 @@ SMODS.Enhancement {
       }
     end
 
-    if context.destroy_card and context.cardarea == G.play and context.destroy_card == card then
-      if pseudorandom("Ceramic Destroy Chance") < G.GAME.probabilities.normal / card.ability.extra.odds then
-        return {
-          remove = true
-        }
-      end
+    if context.final_scoring_step then
+      card.ability.extra.mult_gt_chip = mult > hand_chips
+    end
+
+    if context.destroy_card and context.destroy_card == card then
+      return {
+        remove = card.ability.extra.mult_gt_chip
+      }
     end
   end
 }

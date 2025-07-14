@@ -12,7 +12,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
   soul_pos = nil,
@@ -21,12 +21,14 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         card.ability.extra.hand_size,
         card.ability.extra.increase,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
+        numerator,
+        denominator
       }
     }
   end,
@@ -45,7 +47,7 @@ SMODS.Joker {
     end
 
     if context.setting_blind and not context.blind.boss then
-      if pseudorandom("coffee") < G.GAME.probabilities.normal / card.ability.extra.odds then
+      if PB_UTIL.chance(card, 'coffee') then
         PB_UTIL.destroy_joker(card)
 
         -- Revert all the hand size increase when eaten
@@ -57,5 +59,33 @@ SMODS.Joker {
         }
       end
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = '+' },
+        { ref_table = 'card.ability.extra', ref_value = 'hand_size' },
+      },
+      text_config = {
+        colour = G.C.IMPORTANT
+      },
+
+      extra = {
+        {
+          { text = '(' },
+          { ref_table = 'card.joker_display_values', ref_value = 'odds' },
+          { text = ')' },
+        }
+      },
+      extra_config = {
+        colour = G.C.GREEN,
+        scale = 0.3,
+      },
+
+      calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { PB_UTIL.chance_vars(card) } }
+      end
+    }
   end
 }

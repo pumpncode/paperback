@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "ddakji",
   config = {
     extra = {
-      odds = 3
+      odds = 4
     }
   },
   rarity = 3,
@@ -10,15 +10,17 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 8,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
+        numerator,
+        denominator
       }
     }
   end,
@@ -59,6 +61,26 @@ SMODS.Joker {
         v.ability.paperback_flipped = nil
       end
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      extra = {
+        {
+          { text = '(' },
+          { ref_table = 'card.joker_display_values', ref_value = 'odds' },
+          { text = ')' },
+        },
+      },
+      extra_config = {
+        colour = G.C.GREEN,
+        scale = 0.3,
+      },
+
+      calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { PB_UTIL.chance_vars(card) } }
+      end,
+    }
   end
 }
 
@@ -66,7 +88,7 @@ local stay_flipped_ref = Blind.stay_flipped
 function Blind.stay_flipped(self, area, card)
   if area == G.hand then
     local _, ddakji = next(SMODS.find_card('j_paperback_ddakji'))
-    if ddakji and pseudorandom('ddakji') < G.GAME.probabilities.normal / ddakji.ability.extra.odds then
+    if ddakji and PB_UTIL.chance(ddakji, 'ddakji') then
       return true
     end
   end

@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "matcha",
   config = {
     extra = {
-      odds = 8,
+      odds = 5,
       a_chips = 2,
       chips = 0
     }
@@ -12,7 +12,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 3,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
   perishable_compat = true,
@@ -21,11 +21,13 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         card.ability.extra.a_chips,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds,
+        numerator,
+        denominator,
         card.ability.extra.chips
       }
     }
@@ -43,7 +45,7 @@ SMODS.Joker {
     end
 
     if not context.blueprint and context.discard then
-      if pseudorandom('matcha') < G.GAME.probabilities.normal / card.ability.extra.odds then
+      if PB_UTIL.chance(card, 'matcha') then
         PB_UTIL.destroy_joker(card)
 
         return {

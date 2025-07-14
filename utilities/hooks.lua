@@ -9,9 +9,18 @@ function Game.init_game_object(self)
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
-    weather_radio_hand = 'High Card',
+    stained_inc = 0,
     destroyed_dark_suits = 0,
     last_tarot_energized = false,
+    ranks_scored_this_ante = {},
+    last_scored_suit = 'Spades',
+    domino_ranks = {},
+    jjjj_count = 0,
+    banned_run_keys = {},
+
+    weather_radio_hand = 'High Card',
+    joke_master_hand = 'High Card',
+    da_capo_suit = 'Clubs'
   }
   return ret
 end
@@ -33,6 +42,7 @@ function Back.apply_to_run(arg_56_0)
   G.GAME.pool_flags.sticks_can_spawn = false
   G.GAME.pool_flags.paperback_alert_can_spawn = true
   G.GAME.pool_flags.paperback_legacy_can_spawn = false
+  G.GAME.pool_flags.plague_doctor_can_spawn = true
 
   G.P_CENTERS['j_diet_cola']['no_pool_flag'] = 'ghost_cola_can_spawn'
 end
@@ -67,21 +77,23 @@ local eval_card_ref = eval_card
 function eval_card(card, context)
   local ret, ret2 = eval_card_ref(card, context)
 
-  if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card and PB_UTIL.has_paperclip(card) then
-    G.GAME.paperback.round.scored_clips = G.GAME.paperback.round.scored_clips + 1
+  if context.cardarea == G.play and context.main_scoring and ret and ret.playing_card then
+    if PB_UTIL.has_paperclip(card) then
+      G.GAME.paperback.round.scored_clips = G.GAME.paperback.round.scored_clips + 1
 
-    -- Add a new context for our Paperclips when held in hand
-    for _, v in ipairs(G.hand.cards) do
-      local key = PB_UTIL.has_paperclip(v)
-      local clip = SMODS.Stickers[key]
+      -- Add a new context for our Paperclips when held in hand
+      for _, v in ipairs(G.hand.cards) do
+        local key = PB_UTIL.has_paperclip(v)
+        local clip = SMODS.Stickers[key]
 
-      if clip and clip.calculate and type(clip.calculate) == "function" then
-        clip:calculate(v, {
-          paperback = {
-            clip_scored = true,
-            other_card = card
-          }
-        })
+        if clip and clip.calculate and type(clip.calculate) == "function" then
+          clip:calculate(v, {
+            paperback = {
+              clip_scored = true,
+              other_card = card
+            }
+          })
+        end
       end
     end
   end
@@ -170,4 +182,53 @@ SMODS.calculate_repetitions = function(card, context, reps)
   end
 
   return calculate_repetitions_ref(card, context, reps)
+end
+
+-- New context for when a tag is added
+local add_tag_ref = add_tag
+function add_tag(tag)
+  SMODS.calculate_context {
+    paperback = {
+      tag_acquired = true,
+      tag = tag
+    }
+  }
+
+  return add_tag_ref(tag)
+end
+
+-- Ace still can't wrap around straights even though it's no longer straight_edge
+-- accounts for Shortcut by checking for Q and 3 as well
+local get_straight_ref = get_straight
+function get_straight(hand, min_length, skip, wrap)
+  local has_king_queen = false
+  local has_2_3 = false
+  for i = 1, #hand do
+    if hand[i]:get_id() == 13 or hand[i]:get_id() == 12 then has_king_queen = true end
+    if hand[i]:get_id() == 2 or hand[i]:get_id() == 3 then has_2_3 = true end
+  end
+  if has_king_queen and has_2_3 then return {} end
+  return get_straight_ref(hand, min_length, skip, wrap)
+end
+
+-- Apostle-high straight flushes get renamed to "Rapture"
+local poker_hand_info_ref = G.FUNCS.get_poker_hand_info
+function G.FUNCS.get_poker_hand_info(_cards)
+  local text, loc_disp_text, poker_hands, scoring_hand, disp_text = poker_hand_info_ref(_cards)
+  if text == "Straight Flush" then
+    local has_apostle = false
+    local all_top = true
+    for i = 1, #scoring_hand do
+      local rank = not SMODS.has_no_rank(scoring_hand[i]) and SMODS.Ranks[scoring_hand[i].base.value]
+      if rank.key == 'paperback_Apostle' then has_apostle = true end
+      if rank.key ~= 'Ace' and rank.key ~= 'paperback_Apostle' and not rank.face then all_top = false end
+    end
+
+    if has_apostle and all_top then
+      disp_text = "paperback_Straight Flush (Rapture)"
+      loc_disp_text = localize(disp_text, "poker_hands")
+    end
+  end
+
+  return text, loc_disp_text, poker_hands, scoring_hand, disp_text
 end

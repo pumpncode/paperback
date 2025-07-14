@@ -5,7 +5,7 @@ SMODS.Voucher {
   },
   atlas = 'vouchers_atlas',
   pos = { x = 0, y = 0 },
-  discovered = true,
+  discovered = false,
   paperback = {
     requires_minor_arcana = true,
     requires_tags = true,
@@ -22,7 +22,8 @@ SMODS.Voucher {
       G.E_MANAGER:add_event(Event {
         func = function()
           local booster = SMODS.add_booster_to_shop('p_paperback_minor_arcana_mega')
-          booster.cost = 0
+          booster.ability.couponed = true
+          booster:set_cost()
           return true
         end
       })

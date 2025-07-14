@@ -83,6 +83,14 @@ function PB_UTIL.set_paperclip(card, type)
   end
 end
 
+---Fetches a random paperclip type using a given seed
+---@param seed string
+function PB_UTIL.poll_paperclip(seed)
+  local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
+  clip = string.sub(clip, 1, #clip - 5)
+  return clip
+end
+
 ---Checks if a provided card is classified as a "Food Joker"
 ---@param card table | string a center key or a card
 ---@return boolean
@@ -180,15 +188,24 @@ function PB_UTIL.modify_sell_value(card, amount)
   card:set_cost()
 end
 
---- Sets the extra_value field of this card to an amount that will result in its
---- sell cost being equal to amount
+--- Sets the base sell cost of `card` to `amount`.
+--- (total sell cost is base plus `card.ability.extra_value`)
 ---@param card table | Card
+---@param amount integer
+function PB_UTIL.set_base_sell_value(card, amount)
+  if not card.set_cost then return end
+  card.ability.paperback_forced_base_sell_cost = amount
+  card:set_cost()
+end
+
+--- Sets the sell cost of `card` to `amount`.
+--- Also clears `card.ability.extra_value`.
+---@param card table | Card`
 ---@param amount integer
 function PB_UTIL.set_sell_value(card, amount)
   if not card.set_cost then return end
-  -- This is called just so it calculates the cost of the card... a bit silly
-  card:set_cost()
-  card.ability.extra_value = amount - math.max(1, math.floor(card.cost / 2))
+  card.ability.paperback_forced_base_sell_cost = amount
+  card.ability.extra_value = nil
   card:set_cost()
 end
 
@@ -275,6 +292,23 @@ function PB_UTIL.open_booster_pack(key)
   pack:start_materialize()
 end
 
+--- Creates and redeems the specified voucher
+---@param key string
+function PB_UTIL.redeem_voucher(key)
+  local voucher = Card(
+    G.shop_vouchers.T.x + G.shop_vouchers.T.w / 2,
+    G.shop_vouchers.T.y,
+    G.CARD_W, G.CARD_H, G.P_CARDS.empty,
+    G.P_CENTERS[key],
+    { bypass_discovery_center = true, bypass_discovery_ui = true }
+  )
+
+  voucher.cost = 0
+
+  G.FUNCS.use_card { config = { ref_table = voucher } }
+  voucher:start_materialize()
+end
+
 ---Gets a pseudorandom tag from the Tag pool
 ---@param seed string
 ---@param options table? a list of tags to choose from, defaults to normal pool
@@ -296,7 +330,8 @@ function PB_UTIL.poll_tag(seed, options)
   if tag_key == "tag_orbital" then
     local available_hands = {}
 
-    for k, hand in pairs(G.GAME.hands) do
+    for _, k in ipairs(G.handlist) do
+      local hand = G.GAME.hands[k]
       if hand.visible then
         available_hands[#available_hands + 1] = k
       end
@@ -336,9 +371,8 @@ end
 --- @return SMODS.ConsumableType
 function PB_UTIL.poll_consumable_type(seed)
   local types = {}
-
-  for _, v in pairs(SMODS.ConsumableTypes) do
-    types[#types + 1] = v
+  for _, k in ipairs(SMODS.ConsumableType.ctype_buffer) do
+    types[#types + 1] = SMODS.ConsumableTypes[k]
   end
 
   return pseudorandom_element(types, pseudoseed(seed))
@@ -365,7 +399,7 @@ function PB_UTIL.try_spawn_card(args)
         added_card:add_to_deck()
         area:emplace(added_card)
       else
-        SMODS.add_card(args)
+        added_card = SMODS.add_card(args)
       end
     end
 
@@ -391,51 +425,21 @@ function PB_UTIL.try_spawn_card(args)
   end
 end
 
----This is used for Jokers that need to destroy cards outside of the "destroy_card" context
----@param destroyed_cards table
----@param card table?
----@param effects table?
-function PB_UTIL.destroy_playing_cards(destroyed_cards, card, effects)
-  G.E_MANAGER:add_event(Event({
-    func = function()
-      -- Show a message on the card at the same time the playing cards are
-      -- being destroyed
-      if #destroyed_cards > 0 and type(effects) == 'table' then
-        effects.sound = 'tarot1'
-        effects.instant = true
-        SMODS.calculate_effect(effects, card)
-      end
+--- Whether the area has space for a card to be added
+---@param area table|CardArea
+---@param inc_buffer boolean? Whether to increment the buffer
+---@return boolean?
+function PB_UTIL.can_spawn_card(area, inc_buffer)
+  local buffer =
+      (area == G.jokers and 'joker_buffer') or
+      (area == G.consumeables and 'consumeable_buffer') or nil
 
-      -- Destroy every card
-      for _, v in ipairs(destroyed_cards) do
-        if SMODS.shatters(v) then
-          v:shatter()
-        else
-          v:start_dissolve()
-        end
-      end
-
-      G.E_MANAGER:add_event(Event {
-        func = function()
-          SMODS.calculate_context({
-            remove_playing_cards = true,
-            removed = destroyed_cards
-          })
-          return true
-        end
-      })
-
-      return true
+  if area and #area.cards + (buffer and G.GAME[buffer] or 0) < area.config.card_limit then
+    if inc_buffer and buffer then
+      G.GAME[buffer] = G.GAME[buffer] + 1
     end
-  }))
 
-  -- Mark the cards as destroyed
-  for _, v in ipairs(destroyed_cards) do
-    if SMODS.shatters(v) then
-      v.shattered = true
-    else
-      v.destroyed = true
-    end
+    return true
   end
 end
 
@@ -677,44 +681,48 @@ function PB_UTIL.get_sorted_ranks()
   return ranks
 end
 
----Gets a rank's string value from a supplied id
+--- Checks whether a given card is a certain rank
+---@param card Card | table
+---@param rank string | integer a rank's name, like "Jack" or "4", or an id like 11 or 4
+---@return boolean | nil
+function PB_UTIL.is_rank(card, rank)
+  if not card or not card.get_id then return end
+  local id = card:get_id()
+
+  if type(rank) == 'string' then
+    local rank_obj = SMODS.Ranks[rank]
+    return rank_obj and rank_obj.id == id
+  elseif type(rank) == 'number' then
+    return id == rank
+  end
+end
+
+---Gets a rank's object from a supplied id
 ---@param id integer
 ---@return table | nil
 function PB_UTIL.get_rank_from_id(id)
-  for k, v in pairs(SMODS.Ranks) do
+  for _, v in pairs(SMODS.Ranks) do
     if v.id == id then return v end
   end
-
-  return nil
 end
 
 ---Returns whether the first rank is higher than the second
----@param rank1 table | integer
----@param rank2 table | integer
+---@param rank1 string | integer a rank such as "Ace" or "9", or an id such as 14 or 9
+---@param rank2 string | integer
 ---@param allow_equal? boolean
 ---@return boolean
 function PB_UTIL.compare_ranks(rank1, rank2, allow_equal)
-  if type(rank1) ~= "table" then
-    local result = PB_UTIL.get_rank_from_id(rank1)
+  local r1 = type(rank1) == 'string' and SMODS.Ranks[rank1] or PB_UTIL.get_rank_from_id(rank1)
+  local r2 = type(rank2) == 'string' and SMODS.Ranks[rank2] or PB_UTIL.get_rank_from_id(rank2)
 
-    if result then
-      rank1 = result
-    end
-  end
-
-  if type(rank2) ~= "table" then
-    local result = PB_UTIL.get_rank_from_id(rank2)
-
-    if result then
-      rank2 = result
-    end
-  end
+  -- If one of the ranks doesn't exist
+  if not r1 or not r2 then return false end
 
   local comp = function(a, b)
     return allow_equal and (a >= b) or (a > b)
   end
 
-  return comp(rank1.sort_nominal, rank2.sort_nominal)
+  return comp(r1.sort_nominal, r2.sort_nominal)
 end
 
 ---Used to check whether a card is a light or dark suit
@@ -759,6 +767,17 @@ function PB_UTIL.spectrum_played()
   return spectrum_played
 end
 
+--- Whether the played hand contains a spectrum
+---@param hands table obtained from `context.poker_hands`
+---@return boolean | nil
+function PB_UTIL.contains_spectrum(hands)
+  for k, v in pairs(hands) do
+    if k:find('Spectrum', nil, true) and #v > 0 then
+      return true
+    end
+  end
+end
+
 --- @return boolean
 function PB_UTIL.has_modded_suit_in_deck()
   for k, v in ipairs(G.playing_cards or {}) do
@@ -778,11 +797,15 @@ end
 
 --- Balances chips and shows the cosmetic effects just like Plasma deck
 ---@param card (table|Card)?
-function PB_UTIL.apply_plasma_effect(card)
+---@param only_visual boolean whether to only do the visual effects
+function PB_UTIL.apply_plasma_effect(card, only_visual)
   -- Actually balance the chips and mult
-  local tot = hand_chips + mult
-  hand_chips = mod_chips(math.floor(tot / 2))
-  mult = mod_mult(math.floor(tot / 2))
+  if not only_visual then
+    local tot = hand_chips + mult
+    hand_chips = mod_chips(math.floor(tot / 2))
+    mult = mod_mult(math.floor(tot / 2))
+  end
+
   update_hand_text({ delay = 0 }, { mult = mult, chips = hand_chips })
 
   -- Cosmetic effects
@@ -838,9 +861,11 @@ function PB_UTIL.apply_plasma_effect(card)
   delay(0.6)
 end
 
+--- Logic for the Panorama Jokers
+--- @param self (SMODS.Center)
 --- @param card (Card)
 --- @param context (CalcContext)
-function PB_UTIL.panorama_logic(card, context)
+function PB_UTIL.panorama_logic(self, card, context)
   if context.individual and context.cardarea == G.play then
     -- Reset the xMult if the current card is not the required suit
     if not context.other_card:is_suit(card.ability.extra.suit) then
@@ -867,4 +892,194 @@ function PB_UTIL.panorama_logic(card, context)
   if context.after and not context.blueprint then
     card.ability.extra.xMult = card.ability.extra.xMult_base
   end
+end
+
+--- Loc Vars function for the Panorama Jokers
+---@param self table
+---@param info_queue table
+---@param card Card
+---@return table
+function PB_UTIL.panorama_loc_vars(self, info_queue, card)
+  return {
+    vars = {
+      localize(card.ability.extra.suit, 'suits_plural'),
+      tostring(card.ability.extra.xMult_base),
+      tostring(card.ability.extra.xMult_gain),
+      localize(card.ability.extra.suit, 'suits_singular'),
+
+    }
+  }
+end
+
+--- Logic for the Stick Food Jokers
+---@param self (SMODS.Center)
+---@param card (Card)
+---@param context (CalcContext)
+---@return table
+function PB_UTIL.stick_food_joker_logic(self, card, context)
+  -- Give the mult during play if card is the specified suit
+  if context.individual and context.cardarea == G.play then
+    if context.other_card:is_suit(card.ability.extra.suit) then
+      return {
+        mult = card.ability.extra.mult,
+        card = card
+      }
+    end
+  end
+
+  -- Check if the Joker needs to be eaten
+  if context.end_of_round and not context.blueprint and context.main_eval then
+    if PB_UTIL.chance(card, card.ability.extra.stick_key) then
+      PB_UTIL.destroy_joker(card, function()
+        -- Remove this joker from the pool
+        G.GAME.pool_flags[card.config.center.original_key .. "_can_spawn"] = false
+
+        -- Create Popsicle Stick
+        SMODS.add_card {
+          key = card.ability.extra.stick_key,
+          edition = card.edition
+        }
+      end)
+
+      return {
+        message = localize('k_eaten_ex'),
+        colour = G.C.MULT,
+        card = card
+      }
+    else
+      return {
+        message = localize('k_safe_ex'),
+        colour = G.C.CHIPS,
+        card = card
+      }
+    end
+  end
+end
+
+--- The logic for the Stick Jokers
+---@param self (SMODS.Center)
+---@param card (Card)
+---@param context (CalcContext)
+---@return table
+function PB_UTIL.stick_joker_logic(self, card, context)
+  if context.joker_main then
+    local xMult = PB_UTIL.calculate_stick_xMult(card)
+
+    if xMult ~= 1 then
+      return {
+        x_mult = xMult,
+        card = card
+      }
+    end
+  end
+end
+
+--- Gets a random hand that has been unlocked by the player
+---@param seed string
+---@return string hand the name of the hand, for example "Five of a Kind"
+function PB_UTIL.get_random_visible_hand(seed)
+  local hands = {}
+  for _, k in ipairs(G.handlist) do
+    local v = G.GAME.hands[k]
+    if v.visible then hands[#hands + 1] = k end
+  end
+  return pseudorandom_element(hands, pseudoseed(seed))
+end
+
+--- Gets the next suit in the Da Capo cycle Spades -> Hearts -> Clubs -> Diamonds -> None -> Spades
+---@param current_suit string current suit in the Da Capo cycle
+---@return string hand the next suit
+function PB_UTIL.da_capo_cycle(current_suit)
+  local suits = { 'Clubs', 'Spades', 'Diamonds', 'Hearts', 'None' }
+  if current_suit == 'None' then
+    return 'Clubs'
+  end
+  for k, v in ipairs(suits) do
+    if current_suit == v then
+      return suits[k + 1]
+    end
+  end
+  -- In case current_suit ever gets modified externally to a value unaccounted for, set it to Clubs
+  return 'Clubs'
+end
+
+--- Counts consumables of a given set used in the current run
+---@param set string
+---@param count_repeats? boolean if only unique cards should be counted
+---@return integer
+function PB_UTIL.count_used_consumables(set, count_repeats)
+  local count = 0
+  local repeats = count_repeats and true
+  for _, v in pairs(G.GAME.consumeable_usage) do
+    if v.set == set then
+      if count_repeats then
+        count = count + v.count
+      else
+        count = count + 1
+      end
+    end
+  end
+  return count
+end
+
+--- Creates an array of all the highlighted cards in the given area sorted by their X position
+---@param area CardArea|table
+---@return (Card|table)[] cards the sorted array
+function PB_UTIL.get_sorted_by_position(area)
+  local cards = {}
+
+  for i = 1, #area.highlighted do
+    cards[i] = area.highlighted[i]
+  end
+
+  table.sort(cards, function(a, b)
+    return a.T.x < b.T.x
+  end)
+
+  return cards
+end
+
+--- For It's TV Time. Returns True if the Joker is in the card area, the drawn card has the Bonus Enhancement, and the Suit being asked is Stars
+function PB_UTIL.tenna_check(card, suit)
+  if not next(SMODS.find_card('j_paperback_its_tv_time')) then
+    return false
+  end
+  if SMODS.has_enhancement(card, 'm_bonus') and (suit == "paperback_Stars") then
+    return true
+  end
+  return false
+end
+
+--- Wrapper function around SMODS.pseudorandom_probability
+---@param obj Card|table
+---@param seed string|number
+---@param base_numerator number|nil -- If skipped, defaults to 1
+---@param base_denominator number|nil -- If skipped, tries to access `obj.ability.extra.odds`
+---@param key string|nil -- If skipped, sets to `"paperback_" .. seed`
+---@return boolean
+function PB_UTIL.chance(obj, seed, base_numerator, base_denominator, key)
+  return SMODS.pseudorandom_probability(
+    obj,
+    seed,
+    base_numerator or 1,
+    base_denominator or (obj.ability and obj.ability.extra and obj.ability.extra.odds),
+    key or ('paperback_' .. seed)
+  )
+end
+
+--- Wrapper function around SMODS.get_probability_vars
+---@param obj Card|table
+---@param key string|nil -- If skipped, tries to set it to `obj.config.center_key`
+---@param base_numerator number|nil -- If skipped, defaults to 1
+---@param base_denominator number|nil -- If skipped, tries to access `obj.ability.extra.odds`
+---@return number numerator
+---@return number denominator
+function PB_UTIL.chance_vars(obj, key, base_numerator, base_denominator)
+  return SMODS.get_probability_vars(
+    obj,
+    base_numerator or 1,
+    base_denominator or (obj.ability and obj.ability.extra and obj.ability.extra.odds),
+    key or (obj.config and obj.config.center_key),
+    false
+  )
 end

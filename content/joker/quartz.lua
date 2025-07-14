@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'quartz',
   config = {
     extra = {
-      x_chips = 0.5
+      x_chips = 0.2
     }
   },
   rarity = 2,
@@ -10,7 +10,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 7,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   paperback = {

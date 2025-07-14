@@ -16,15 +16,7 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
-    local cards = {}
-
-    for i = 1, card.ability.max_highlighted do
-      cards[i] = G.hand.highlighted[i]
-    end
-
-    table.sort(cards, function(a, b)
-      return a.T.x < b.T.x
-    end)
+    local cards = PB_UTIL.get_sorted_by_position(G.hand)
 
     local left = table.remove(cards, 1)
     local increase = 0
@@ -37,7 +29,7 @@ PB_UTIL.MinorArcana {
       if left then
         left.ability.perma_bonus = (left.ability.perma_bonus or 0) + increase
       end
-      PB_UTIL.destroy_playing_cards(cards)
+      SMODS.destroy_cards(cards)
     end)
   end
 }

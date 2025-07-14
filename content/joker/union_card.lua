@@ -5,7 +5,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 8,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
@@ -78,19 +78,18 @@ end
 -- and set the sell cost to 0
 local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
+  local ret = set_cost_ref(self)
   if self.added_to_deck then
     -- If this card is Union Card set sell cost to 0
     if self.config.center.key == "j_paperback_union_card" then
       self.sell_cost = 0
-      return
     end
 
     -- If Union Card is added to deck set sell cost to 0
     if next(SMODS.find_card("j_paperback_union_card")) then
       self.sell_cost = 0
-      return
     end
   end
 
-  return set_cost_ref(self)
+  return ret
 end

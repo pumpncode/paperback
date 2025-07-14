@@ -5,7 +5,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 8,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
@@ -21,10 +21,12 @@ SMODS.Joker {
 
       -- Destroy all cards in first hand
       if G.GAME.current_round.hands_played == 0 then
-        PB_UTIL.destroy_playing_cards(destroyed_cards, card, {
+        SMODS.destroy_cards(destroyed_cards)
+
+        return {
           message = localize('paperback_destroyed_ex'),
           colour = G.C.MULT
-        })
+        }
       end
     end
   end

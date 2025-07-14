@@ -12,17 +12,19 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 8,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         card.ability.extra.rank,
         card.ability.extra.xMult,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds,
+        numerator,
+        denominator
       }
     }
   end,
@@ -30,7 +32,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
       if context.other_card:get_id() == card.ability.extra.rank then
-        if pseudorandom('power_surge') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if PB_UTIL.chance(card, 'power_surge') then
           local destroyed_card = #G.hand.cards > 0 and
               pseudorandom_element(G.hand.cards, pseudoseed('power_surge_destroy'))
 

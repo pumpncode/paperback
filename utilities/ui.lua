@@ -8,11 +8,19 @@ SMODS.current_mod.config_tab = function()
         n = G.UIT.R,
         config = { align = 'cm', minh = 1 },
         nodes = {
-          { n = G.UIT.T, config = { text = localize('paperback_ui_requires_restart'), colour = G.C.RED, scale = 0.5 } }
+          {
+            n = G.UIT.T,
+            config = {
+              text = localize('paperback_ui_requires_restart'),
+              colour = G.C.RED,
+              scale = 0.5
+            }
+          }
         }
       },
       {
         n = G.UIT.R,
+        config = { align = 'cm' },
         nodes = {
           {
             n = G.UIT.C,
@@ -23,9 +31,9 @@ SMODS.current_mod.config_tab = function()
                 ref_value = 'tags_enabled'
               },
               create_toggle {
-                label = localize('paperback_ui_enable_jokers'),
+                label = localize('paperback_ui_enable_blinds'),
                 ref_table = PB_UTIL.config,
-                ref_value = 'jokers_enabled',
+                ref_value = 'blinds_enabled',
               },
               create_toggle {
                 label = localize('paperback_ui_enable_vouchers'),
@@ -36,6 +44,11 @@ SMODS.current_mod.config_tab = function()
                 label = localize('paperback_ui_enable_paperclips'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'paperclips_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_enable_ranks'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'ranks_enabled',
               }
             }
           },
@@ -61,7 +74,42 @@ SMODS.current_mod.config_tab = function()
                 label = localize('paperback_ui_custom_suits_enabled'),
                 ref_table = PB_UTIL.config,
                 ref_value = 'suits_enabled',
+              },
+              create_toggle {
+                label = localize('paperback_ui_enable_spectrals'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'spectrals_enabled'
               }
+            }
+          }
+        }
+      },
+      {
+        n = G.UIT.R,
+        config = { align = 'cm', minh = 1 },
+        nodes = {
+          {
+            n = G.UIT.T,
+            config = {
+              text = localize('paperback_ui_no_requires_restart'),
+              colour = G.C.GREEN,
+              scale = 0.5
+            }
+          }
+        }
+      },
+      {
+        n = G.UIT.R,
+        config = { align = 'cm' },
+        nodes = {
+          {
+            n = G.UIT.C,
+            nodes = {
+              create_toggle {
+                label = localize('paperback_ui_plague_doctor_quotes'),
+                ref_table = PB_UTIL.config,
+                ref_value = 'plague_doctor_quotes_enabled'
+              },
             }
           }
         }
@@ -72,146 +120,95 @@ end
 
 -- Create Credits tab in our mod UI
 SMODS.current_mod.extra_tabs = function()
+  local result = {}
+
+  for k, v in pairs(PB_UTIL.credits) do
+    local parsed = {}
+
+    for _, entry in ipairs(v.entries) do
+      parsed[#parsed + 1] = {
+        n = G.UIT.R,
+        config = { align = 'cm', minh = 0.25 },
+        nodes = {
+          { n = G.UIT.T, config = { text = entry, colour = v.color, scale = 0.4 } }
+        }
+      }
+    end
+
+    result[k] = parsed
+  end
+
   local credits_tab = {
     n = G.UIT.ROOT,
-    config = { align = 'tl', padding = 0.05, emboss = 0.05, r = 0.1, colour = G.C.BLACK },
-    nodes = { {
-      n = G.UIT.R,
-      nodes = {
-        {
-          n = G.UIT.C,
-          config = { padding = 0.5 },
-          nodes = {
-            {
-              n = G.UIT.R,
-              nodes = {
-                { n = G.UIT.T, config = { text = localize('paperback_ui_artists'), colour = G.C.CHIPS, scale = 0.75 } },
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'PaperMoon', colour = G.C.MULT, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = '「S_C_R_U_B_Y」', colour = G.C.MULT, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'Firch', colour = G.C.MULT, scale = 0.4 } }
-              }
+    config = { align = 'cm', padding = 0.05, emboss = 0.05, r = 0.1, colour = G.C.BLACK },
+    nodes = {
+      {
+        n = G.UIT.R,
+        nodes = {
+          {
+            n = G.UIT.C,
+            config = { padding = 0.5 },
+            nodes = {
+              {
+                n = G.UIT.R,
+                config = { align = 'cm' },
+                nodes = {
+                  { n = G.UIT.T, config = { text = localize('paperback_ui_artists'), colour = G.C.CHIPS, scale = 0.75 } },
+                }
+              },
+              unpack(result.artists)
+            }
+          },
+          {
+            n = G.UIT.C,
+            config = { padding = 0.5 },
+            nodes = {
+              {
+                n = G.UIT.R,
+                config = { align = 'cm' },
+                nodes = {
+                  { n = G.UIT.T, config = { text = localize('paperback_ui_localization'), colour = G.C.CHIPS, scale = 0.75 } },
+                }
+              },
+              unpack(result.localization)
+            }
+          },
+          {
+            n = G.UIT.C,
+            config = { padding = 0.5 },
+            nodes = {
+              {
+                n = G.UIT.R,
+                config = { align = 'cm' },
+                nodes = {
+                  { n = G.UIT.T, config = { text = localize('b_music'), colour = G.C.CHIPS, scale = 0.75 } }
+                }
+              },
+              unpack(result.music)
             }
           }
-        },
-        {
-          n = G.UIT.C,
-          config = { padding = 0.5 },
-          nodes = {
-            {
-              n = G.UIT.R,
-              nodes = {
-                { n = G.UIT.T, config = { text = localize('paperback_ui_developers'), colour = G.C.CHIPS, scale = 0.75 } },
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'OppositeWolf770', colour = G.C.GREEN, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'srockw', colour = G.C.GREEN, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'Nether', colour = G.C.GREEN, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'B', colour = G.C.GREEN, scale = 0.4 } }
-              }
-            }
-          }
-        },
-        {
-          n = G.UIT.C,
-          config = { padding = 0.5 },
-          nodes = {
-            {
-              n = G.UIT.R,
-              nodes = {
-                { n = G.UIT.T, config = { text = localize('paperback_ui_localization'), colour = G.C.CHIPS, scale = 0.75 } },
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'pinkmaggit-hub (pt-BR)', colour = G.C.FILTER, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'mathieulievre (FR)', colour = G.C.FILTER, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'BurAndBY (RU)', colour = G.C.FILTER, scale = 0.4 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = 'Ethylene (zh_CN)', colour = G.C.FILTER, scale = 0.4 } }
-              }
-            }
-          }
-        },
-        {
-          n = G.UIT.C,
-          config = { padding = 0.5 },
-          nodes = {
-            {
-              n = G.UIT.R,
-              nodes = {
-                { n = G.UIT.T, config = { text = localize('b_music'), colour = G.C.CHIPS, scale = 0.75 } }
-              }
-            },
-            {
-              n = G.UIT.R,
-              config = { align = 'cm', minh = 0.25 },
-              nodes = {
-                { n = G.UIT.T, config = { text = "Larantula", colour = G.C.PURPLE, scale = 0.4 } }
-              }
+        }
+      },
+      {
+        n = G.UIT.R,
+        nodes = {
+          {
+            n = G.UIT.C,
+            config = { padding = 0.5 },
+            nodes = {
+              {
+                n = G.UIT.R,
+                config = { align = 'cm' },
+                nodes = {
+                  { n = G.UIT.T, config = { text = localize('paperback_ui_developers'), colour = G.C.CHIPS, scale = 0.75 } },
+                }
+              },
+              unpack(result.developers)
             }
           }
         }
       }
-    } }
+    }
   }
 
   return {
@@ -373,5 +370,245 @@ function PB_UTIL.paperclip_tooltip(type)
     set = 'Other',
     key = key,
     vars = vars
+  }
+end
+
+-- text display function for plague doctor's quotes
+-- adapted from vanilla attention_text()
+--- @param args table
+function PB_UTIL.plague_quote(args)
+  args = args or {}
+  args.text = args.text or 'test'
+  args.scale = args.scale or 1
+  args.colour = copy_table(args.colour or G.C.WHITE)
+  args.hold = (args.hold or 0) + 0.1 * (G.SPEEDFACTOR)
+
+  args.cover_colour = copy_table(G.C.CLEAR)
+
+  args.uibox_config = {
+    align = 'cm',
+    offset = args.offset or { x = 0, y = 0 },
+    major = args.major or nil
+  }
+
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = 0,
+    blockable = false,
+    blocking = true,
+    func = function()
+      args.AT = UIBox {
+        T = { 0, 0, 0, 0 },
+        definition = {
+          n = G.UIT.ROOT,
+          config = {
+            align = 'cm',
+            minw = 0.001,
+            minh = 0.001,
+            padding = 0.03,
+            r = 0.1,
+            emboss = nil,
+            colour = args.cover_colour
+          },
+          nodes = {
+            { n = G.UIT.O, config = { draw_layer = 1, object = DynaText({ scale = args.scale, string = args.text, maxw = args.maxw, colours = { args.colour }, float = true, shadow = true, silent = true, args.scale, pop_in = 0, pop_in_rate = 1, rotate = nil }) } },
+          }
+        },
+        config = args.uibox_config
+      }
+      args.AT.attention_text = true
+      args.text = args.AT.UIRoot.children[1].config.object
+      return true
+    end
+  }))
+
+  G.E_MANAGER:add_event(Event({
+    trigger = 'after',
+    delay = args.hold,
+    blockable = false,
+    blocking = true,
+    func = function()
+      args.start_time = G.TIMERS.TOTAL
+      args.text:pop_out(3)
+
+      G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 1,
+        blockable = false,
+        blocking = false,
+        timer = "REAL",
+        func = function()
+          if args.AT then args.AT:remove() end
+          return true
+        end
+      }))
+      return true
+    end
+  }))
+end
+
+-- Functions to create an UI for selecting a card, from All in Jest
+-- Used by Apostle of Wands
+function PB_UTIL.apostle_of_wands_collection_UIBox(_pool, rows, args)
+  args = args or {}
+  args.w_mod = args.w_mod or 1
+  args.h_mod = args.h_mod or 1
+  args.card_scale = args.card_scale or 1
+  local deck_tables = {}
+  local pool = SMODS.collection_pool(_pool)
+
+  G.your_collection = {}
+  local cards_per_page = 0
+  local row_totals = {}
+  for j = 1, #rows do
+    if cards_per_page >= #pool and args.collapse_single_page then
+      rows[j] = nil
+    else
+      row_totals[j] = cards_per_page
+      cards_per_page = cards_per_page + rows[j]
+      G.your_collection[j] = CardArea(
+        G.ROOM.T.x + 0.2 * G.ROOM.T.w / 2, G.ROOM.T.h,
+        (args.w_mod * rows[j] + 0.25) * G.CARD_W,
+        args.h_mod * G.CARD_H,
+        { card_limit = rows[j], type = args.area_type or 'title', highlight_limit = 0, collection = true }
+      )
+      table.insert(deck_tables,
+        {
+          n = G.UIT.R,
+          config = { align = "cm", padding = 0.07, no_fill = true },
+          nodes = {
+            { n = G.UIT.O, config = { object = G.your_collection[j] } }
+          }
+        })
+    end
+  end
+
+  local options = {}
+  for i = 1, math.ceil(#pool / cards_per_page) do
+    table.insert(
+      options,
+      localize('k_page') .. ' ' .. tostring(i) .. '/' .. tostring(math.ceil(#pool / cards_per_page))
+    )
+  end
+
+  G.FUNCS.paperback_card_collection_page = function(e)
+    if not e or not e.cycle_config then return end
+    for j = 1, #G.your_collection do
+      for i = #G.your_collection[j].cards, 1, -1 do
+        local c = G.your_collection[j]:remove_card(G.your_collection[j].cards[i])
+        c:remove()
+        c = nil
+      end
+    end
+    for j = 1, #rows do
+      for i = 1, rows[j] do
+        local center = pool[i + row_totals[j] + (cards_per_page * (e.cycle_config.current_option - 1))]
+        if not center then break end
+        local card = Card(G.your_collection[j].T.x + G.your_collection[j].T.w / 2, G.your_collection[j].T.y,
+          G.CARD_W * args.card_scale, G.CARD_H * args.card_scale, G.P_CARDS.empty,
+          (args.center and G.P_CENTERS[args.center]) or center)
+        if args.modify_card then args.modify_card(card, center, i, j) end
+        if not args.no_materialize then card:start_materialize(nil, i > 1 or j > 1) end
+        G.your_collection[j]:emplace(card)
+      end
+    end
+    INIT_COLLECTION_CARD_ALERTS()
+  end
+
+  G.FUNCS.paperback_card_collection_page { cycle_config = { current_option = 1 } }
+
+  local t = create_UIBox_generic_options({
+    back_func = (args and args.back_func) or G.ACTIVE_MOD_UI and "openModUI_" .. G.ACTIVE_MOD_UI.id or 'your_collection',
+    snap_back = args.snap_back,
+    infotip = args.infotip,
+    no_back = true,
+    contents = {
+      { n = G.UIT.R, config = { align = "cm", r = 0.1, colour = G.C.BLACK, emboss = 0.05 }, nodes = deck_tables },
+      (not args.hide_single_page or cards_per_page < #pool) and {
+        n = G.UIT.R,
+        config = { align = "cm" },
+        nodes = {
+          create_option_cycle({
+            options = options,
+            w = 4.5,
+            cycle_shoulders = true,
+            opt_callback =
+            'paperback_card_collection_page',
+            current_option = 1,
+            colour = G.C.RED,
+            no_pips = true,
+            focus_args = { snap_to = true, nav = 'wide' }
+          })
+        }
+      } or nil,
+    }
+  })
+  return t
+end
+
+G.FUNCS.paperback_select_joker = function(e)
+  local c1 = e.config.ref_table
+
+  if c1 and c1.is and type(c1.is) == "function" and c1:is(Card) then
+    G.E_MANAGER:add_event(Event({
+      trigger = 'after',
+      delay = 0.1,
+      func = function()
+        SMODS.add_card {
+          key = c1.config.center_key,
+          area = e.config.data[1]
+        }
+
+        G.SETTINGS.paused = false
+        if G.OVERLAY_MENU ~= nil then
+          G.OVERLAY_MENU:remove()
+          G.OVERLAY_MENU = nil
+        end
+
+        return true
+      end
+    }))
+  end
+end
+
+function PB_UTIL.create_select_card_ui(card, area)
+  local t2 = {
+    n = G.UIT.ROOT,
+    config = {
+      ref_table = card,
+      minw = 0.6,
+      maxw = 1,
+      padding = 0.1,
+      align = 'bm',
+      colour = G.C.GREEN,
+      shadow = true,
+      r = 0.08,
+      minh = 0.3,
+      one_press = true,
+      button = 'paperback_select_joker',
+      data = { area },
+      hover = true
+    },
+    nodes = {
+      {
+        n = G.UIT.T,
+        config = {
+          text = localize('paperback_ui_select'),
+          colour = G.C.WHITE,
+          scale = 0.5
+        }
+      }
+    }
+  }
+
+  card.children.select_button = UIBox {
+    definition = t2,
+    config = {
+      align = "bm",
+      offset = { x = -0, y = -0.15 },
+      major = card,
+      bond = 'Weak',
+      parent = card
+    }
   }
 end

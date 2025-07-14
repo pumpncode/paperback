@@ -1,11 +1,57 @@
 -- Load mod config
 PB_UTIL.config = SMODS.current_mod.config
 
+-- Enable optional features
+SMODS.current_mod.optional_features = {
+  retrigger_joker = true,
+  post_trigger = true,
+  quantum_enhancements = true,
+}
+
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
-  PB_UTIL.reset_weather_radio()
+  G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
+  G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
+
+  if run_start then
+    G.GAME.paperback.banned_run_keys = {}
+  end
 end
+
+PB_UTIL.credits = {
+  artists = {
+    color = G.C.MULT,
+    entries = {
+      'PaperMoon',
+      '「S_C_R_U_B_Y」',
+      'Firch',
+      'Fennex'
+    }
+  },
+  developers = {
+    color = G.C.GREEN,
+    entries = {
+      'OppositeWolf770, srockw, Nether, B, ejwu2, metanite64, TheSnaz',
+      'InfinityPlus05'
+    }
+  },
+  localization = {
+    color = G.C.FILTER,
+    entries = {
+      'pinkmaggit-hub (pt-BR)',
+      'mathieulievre (FR)',
+      'BurAndBY & Tauookie (RU)',
+      'Ethylene (zh_CN)'
+    }
+  },
+  music = {
+    color = G.C.PURPLE,
+    entries = {
+      'Larantula'
+    }
+  }
+}
 
 PB_UTIL.base_poker_hands = {
   "Straight Flush",
@@ -95,7 +141,11 @@ PB_UTIL.requirement_map = {
   requires_editions = {
     setting = 'editions_enabled',
     tooltip = 'paperback_requires_editions'
-  }
+  },
+  requires_ranks = {
+    setting = 'ranks_enabled',
+    tooltip = 'paperback_requires_ranks'
+  },
 }
 
 -- Disable specific items by commenting them out
@@ -105,6 +155,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "wish_you_were_here",
   "quick_fix",
   "sacrificial_lamb",
+  "the_one_who_waits",
   "unholy_alliance",
   "stamp",
   "solar_system",
@@ -112,14 +163,19 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "moai",
   "meeple",
   "solemn_lament",
+  "boundary_of_death",
   "furioso",
   "mismatched_sock",
+  "wild_plus_four",
   "basic_energy",
   "reference_card",
+  "oracle",
   "skydiver",
   "surfer",
   "apple",
+  "freezer",
   "joker_cookie",
+  "double_dutchman",
   "nachos",
   "crispy_taco",
   "soft_taco",
@@ -128,9 +184,12 @@ PB_UTIL.ENABLED_JOKERS = {
   "b_soda",
   "ice_cube",
   "cream_liqueur",
+  "deviled_egg",
   "champagne",
   "coffee",
   "matcha",
+  "pinot_noir",
+  "milk_tea",
   "epic_sauce",
   "dreamsicle",
   "popsicle_stick",
@@ -140,25 +199,40 @@ PB_UTIL.ENABLED_JOKERS = {
   "pointy_stick",
   "charred_marshmallow",
   "sticky_stick",
+  "pear",
   "sake_cup",
   "full_moon",
   "black_rainbows",
   "emergency_broadcast",
+  "blue_marble",
   "triple_moon_goddess",
-  -- "plague_doctor",
-  -- "white_night",
-  -- "one_sin_and_hundreds_of_good_deeds",
+  "as_above_so_below",
+  "plague_doctor",
+  "white_night",
+  "one_sin_and_hundreds_of_good_deeds",
   "angel_investor",
+  "card_sleeve",
   "shopping_center",
-  -- "tutor",
+  "everything_must_go",
+  "tutor",
+  "its_tv_time",
+  "high_speed_rail",
+  "aurora_borealis",
   "grand_strategy",
+  "ready_to_fly",
   "great_wave",
   "let_it_happen",
+  "in_case_i_make_it",
+  "joker_cd_i",
+  "determination",
   "prince_of_darkness",
+  "giga_size",
   "jester_of_nihil",
   "wild_prize",
   "deadringer",
+  "ncj",
   "bicycle",
+  "joke_master",
   "pride_flag",
   "bismuth",
   "cherry_blossoms",
@@ -169,62 +243,78 @@ PB_UTIL.ENABLED_JOKERS = {
   "river",
   "evergreens",
   "backpack",
+  "mexican_train",
+  "chocolate_joker",
   "resurrections",
   "summoning_circle",
+  "the_sun",
   "union_card",
   "book_of_vengeance",
   "moribund",
   "subterfuge",
   "the_world",
+  "blood_rain",
   "paranoia",
+  "touch_tone_joker",
   "jestrica",
   "you_are_a_fool",
   "alert",
   "legacy",
+  "telamon",
   "weather_radio",
   "power_surge",
   "find_jimbo",
+  "forlorn",
   -- "jimbocards",
+  "jimbos_joyous_joker_jamboree",
   -- "banana_man",
+  "the_normal_joker",
+  "better_call_jimbo",
   "jimbo_adventure",
   "ddakji",
   "pocket_pair",
+  "ultra_rare",
   "the_quiet",
   "big_misser",
+  --"squall_line",
+  "da_capo",
+  --"golden_egg",
   "heretical_joker",
   "quartz",
   "rock_candy",
   "rockin_stick",
   "birches",
+  "black_star",
+  "shooting_star",
+  "blue_star",
+  "shadowmantle",
+  "zealous_joker",
+  "lurid_joker",
+  "the_dynasty",
+  "j_and_js",
+  "master_spark",
+  "prism",
   "fraudulent_joker",
   "pyrite",
   "tanghulu",
   "sweet_stick",
   "wheat_field",
+  "solar_eclipse",
+  "gambit",
+  "king_me",
+  "manilla_folder",
+  "clippy",
   "clothespin",
   "kintsugi_joker",
   "watercolor_joker",
   "medic",
   "festive_joker",
-  -- "winter_melon",
-  -- "freezer",
-  -- "perke_os",
-  -- "jestrogen",
-  -- "jestosterone",
-  -- "marketable_plushie",
-  -- "jokers_11",
-  -- "eyelander",
-  -- "highlander",
-  -- "peanuts",
-  -- "aurora_borealis",
-  -- "blue_marble",
-  -- "claw",
-  -- "marksman",
-  -- "built_to_last",
-  -- "as_above_so_below",
-  -- "everything_must_go",
-  -- "mimicry",
-  -- "prismatic_shard",
+  "sommelier",
+  "spotty_joker",
+  "langely",
+  "pedrillo",
+  "nichola",
+  "chaplin",
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA = {
@@ -254,22 +344,22 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "ten_of_wands",
   "page_of_wands",
   "knight_of_wands",
-  "queen_of_wands", -- WANDS
-  "king_of_wands",
+  "queen_of_wands",
+  "king_of_wands", -- WANDS
   "ace_of_swords",
-  -- "two_of_swords",
-  -- "three_of_swords",
-  -- "four_of_swords",
-  -- "five_of_swords",
-  -- "six_of_swords",
-  -- "seven_of_swords",
-  -- "eight_of_swords",
-  -- "nine_of_swords",
-  -- "ten_of_swords",
-  -- "page_of_swords",
-  -- "knight_of_swords",
-  -- "queen_of_swords",
-  -- "king_of_swords",
+  "two_of_swords",
+  "three_of_swords",
+  "four_of_swords",
+  "five_of_swords",
+  "six_of_swords",
+  "seven_of_swords",
+  "eight_of_swords",
+  "nine_of_swords",
+  "ten_of_swords",
+  "page_of_swords",
+  "knight_of_swords",
+  "queen_of_swords",
+  "king_of_swords", -- SWORDS
   "ace_of_pentacles",
   -- "two_of_pentacles",
   -- "three_of_pentacles",
@@ -283,7 +373,28 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "page_of_pentacles",
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
-  -- "king_of_pentacles",
+  -- "king_of_pentacles", -- PENTACLES
+}
+
+PB_UTIL.ENABLED_SPECTRALS = {
+  "apostle_of_cups",
+  "apostle_of_wands",
+  "apostle_of_swords",
+  --"apostle_of_pentacles",
+
+
+}
+
+PB_UTIL.ENABLED_BLINDS = {
+  "quarter",
+  "half",
+  "whole",
+  "rest",
+  "flat",
+  "sharp",
+  "natural",
+  "coda",
+  "taupe_treble"
 }
 
 PB_UTIL.DECK_SKINS = {
@@ -360,13 +471,57 @@ PB_UTIL.DECK_SKINS = {
     suits = {
       'Spades'
     }
-  }
+  },
+  {
+    id = 'deltarune',
+    name = "Deltarune",
+    suits = {
+      'paperback_Stars'
+    }
+  },
+  {
+    id = 'celeste',
+    name = "Celeste",
+    suits = {
+      'paperback_Crowns'
+    }
+  },
+  {
+    id = 'primarina',
+    name = "Pokemon (Primarina)",
+    suits = {
+      'Hearts'
+    }
+  },
+  {
+    id = 'serperior',
+    name = "Pokemon (Serperior)",
+    suits = {
+      'Clubs'
+    }
+  },
+  {
+    id = 'delphox',
+    name = "Pokemon (Delphox)",
+    suits = {
+      'Diamonds'
+    }
+  },
+  {
+    id = 'gardevoir',
+    name = "Pokemon (Gardevoir)",
+    suits = {
+      'Spades'
+    }
+  },
 }
 
 PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_normal_1',
   'minor_arcana_normal_2',
-  'minor_arcana_jumbo',
+  'minor_arcana_normal_3',
+  'minor_arcana_jumbo_1',
+  'minor_arcana_jumbo_2',
   'minor_arcana_mega',
 }
 
@@ -388,10 +543,16 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "ceramic",
   "wrapped",
   "bandaged",
+  "domino",
+  "stained",
 }
 
 PB_UTIL.ENABLED_EDITIONS = {
   'dichrome'
+}
+
+PB_UTIL.ENABLED_RANKS = {
+  'apostle'
 }
 
 PB_UTIL.ENABLED_SUITS = {
@@ -417,12 +578,21 @@ PB_UTIL.ENABLED_DECKS = {
   'paper',
   'proud',
   'silver',
+  'dreamer',
+  'antique',
+  'passionate',
+}
+
+PB_UTIL.ENABLED_STICKERS = {
+  'energized',
+  'temporary'
 }
 
 -- Define a Booster object with certain shared properties for Minor Arcana packs
 if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcanaBooster = SMODS.Booster:extend {
     group_key = 'paperback_minor_arcana_pack',
+    kind = 'paperback_minor_arcana',
     draw_hand = true,
 
     loc_vars = function(self, info_queue, card)
@@ -441,7 +611,8 @@ if PB_UTIL.config.minor_arcana_enabled then
       return {
         set = 'paperback_minor_arcana',
         area = G.pack_cards,
-        skip_materialize = true
+        skip_materialize = true,
+        soulable = true -- Allow creating Apostle cards
       }
     end,
 
@@ -481,7 +652,7 @@ if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.MinorArcana = SMODS.Consumable:extend {
     set = 'paperback_minor_arcana',
     unlocked = true,
-    discovered = true,
+    discovered = false,
 
     loc_vars = function(self, info_queue, card)
       if not self.config then return end
@@ -568,7 +739,7 @@ if PB_UTIL.config.suits_enabled then
   }
 end
 
---- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink"
+--- @alias Paperclip "blue" | "black" | "white" | "red" | "orange" | "pink" | "yellow" | "gold"
 PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "red_clip",
@@ -576,4 +747,6 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "pink_clip",
   "black_clip",
   "white_clip",
+  "yellow_clip",
+  "gold_clip",
 }

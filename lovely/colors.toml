@@ -19,6 +19,9 @@ PAPERBACK_CROWNS_HC = HEX('B38E5E'),
 PAPERBACK_MINOR_ARCANA = HEX('BDA0D9'),
 PAPERBACK_BLACK = HEX('1E2729'),
 PAPERBACK_PINK = HEX('FF79AD'),
+PAPERBACK_ENERGIZED = HEX('FD5F55'),
+PAPERBACK_TEMPORARY = HEX('B3A08A'),
+PAPERBACK_SOLEMN_WHITE = HEX('F9FFE3'),
 '''
 
 [[patches]]
@@ -35,4 +38,6 @@ payload = '''
   paperback_minor_arcana = G.C.PAPERBACK_MINOR_ARCANA,
   paperback_black = G.C.PAPERBACK_BLACK,
   paperback_pink = G.C.PAPERBACK_PINK,
+  paperback_perishable = G.C.PERISHABLE,
+  paperback_temporary = G.C.PAPERBACK_TEMPORARY,
 '''

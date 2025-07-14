@@ -5,7 +5,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 4,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
 
@@ -19,7 +19,8 @@ SMODS.Joker {
         func = function()
           local key = 'p_buffoon_normal_' .. pseudorandom('backpack', 1, 2)
           local booster = SMODS.add_booster_to_shop(key)
-          booster.cost = 0
+          booster.ability.couponed = true
+          booster:set_cost()
           return true
         end
       })

@@ -11,7 +11,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
   soul_pos = nil,
@@ -22,11 +22,13 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         card.ability.extra.x_chips,
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
+        numerator,
+        denominator
       }
     }
   end,
@@ -41,7 +43,7 @@ SMODS.Joker {
 
     -- Checks if Joker should be destroyed at the end of the round
     if context.end_of_round and not context.blueprint and context.main_eval then
-      if pseudorandom("Crispy Taco") < G.GAME.probabilities.normal / card.ability.extra.odds then
+      if PB_UTIL.chance(card, 'Crispy Taco') then
         PB_UTIL.destroy_joker(card, function()
           -- Allows Soft Taco to spawn, prevents Crispy Taco from spawning
           G.GAME.pool_flags.soft_taco_can_spawn = true
@@ -60,5 +62,35 @@ SMODS.Joker {
         }
       end
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = 'X' },
+            { ref_table = 'card.ability.extra', ref_value = 'x_chips' },
+          },
+          border_colour = G.C.CHIPS,
+        },
+      },
+
+      extra = {
+        {
+          { text = '(' },
+          { ref_table = 'card.joker_display_values', ref_value = 'odds' },
+          { text = ')' },
+        },
+      },
+      extra_config = {
+        colour = G.C.GREEN,
+        scale = 0.3,
+      },
+
+      calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { PB_UTIL.chance_vars(card) } }
+      end,
+    }
   end
 }

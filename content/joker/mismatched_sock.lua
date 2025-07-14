@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       x_mult = 1,
-      a_xmult = 0.05,
+      a_xmult = 0.1,
       hand = 'Pair'
     }
   },
@@ -12,7 +12,7 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,

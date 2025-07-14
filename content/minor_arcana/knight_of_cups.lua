@@ -33,7 +33,7 @@ PB_UTIL.MinorArcana {
       copy_card(right, left)
       assert(SMODS.change_base(left, suit, rank))
 
-      PB_UTIL.destroy_playing_cards { right }
+      SMODS.destroy_cards { right }
     end)
   end
 }

@@ -11,7 +11,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
@@ -21,6 +21,8 @@ SMODS.Joker {
   enhancement_gate = 'm_paperback_wrapped',
 
   loc_vars = function(self, info_queue, card)
+    local numerator, denominator = PB_UTIL.chance_vars(card)
+
     return {
       vars = {
         localize {
@@ -28,8 +30,8 @@ SMODS.Joker {
           set = 'Enhanced',
           key = card.ability.extra.enhancement
         },
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds
+        numerator,
+        denominator
       }
     }
   end,
@@ -37,7 +39,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
       local enhanced = SMODS.has_enhancement(context.other_card, card.ability.extra.enhancement)
-      local roll = pseudorandom('festive_joker') < G.GAME.probabilities.normal / card.ability.extra.odds
+      local roll = PB_UTIL.chance(card, 'festive_joker')
 
       if enhanced and roll then
         local type = PB_UTIL.poll_consumable_type('festive_joker')

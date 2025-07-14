@@ -11,7 +11,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 6,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
@@ -24,10 +24,6 @@ SMODS.Joker {
         card.ability.extra.mult_mod * card.sell_cost
       }
     }
-  end,
-
-  set_ability = function(self, card, initial, delay_sprites)
-    PB_UTIL.set_sell_value(card, 0)
   end,
 
   calculate = function(self, card, context)

@@ -12,47 +12,46 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   cost = 8,
   unlocked = true,
-  discovered = true,
+  discovered = false,
   blueprint_compat = false,
-  eternal_compat = true,
+  eternal_compat = false,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+    local numerator, denominator = PB_UTIL.chance_vars(card, nil, card.ability.extra.chance_mult)
 
     return {
       vars = {
-        G.GAME.probabilities.normal * card.ability.extra.chance_mult,
-        card.ability.extra.odds,
+        numerator,
+        denominator,
         card.ability.extra.sell_cost,
-        G.GAME.probabilities.normal
+        numerator / card.ability.extra.chance_mult
       }
     }
   end,
 
   calculate = function(self, card, context)
-    if not context.blueprint and context.selling_card and context.card ~= card and
-        context.card.ability.set == 'Joker' and not context.card.ability.paperback_resurrected then
-      local chance = G.GAME.probabilities.normal * card.ability.extra.chance_mult
-      local roll = pseudorandom("resurrections") < chance / card.ability.extra.odds
-
-      if roll then
-        context.card.ability.paperback_resurrected = true
-
+    if not context.blueprint and context.selling_card and context.card ~= card and context.card.ability.set == 'Joker' then
+      if PB_UTIL.chance(card, 'resurrections', card.ability.extra.chance_mult) then
         G.E_MANAGER:add_event(Event {
           func = function()
+            -- Create a copy of the sold Joker
             local copy = copy_card(context.card)
-            copy:set_edition('e_negative', true)
-            -- Remove resurrected flag from copy
-            copy.ability.paperback_resurrected = nil
             copy:add_to_deck()
             G.jokers:emplace(copy)
-            PB_UTIL.set_sell_value(copy, -card.ability.extra.sell_cost)
+
+            -- Create the negative copy
+            local n_copy = copy_card(context.card)
+            n_copy:set_edition('e_negative', true)
+            n_copy:add_to_deck()
+            G.jokers:emplace(n_copy)
+            PB_UTIL.set_sell_value(n_copy, -card.ability.extra.sell_cost)
             return true
           end
         })
 
-        -- Reset chance after a successful roll
-        card.ability.extra.chance_mult = 1
+        -- Self destruct
+        PB_UTIL.destroy_joker(card)
 
         return {
           message = localize('k_duplicated_ex')
