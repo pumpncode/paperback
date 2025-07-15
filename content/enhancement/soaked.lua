@@ -24,17 +24,19 @@ SMODS.Enhancement {
       local has_blood_rain = next(SMODS.find_card('j_paperback_blood_rain'))
 
       for _, held_card in ipairs(G.hand.cards) do
-        local effects = { card = card }
+        if held_card:can_calculate() then
+          local effects = { card = card }
 
-        if has_blood_rain and not SMODS.has_no_rank(held_card) then
-          effects.mult = held_card.base.nominal
-          effects.colour = G.C.MULT
-        else
-          effects.chips = held_card:get_chip_bonus()
-          effects.colour = G.C.CHIPS
+          if has_blood_rain and not SMODS.has_no_rank(held_card) then
+            effects.mult = held_card.base.nominal
+            effects.colour = G.C.MULT
+          else
+            effects.chips = held_card:get_chip_bonus()
+            effects.colour = G.C.CHIPS
+          end
+
+          SMODS.calculate_effect(effects, held_card)
         end
-
-        SMODS.calculate_effect(effects, held_card)
       end
     end
 
