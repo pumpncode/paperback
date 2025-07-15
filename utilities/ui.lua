@@ -553,16 +553,16 @@ G.FUNCS.paperback_select_joker = function(e)
       trigger = 'after',
       delay = 0.1,
       func = function()
-        SMODS.add_card {
-          key = c1.config.center_key,
-          area = e.config.data[1]
-        }
-
         G.SETTINGS.paused = false
         if G.OVERLAY_MENU ~= nil then
           G.OVERLAY_MENU:remove()
           G.OVERLAY_MENU = nil
         end
+
+        SMODS.add_card {
+          key = c1.config.center_key,
+          area = e.config.data[1]
+        }
 
         return true
       end
