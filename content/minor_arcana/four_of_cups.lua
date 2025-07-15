@@ -27,15 +27,17 @@ PB_UTIL.MinorArcana {
           money = money + card.ability.extra.money
         end
         v:set_ability(G.P_CENTERS.c_base)
+        -- Prevent enhancements with no rank from staying as blank cards
+        v.front_hidden = v:should_hide_front()
 
         if v.seal then
           money = money + card.ability.extra.money
-          v.seal = nil
+          v:set_seal(nil, true, true)
         end
 
         if v.edition then
           money = money + card.ability.extra.money
-          v.edition = nil
+          v:set_edition(nil, true, true)
         end
       end
 
