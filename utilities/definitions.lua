@@ -255,6 +255,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "the_world",
   "blood_rain",
   "paranoia",
+  "der_fluschutze",
   "touch_tone_joker",
   "jestrica",
   "you_are_a_fool",

@@ -1390,6 +1390,15 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      j_paperback_der_fluschutze = {
+        name = "Der Fluschütze",
+        text = { 
+          "If {C:attention}first{} played hand of round",
+          "was a single {C:attention}face{} card, destroy it",
+          "and give this joker {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+        }
+      },
       j_paperback_cakepop = {
         name = "Cakepop",
         text = {
