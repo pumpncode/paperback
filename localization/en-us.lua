@@ -743,8 +743,8 @@ return {
         name = "Mexican Train",
         text = {
           "Scored {C:attention}#1#s{} give {C:money}$#2#",
-          "when {c:attention}scored{} this round and",
-          "increase the payout by {C:money}$#3#"
+          "for every scoring {C:attention}#1#{}",
+          "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
       j_paperback_chocolate_joker = {

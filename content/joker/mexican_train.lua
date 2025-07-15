@@ -3,11 +3,9 @@ SMODS.Joker {
   config = {
     extra = {
       dollars = 1,
-      scaling = 1,
-      count = 0,
     }
   },
-  rarity = 1,
+  rarity = 2,
   pos = { x = 17, y = 10 },
   atlas = "jokers_atlas",
   cost = 8,
@@ -21,7 +19,23 @@ SMODS.Joker {
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_domino
-    card.ability.extra.dollars = card.ability.extra.scaling * (card.ability.extra.count or 0) + 1
+    local count = 0
+    local table = {}
+
+    if G.play.cards[1] then
+      table = G.play.cards
+    else
+      if G.hand.highlighted[1] then
+        table = G.hand.highlighted
+      end
+    end
+
+    for _, v in ipairs(table) do
+      local debuff_check = not v.debuff
+      if SMODS.has_enhancement(v, 'm_paperback_domino') and debuff_check then
+        count = (count or 0) + 1
+      end
+    end
     return {
       vars = {
         localize {
@@ -30,28 +44,25 @@ SMODS.Joker {
           key = 'm_paperback_domino'
         },
         card.ability.extra.dollars,
-        card.ability.extra.scaling,
+        card.ability.extra.dollars * count,
       }
     }
   end,
 
   calculate = function(self, card, context)
-    card.ability.extra.dollars = card.ability.extra.scaling * (card.ability.extra.count or 0) + 1
     if context.individual and context.cardarea == G.play then
       if SMODS.has_enhancement(context.other_card, 'm_paperback_domino') then
-        card.ability.extra.count = card.ability.extra.count + 1
-        card.ability.extra.dollars = card.ability.extra.scaling * (card.ability.extra.count or 0) + 1
+        local count = 0
+        for _, v in ipairs(G.play.cards or {}) do
+          local debuff_check = not v.debuff
+          if SMODS.has_enhancement(v, 'm_paperback_domino') and debuff_check then
+            count = (count or 0) + 1
+          end
+        end
         return {
-          dollars = card.ability.extra.dollars - 1
+          dollars = card.ability.extra.dollars * count
         }
       end
-    end
-
-    if context.end_of_round and context.cardarea == G.jokers then
-      card.ability.extra.count = 0
-      return {
-        message = localize('k_reset')
-      }
     end
   end
 }
