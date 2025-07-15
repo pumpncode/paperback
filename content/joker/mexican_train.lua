@@ -21,11 +21,10 @@ SMODS.Joker {
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_domino
     local count = 0
     local table = {}
-
-    if G.play.cards[1] then
+    if G.play and G.play.cards[1] then
       table = G.play.cards
     else
-      if G.hand.highlighted[1] then
+      if G.hand and G.hand.highlighted and G.hand.highlighted[1] then
         table = G.hand.highlighted
       end
     end
