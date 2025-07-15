@@ -31,7 +31,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.using_consumeable then
-      if context.consumeable and context.consumeable.ability.moon then
+      if context.consumeable and context.consumeable.ability.moon and context.consumeable.ability.hand_type then
         if PB_UTIL.chance(card, 'moon_waltz') then
           if context.consumeable.ability.chips then
             card.ability.extra.chips = card.ability.extra.chips +
