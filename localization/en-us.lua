@@ -1399,6 +1399,15 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
         }
       },
+      j_paperback_the_wonder_of_you = {
+        name = "The Wonder of You",
+        text = {
+          "When the joker to the {C:attention}right{}",
+          "fails a {C:green}probability{} check,",
+          "the {C:attention}rightmost{} card held",
+          "in hand is {C:attention}destroyed{}"
+        }
+      },
       j_paperback_cakepop = {
         name = "Cakepop",
         text = {
