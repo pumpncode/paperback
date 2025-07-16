@@ -152,7 +152,7 @@ return {
         }
       },
       j_paperback_lurid_joker = {
-        name = "Zealous Joker",
+        name = "Lurid Joker",
         text = {
           "{C:chips}+#1#{} Chips if played",
           "hand contains",
@@ -160,7 +160,7 @@ return {
         }
       },
       j_paperback_zealous_joker = {
-        name = "Lurid Joker",
+        name = "Zealous Joker",
         text = {
           "{C:mult}+#1#{} Mult if played",
           "hand contains",
@@ -1392,7 +1392,7 @@ return {
       },
       j_paperback_der_fluschutze = {
         name = "Der Fluschütze",
-        text = { 
+        text = {
           "If {C:attention}first{} played hand of round",
           "was a single {C:attention}face{} card, destroy it",
           "and give this joker {X:mult,C:white}X#1#{} Mult",
