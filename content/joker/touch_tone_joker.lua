@@ -23,6 +23,8 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if not context.blueprint and context.open_booster and card.ability.extra.packs[context.card.config.center.kind] then
       G.E_MANAGER:add_event(Event {
+        trigger = 'after',
+        delay = 1.2,
         func = function()
           if G.pack_cards and #G.pack_cards.cards > 0 then
             draw_card(G.pack_cards, G.consumeables, 90, 'up')
