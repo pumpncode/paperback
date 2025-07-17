@@ -2206,8 +2206,9 @@ return {
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
-          "Earn {C:money}$#1#{} at the end of round",
-          "for each scored {C:attention}Clip{}",
+          "Earn {C:money}$#1#{} for each scored {C:attention}Clip{}",
+          "if this card is {C:attention}held in hand",
+          "at the end of round",
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
