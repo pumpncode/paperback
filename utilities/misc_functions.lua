@@ -520,7 +520,7 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action, sound)
 
   G.E_MANAGER:add_event(Event {
     trigger = 'after',
-    delay = '0.1',
+    delay = 0.1,
     func = function()
       if action and type(action) == "function" then
         action()
@@ -541,6 +541,15 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action, sound)
           c:flip()
           play_sound('tarot2', percent, 0.6)
           c:juice_up(0.3, 0.3)
+
+          -- Update the sprites of cards
+          if c.config and c.config.center then
+            c:set_sprites(c.config.center)
+          end
+          if c.ability then
+            c.front_hidden = c:should_hide_front()
+          end
+
           return true
         end
       })

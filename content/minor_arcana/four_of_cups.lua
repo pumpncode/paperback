@@ -27,8 +27,6 @@ PB_UTIL.MinorArcana {
           money = money + card.ability.extra.money
         end
         v:set_ability(G.P_CENTERS.c_base)
-        -- Prevent enhancements with no rank from staying as blank cards
-        v.front_hidden = v:should_hide_front()
 
         if v.seal then
           money = money + card.ability.extra.money
