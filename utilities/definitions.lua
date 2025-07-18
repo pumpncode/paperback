@@ -268,6 +268,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "find_jimbo",
   -- "jimbocards",
   "forlorn",
+  "blade_dance",
   "claw",
   "inner_peace",
   "jimbos_joyous_joker_jamboree",

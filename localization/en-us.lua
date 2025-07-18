@@ -121,6 +121,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_blade_dance = {
+        name = "Blade Dance",
+        text = {
+          "When {C:attention}Blind{} is selected,",
+          "create {C:attention}#1#{} random {C:paperback_temporary}temporary",
+          "{C:attention}#2#s{} in your hand"
+        }
+      },
       j_paperback_claw = {
         name = "Claw",
         text = {
@@ -2525,6 +2533,7 @@ return {
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round",
+      paperback_a_plus_cards = "+#1# #2#s",
     },
     ranks = {
       paperback_Apostle = 'Apostle',
