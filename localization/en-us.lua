@@ -121,6 +121,15 @@ return {
       },
     },
     Joker = {
+      j_paperback_claw = {
+        name = "Claw",
+        text = {
+          "When a {C:attention}#1#{} is scored, scored {C:attention}#1#s{}",
+          "give an additional {C:mult}+#2#{} Mult",
+          "Resets at the {C:attention}end of round",
+          "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_chaplin = {
         name = "Chaplin",
         text = {
