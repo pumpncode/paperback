@@ -1091,3 +1091,10 @@ function PB_UTIL.chance_vars(obj, key, base_numerator, base_denominator)
     false
   )
 end
+
+--- Whether a given value is of the Card type
+---@param c any
+---@return boolean
+function PB_UTIL.is_card(c)
+  return c and type(c) == "table" and c.is and type(c.is) == "function" and c:is(Card)
+end
