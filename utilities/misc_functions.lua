@@ -988,11 +988,10 @@ end
 ---@return string hand the name of the hand, for example "Five of a Kind"
 function PB_UTIL.get_random_visible_hand(seed)
   local hands = {}
-  for _, k in ipairs(G.handlist) do
-    local v = G.GAME.hands[k]
-    if v.visible then hands[#hands + 1] = k end
+  for k, _ in pairs(SMODS.PokerHands) do
+    if SMODS.is_poker_hand_visible(k) then hands[#hands + 1] = k end
   end
-  return pseudorandom_element(hands, pseudoseed(seed))
+  return pseudorandom_element(hands, pseudoseed(seed)) or 'High Card'
 end
 
 --- Gets the next suit in the Da Capo cycle Spades -> Hearts -> Clubs -> Diamonds -> None -> Spades
