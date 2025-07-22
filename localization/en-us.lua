@@ -121,6 +121,13 @@ return {
       },
     },
     Joker = {
+      j_paperback_burning_pact = {
+        name = "Burning Pact",
+        text = {
+          "If a {C:attention}discard{} has only {C:attention}#1#{} card",
+          "draw {C:attention}#2#{} additional cards"
+        }
+      },
       j_paperback_blade_dance = {
         name = "Blade Dance",
         text = {
