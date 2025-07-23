@@ -305,7 +305,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "big_misser",
   --"squall_line",
   "da_capo",
-  --"golden_egg",
+  "golden_egg",
   "heretical_joker",
   "quartz",
   "rock_candy",

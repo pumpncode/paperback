@@ -121,6 +121,19 @@ return {
       },
     },
     Joker = {
+      j_paperback_golden_egg = {
+        name = "Golden Egg",
+        text = {
+          "When a {C:attention}secret hand{} is played,",
+          "earn the sell value of",
+          "the {C:attention}Joker{} to the right"
+        },
+        unlock = {
+          "Win a run with a",
+          "{C:attention}secret hand{} as your",
+          "most played hand"
+        }
+      },
       j_paperback_burning_pact = {
         name = "Burning Pact",
         text = {
