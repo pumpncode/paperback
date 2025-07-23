@@ -3,6 +3,13 @@
 local init_game_object_ref = Game.init_game_object
 function Game.init_game_object(self)
   local ret = init_game_object_ref(self)
+
+  -- referenced code from Ortalab to get the list of secret hands
+  local secrets = {}
+  for k, v in pairs(ret.hands) do
+    if v.visible == false then table.insert(secrets, k) end
+  end
+
   ret.paperback = {
     round = {
       scored_clips = 0
@@ -17,6 +24,7 @@ function Game.init_game_object(self)
     domino_ranks = {},
     jjjj_count = 0,
     banned_run_keys = {},
+    secret_hands = secrets,
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
