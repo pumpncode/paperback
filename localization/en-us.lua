@@ -383,7 +383,6 @@ return {
           "If played hand contains a",
           "{C:attention}Spectrum{}, create {C:attention}#1#{} random {C:attention}Tags",
           "Consumed in {C:attention}#2#{} rounds",
-          "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
         }
       },
       j_paperback_blue_star = {
@@ -2568,6 +2567,7 @@ return {
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round",
       paperback_a_plus_cards = "+#1# #2#s",
+      paperback_a_plus_tags = "+#1# Tags",
     },
     ranks = {
       paperback_Apostle = 'Apostle',
