@@ -12,12 +12,12 @@ SMODS.Joker {
 
   check_for_unlock = function(self, args)
     if args.type == 'win' then
-      local most_played = 0
+      local most_played = to_big(0)
       for name, vals in pairs(G.GAME.hands) do
-        if vals.played > most_played then most_played = vals.played end
+        if to_big(vals.played) > most_played then most_played = to_big(vals.played) end
       end
       for i, v in ipairs(G.GAME.paperback.secret_hands) do
-        if G.GAME.hands[v].played == most_played then return true end
+        if to_big(G.GAME.hands[v].played) == most_played then return true end
       end
     end
     return false
@@ -32,7 +32,6 @@ SMODS.Joker {
             if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] end
           end
           if other_joker then
-            print(card)
             return { dollars = other_joker.sell_cost }
           end
         end
