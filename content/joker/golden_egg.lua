@@ -23,6 +23,13 @@ SMODS.Joker {
     return false
   end,
 
+  in_pool = function(self, args)
+    for i, v in ipairs(G.GAME.paperback.secret_hands) do
+      if to_big(G.GAME.hands[v].played) > to_big(0) then return true end
+    end
+    return false
+  end,
+
   calculate = function(self, card, context)
     if context.joker_main then
       for i, v in ipairs(G.GAME.paperback.secret_hands) do
