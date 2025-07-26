@@ -30,12 +30,12 @@ PB_UTIL.MinorArcana {
 
         if v.seal then
           money = money + card.ability.extra.money
-          v.seal = nil
+          v:set_seal(nil, true, true)
         end
 
         if v.edition then
           money = money + card.ability.extra.money
-          v.edition = nil
+          v:set_edition(nil, true, true)
         end
       end
 

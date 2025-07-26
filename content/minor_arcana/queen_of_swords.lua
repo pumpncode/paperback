@@ -21,14 +21,18 @@ PB_UTIL.MinorArcana {
   use = function(self, card, area)
     local ref = G.hand.highlighted[1].base.suit
     local targets = {}
-    while #targets < card.ability.targets do
+    local attempts = 0
+
+    while #targets < card.ability.targets and attempts <= #G.playing_cards do
       local target = pseudorandom_element(G.playing_cards, pseudoseed('queen_of_swords'))
       if not SMODS.has_no_suit(target) and target.base.suit ~= ref then
         table.insert(targets, target)
       end
+      attempts = attempts + 1
     end
+
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
-      for k, v in ipairs(targets) do
+      for _, v in ipairs(targets) do
         assert(SMODS.change_base(v, ref))
       end
     end)

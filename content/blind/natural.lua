@@ -11,9 +11,13 @@ SMODS.Blind {
   calculate = function(self, blind, context)
     if context.before and not blind.disabled then
       local min
-      for _, v in pairs(G.GAME.hands) do
-        min = min and (min < v.level and min or v.level) or v.level
+
+      for k, v in pairs(G.GAME.hands) do
+        if SMODS.is_poker_hand_visible(k) then
+          min = min and (min < v.level and min or v.level) or v.level
+        end
       end
+
       if min and G.GAME.hands[context.scoring_name].level > min then
         for _, v in pairs(context.scoring_hand) do
           v:set_debuff(true)

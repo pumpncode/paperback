@@ -121,6 +121,43 @@ return {
       },
     },
     Joker = {
+      j_paperback_golden_egg = {
+        name = "Golden Egg",
+        text = {
+          "When a {C:attention}secret hand{} is played,",
+          "earn the sell value of",
+          "the {C:attention}Joker{} to the right"
+        },
+        unlock = {
+          "Win a run with a",
+          "{C:attention}secret hand{} as your",
+          "most played hand"
+        }
+      },
+      j_paperback_burning_pact = {
+        name = "Burning Pact",
+        text = {
+          "If a {C:attention}discard{} has only {C:attention}#1#{} card",
+          "draw {C:attention}#2#{} additional cards"
+        }
+      },
+      j_paperback_blade_dance = {
+        name = "Blade Dance",
+        text = {
+          "When {C:attention}Blind{} is selected,",
+          "create {C:attention}#1#{} random {C:paperback_temporary}temporary",
+          "{C:attention}#2#s{} in your hand"
+        }
+      },
+      j_paperback_claw = {
+        name = "Claw",
+        text = {
+          "When a {C:attention}#1#{} is scored, scored {C:attention}#1#s{}",
+          "give an additional {C:mult}+#2#{} Mult",
+          "Resets at the {C:attention}end of round",
+          "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+        }
+      },
       j_paperback_chaplin = {
         name = "Chaplin",
         text = {
@@ -152,7 +189,7 @@ return {
         }
       },
       j_paperback_lurid_joker = {
-        name = "Zealous Joker",
+        name = "Lurid Joker",
         text = {
           "{C:chips}+#1#{} Chips if played",
           "hand contains",
@@ -160,7 +197,7 @@ return {
         }
       },
       j_paperback_zealous_joker = {
-        name = "Lurid Joker",
+        name = "Zealous Joker",
         text = {
           "{C:mult}+#1#{} Mult if played",
           "hand contains",
@@ -207,6 +244,18 @@ return {
         text = {
           "The next {C:attention}#1#{} times a {C:attention}#2#",
           "triggers, give {C:mult}#3#{} additional Mult"
+        }
+      },
+      j_paperback_jestosterone = {
+        name = "Jestosterone",
+        text = {
+          "Scored {C:attention}#1#s{} become {C:attention}#2#s{}"
+        }
+      },
+      j_paperback_jestrogen = {
+        name = "Jestrogen",
+        text = {
+          "Scored {C:attention}#1#s{} and {C:attention}#2#s{} become {C:attention}#3#s{}"
         }
       },
       j_paperback_langely = {
@@ -334,7 +383,6 @@ return {
           "If played hand contains a",
           "{C:attention}Spectrum{}, create {C:attention}#1#{} random {C:attention}Tags",
           "Consumed in {C:attention}#2#{} rounds",
-          "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
         }
       },
       j_paperback_blue_star = {
@@ -613,7 +661,7 @@ return {
         text = {
           "This Joker gives {C:chips}+#1#{} Chips for",
           "every {C:money}dollar{} of {C:attention}sell value",
-          "from all owned Jokers",
+          "from all other owned Jokers",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
@@ -743,8 +791,8 @@ return {
         name = "Mexican Train",
         text = {
           "Scored {C:attention}#1#s{} give {C:money}$#2#",
-          "when {c:attention}scored{} this round and",
-          "increase the payout by {C:money}$#3#"
+          "for every scoring {C:attention}#1#{}",
+          "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
       j_paperback_chocolate_joker = {
@@ -1390,6 +1438,32 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      j_paperback_der_fluschutze = {
+        name = "Der Fluschütze",
+        text = {
+          "If {C:attention}first{} played hand of round",
+          "was a single {C:attention}face{} card, destroy it",
+          "and give this joker {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+        }
+      },
+      j_paperback_the_wonder_of_you = {
+        name = "The Wonder of You",
+        text = {
+          "When the joker to the {C:attention}right{}",
+          "fails a {C:green}probability{} check,",
+          "the {C:attention}rightmost{} card held",
+          "in hand is {C:attention}destroyed{}"
+        }
+      },
+      j_paperback_inner_peace = {
+        name = "Inner Peace",
+        text = {
+          "{C:attention}+3{} hand size before",
+          "the {C:attention}first{} hand",
+          "of round is played"
+        }
+      },
       j_paperback_cakepop = {
         name = "Cakepop",
         text = {
@@ -1529,6 +1603,15 @@ return {
           "Chips for every {C:attention}unique",
           "{C:paperback_minor_arcana}Minor Arcana{} card used",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
+        },
+      },
+      j_paperback_punch_card = {
+        name = "Punch Card",
+        text = {
+          "After {C:attention}#1#{} rounds,",
+          "sell this card to",
+          "gain {C:attention}#3#{} Ante",
+          "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#)",
         },
       },
       -- Cross-Mod jokers start here
@@ -2188,8 +2271,9 @@ return {
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
-          "Earn {C:money}$#1#{} at the end of round",
-          "for each scored {C:attention}Clip{}",
+          "Earn {C:money}$#1#{} for each scored {C:attention}Clip{}",
+          "if this card is {C:attention}held in hand",
+          "at the end of round",
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
@@ -2407,6 +2491,10 @@ return {
       paperback_determination_ex = "NGAAAHH!",
       paperback_forlorn_destruction = "Sorry...",
       paperback_freezer_ex = "Dinner Time!",
+      paperback_jestosterone_ex = "Masc!",
+      paperback_jestrogen_ex = "Fem!",
+      paperback_punch_card_active = "Tell your friends!",
+      paperback_punch_card_ex = "Wrong Warp!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
@@ -2489,6 +2577,8 @@ return {
       paperback_prince_of_darkness = "+#1# Mult, +#2# Chips",
       paperback_a_completion = "#1#/#2#",
       paperback_a_round_minus = "-#1# Round",
+      paperback_a_plus_cards = "+#1# #2#s",
+      paperback_a_plus_tags = "+#1# Tags",
     },
     ranks = {
       paperback_Apostle = 'Apostle',

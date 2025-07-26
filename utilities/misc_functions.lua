@@ -520,7 +520,7 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action, sound)
 
   G.E_MANAGER:add_event(Event {
     trigger = 'after',
-    delay = '0.1',
+    delay = 0.1,
     func = function()
       if action and type(action) == "function" then
         action()
@@ -541,6 +541,15 @@ function PB_UTIL.use_consumable_animation(card, cards_to_flip, action, sound)
           c:flip()
           play_sound('tarot2', percent, 0.6)
           c:juice_up(0.3, 0.3)
+
+          -- Update the sprites of cards
+          if c.config and c.config.center then
+            c:set_sprites(c.config.center)
+          end
+          if c.ability then
+            c.front_hidden = c:should_hide_front()
+          end
+
           return true
         end
       })
@@ -979,11 +988,10 @@ end
 ---@return string hand the name of the hand, for example "Five of a Kind"
 function PB_UTIL.get_random_visible_hand(seed)
   local hands = {}
-  for _, k in ipairs(G.handlist) do
-    local v = G.GAME.hands[k]
-    if v.visible then hands[#hands + 1] = k end
+  for k, _ in pairs(SMODS.PokerHands) do
+    if SMODS.is_poker_hand_visible(k) then hands[#hands + 1] = k end
   end
-  return pseudorandom_element(hands, pseudoseed(seed))
+  return pseudorandom_element(hands, pseudoseed(seed)) or 'High Card'
 end
 
 --- Gets the next suit in the Da Capo cycle Spades -> Hearts -> Clubs -> Diamonds -> None -> Spades
@@ -1082,4 +1090,11 @@ function PB_UTIL.chance_vars(obj, key, base_numerator, base_denominator)
     key or (obj.config and obj.config.center_key),
     false
   )
+end
+
+--- Whether a given value is of the Card type
+---@param c any
+---@return boolean
+function PB_UTIL.is_card(c)
+  return c and type(c) == "table" and c.is and type(c.is) == "function" and c:is(Card)
 end

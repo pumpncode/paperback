@@ -26,7 +26,8 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.before and not context.blueprint and card.ability.extra.enabled then
       card.ability.extra.enabled = false
-      to_gold = context.scoring_hand[1]
+      local to_gold = context.scoring_hand[1]
+
       if not SMODS.has_enhancement(to_gold, 'm_gold') then
         to_gold:set_ability('m_gold', nil, true)
         G.E_MANAGER:add_event(Event({
