@@ -2145,6 +2145,14 @@ return {
           "gain {C:attention}+#1#{C:blue} Hand{} or {C:red}Discard",
           "{C:inactive}(Whichever is lower)"
         }
+      },
+      e_paperback_dichrome_playing_card = {
+        name = "Dichrome",
+        text = {
+          "When this card {C:attention}is drawn{}",
+          "gain {C:attention}+#1#{C:blue} Hand{} or {C:red}Discard",
+          "{C:inactive}(Whichever is lower)"
+        }
       }
     },
     Other = {
