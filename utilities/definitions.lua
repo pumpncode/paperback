@@ -33,7 +33,7 @@ PB_UTIL.credits = {
     color = G.C.GREEN,
     entries = {
       'OppositeWolf770, srockw, Nether, B, ejwu2, metanite64, TheSnaz',
-      'InfinityPlus05'
+      'InfinityPlus05, aliahmed2k03'
     }
   },
   localization = {
@@ -42,7 +42,8 @@ PB_UTIL.credits = {
       'pinkmaggit-hub & Riosodu (pt-BR)',
       'mathieulievre (FR)',
       'BurAndBY & Tauookie (RU)',
-      'Ethylene (zh_CN)'
+      'Ethylene (zh_CN)',
+      'Marffe (es_ES & es_419)',
     }
   },
   music = {
