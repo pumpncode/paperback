@@ -350,7 +350,7 @@ return {
           "If played hand contains a scoring {V:1}#1#,",
           "the first scored {V:1}#1#{} {C:attention}destroys{}",
           "the first non-{V:1}#1#{} held in hand",
-          "and gains its {C:chips}Chip value{}",
+          "and gains {C:attention}twice{} its {C:chips}Chip value{}",
         }
       },
       j_paperback_solar_eclipse = {
