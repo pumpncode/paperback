@@ -279,7 +279,7 @@ return {
         text = {
           "Cards {C:attention}held in hand{} have a {C:green}#1# in #2#",
           "chance to gain random",
-          "{C:attention}enhancements{}, {C:attention}seals{} or {C:attention}editions",
+          "{C:attention}enhancements{} or {C:attention}seals{}",
           "for the next {C:attention}#3#{} hands"
         }
       },
