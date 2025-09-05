@@ -4,7 +4,7 @@ SMODS.Joker {
     extra = {
       unique_suits = 2,
       x_mult = 2,
-      hands = 2,
+      hands = 3,
       hands_remaining = 0
     }
   },
