@@ -1041,8 +1041,7 @@ return {
         name = "Bicycle",
         text = {
           "{C:attention}Wild Cards{} give {C:mult}Mult",
-          "equal to their {C:chips}Chip value{},",
-          "then {X:mult,C:white}X#1#{} Mult",
+          "equal to their {C:chips}Chip value{}",
         },
       },
       j_paperback_stamp = {
