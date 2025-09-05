@@ -2,9 +2,9 @@ SMODS.Joker {
   key = "coffee",
   config = {
     extra = {
-      hand_size = 0,
+      hand_size = 1,
       increase = 1,
-      odds = 5
+      odds = 6
     }
   },
   rarity = 2,
