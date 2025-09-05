@@ -18,7 +18,7 @@ SMODS.Joker {
   soul_pos = nil,
 
   loc_vars = function(self, info_queue, card)
-    local unique_specials = PB_UTIL.special_cards_in_deck(true, true)
+    local unique_specials = PB_UTIL.special_cards_in_deck(true, false)
 
     return {
       vars = {
@@ -31,7 +31,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.joker_main then
-      if PB_UTIL.special_cards_in_deck(true, true) >= card.ability.extra.card_modifiers_required then
+      if PB_UTIL.special_cards_in_deck(true, false) >= card.ability.extra.card_modifiers_required then
         return {
           x_mult = card.ability.extra.xMult,
           card = card
