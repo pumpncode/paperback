@@ -34,7 +34,7 @@ SMODS.Joker {
       local cards = {}
 
       for _, v in ipairs(context.scoring_hand) do
-        if v:is_suit(card.ability.extra.suit) then
+        if v:is_suit(card.ability.extra.suit) and v:get_id() ~= 13 then
           cards[#cards + 1] = v
         end
       end
@@ -42,11 +42,7 @@ SMODS.Joker {
       if #cards > 0 then
         PB_UTIL.use_consumable_animation(context.blueprint_card or card, cards, function()
           for _, v in ipairs(cards) do
-            if v:get_id() == 13 then
-              goto continue
-            end
             assert(SMODS.modify_rank(v, card.ability.extra.rank_mod))
-            ::continue::
           end
         end)
 
