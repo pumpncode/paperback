@@ -23,7 +23,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.pre_discardand and not context.blueprint_card then
+    if context.pre_discard and not context.blueprint_card then
       if #context.full_hand == card.ability.extra.card_req then
         card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.bonus
         return {

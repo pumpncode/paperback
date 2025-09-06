@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       sv_gain = 1,
-      mult_mod = 3
+      mult_mod = 2
     }
   },
   rarity = 2,

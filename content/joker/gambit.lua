@@ -3,7 +3,8 @@ SMODS.Joker {
   config = {
     extra = {
       suit = 'paperback_Crowns',
-      triggered = false
+      triggered = false,
+      chip_mult = 2
     }
   },
   rarity = 2,
@@ -37,7 +38,7 @@ SMODS.Joker {
               card.ability.extra.triggered = true
             end
 
-            v.ability.perma_bonus = (v.ability.perma_bonus or 0) + context.destroy_card:get_chip_bonus()
+            v.ability.perma_bonus = (v.ability.perma_bonus or 0) + (context.destroy_card:get_chip_bonus() * card.ability.extra.chip_mult)
 
             return {
               remove = true,
