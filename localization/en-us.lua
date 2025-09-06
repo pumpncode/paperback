@@ -270,8 +270,9 @@ return {
       j_paperback_pedrillo = {
         name = "Pedrillo",
         text = {
-          "If scoring hand contains a {C:attention}Queen{},",
-          "upgrade the played {C:attention}poker hand{}"
+          "Scored {C:attention}Queens{}",
+          "create the {C:planet}Planet{} card",
+          "for played {C:attention}poker hand"
         }
       },
       j_paperback_double_dutchman = {
@@ -564,8 +565,8 @@ return {
         name = "Spotty Joker",
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
-          "when {C:attention}scoring hand{}",
-          "contains a {C:attention}#2#,",
+          "for every {C:attention}#2#{}",
+          "in {C:attention}scoring hand{}",
           "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
         }
       },
