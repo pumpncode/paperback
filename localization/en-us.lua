@@ -537,10 +537,9 @@ return {
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
-          "{C:green}#1# in #2#{} chance to create",
-          "a random {C:planet}Planet{} card if",
-          "{C:attention}scoring hand{} contains a {V:3}#3#{}",
-          "{C:inactive}(Must have room)",
+          "When a {C:attention}Planet{} card is used",
+          "this Joker gains {C:mult}+#1#{} Mult",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
       },
       j_paperback_boundary_of_death = {
@@ -1644,10 +1643,10 @@ return {
       j_paperback_eyelander = {
         name = "Eyelander",
         text = {
-          "Scored {C:attention}face{} cards are destroyed",
+          "Scored {C:attention}face{} cards are destroyed.",
           "After scoring {C:attention}#1# face{} cards",
-          "{C:attention}selling{} this Joker adds",
-          "{C:dark_edition}Negative{} to a {C:attention}random{} Joker",
+          "{C:attention}selling{} this Joker adds {C:dark_edition}Negative{}",
+          "to a {C:attention}random{} Joker",
           "{C:inactive}(Currently {C:attention}#2#{C:inactive} Heads)"
         }
       },

@@ -10,7 +10,7 @@ SMODS.Joker { -- Guns Blazin'
     y = 4
   },
   cost = 8,
-  rarity = 3,
+  rarity = 2,
   blueprint_compat = true,
   eternal_compat = true,
   unlocked = true,
