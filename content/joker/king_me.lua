@@ -42,7 +42,11 @@ SMODS.Joker {
       if #cards > 0 then
         PB_UTIL.use_consumable_animation(context.blueprint_card or card, cards, function()
           for _, v in ipairs(cards) do
+            if v:get_id() == 13 then
+              goto continue
+            end
             assert(SMODS.modify_rank(v, card.ability.extra.rank_mod))
+            ::continue::
           end
         end)
 

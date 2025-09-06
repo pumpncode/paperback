@@ -341,7 +341,8 @@ return {
         name = "King Me",
         text = {
           "Scored {V:1}#1#{} increase",
-          "their rank by {C:attention}#2#"
+          "their rank by {C:attention}#2#",
+          "{C:inactive}(Does not increase after {C:attention}King{C:inactive})"
         }
       },
       j_paperback_gambit = {
@@ -563,8 +564,8 @@ return {
         name = "Spotty Joker",
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
-          "if {C:attention}scoring hand{} contains a {C:attention}#2#,",
-          "otherwise lose {X:mult,C:white}X#3#{} Mult",
+          "when {C:attention}scoring hand{}",
+          "contains a {C:attention}#2#,",
           "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
         }
       },
@@ -1114,9 +1115,9 @@ return {
         name = "Mismatched Sock",
         text = {
           "This Joker gains {X:mult,C:white}X#1#",
-          "Mult if played hand does",
-          "not contain a {C:attention}#2#",
-          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)",
+          "Mult if discard contains",
+          "exactly {C:attention}one{} card",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
       j_paperback_wild_plus_four = {
@@ -1465,10 +1466,8 @@ return {
       j_paperback_the_wonder_of_you = {
         name = "The Wonder of You",
         text = {
-          "When the joker to the {C:attention}right{}",
-          "fails a {C:green}probability{} check,",
-          "the {C:attention}rightmost{} card held",
-          "in hand is {C:attention}destroyed{}"
+          "Upon selecting a {C:attention}Boss{} Blind",
+          "create two random {C:attention}tags"
         }
       },
       j_paperback_inner_peace = {
