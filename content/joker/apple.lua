@@ -55,7 +55,7 @@ SMODS.Joker {
         }))
 
         -- Don't destroy the joker if it was triggered due to blueprint
-        if not context.blueprint and PB_UTIL.chance(card,'apple_destruction', 1, card.ability.extra.break_odds) then
+        if not context.blueprint and PB_UTIL.chance(card, 'apple_destruction', 1, card.ability.extra.break_odds) then
           PB_UTIL.destroy_joker(card)
 
           return {

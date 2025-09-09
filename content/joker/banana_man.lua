@@ -19,15 +19,16 @@ SMODS.Joker { -- Banana Man
   atlas = 'jokers_atlas',
 
   loc_vars = function(self, info_queue, card)
-    local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'banana_man')
+    local new_numerator, new_denominator = PB_UTIL.chance_vars(card, 'banana_man')
     return { vars = { new_numerator, new_denominator, card.ability.extra.xmult } }
   end,
 
   calculate = function(self, card, context)
-    if context.other_joker and context.other_joker.ability.set == "Joker" then     -- this is just baseball card's code, dont @ me
-      if (SMODS.pseudorandom_probability(card, 'Potassium', 1, card.ability.extra.odds, 'j_paperback_banana_man')) then
+    if context.other_joker and context.other_joker.ability.set == "Joker" then -- this is just baseball card's code, dont @ me
+      if PB_UTIL.chance(card, 'potassium') then
         return {
-          Xmult = card.ability.extra.xmult,
+          x_mult = card.ability.extra.xmult,
+          message_card = context.other_joker
         }
       end
     end

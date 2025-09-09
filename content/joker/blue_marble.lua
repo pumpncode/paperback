@@ -17,37 +17,35 @@ SMODS.Joker {
   perishable_compat = true,
 
   loc_vars = function(self, info_queue, card)
-      return {
-        vars = {
-          card.ability.extra.increment,
-          card.ability.extra.mult
-        }
+    return {
+      vars = {
+        card.ability.extra.increment,
+        card.ability.extra.mult
+      }
     }
   end,
 
   calculate = function(self, card, context)
-    
     if context.using_consumeable and context.consumeable.ability.set == "Planet" then
       card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.increment
       return {
         message = localize('k_upgrade_ex')
       }
     end
-    
+
     if context.joker_main then
       return {
         mult = card.ability.extra.mult
       }
     end
-
   end,
   joker_display_def = function(JokerDisplay)
     return {
-        text = {
-            { text = "+" },
-            { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
-        },
-        text_config = { colour = G.C.MULT }
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT }
     }
   end
 }

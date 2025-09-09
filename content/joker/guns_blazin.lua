@@ -22,11 +22,11 @@ SMODS.Joker { -- Guns Blazin'
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-        if context.other_card:get_id() == 14 then
-            return {
-                xmult = card.ability.extra.xmult
-            }
-        end
+      if context.other_card:get_id() == 14 then
+        return {
+          x_mult = card.ability.extra.xmult
+        }
+      end
     end
   end
 

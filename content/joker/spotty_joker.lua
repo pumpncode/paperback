@@ -49,8 +49,8 @@ SMODS.Joker {
       end
       if upgraded then
         return {
-            message = localize('k_upgrade_ex'),
-          }
+          message = localize('k_upgrade_ex'),
+        }
       end
     end
 

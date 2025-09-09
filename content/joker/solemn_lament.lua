@@ -39,7 +39,7 @@ SMODS.Joker {
         dark  = false,
         light = false
       }
-      
+
       for _, v in ipairs(context.scoring_hand) do
         if not SMODS.has_any_suit(v) then
           if not suits.dark and PB_UTIL.is_suit(v, 'dark') then
