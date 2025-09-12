@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       mult = 0,
-      bonus = 1,
+      bonus = 2,
       card_req = 5
     }
   },
