@@ -210,14 +210,18 @@ end
 -- accounts for Shortcut by checking for Q and 3 as well
 local get_straight_ref = get_straight
 function get_straight(hand, min_length, skip, wrap)
-  local has_king_queen = false
-  local has_2_3 = false
-  for i = 1, #hand do
-    if hand[i]:get_id() == 13 or hand[i]:get_id() == 12 then has_king_queen = true end
-    if hand[i]:get_id() == 2 or hand[i]:get_id() == 3 then has_2_3 = true end
+  local orig_straights = get_straight_ref(hand, min_length, skip, wrap)
+  local result = {}
+  for _, straight in ipairs(orig_straights) do
+    local has_king_queen = false
+    local has_2_3 = false
+    for i = 1, #straight do
+      if straight[i]:get_id() == 13 or straight[i]:get_id() == 12 then has_king_queen = true end
+      if straight[i]:get_id() == 2 or straight[i]:get_id() == 3 then has_2_3 = true end
+    end
+    if not (has_king_queen and has_2_3) then table.insert(result, straight) end
   end
-  if has_king_queen and has_2_3 then return {} end
-  return get_straight_ref(hand, min_length, skip, wrap)
+  return result
 end
 
 -- Apostle-high straight flushes get renamed to "Rapture"
