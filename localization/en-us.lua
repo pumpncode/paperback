@@ -1725,6 +1725,14 @@ return {
           "{C:attention}#1#{} Antes"
         }
       },
+      c_paperback_golden_bough = {
+        name = "Golden Bough",
+        text = {
+          "Creates a random {C:dark_edition}Negative",
+          "{C:paperback_ego_gift}EGO Gift{} after each {C:attention}Boss Blind",
+          "{C:red}#1#{} Joker Slot"
+        }
+      },
     },
     paperback_minor_arcana = {
       c_paperback_ace_of_cups = {
@@ -2235,14 +2243,6 @@ return {
         text = {
           "The first consumable used each {C:attention}Ante{}",
           "creates a {C:attention}Energized copy{}"
-        }
-      },
-      c_paperback_golden_bough = {
-        name = "Golden Bough",
-        text = {
-          "Creates a random {C:dark_edition}Negative",
-          "{C:paperback_ego_gift}EGO Gift{} after each {C:attention}Boss Blind",
-          "{C:red}#1#{} Joker Slot"
         }
       },
     },

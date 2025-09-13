@@ -7,8 +7,10 @@ PB_UTIL.EGO_Gift {
   atlas = 'ego_gift_atlas',
   pos = { x = 7, y = 2 },
   soul_pos = { x = 7, y = 5 },
-  soul_rate = 0.01,
-  hidden = true,
+
+  set = 'Spectral',
+  soul_set = "paperback_ego_gift",
+  soul_rate = 0.001,
 
   ego_loc_vars = function(self, info_queue, card)
     return {
