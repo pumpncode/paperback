@@ -728,6 +728,15 @@ return {
           "an {C:money}Angel Investment Tag"
         }
       },
+      j_paperback_marble_soda = {
+        name = "Marble Soda",
+        text = {
+          "{C:attention}#1#s{} give an additional",
+          "{X:mult,C:white}X#2#{} Mult when scored",
+          "Drank after {C:attention}#3#{} playing",
+          "cards are destroyed"
+        }
+      },
       j_paperback_ice_cube = {
         name = "Ice Cube",
         text = {
