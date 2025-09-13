@@ -899,6 +899,24 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
         }
       },
+      j_paperback_fodder = {
+        name = "Fodder",
+        text = {
+          "Sell this card to {C:paperback_ego_gift}Corrode{}",
+          "the rightmost {C:paperback_ego_gift}E.G.O. Gift{}",
+        }
+      },
+      j_paperback_the_strongest = {
+        name = "The Strongest",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "when an {C:paperback_ego_gift}E.G.O. Gift{} is sold",
+          "or corrodes itself",
+          "C:paperback_ego_gift}Corrodes{} an {C:paperback_ego_gift}E.G.O. Gift",
+          "when Defeating a {C:attention}Boss Blind",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
       j_paperback_freezer = {
         name = "Freezer",
         text = {
@@ -2048,6 +2066,186 @@ return {
         }
       }
     },
+    paperback_ego_gift = {
+      c_paperback_dark_vestige = {
+        name = "Dark Vestige",
+        text = {
+          "The result of attempting to",
+          "have duplicate {C:paperback_ego_gift}E.G.O Gifts{}...",
+        }
+      },
+      c_paperback_imposed_weight = {
+        name = "Imposed Weight",
+        text = {
+          "Retrigger the {C:attention}rightmost scoring{} card",
+          "{C:attention}#1#{} times for each {C:attention}empty{} Joker slot",
+        }
+      },
+      c_paperback_phlebotomy_pack = {
+        name = "Phlebotomy Pack",
+        text = {
+          "{C:blue}+#1#{} hand per round",
+        }
+      },
+      c_paperback_smokes_and_wires = {
+        name = "Smokes and Wires",
+        text = {
+          "{X:red,C:white}X#1#{} Mult on {C:attention}final",
+          "{C:attention}hand{} of round",
+        }
+      },
+      c_paperback_coffee_and_cranes = {
+        name = "Coffee and Cranes",
+        text = {
+          "For every {C:money}$#1#{} owned",
+          "at the end of round, earn {C:money}$#2#{}",
+          "up to {C:money}$#3#{}",
+          "{C:inactive}(Currently {C:money}$#4#{C:inactive}){}"
+        }
+      },
+      c_paperback_fiery_down = {
+        name = "Fiery Down",
+        text = {
+          "If {C:attention}#1#{} {C:inactive}(#2#){} cards",
+          "have been {C:attention}discarded,",
+          "upgrade next played",
+          "{C:attention}poker hand"
+        }
+      },
+      c_paperback_decamillennial_stewpot = {
+        name = "Decamillenial Stewpot",
+        text = {
+          "If {C:attention}first played hand{} of round",
+          "is a {C:attention}single{} card, destroy it",
+        }
+      },
+      c_paperback_downpour = {
+        name = "Downpour",
+        text = {
+          "Played hands lower the {C:attention}blind requirement{}",
+          "by {C:attention}#1#%",
+        }
+      },
+      c_paperback_rusty_coin = {
+        name = "Rusty Commemorative Coin",
+        text = {
+          "If {C:attention}first played hand{} of round",
+          "is a {C:attention}single{} card,",
+          "add a random {C:attention}seal{} to it"
+        }
+      },
+      c_paperback_ragged_umbrella = {
+        name = "Ragged Umbrella",
+        text = {
+          "This {C:paperback_ego_gift}E.G.O. Gift{} gains {C:chips}+#1#{} Chips",
+          "every time a {C:attention}played hand",
+          "does not defeat a {C:attention}Blind",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+        }
+      },
+      c_paperback_thrill = {
+        name = "Thrill",
+        text = {
+          "If no {C:attention}hands{} have been played, this",
+          "{C:paperback_ego_gift}E.G.O. Gift{} gives {X:mult,C:white}X#1#{} Mult",
+          "for every used {C:attention}discard{} this {C:attention}round",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        }
+      },
+      c_paperback_disk_fragment = {
+        name = "Disk Fragment",
+        text = {
+          "When {C:attention}Small Blind{} or {C:attention}Big Blind{} is selected,",
+          "create {C:attention}#1#{} {C:dark_edition}Negative{} {C:planet}Planet{} cards",
+          "if none are currently owned",
+        }
+      },
+      c_paperback_death_seeker = {
+        name = "Deathseeker",
+        text = {
+          "{C:attention}Enhanced{} cards give {C:mult}+Mult{}",
+          "equal to their {C:attention}rank{} when scored",
+        }
+      },
+      c_paperback_pendant_of_nostalgia = {
+        name = "Pendant of Nostalgia",
+        text = {
+          "Whenever a {C:attention}playing card{} is destroyed, this {C:paperback_ego_gift}E.G.O. Gift",
+          "creates a random {C:tarot}Tarot{} or {C:paperback_minor_arcana}Minor Arcana{} card",
+          "{C:inactive}(Must have room)"
+        }
+      },
+      c_paperback_blue_lighter = {
+        name = "Blue Zippo Lighter",
+        text = {
+          "If {C:attention}score catches fire{}, {C:attention}convert",
+          "a card held in hand into",
+          "{C:attention}first{} card of scored hand"
+        }
+      },
+      c_paperback_broken_glasses = {
+        name = "Broken Glasses",
+        text = {
+          "Any time a card is destoyed,",
+          "create {C:attention}two{} copies",
+          "{C:green}#1#{} in {C:green}#2#{} chance of {C:red}self destructing{} after"
+        }
+      },
+      c_paperback_nebulizer = {
+        name = "Nebulizer",
+        text = {
+          "Scored cards have a {C:green}#1#{} in {C:green}#2#{}",
+          "chance to give {X:mult,C:white}X#3#{} Mult"
+        }
+      },
+      c_paperback_tomorrow_fortune = {
+        name = "Tomorrow's Fortune",
+        text = {
+          "All {C:attention}Booster Packs{} contain",
+          "{C:attention}1{} more card to choose from"
+        }
+      },
+      c_paperback_fluorescent_lamp = {
+        name = "Fluorescent Lamp",
+        text = {
+          "{C:red}+#1#{} discard per round, additionally",
+          "gain {C:red}+#1#{} discard for every {C:attention}#2#",
+          "for each empty {C:attention}Joker{} slot",
+          "{C:inactive}(Currently {C:red}+#3#{C:inactive} discards)"
+        }
+      },
+      c_paperback_lightning_rod = {
+        name = "Lightning Rod",
+        text = {
+          "Cards {C:attention}held in hand{}",
+          "have a {C:green}#1#{} in {C:green}#2#",
+          "chance of retriggering"
+        }
+      },
+      c_paperback_chalice_of_trickle_down = {
+        name = "Chalice of Trickle Down",
+        text = {
+          "During {C:attention}Boss Blinds{}, gives",
+          "{C:money}${} equal to lowest rank",
+          "in {C:attention}scoring hand"
+        }
+      },
+      c_paperback_patrolling_flashlight = {
+        name = "Patrolling Flashlight",
+        text = {
+          "The first consumable used each {C:attention}Ante{}",
+          "creates a {C:attention}Energized copy{}"
+        }
+      },
+      c_paperback_golden_bough = {
+        name = "Golden Bough",
+        text = {
+          "Creates a random {C:dark_edition}Negative",
+          "{C:paperback_ego_gift}EGO Gift{} after each {C:attention}Boss Blind",
+          "{C:red}#1#{} Joker Slot"
+        }
+      },
+    },
     Voucher = {
       v_paperback_celtic_cross = {
         name = "Celtic Cross",
@@ -2270,13 +2468,22 @@ return {
           "disabled in {C:legendary}Paperback",
         }
       },
+      paperback_requires_ego_gifts = {
+        name = "Requires E.G.O. Gifts",
+        text = {
+          "Removed from pool due",
+          "to {C:paperback_ego_gift}E.G.O. Gifts{} being",
+          "disabled in {C:legendary}Paperback",
+        }
+      },
 
       -- Stickers
       paperback_energized = {
         name = "Energized",
         text = {
           "Cannot be copied by",
-          "{C:attention}#1#{}"
+          "{C:attention}#1#{} or",
+          "{C:attention}#2#{}"
         }
       },
       paperback_temporary = {
@@ -2284,6 +2491,17 @@ return {
         text = {
           "Will be {C:mult}destroyed",
           "when round ends"
+        }
+      },
+      paperback_corroded = {
+        name = "Corroded",
+        text = {
+          "Can be {C:money}sold{} without",
+          "activating a {C:paperback_ego_gift}Sin",
+          "{C:red}Self-destructs{} and",
+          "activates the {C:paperback_ego_gift}Sin",
+          "after {C:attention}#1#{} Rounds",
+          "{C:inactive}({C:attention}#2#{C:inactive} Rounds left)",
         }
       },
 
@@ -2360,7 +2578,70 @@ return {
           "{C:inactive}(Resets after played hand)"
         }
       },
-
+      -- E.G.O. Gift Sins
+      paperback_sin_none = {
+        name = "Vestige",
+        text = {
+          "Always sells for {C:money}$#1#{}"
+        }
+      },
+      paperback_sin_wrath = {
+        name = "Wrath",
+        text = {
+          "When sold, {C:attention}destroy{}",
+          "all held {C:attention}consumables"
+        }
+      },
+      paperback_sin_lust = {
+        name = "Lust",
+        text = {
+          "When sold, downgrade {C:attention}most played hand{} by {C:attention}#1# levels{}"
+        }
+      },
+      paperback_sin_sloth = {
+        name = "Sloth",
+        text = {
+          "Can only be sold directly after skipping a {C:attention}Blind"
+        }
+      },
+      paperback_sin_gluttony = {
+        name = "Gluttony",
+        text = {
+          "When sold, add {C:paperback_perishable}Perishable{} to a random {C:attention}Joker{}"
+        }
+      },
+      paperback_sin_gloom = {
+        name = "Gloom",
+        text = {
+          "When sold, multiply all {C:attention}Base Blind{} sizes by {C:attention}X#1#{}"
+        }
+      },
+      paperback_sin_pride = {
+        name = "Pride",
+        text = {
+          "Always sells for {C:money}$#1#{}"
+        }
+      },
+      paperback_sin_envy = {
+        name = "Envy",
+        text = {
+          "When sold, reduce {C:attention}hand size{} by {C:red}#1#{}"
+        }
+      },
+      paperback_sin_madness = {
+        name = "Madness",
+        text = {
+          "When sold, {C:attention}destroy{}",
+          "a random {C:attention}Joker"
+        }
+      },
+      p_paperback_ego_gift_normal = {
+        name = "E.G.O. Gift Extraction",
+        text = {
+          "Choose {C:attention}#1#{} of up to",
+          "{C:attention}#2#{C:paperback_ego_gift} E.G.O Gifts{}",
+        },
+      },
       -- Minor Arcana
       p_paperback_minor_arcana_normal = {
         name = "Minor Arcana Pack",
@@ -2530,6 +2811,23 @@ return {
       -- Text shown at the bottom while opening booster
       paperback_minor_arcana_pack = "Minor Arcana Pack",
 
+      -- Badge under gifts
+      k_paperback_ego_gift = "E.G.O. Gift",
+      -- Name of consumable type in collection
+      b_paperback_ego_gift_cards = "E.G.O. Gift",
+      -- Text shown at the bottom while opening booster
+      paperback_ego_gift_pack = "E.G.O. Gift Extraction",
+
+      -- Badge under E.G.O. Gifts based on sins
+      k_paperback_ego_sin_none = "Vestige",
+      k_paperback_ego_sin_pride = "Pride",
+      k_paperback_ego_sin_wrath = "Wrath",
+      k_paperback_ego_sin_gloom = "Gloom",
+      k_paperback_ego_sin_sloth = "Sloth",
+      k_paperback_ego_sin_lust = "Lust",
+      k_paperback_ego_sin_envy = "Envy",
+      k_paperback_ego_sin_gluttony = "Gluttony",
+
       paperback_confessed_ex = "Confessed!",
       paperback_polychrome_ex = "Polychrome!",
       paperback_destroyed_ex = "Destroyed!",
@@ -2556,6 +2854,7 @@ return {
       paperback_determination_ex = "NGAAAHH!",
       paperback_forlorn_destruction = "Sorry...",
       paperback_freezer_ex = "Dinner Time!",
+      paperback_corroded_ex = "Corroded!",
       paperback_jestosterone_ex = "Masc!",
       paperback_jestrogen_ex = "Fem!",
       paperback_punch_card_active = "Tell your friends!",
@@ -2565,6 +2864,7 @@ return {
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
       paperback_ui_enable_blinds = "Enable Blinds",
       paperback_ui_enable_minor_arcana = "Enable Minor Arcana",
+      paperback_ui_enable_ego_gifts = "Enable E.G.O. Gifts",
       paperback_ui_enable_enhancements = "Enable Enhancements",
       paperback_ui_enable_editions = "Enable Editions",
       paperback_ui_enable_paperclips = "Enable Paperclips",
@@ -2693,6 +2993,7 @@ return {
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
+      paperback_corroded = "Corroded",
     }
   }
 }

@@ -147,6 +147,10 @@ PB_UTIL.requirement_map = {
     setting = 'ranks_enabled',
     tooltip = 'paperback_requires_ranks'
   },
+  requires_ego_gifts = {
+    setting = 'ego_gifts_enabled',
+    tooltip = 'paperback_requires_ego_gifts'
+  }
 }
 
 -- Disable specific items by commenting them out
@@ -305,6 +309,8 @@ PB_UTIL.ENABLED_JOKERS = {
   "the_quiet",
   "big_misser",
   --"squall_line",
+  "fodder",
+  "the_strongest",
   "da_capo",
   "golden_egg",
   "heretical_joker",
@@ -402,6 +408,32 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "knight_of_pentacles",
   -- "queen_of_pentacles",
   -- "king_of_pentacles", -- PENTACLES
+}
+
+PB_UTIL.ENABLED_EGO_GIFTS = {
+  'imposed_weight',
+  'phlebotomy_pack',
+  'smokes_and_wires',
+  'coffee_and_cranes',
+  'fiery_down',
+  'decamillennial_stewpot',
+  'downpour',
+  'rusty_coin',
+  'ragged_umbrella',
+  'thrill',
+  'disk_fragment',
+  'death_seeker',
+  'pendant_of_nostalgia',
+  'blue_lighter',
+  'broken_glasses',
+  'nebulizer',
+  'tomorrow_fortune',
+  'fluorescent_lamp',
+  'lightning_rod',
+  'chalice_of_trickle_down',
+  'patrolling_flashlight',
+  'golden_bough',
+  'dark_vestige',
 }
 
 PB_UTIL.ENABLED_SPECTRALS = {
@@ -587,6 +619,10 @@ PB_UTIL.ENABLED_MINOR_ARCANA_BOOSTERS = {
   'minor_arcana_mega',
 }
 
+PB_UTIL.ENABLED_EGO_GIFT_BOOSTERS = {
+  'ego_gift_normal_1',
+}
+
 PB_UTIL.ENABLED_VOUCHERS = {
   'celtic_cross',
   'soothsay',
@@ -647,7 +683,8 @@ PB_UTIL.ENABLED_DECKS = {
 
 PB_UTIL.ENABLED_STICKERS = {
   'energized',
-  'temporary'
+  'temporary',
+  'corroded'
 }
 
 -- Define a Booster object with certain shared properties for Minor Arcana packs
@@ -769,6 +806,213 @@ if PB_UTIL.config.minor_arcana_enabled then
           end
         end)
       end
+    end
+  }
+end
+
+-- Define a Booster object with certain shared properties for E.G.O. Gift packs
+if PB_UTIL.config.ego_gifts_enabled then
+  PB_UTIL.EGO_GiftBooster = SMODS.Booster:extend {
+    group_key = 'paperback_ego_gift_pack',
+    kind = 'paperback_ego_gift',
+    draw_hand = false,
+    select_card = 'consumeables',
+
+    loc_vars = function(self, info_queue, card)
+      return {
+        -- Removes the underscore with a digit at the end of a key if it exists,
+        -- allowing us to make only one localization entry per type
+        key = self.key:gsub('_%d$', ''),
+        vars = {
+          card.ability.choose,
+          card.ability.extra
+        }
+      }
+    end,
+
+    create_card = function(self, card, i)
+      return {
+        set = 'paperback_ego_gift',
+        area = G.pack_cards,
+        skip_materialize = true,
+      }
+    end,
+
+    ease_background_colour = function(self)
+      ease_colour(G.C.DYN_UI.MAIN, G.C.PAPERBACK_EGO_GIFT_RED)
+      ease_background_colour { new_colour = G.C.PAPERBACK_EGO_GIFT_YELLOW, special_colour = G.C.BLACK, contrast = 2 }
+    end,
+  }
+end
+
+-- Define custom EGO_Gifts object with shared properties for handling common behavior
+if PB_UTIL.config.ego_gifts_enabled then
+  -- Vars for Calc and Loc
+  PB_UTIL.EGO_GIFT_SINS = {
+    none = { 5 },
+    wrath = {},
+    lust = { 2 },
+    sloth = {},
+    gluttony = {},
+    gloom = { 1.5 },
+    pride = { -15 },
+    envy = { 1 },
+  }
+  -- Tables for the standardized sin calc
+  PB_UTIL.SIN_DEBUFF = {
+    none = {},
+    wrath = {
+      func = function()
+        SMODS.destroy_cards(G.consumeables.cards)
+      end
+    },
+    lust = {
+      func = function()
+        local _hand, _tally = nil, 1
+        for k, v in ipairs(G.handlist) do
+          if G.GAME.hands[v].visible and G.GAME.hands[v].played >= _tally then
+            _hand = v
+            _tally = G.GAME.hands[v].played
+          end
+        end
+        if _hand then
+          SMODS.smart_level_up_hand(nil, _hand, false, -PB_UTIL.EGO_GIFT_SINS.lust[1])
+          return nil, true
+        end
+      end
+    },
+    gluttony = {
+      func = function()
+        local compatible = {}
+        local perish = nil
+        for _, target in ipairs(G.jokers.cards) do
+          if target.config.center.perishable_compat and not (target.ability.eternal or target.ability.perishable) then
+            compatible[#compatible + 1] = target
+          end
+        end
+
+        if next(G.jokers.cards) and next(compatible) then
+          perish = pseudorandom_element(compatible, pseudoseed('paperback_gluttony'))
+          SMODS.Stickers["perishable"]:apply(perish, true)
+          perish:juice_up()
+        end
+      end
+    },
+    gloom = {
+      func = function()
+        G.GAME.paperback.blind_multiplier = G.GAME.paperback.blind_multiplier * PB_UTIL.EGO_GIFT_SINS.gloom[1]
+      end
+    },
+    envy = {
+      func = function()
+        G.hand:change_size(-PB_UTIL.EGO_GIFT_SINS.envy[1])
+      end
+    },
+    madness = {
+      func = function()
+        local jokers = {}
+        for i, v in ipairs(G.jokers.cards) do
+          if not SMODS.is_eternal(v) and not v.getting_sliced then
+            jokers[#jokers + 1] = v
+          end
+        end
+        local target = pseudorandom_element(jokers, pseudoseed("golden_bough_destruction"))
+        if target then
+          SMODS.destroy_cards({ target })
+        end
+      end
+    },
+  }
+  --- @type SMODS.Consumable
+  PB_UTIL.EGO_Gift = SMODS.Consumable:extend {
+    badge_text_colour = G.C.PAPERBACK_EGO_GIFT_YELLOW,
+    set = 'paperback_ego_gift',
+    unlocked = true,
+    discovered = false,
+    cost = 0,
+
+    loc_vars = function(self, info_queue, card)
+      info_queue[#info_queue + 1] = PB_UTIL.sin_tooltip(card.ability.sin)
+      local loc = {}
+      if self.ego_loc_vars then
+        loc.vars = self.ego_loc_vars(self, info_queue, card)
+      end
+
+      if self.ego_main_end then
+        loc.main_end = self.ego_main_end(self, info_queue, card)
+      end
+
+      return loc
+    end,
+
+    calculate = function(self, card, context)
+      if context.selling_self then
+        if card.ability.sin then
+          SMODS.calculate_context({
+            paperback = {
+              sold_ego_gift = card,
+            }
+          })
+          if not card.ability.paperback_corroded then
+            local sin = card.ability.sin
+            return PB_UTIL.SIN_DEBUFF[sin]
+          end
+          return {
+            message = localize('paperback_corroded_ex')
+          }
+        end
+      end
+
+      if self.ego_gift_calc then
+        return self:ego_gift_calc(card, context)
+      end
+    end,
+    set_card_type_badge = function(self, card, badges)
+      badges[#badges + 1] = create_badge(localize('k_paperback_ego_gift'), G.C.PAPERBACK_EGO_GIFT_RED,
+        G.C.PAPERBACK_EGO_GIFT_YELLOW, 1.2)
+    end,
+
+    set_badges = function(self, card, badges)
+      if card.ability.sin then
+        local badge_key = 'k_paperback_ego_sin_' .. card.ability.sin
+        if card.ability.sin == 'none' then
+          badges[#badges + 1] = create_badge(localize(badge_key), G.C
+            ['PAPERBACK_SIN_' .. string.upper(card.ability.sin)],
+            G.C.PAPERBACK_BLACK, 1.2)
+        else
+          badges[#badges + 1] = create_badge(localize(badge_key), G.C
+            ['PAPERBACK_SIN_' .. string.upper(card.ability.sin)],
+            G.C.WHITE, 1.2)
+        end
+      end
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+      PB_UTIL.set_sell_value(card, 0)
+      local dupe = false
+      for i, v in ipairs(G.consumeables.cards) do
+        if v.config.center.key == card.config.center.key and v.ability.sin ~= 'none' and card.ability.sin ~= 'none' and v ~= card then
+          dupe = true
+        end
+      end
+      if dupe then
+        local vestige = SMODS.add_card { key = 'c_paperback_dark_vestige' }
+        SMODS.destroy_cards({ card })
+      end
+
+      if self.ego_add then
+        self:ego_add(card, from_debuff)
+      end
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+      if self.ego_remove then
+        self:ego_remove(card, from_debuff)
+      end
+    end,
+
+    can_use = function(self, card)
+      return false
     end
   }
 end

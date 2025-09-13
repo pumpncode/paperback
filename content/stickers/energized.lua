@@ -14,6 +14,11 @@ SMODS.Sticker {
           type = 'name_text',
           set = 'Joker',
           key = 'j_paperback_basic_energy'
+        },
+        localize {
+          type = 'name_text',
+          set = 'paperback_ego_gift',
+          key = 'c_paperback_lightning_rod'
         }
       }
     }

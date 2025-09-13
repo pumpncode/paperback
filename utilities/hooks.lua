@@ -29,7 +29,13 @@ function Game.init_game_object(self)
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
-    da_capo_suit = 'Clubs'
+    da_capo_suit = 'Clubs',
+
+    skipped_blind = false,
+    blind_multiplier = 1,
+    bonus_pack_size = 0,
+
+    corroded_rounds = 3
   }
   return ret
 end
@@ -246,13 +252,46 @@ function G.FUNCS.get_poker_hand_info(_cards)
   return text, loc_disp_text, poker_hands, scoring_hand, disp_text
 end
 
--- Used for checking for eternal compatibility against temporary
+
+-- When calculating the sell cost for an E.G.O. Gift, override it to 0
+-- None and Pride respectively get set to 5 and -15
+-- Unless corroded
+local set_cost_ref = Card.set_cost
+function Card.set_cost(self)
+  local ret = set_cost_ref(self)
+  if self.added_to_deck then
+    if self.config.center.set == "paperback_ego_gift" and self.ability.sin then
+      if self.ability.sin == 'pride' or self.ability.sin == 'none' then
+        self.sell_cost = PB_UTIL.EGO_GIFT_SINS[self.ability.sin][1]
+      else
+        self.sell_cost = 0
+      end
+    end
+    return ret
+  end
+end
+
+local can_sell_ref = Card.can_sell_card
+function Card.can_sell_card(self, context)
+  if self.ability.sin and self.ability.sin == 'sloth' then
+    if self.ability.paperback_corroded then
+      return true
+    else
+      return G.GAME.paperback.skipped_blind
+    end
+  end
+
+  return can_sell_ref(self, context)
+end
+
+-- Used for checking for eternal compatibility against temporary and corroded
 local set_eternal_ref = Card.set_eternal
 function Card.set_eternal(self, eternal)
-  if self.ability.paperback_temporary then
+  if self.ability.paperback_temporary or self.ability.paperback_corroded then
     return false
   else
     local ret = set_eternal_ref(self, eternal)
     return ret
   end
 end
+

@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "local _size = self.ability.extra"
+match_indent = true
+position = "after"
+payload = '''
+_size = _size + G.GAME.paperback.bonus_pack_size
+'''
