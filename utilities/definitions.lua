@@ -860,7 +860,7 @@ if PB_UTIL.config.ego_gifts_enabled then
     sloth = {},
     gluttony = {},
     gloom = { 1.5 },
-    pride = { -15 },
+    pride = { -15, SMODS.signed_dollars(-15) },
     envy = { 1 },
   }
   -- Tables for the standardized sin calc

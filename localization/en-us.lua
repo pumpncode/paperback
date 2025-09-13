@@ -1729,7 +1729,7 @@ return {
         name = "Golden Bough",
         text = {
           "Creates a random {C:dark_edition}Negative",
-          "{C:paperback_ego_gift}EGO Gift{} after each {C:attention}Boss Blind",
+          "{C:paperback_ego_gift}E.G.O. Gift{} after each {C:attention}Boss Blind",
           "{C:red}#1#{} Joker Slot"
         }
       },
@@ -2105,9 +2105,9 @@ return {
       c_paperback_coffee_and_cranes = {
         name = "Coffee and Cranes",
         text = {
-          "For every {C:money}$#1#{} owned",
-          "at the end of round, earn {C:money}$#2#{}",
-          "up to {C:money}$#3#{}",
+          "For every {C:money}$#1#{} you have",
+          "at end of round, earn {C:money}$#2#{}",
+          "{C:inactive}(Max {C:money}$#3#{C:inactive} earned)",
           "{C:inactive}(Currently {C:money}$#4#{C:inactive}){}"
         }
       },
@@ -2115,7 +2115,7 @@ return {
         name = "Fiery Down",
         text = {
           "If {C:attention}#1#{} {C:inactive}(#2#){} cards",
-          "have been {C:attention}discarded,",
+          "have been {C:attention}discarded{},",
           "upgrade next played",
           "{C:attention}poker hand"
         }
@@ -2130,8 +2130,8 @@ return {
       c_paperback_downpour = {
         name = "Downpour",
         text = {
-          "Played hands lower the {C:attention}blind requirement{}",
-          "by {C:attention}#1#%",
+          "Played hands lower the",
+          "{C:attention}blind requirement{} by {C:attention}#1#%",
         }
       },
       c_paperback_rusty_coin = {
@@ -2147,7 +2147,7 @@ return {
         text = {
           "This {C:paperback_ego_gift}E.G.O. Gift{} gains {C:chips}+#1#{} Chips",
           "every time a {C:attention}played hand",
-          "does not defeat a {C:attention}Blind",
+          "does not defeat the {C:attention}Blind",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
         }
       },
@@ -2156,7 +2156,7 @@ return {
         text = {
           "If no {C:attention}hands{} have been played, this",
           "{C:paperback_ego_gift}E.G.O. Gift{} gives {X:mult,C:white}X#1#{} Mult",
-          "for every used {C:attention}discard{} this {C:attention}round",
+          "for every {C:attention}discard{} used this {C:attention}round",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         }
       },
@@ -2178,8 +2178,8 @@ return {
       c_paperback_pendant_of_nostalgia = {
         name = "Pendant of Nostalgia",
         text = {
-          "Whenever a {C:attention}playing card{} is destroyed, this {C:paperback_ego_gift}E.G.O. Gift",
-          "creates a random {C:tarot}Tarot{} or {C:paperback_minor_arcana}Minor Arcana{} card",
+          "Whenever a {C:attention}playing card{} is destroyed,",
+          "create a random {C:tarot}Tarot{} or {C:paperback_minor_arcana}Minor Arcana{} card",
           "{C:inactive}(Must have room)"
         }
       },
@@ -2196,13 +2196,13 @@ return {
         text = {
           "Any time a card is destoyed,",
           "create {C:attention}two{} copies",
-          "{C:green}#1#{} in {C:green}#2#{} chance of {C:red}self destructing{} after"
+          "{C:green}#1# in #2#{} chance to {C:red}self destruct{} after"
         }
       },
       c_paperback_nebulizer = {
         name = "Nebulizer",
         text = {
-          "Scored cards have a {C:green}#1#{} in {C:green}#2#{}",
+          "Scored cards have a {C:green}#1# in #2#{}",
           "chance to give {X:mult,C:white}X#3#{} Mult"
         }
       },
@@ -2216,9 +2216,9 @@ return {
       c_paperback_fluorescent_lamp = {
         name = "Fluorescent Lamp",
         text = {
-          "{C:red}+#1#{} discard per round, additionally",
-          "gain {C:red}+#1#{} discard for every {C:attention}#2#",
-          "for each empty {C:attention}Joker{} slot",
+          "{C:red}+#1#{} discard, and",
+          "{C:red}+#1#{} discard for every",
+          "{C:attention}#2#{} empty {C:attention}Joker{} slots",
           "{C:inactive}(Currently {C:red}+#3#{C:inactive} discards)"
         }
       },
@@ -2594,37 +2594,40 @@ return {
       paperback_sin_lust = {
         name = "Lust",
         text = {
-          "When sold, downgrade {C:attention}most played hand{} by {C:attention}#1# levels{}"
+          "When sold, downgrade",
+          "{C:attention}most played hand{} by {C:attention}#1# levels{}"
         }
       },
       paperback_sin_sloth = {
         name = "Sloth",
         text = {
-          "Can only be sold directly after skipping a {C:attention}Blind"
+          "Can only be sold directly",
+          "after skipping a {C:attention}Blind"
         }
       },
       paperback_sin_gluttony = {
         name = "Gluttony",
         text = {
-          "When sold, add {C:paperback_perishable}Perishable{} to a random {C:attention}Joker{}"
+          "When sold, add {C:paperback_perishable}Perishable{}",
+          "to a random {C:attention}Joker{}"
         }
       },
       paperback_sin_gloom = {
         name = "Gloom",
         text = {
-          "When sold, multiply all {C:attention}Base Blind{} sizes by {C:attention}X#1#{}"
+          "When sold, multiply all {C:attention}Blind{} sizes by {C:attention}X#1#{}"
         }
       },
       paperback_sin_pride = {
         name = "Pride",
         text = {
-          "Always sells for {C:money}$#1#{}"
+          "Always sells for {C:money}#2#{}"
         }
       },
       paperback_sin_envy = {
         name = "Envy",
         text = {
-          "When sold, reduce {C:attention}hand size{} by {C:red}#1#{}"
+          "When sold, {C:attention}-#1#{} hand size"
         }
       },
       paperback_sin_madness = {
