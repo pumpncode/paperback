@@ -2399,6 +2399,15 @@ return {
           "learn what it does",
         },
       },
+      undiscovered_paperback_ego_gift = {
+        name = "Not Discovered",
+        text = {
+          "Purchase or use",
+          "this card in an",
+          "unseeded run to",
+          "learn what it does",
+        },
+      },
       paperback_light_suits = {
         name = "Light Suits",
         text = {
