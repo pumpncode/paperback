@@ -980,7 +980,7 @@ if PB_UTIL.config.ego_gifts_enabled then
     set_badges = function(self, card, badges)
       if card.ability.sin then
         local badge_key = 'k_paperback_ego_sin_' .. card.ability.sin
-        if card.ability.sin == 'none' then
+        if card.ability.sin == 'none' or card.ability.sin == 'madness' then
           badges[#badges + 1] = create_badge(localize(badge_key), G.C
             ['PAPERBACK_SIN_' .. string.upper(card.ability.sin)],
             G.C.PAPERBACK_BLACK, 1.2)

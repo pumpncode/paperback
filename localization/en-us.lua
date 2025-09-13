@@ -2826,6 +2826,7 @@ return {
       k_paperback_ego_sin_lust = "Lust",
       k_paperback_ego_sin_envy = "Envy",
       k_paperback_ego_sin_gluttony = "Gluttony",
+      k_paperback_ego_sin_madness = "Madness",
 
       paperback_confessed_ex = "Confessed!",
       paperback_polychrome_ex = "Polychrome!",
