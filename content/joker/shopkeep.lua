@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       count = 0,
-      blueprint_count = 0
+      coupon_blinds_needed = 2,
     }
   },
   rarity = 3,
@@ -17,6 +17,10 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_coupon
     info_queue[#info_queue + 1] = G.P_TAGS.tag_voucher
+    return { vars = {
+      card.ability.extra.coupon_blinds_needed,
+      card.ability.extra.count % card.ability.extra.coupon_blinds_needed
+    } }
   end,
 
   check_for_unlock = function(self, args)
@@ -26,12 +30,13 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.first_hand_drawn and not context.blueprint then
-      card.ability.extra.count = card.ability.extra.count + 1
-    end
-
     if context.end_of_round and context.main_eval then
-      if card.ability.extra.count > 0 and card.ability.extra.count % 2 == 0 then
+      -- Hacky way to make this increment once, even with Blueprints
+      if not card.ability.extra.incremented then
+        card.ability.extra.count = card.ability.extra.count + 1
+        card.ability.extra.incremented = true -- reset in reset_game_globals
+      end
+      if card.ability.extra.count % card.ability.extra.coupon_blinds_needed == 0 then
         PB_UTIL.add_tag('tag_coupon')
         card:juice_up()
       end

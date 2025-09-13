@@ -13,7 +13,12 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
-
+  local shopkeeps = SMODS.find_card('j_paperback_shopkeep')
+  if #shopkeeps > 0 then
+    for _, joker in ipairs(shopkeeps) do
+      joker.ability.extra.incremented = false
+    end
+  end
   if run_start then
     G.GAME.paperback.banned_run_keys = {}
   end

@@ -4,7 +4,8 @@ SMODS.Joker {
     extra = {
       mult = 3,
       mult_inc = 2,
-      rank = "3"
+      rank = "3",
+      starting_mult = 3
     }
   },
   rarity = 1,
@@ -21,6 +22,7 @@ SMODS.Joker {
         localize(card.ability.extra.rank, 'ranks'),
         card.ability.extra.mult_inc,
         card.ability.extra.mult,
+        card.ability.extra.starting_mult
       }
     }
   end,
@@ -41,7 +43,7 @@ SMODS.Joker {
     end
 
     if context.end_of_round and not context.blueprint and context.main_eval then
-      card.ability.extra.mult = 3
+      card.ability.extra.mult = card.ability.extra.starting_mult
 
       return {
         message = localize('k_reset')
