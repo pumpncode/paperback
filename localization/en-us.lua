@@ -911,7 +911,7 @@ return {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "when an {C:paperback_ego_gift}E.G.O. Gift{} is sold",
           "or corrodes itself",
-          "C:paperback_ego_gift}Corrodes{} an {C:paperback_ego_gift}E.G.O. Gift",
+          "{C:paperback_ego_gift}Corrodes{} an {C:paperback_ego_gift}E.G.O. Gift",
           "when Defeating a {C:attention}Boss Blind",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
