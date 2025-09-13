@@ -23,11 +23,7 @@ SMODS.Sticker {
     G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
   end,
 
-  should_apply = function(self, card, center, area, bypass_roll)
-    if card.config.center.set == 'paperback_ego_gift' then
-      return true
-    end
-  end,
+
   apply = function(self, card, val)
     card.ability[self.key] = val
     card.ability.paperback_corrode_tally = G.GAME.paperback.corroded_rounds
