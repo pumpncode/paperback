@@ -2,7 +2,8 @@ PB_UTIL.EGO_Gift {
   key = 'thrill',
   config = {
     sin = 'gluttony',
-    a_xmult = 0.5,
+    a_xmult = 0.25,
+    starting_xmult = 1,
   },
   atlas = 'ego_gift_atlas',
   pos = { x = 3, y = 0 },
@@ -11,7 +12,7 @@ PB_UTIL.EGO_Gift {
   ego_loc_vars = function(self, info_queue, card)
     return {
       card.ability.a_xmult,
-      card.ability.a_xmult * (2 + G.GAME.current_round.discards_used),
+      card.ability.a_xmult * G.GAME.current_round.discards_used + card.ability.starting_xmult,
     }
   end,
 
@@ -21,7 +22,7 @@ PB_UTIL.EGO_Gift {
         message = localize {
           type = 'variable',
           key = 'a_xmult',
-          vars = { card.ability.a_xmult * (3 + G.GAME.current_round.discards_used) }
+          vars = { card.ability.a_xmult * (1 + G.GAME.current_round.discards_used) + card.ability.starting_xmult }
         },
         colour = G.C.MULT
       }
@@ -30,7 +31,7 @@ PB_UTIL.EGO_Gift {
     if context.joker_main then
       if G.GAME.current_round.hands_played <= 0 then
         return {
-          xmult = card.ability.a_xmult * (2 + G.GAME.current_round.discards_used)
+          xmult = card.ability.a_xmult * G.GAME.current_round.discards_used + card.ability.starting_xmult
         }
       end
     end
