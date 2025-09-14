@@ -804,6 +804,17 @@ return {
           "free {C:attention}Buffoon Pack"
         }
       },
+      j_paperback_roulette = {
+        name = "Roulette",
+        text = {
+          "Each hand played, this Joker chooses a",
+          "{C:attention}random rank{} and {C:attention}suit{}. Scored cards earn",
+          "{C:money}$#3#{} if they match suit,",
+          "{C:money}$#4#{} if they match rank,",
+          "or {C:money}$#5#{} if they match exactly",
+          "{C:inactive}(Last spin: {C:attention}#1#{C:inactive} of {V:1}#2#{C:inactive})"
+        }
+      },
       j_paperback_mexican_train = {
         name = "Mexican Train",
         text = {
