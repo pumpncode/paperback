@@ -26,31 +26,6 @@ SMODS.Joker {
     }
   end,
 
-  add_to_deck = function(self, card, from_debuff)
-    local apostleCount = 0
-    for _, v in ipairs(G.playing_cards) do
-      if PB_UTIL.is_rank(v, 'paperback_Apostle') then
-        apostleCount = apostleCount + 1
-      end
-    end
-    if apostleCount >= 12 then
-      G.GAME.pool_flags.plague_doctor_can_spawn = false
-      G.E_MANAGER:add_event(Event({
-        func = function()
-          card.getting_sliced = true
-          card:start_dissolve()
-          SMODS.add_card({
-            set = 'Joker',
-            key = 'j_paperback_white_night',
-            edition = card.edition,
-            stickers = { "eternal" }
-          })
-          return true
-        end
-      }))
-    end
-  end,
-
   in_pool = function(self, args)
     return G.GAME.pool_flags.plague_doctor_can_spawn
   end,
@@ -135,7 +110,8 @@ SMODS.Joker {
               set = 'Joker',
               key = 'j_paperback_white_night',
               edition = card.edition,
-              stickers = { "eternal" }
+              stickers = { "eternal" },
+              force_stickers = true
             })
             return true
           end
