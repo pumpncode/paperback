@@ -734,7 +734,9 @@ end
 if PB_UTIL.config.paperclips_enabled then
   PB_UTIL.Paperclip = SMODS.Sticker:extend {
     prefix_config = { key = true },
-    should_apply = false,
+    should_apply = function(self, card, center, area, bypass_roll)
+      return bypass_roll
+    end,
     config = {},
     rate = 0,
     sets = {
