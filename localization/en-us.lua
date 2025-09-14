@@ -2139,13 +2139,13 @@ return {
         name = "Imposed Weight",
         text = {
           "Retrigger the {C:attention}rightmost scoring{} card",
-          "{C:attention}#1#{} times for each {C:attention}empty{} Joker slot",
+          "{C:attention}#1#{} time for each {C:attention}empty{} Joker slot",
         }
       },
       c_paperback_phlebotomy_pack = {
         name = "Phlebotomy Pack",
         text = {
-          "{C:blue}+#1#{} hand per round",
+          "{C:blue}+#1#{} hand each round",
         }
       },
       c_paperback_smokes_and_wires = {
@@ -2160,17 +2160,15 @@ return {
         text = {
           "For every {C:money}$#1#{} you have",
           "at end of round, earn {C:money}$#2#{}",
-          "{C:inactive}(Max {C:money}$#3#{C:inactive} earned)",
-          "{C:inactive}(Currently {C:money}$#4#{C:inactive}){}"
+          "{C:inactive}(Currently {C:money}$#4#{C:inactive}/{C:money}$#3#{C:inactive} max){}"
         }
       },
       c_paperback_fiery_down = {
         name = "Fiery Down",
         text = {
-          "If {C:attention}#1#{} {C:inactive}(#2#){} cards",
-          "have been {C:attention}discarded{},",
-          "upgrade next played",
-          "{C:attention}poker hand"
+          "After discarding {C:attention}#1#{} {C:inactive}(#2#){}",
+          "cards, upgrade next",
+          "played {C:attention}poker hand"
         }
       },
       c_paperback_decamillennial_stewpot = {
@@ -2207,8 +2205,8 @@ return {
       c_paperback_thrill = {
         name = "Thrill",
         text = {
-          "If no {C:attention}hands{} have been played, this",
-          "{C:paperback_ego_gift}E.G.O. Gift{} gives {X:mult,C:white}X#1#{} Mult",
+          "On {C:attention}first{} hand of round,",
+          "this {C:paperback_ego_gift}E.G.O. Gift{} gives {X:mult,C:white}X#1#{} Mult",
           "for every {C:attention}discard{} used this {C:attention}round",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         }
@@ -2247,8 +2245,8 @@ return {
       c_paperback_broken_glasses = {
         name = "Broken Glasses",
         text = {
-          "Any time a card is destoyed,",
-          "create {C:attention}two{} copies",
+          "Whenever exactly {C:attention}1{} or {C:attention}2{} cards are {C:attention}destroyed{},",
+          "create {C:attention}two copies{} of each destroyed card",
           "{C:green}#1# in #2#{} chance to {C:red}self destruct{} after"
         }
       },
@@ -2279,7 +2277,7 @@ return {
         name = "Lightning Rod",
         text = {
           "Cards {C:attention}held in hand{}",
-          "have a {C:green}#1#{} in {C:green}#2#",
+          "have a {C:green}#1# in #2#",
           "chance of retriggering"
         }
       },

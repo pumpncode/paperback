@@ -15,7 +15,7 @@ PB_UTIL.EGO_Gift {
     }
   end,
   ego_gift_calc = function(self, card, context)
-    if context.remove_playing_cards and #context.removed > 0 then
+    if context.remove_playing_cards and #context.removed > 0 and #context.removed <= 2 then
       for _, v in ipairs(context.removed) do
         local fx = {}
         for i = 1, 2, 1 do
