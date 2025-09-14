@@ -33,6 +33,8 @@ SMODS.Joker {
         },
         card.ability.extra.xmult,
         card.ability.extra.drank_after,
+        card.ability.extra.drank_after == 1 and "" or "s",
+        card.ability.extra.drank_after == 1 and "is" or "are",
       }
     }
   end,
@@ -49,22 +51,7 @@ SMODS.Joker {
     if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
       card.ability.extra.drank_after = math.max(0, card.ability.extra.drank_after - #context.removed)
       if card.ability.extra.drank_after <= 0 then
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            play_sound('tarot1')
-            card.T.r = -0.2
-            card:juice_up(0.3, 0.4)
-            card.states.drag.is = true
-            card.children.center.pinch.x = true
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
-              func = function()
-                G.jokers:remove_card(card)
-                card:remove()
-                card = nil
-              return true; end}))
-            return true
-          end
-        }))
+        PB_UTIL.destroy_joker(card)
         return {
           message = localize('k_drank_ex'),
           colour = G.C.FILTER

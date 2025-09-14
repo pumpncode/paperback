@@ -734,7 +734,16 @@ return {
           "{C:attention}#1#s{} give an additional",
           "{X:mult,C:white}X#2#{} Mult when scored",
           "Drank after {C:attention}#3#{} playing",
-          "cards are {C:attention}destroyed{}"
+          "card#4# #5# {C:attention}destroyed{}"
+        }
+      },
+      j_paperback_vacation_juice = {
+        name = "Vacation Juice",
+        text = {
+          "When clearing a {C:attention}Blind{}",
+          "for the first time,",
+          "do not advance to next {C:attention}Blind{}",
+          "Drank after {C:attention}#1#{} trigger#2#",
         }
       },
       j_paperback_black_forest_cake = {
@@ -912,7 +921,7 @@ return {
         name = "Cream Liqueur",
         text = {
           "{C:attention}Tags{} earn {C:money}$#1#{} when activated",
-          "Consumed in {C:attention}#2#{} rounds",
+          "Consumed in {C:attention}#2#{} round#3#",
           "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
         }
       },

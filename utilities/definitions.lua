@@ -13,10 +13,19 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
+  -- Shopkeep
   local shopkeeps = SMODS.find_card('j_paperback_shopkeep')
   if #shopkeeps > 0 then
     for _, joker in ipairs(shopkeeps) do
       joker.ability.extra.incremented = false
+    end
+  end
+  -- Vacation Juice
+  G.GAME.paperback.vacation_juice_trigger = false
+  if not run_start then
+    G.GAME.paperback.last_blind_type_defeated_this_ante = G.GAME.blind:get_type()
+    if G.GAME.round_resets.blind_states.Boss == 'Defeated' then
+      G.GAME.paperback.last_blind_type_defeated_this_ante = nil
     end
   end
   if run_start then
@@ -196,7 +205,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "ghost_cola",
   "b_soda",
   "marble_soda",
-  -- "vacation_juice",
+  "vacation_juice",
   "black_forest_cake",
   "ice_cube",
   "cream_liqueur",
