@@ -865,6 +865,14 @@ return {
           "{s:0.8}Card changes every round"
         },
       },
+      j_paperback_joker_crossing = {
+        name = "Joker Crossing",
+        text = {
+          "{C:attention}Enhanced{} Cards ",
+          "a have {C:green}#1#{} in {C:green}#2#{}",
+          "chance of retriggering"
+        }
+      },
       j_paperback_forlorn = {
         name = "Forlorn",
         text = {

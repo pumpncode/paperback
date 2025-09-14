@@ -292,6 +292,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "weather_radio",
   "power_surge",
   "find_jimbo",
+  "joker_crossing",
   -- "jimbos_inferno",
   -- "tome",
   -- "jimbocards",
