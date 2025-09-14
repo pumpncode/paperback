@@ -2,13 +2,16 @@ SMODS.Joker { -- Banana Man
   key = "banana_man",
   config = {
     extra = {
-      xmult = 3,
+      xmult = 2,
       odds = 3,
     }
   },
   pos = {
     x = 1,
     y = 10
+  },
+  pools = {
+    Music = true
   },
   cost = 8,
   rarity = 3,
