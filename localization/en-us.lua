@@ -435,7 +435,8 @@ return {
         name = "Small Scale Onshore Wind",
         text = {
           "This Joker gains {C:mult}+#1#{} Mult",
-          "when discarding exactly {C:attention}#2#{} Cards",
+          "per consecutive discard",
+          "of exactly {C:attention}#2#{} cards",
           "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult)"
         }
       },
@@ -667,9 +668,9 @@ return {
       j_paperback_ncj = {
         name = "NoCopyrightJokers",
         text = {
-          "This Joker gives {C:chips}+#1#{} Chips for",
-          "every {C:money}dollar{} of {C:attention}sell value",
-          "from all other owned Jokers",
+          "{C:chips}+#1#{} Chips for every",
+          "{C:money}$1{} of {C:attention}sell value",
+          "of all other owned Jokers",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
@@ -1159,7 +1160,7 @@ return {
         text = {
           "If played hand contains {C:attention}5 scoring",
           "{C:attention}cards{}, earn half the lowest scoring",
-          "card's {C:chips}Chip value{} as {C:money}money",
+          "card's {C:chips}Chip value{} as {C:money}$",
           "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
         },
       },
@@ -1304,7 +1305,7 @@ return {
       j_paperback_wish_you_were_here = {
         name = "Wish You Were Here",
         text = {
-          "Gives {C:mult}Mult{} equal to {C:mult}#1#X{} the",
+          "Gives {C:mult}+Mult{} equal to {C:mult}#1#X{} the",
           "{C:attention}sell value{} of this card.",
           "Gains {C:money}$#2#{} of {C:attention}sell value{}",
           "at end of round",
@@ -1739,7 +1740,7 @@ return {
         name = "Guns Blazin'",
         text = {
           "Played {C:attention}Aces{}",
-          "give {X:mult,C:white} X#1# {} Mult",
+          "give {X:mult,C:white}X#1#{} Mult",
           "when scored",
         },
       },
@@ -1748,8 +1749,8 @@ return {
         text = {
           "This Joker gains {C:chips}+#1#{} Chips",
           "for each {C:planet}Planet{} card used",
-          "and looses {C:chips}-#2#{} Chips",
-          "for every played hand",
+          "and loses {C:chips}-#2#{} Chips",
+          "for every hand played",
           "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)",
         }
       },
@@ -1757,14 +1758,13 @@ return {
         name = "Rosary Beads",
         text = {
           "If scored hand contains",
-          "{C:attention}#1#{} or more {C:hearts}Hearts{}",
-          "earn {C:money}$#2#{}"
+          "{C:attention}#1#{} or more {C:hearts}Hearts{}, earn {C:money}$#2#{}"
         }
       },
       j_paperback_tian_tian = {
         name = "Tian Tian",
         text = {
-          "This Joker gains {X:mult,C:white} X#1# {} Mult when",
+          "This Joker gains {X:mult,C:white}X#1#{} Mult when",
           "a playing card is {C:attention}destroyed{}",
           "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
         }
@@ -1782,7 +1782,7 @@ return {
         text = {
           "If {C:attention}played hand{} is the {C:attention}same{}",
           "as the {C:attention}previous hand{}, earn {C:money}$#2#{}",
-          "{C:inactive}(Last Played Hand is {C:attention}#1#{C:inactive})"
+          "{C:inactive}(Last played: {C:attention}#1#{C:inactive})"
         }
       },
       -- Cross-Mod jokers start here
