@@ -46,11 +46,9 @@ SMODS.Joker {
       end
     end
 
-    if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0
-    and not card.getting_sliced then
+    if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
       card.ability.extra.drank_after = math.max(0, card.ability.extra.drank_after - #context.removed)
       if card.ability.extra.drank_after <= 0 then
-        card.getting_sliced = true
         G.E_MANAGER:add_event(Event({
           func = function()
             play_sound('tarot1')

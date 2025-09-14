@@ -377,7 +377,7 @@ return {
         text = {
           "If played hand contains a {C:attention}Spectrum{},",
           "destroy all cards {C:attention}held in hand{} and",
-          "all played cards gain {C:dark_edition}Polychrome",
+          "all played cards become {C:dark_edition}Polychrome",
           "{S:1.1,C:red,E:2}self destructs",
         }
       },
@@ -734,7 +734,17 @@ return {
           "{C:attention}#1#s{} give an additional",
           "{X:mult,C:white}X#2#{} Mult when scored",
           "Drank after {C:attention}#3#{} playing",
-          "cards are destroyed"
+          "cards are {C:attention}destroyed{}"
+        }
+      },
+      j_paperback_black_forest_cake = {
+        name = "Black Forest Cake",
+        text = {
+          "This Joker gains {C:mult}+#2#{} Mult",
+          "for each {C:attention}Blind{} defeated",
+          "{C:red}Self destructs{} if any",
+          "card or Joker is {C:attention}destroyed{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
       j_paperback_ice_cube = {

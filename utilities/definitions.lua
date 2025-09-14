@@ -197,6 +197,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "b_soda",
   "marble_soda",
   -- "vacation_juice",
+  "black_forest_cake",
   "ice_cube",
   "cream_liqueur",
   "deviled_egg",
