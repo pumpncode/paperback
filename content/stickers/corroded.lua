@@ -4,6 +4,9 @@ SMODS.Sticker {
   pos = { x = 2, y = 0 },
   badge_colour = G.C.PAPERBACK_EGO_GIFT_RED,
   rate = 0,
+  should_apply = function(self, card, center, area, bypass_roll)
+    return bypass_roll
+  end,
   config = {
     paperback_corrode_tally = 3
   },
