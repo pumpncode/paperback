@@ -873,6 +873,12 @@ return {
           "card {C:attention}held in hand",
         },
       },
+      j_paperback_protocol = {
+        name = "Protocol",
+        text = {
+          "{C:attention}+#1#{} Booster Pack size"
+        }
+      },
       j_paperback_cream_liqueur = {
         name = "Cream Liqueur",
         text = {

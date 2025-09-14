@@ -296,6 +296,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "tome",
   -- "jimbocards",
   "forlorn",
+  "protocol",
   "guns_blazin",
   "burning_pact",
   "blade_dance",
