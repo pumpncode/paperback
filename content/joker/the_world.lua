@@ -25,7 +25,7 @@ local function wrap_the_world(ignores, func, context)
     for k, _ in pairs(previous) do
       G.GAME.current_round[k] = 0
     end
-    if context and context.discard then
+    if context and (context.discard or context.pre_discard) then
       G.GAME.current_round.discards_left = 1
     end
   end
