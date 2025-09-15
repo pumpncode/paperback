@@ -2417,7 +2417,7 @@ return {
         name = "Ceramic Card",
         text = {
           "Earns between {C:money}$#1#{}",
-          "and {C:money}$#2#{} when scored,",
+          "and {C:money}$#2#{} when scored",
           "{C:red}Shatters{} if {C:mult}Mult{} ended up",
           "{C:attention}greater{} than {C:chips}Chips",
           "while played or held"
@@ -2427,7 +2427,7 @@ return {
         name = "Soaked Card",
         text = {
           "When scored, cards {C:attention}held in hand{}",
-          "score their {C:chips}Chip value{}.",
+          "score their {C:chips}Chip value{}",
           "{C:green}#1# in #2#{} chance to",
           "{C:red}destroy{} card on {C:red}discard",
         }
@@ -2495,7 +2495,7 @@ return {
       undiscovered_paperback_ego_gift = {
         name = "Not Discovered",
         text = {
-          "Purchase or use",
+          "Purchase",
           "this card in an",
           "unseeded run to",
           "learn what it does",
