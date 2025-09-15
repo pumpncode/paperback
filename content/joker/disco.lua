@@ -11,12 +11,17 @@ SMODS.Joker {
     return { vars = { card.ability.extra.mult_mod, card.ability.extra.dollars, card.ability.extra.mult } }
   end,
   calculate = function(self, card, context)
-    if context.buying_card and G.GAME.dollars <= to_number(card.ability.extra.dollars) then     -- See note about Talisman compatibility on the wiki
+    if context.buying_card and G.GAME.dollars <= to_number(card.ability.extra.dollars) and context.card ~= card then     -- See note about Talisman compatibility on the wiki
       card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
       return {
         message = localize('k_upgrade_ex'),
         colour = G.C.ORANGE
       }
     end
-  end,
+    if context.joker_main then
+      return {
+        mult = card.ability.extra.mult
+      }
+    end
+  end
 }
