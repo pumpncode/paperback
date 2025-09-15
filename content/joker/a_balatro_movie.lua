@@ -5,7 +5,7 @@ SMODS.Joker {
   config = {
     extra = {
       last_hand_played = 'None',
-      dollars = 3
+      dollars = 2
     }
   },
   atlas = "jokers_atlas",
