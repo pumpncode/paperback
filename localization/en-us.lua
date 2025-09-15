@@ -378,7 +378,7 @@ return {
           "If played hand contains a {C:attention}Spectrum{},",
           "destroy all cards {C:attention}held in hand{} and",
           "all played cards become {C:dark_edition}Polychrome",
-          "{S:1.1,C:red,E:2}self destructs",
+          "{S:1.1,C:red,E:2}self-destructs",
         }
       },
       j_paperback_j_and_js = {
@@ -537,7 +537,7 @@ return {
         text = {
           "Prevents death, on death",
           "{C:attention}#1#{} Ante, {C:attention}#1#{} hand size",
-          "and {C:red}self destructs"
+          "and {C:red}self-destructs"
         }
       },
       j_paperback_blue_marble = {
@@ -607,7 +607,7 @@ return {
           "or more {C:attention}face{} cards, convert",
           "{C:attention}all{} cards {C:attention}held in hand{} to",
           "the {C:attention}leftmost{} scored card",
-          "{S:1.1,C:red,E:2}self destructs",
+          "{S:1.1,C:red,E:2}self-destructs",
         }
       },
       j_paperback_kintsugi_joker = {
@@ -700,7 +700,7 @@ return {
           "an {C:attention}extra{} {C:dark_edition}Negative{} copy",
           "with {C:money}-$#3#{} sell value",
           "{s:0.8}Chance increases by {s:0.8,C:green}#4#{s:0.8} on fail",
-          "{S:1.1,C:red,E:2}self destructs",
+          "{S:1.1,C:red,E:2}self-destructs",
         }
       },
       j_paperback_book_of_vengeance = {
@@ -752,7 +752,7 @@ return {
         text = {
           "This Joker gains {C:mult}+#2#{} Mult",
           "for each {C:attention}Blind{} defeated",
-          "{C:red}Self destructs{} if any",
+          "{C:red}Self-destructs{} if any",
           "card or Joker is {C:attention}destroyed{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
@@ -1595,7 +1595,7 @@ return {
           "When buying a {C:attention}Consumable{}, has a",
           "{C:green}#1# in #2#{} chance to create a",
           "{C:dark_edition}Negative{} copy and a",
-          "{C:green}#3# in #4#{} chance to {S:1.1,C:red,E:2}self destruct",
+          "{C:green}#3# in #4#{} chance to {S:1.1,C:red,E:2}self-destruct",
         }
       },
       j_paperback_heretical_joker = {
@@ -2289,7 +2289,7 @@ return {
         text = {
           "Whenever exactly {C:attention}1{} or {C:attention}2{} cards are {C:attention}destroyed{},",
           "create {C:attention}two copies{} of each destroyed card",
-          "{C:green}#1# in #2#{} chance to {C:red}self destruct{} after"
+          "{C:green}#1# in #2#{} chance to {C:red}self-destruct{} after"
         }
       },
       c_paperback_nebulizer = {
