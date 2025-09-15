@@ -40,12 +40,16 @@ PB_UTIL.EGO_Gift {
   ego_gift_calc = function(self, card, context)
     if context.using_consumeable and card.ability.active and not context.consumeable.ability.paperback_energized then
       card.ability.active = false
-      local copy = SMODS.create_card {
-        key = context.consumeable.config.center.key,
-      }
-      copy:add_sticker('paperback_energized', true)
-      copy:add_to_deck()
-      G.consumeables:emplace(copy)
+      G.E_MANAGER:add_event(Event({ func = function()
+        -- Doesn't need room
+        local copy = SMODS.create_card {
+          key = context.consumeable.config.center.key,
+        }
+        copy:add_sticker('paperback_energized', true)
+        copy:add_to_deck()
+        G.consumeables:emplace(copy)
+        return true
+      end}))
     end
 
     if context.end_of_round and G.GAME.blind.boss and context.cardarea == G.consumeables then
