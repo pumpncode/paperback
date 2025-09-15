@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       money_for_suit = 1,
-      money_for_rank = 10,
+      money_for_rank = 5,
       money_for_both = 50,
     }
   },
