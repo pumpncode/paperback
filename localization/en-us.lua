@@ -115,8 +115,8 @@ return {
       bl_paperback_taupe_treble = {
         name = 'Taupe Treble',
         text = {
-          'Must play an',
-          'Enhanced card'
+          'Unenhanced cards',
+          'are debuffed'
         }
       },
     },
