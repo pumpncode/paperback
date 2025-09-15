@@ -2199,9 +2199,7 @@ return {
       c_paperback_coffee_and_cranes = {
         name = "Coffee and Cranes",
         text = {
-          "For every {C:money}$#1#{} you have",
-          "at end of round, earn {C:money}$#2#{}",
-          "{C:inactive}(Currently {C:money}$#4#{C:inactive}/{C:money}$#3#{C:inactive} max){}"
+          "Earn {C:money}$#1#{} at end of round",
         }
       },
       c_paperback_fiery_down = {
