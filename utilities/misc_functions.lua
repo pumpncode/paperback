@@ -1157,3 +1157,10 @@ function PB_UTIL.add_unique_value(tbl, value)
 
   table.insert(tbl, value)
 end
+
+-- Return true if `card` is an EGO Gift.
+---@param card Card
+---@return boolean
+function PB_UTIL.is_ego_gift(card)
+  return card.ability.set == "paperback_ego_gift" or card.config.center_key == "c_paperback_golden_bough"
+end

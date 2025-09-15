@@ -295,3 +295,12 @@ function Card.set_eternal(self, eternal)
   end
 end
 
+-- EGO Gifts are selected, not used, from any pack. (SMODS still needs a bit of help
+-- in a lovely patch)
+local selectable_from_pack_ref = Card.selectable_from_pack
+function Card.selectable_from_pack(card, booster_obj)
+  if PB_UTIL.is_ego_gift(card) then
+    return "consumeables"
+  end
+  return selectable_from_pack_ref(card, booster_obj)
+end

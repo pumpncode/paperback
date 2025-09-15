@@ -1,0 +1,73 @@
+[manifest]
+version = "1.0.0"
+
+# G.UIDEF.card_focus_ui()
+# (controller buy/use/select buttons)
+# Treat EGO Gifts as non-consumable in this function
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''local base_attach = base_background:get_UIE_by_ID('ATTACH_TO_ME')'''
+position = "after"
+payload = '''
+local consumeable_saved = nil
+if PB_UTIL.is_ego_gift(card) then
+    consumeable_saved = card.ability.consumeable
+    card.ability.consumeable = nil
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''return base_background'''
+position = "before"
+payload = '''
+if consumeable_saved then
+    card.ability.consumeable = consumeable_saved
+end
+'''
+match_indent = true
+
+# G.FUNCS.use_and_sell_buttons()
+# Trying to play nice w/ SMODS's existing functions (I don't recommend this, it was a pain)
+# Elsewhere, card:selectable_from_pack() was overridden to always returns true for EGO Gifts,
+# even for Spectral Packs.
+# These patches remove the booster_obj.select_card condition. Then SMODS's selectable_from_pack
+# logic will actually trigger for vanilla packs
+[[patches]]
+[patches.regex]
+target = "functions/UI_definitions.lua"
+pattern = '''booster_obj and booster_obj\.select_card and card:selectable_from_pack\(booster_obj\)'''
+position = "at"
+payload = '''booster_obj and card:selectable_from_pack(booster_obj)'''
+[[patches]]
+[patches.regex]
+target = "functions/button_callbacks.lua"
+pattern = '''booster_obj and booster_obj\.select_card and card:selectable_from_pack\(booster_obj\)'''
+position = "at"
+payload = '''booster_obj and card:selectable_from_pack(booster_obj)'''
+
+
+# Adapted from SDM_0's Stuff mod
+# (non-controller buy/use/select buttons)
+# When not in booster pack, display only a sell button
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''*booster_obj *and card:selectable_from_pack(booster_obj)*'''
+position = "before"
+payload = '''
+if PB_UTIL.is_ego_gift(card) and not (card.area == G.pack_cards and G.pack_cards) then
+    return {
+      n=G.UIT.ROOT, config = {padding = 0, colour = G.C.CLEAR}, nodes={
+        {n=G.UIT.C, config={padding = 0.15, align = 'cl'}, nodes={
+          {n=G.UIT.R, config={align = 'cl'}, nodes={
+            sell
+          }},
+        }},
+    }}
+end
+'''
+match_indent = true
