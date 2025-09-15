@@ -71,8 +71,8 @@ return {
       bl_paperback_whole = {
         name = 'The Whole',
         text = {
-          'Ranks scored previously',
-          'this Ante are debuffed'
+          'Unscored ranks this',
+          'Ante are debuffed'
         }
       },
       bl_paperback_rest = {

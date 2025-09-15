@@ -12,10 +12,10 @@ SMODS.Blind {
     if card.area ~= G.jokers then
       if not SMODS.has_no_rank(card) then
         if G.GAME.paperback.ranks_scored_this_ante[card:get_id()] then
-          return true
+          return false
         end
+        return true
       end
     end
-    return false
   end
 }
