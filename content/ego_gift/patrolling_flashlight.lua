@@ -45,7 +45,7 @@ PB_UTIL.EGO_Gift {
       }
       copy:add_sticker('paperback_energized', true)
       copy:add_to_deck()
-      context.area:emplace(copy)
+      G.consumeables:emplace(copy)
     end
 
     if context.end_of_round and G.GAME.blind.boss and context.cardarea == G.consumeables then

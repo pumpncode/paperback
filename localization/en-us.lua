@@ -2944,7 +2944,7 @@ return {
       paperback_copy_ex = "Copy!",
       paperback_consumed_ex = "Consumed!",
       paperback_too_hot_ex = "Too Hot!",
-      paperback_inactive = "Inactive",
+      paperback_inactive = "inactive",
       paperback_supplies_ex = "Supplies!",
       paperback_melted_ex = "Melted!",
       paperback_investment_ex = "Investment!",
