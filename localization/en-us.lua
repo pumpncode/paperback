@@ -2144,13 +2144,6 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
-      c_paperback_king_of_swords = {
-        name = "King of Swords",
-        text = {
-          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
-          "from selected Joker"
-        }
-      },
       c_paperback_queen_of_swords = {
         name = "Queen of Swords",
         text = {
@@ -2159,12 +2152,26 @@ return {
           "to the selected card's {C:attention}suit"
         }
       },
+      c_paperback_king_of_swords = {
+        name = "King of Swords",
+        text = {
+          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
+          "from selected Joker"
+        }
+      },
       c_paperback_ace_of_pentacles = {
         name = "Ace of Pentacles",
         text = {
           "Converts up to",
           "{C:attention}#1#{} selected cards",
           "to {V:1}#2#{}",
+        }
+      },
+      c_paperback_seven_of_pentacles = {
+        name = "7 of Pentacles",
+        text = {
+          "Add a {C:green}Green Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
         }
       }
     },
@@ -2676,6 +2683,16 @@ return {
           "{C:inactive}(Resets after played hand)"
         }
       },
+      paperback_green_clip = {
+        name = "Green Clip",
+        text = {
+          "Gains {C:mult}+#2#{} Mult for",
+          "each scored {C:attention}Clip{},",
+          "{C:mult}#3#{} Mult for each",
+          "discarded {C:attention}Clip{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        }
+      },
       -- E.G.O. Gift Sins
       paperback_sin_none = {
         name = "Vestige",
@@ -3092,6 +3109,7 @@ return {
       paperback_yellow_clip = "Yellow Clip",
       paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
+      paperback_green_clip = "Green Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
