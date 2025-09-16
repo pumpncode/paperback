@@ -15,7 +15,10 @@ SMODS.Joker {
   cost = 4,
   pos = { x = 17, y = 2 },
   loc_vars = function(self, info_queue, card)
-    return { vars = { card.ability.extra.last_hand_played or 'None', card.ability.extra.dollars } }
+    return { vars = {
+      card.ability.extra.last_hand_played and localize(card.ability.extra.last_hand_played, 'poker_hands') or 'None',
+      card.ability.extra.dollars
+    } }
   end,
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.extra.last_hand_played = G.GAME.last_hand_played
