@@ -321,7 +321,7 @@ return {
       j_paperback_as_above_so_below = {
         name = "As Above, So Below",
         text = {
-          "Playing a five-card poker hand with an",
+          "Playing a {C:attention}5{}-card poker hand with an",
           "{C:attention}Apostle{} creates a {C:purple}Tarot{} card,",
           "if poker hand also contains a {C:attention}Straight{}",
           "create a {C:spectral}Spectral{} card instead",
