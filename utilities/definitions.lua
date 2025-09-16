@@ -15,7 +15,7 @@ SMODS.current_mod.calculate = function(self, context)
     if PB_UTIL.has_paperclip(context.other_card) then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)
-        if clip == "paperback_green_clip" then
+        if clip == "paperback_green_clip" and not v.debuff then
           local clip_table = v.ability.paperback_green_clip
           clip_table.mult = clip_table.mult + clip_table.mult_plus
         end
@@ -25,10 +25,10 @@ SMODS.current_mod.calculate = function(self, context)
 
   -- green clip: lose mult for each discarded clip
   if context.discard then
-    if PB_UTIL.has_paperclip(context.other_card) then
+    if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)
-        if clip == "paperback_green_clip" then
+        if clip == "paperback_green_clip" and not v.debuff then
           local clip_table = v.ability.paperback_green_clip
           clip_table.mult = math.max(0, clip_table.mult - clip_table.mult_minus)
         end
