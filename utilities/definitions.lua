@@ -8,6 +8,35 @@ SMODS.current_mod.optional_features = {
   quantum_enhancements = true,
 }
 
+-- Global mod calculate
+SMODS.current_mod.calculate = function(self, context)
+  -- green clip: gain mult for each scored clip
+  if context.individual and context.cardarea == G.play then
+    if PB_UTIL.has_paperclip(context.other_card) then
+      for _, v in ipairs(G.playing_cards) do
+        local clip = PB_UTIL.has_paperclip(v)
+        if clip == "paperback_green_clip" then
+          local clip_table = v.ability.paperback_green_clip
+          clip_table.mult = clip_table.mult + clip_table.mult_plus
+        end
+      end
+    end
+  end
+
+  -- green clip: lose mult for each discarded clip
+  if context.discard then
+    if PB_UTIL.has_paperclip(context.other_card) then
+      for _, v in ipairs(G.playing_cards) do
+        local clip = PB_UTIL.has_paperclip(v)
+        if clip == "paperback_green_clip" then
+          local clip_table = v.ability.paperback_green_clip
+          clip_table.mult = math.max(0, clip_table.mult - clip_table.mult_minus)
+        end
+      end
+    end
+  end
+end
+
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
@@ -422,7 +451,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "four_of_pentacles",
   -- "five_of_pentacles",
   -- "six_of_pentacles",
-  -- "seven_of_pentacles",
+  "seven_of_pentacles",
   -- "eight_of_pentacles",
   -- "nine_of_pentacles",
   -- "ten_of_pentacles",
@@ -1078,7 +1107,7 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "red_clip",
   "orange_clip",
   "yellow_clip",
-  --"green_clip",
+  "green_clip",
   "blue_clip",
   --"purple_clip",
   "pink_clip",
