@@ -2168,12 +2168,19 @@ return {
         }
       },
       c_paperback_seven_of_pentacles = {
-        name = "7 of Pentacles",
+        name = "Seven of Pentacles",
         text = {
           "Add a {C:green}Green Clip{} to up",
           "to {C:attention}#1#{} selected cards"
         }
-      }
+      },
+      c_paperback_nine_of_pentacles = {
+        name = "Nine of Pentacles",
+        text = {
+          "Add a {C:purple}Purple Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {
