@@ -8,6 +8,7 @@ PB_UTIL.EGO_Gift {
   pos = { x = 7, y = 2 },
   soul_pos = { x = 7, y = 5 },
 
+  hidden = true,
   set = 'Spectral',
   soul_set = "paperback_ego_gift",
   soul_rate = 0.001,
