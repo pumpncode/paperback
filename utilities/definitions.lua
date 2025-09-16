@@ -35,6 +35,48 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
   end
+
+  -- purple clip: retrigger card if it has a clip and is adjacent to a purple clip
+  if context.repetition then
+    local scoring = true
+    local index = 0
+
+    for k, v in ipairs(context.cardarea.cards) do
+      if v == context.other_card then
+        index = k
+        break
+      end
+    end
+
+    if context.cardarea == G.play then
+      scoring = false
+      for k, v in ipairs(context.scoring_hand) do
+        if v == context.other_card then
+          scoring = true
+          break
+        end
+      end
+    end
+
+    if index and scoring then
+      local left = context.cardarea.cards[index - 1]
+      local right = context.cardarea.cards[index + 1]
+      local reps = 0
+      if left and PB_UTIL.has_paperclip(left) == "paperback_purple_clip" then
+        reps = reps + 1
+      end
+      if right and PB_UTIL.has_paperclip(right) == "paperback_purple_clip" then
+        reps = reps + 1
+      end
+      if PB_UTIL.has_paperclip(context.other_card) and reps > 0 then
+        return {
+          repetitions = reps,
+          message_card = context.other_card,
+          colour = G.C.PURPLE
+        }
+      end
+    end
+  end
 end
 
 -- Update values that get reset at the start of each round
@@ -453,7 +495,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "six_of_pentacles",
   "seven_of_pentacles",
   -- "eight_of_pentacles",
-  -- "nine_of_pentacles",
+   "nine_of_pentacles",
   -- "ten_of_pentacles",
   -- "page_of_pentacles",
   -- "knight_of_pentacles",
@@ -1109,6 +1151,6 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "yellow_clip",
   "green_clip",
   "blue_clip",
-  --"purple_clip",
+  "purple_clip",
   "pink_clip",
 }

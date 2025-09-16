@@ -2693,6 +2693,14 @@ return {
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
+      paperback_purple_clip = {
+        name = "Purple Clip",
+        text = {
+          "Retrigger adjacent",
+          "cards if they",
+          "have a {C:attention}Clip{}"
+        }
+      },
       -- E.G.O. Gift Sins
       paperback_sin_none = {
         name = "Vestige",
@@ -3110,6 +3118,7 @@ return {
       paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
       paperback_green_clip = "Green Clip",
+      paperback_purple_clip = "Purple Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
