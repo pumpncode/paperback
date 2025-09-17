@@ -2167,6 +2167,13 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_two_of_pentacles = {
+        name = "Two of Pentacles",
+        text = {
+          "Selected Joker gains",
+          "or loses {C:paperback_eternal}Eternal{}"
+        }
+      },
       c_paperback_three_of_pentacles = {
         name = "Three of Pentacles",
         text = {
