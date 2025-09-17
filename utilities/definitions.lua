@@ -507,7 +507,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "ten_of_pentacles",
   -- "page_of_pentacles",
   "knight_of_pentacles",
-  -- "queen_of_pentacles",
+  "queen_of_pentacles",
   -- "king_of_pentacles", -- PENTACLES
 }
 

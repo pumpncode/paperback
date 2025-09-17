@@ -2235,6 +2235,15 @@ return {
           "Reset Reroll cost to {C:money}$#1#{}"
         }
       },
+      c_paperback_queen_of_pentacles = {
+        name = "Queen of Pentacles",
+        text = {
+          "Select up to {C:attention}#1#{} cards.",
+          "If possible, copy the {C:attention}rank{}",
+          "and {C:attention}suit{} from the leftmost",
+          "card to the other cards"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {
