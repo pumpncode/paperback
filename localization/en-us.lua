@@ -2222,6 +2222,13 @@ return {
           "to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_ten_of_pentacles = {
+        name = "Ten of Pentacles",
+        text = {
+          "Lose {C:money}$#1#{}. Gain",
+          "two {C:money}Investment{} {C:attention}Tags{}"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {
