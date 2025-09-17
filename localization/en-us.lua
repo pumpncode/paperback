@@ -2229,6 +2229,12 @@ return {
           "two {C:money}Investment{} {C:attention}Tags{}"
         }
       },
+      c_paperback_knight_of_pentacles = {
+        name = "Knight of Pentacles",
+        text = {
+          "Reset Reroll cost to {C:money}$#1#{}"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {
