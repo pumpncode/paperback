@@ -2183,6 +2183,22 @@ return {
           "{C:inactive}(Drag to rearrange)"
         }
       },
+      c_paperback_four_of_pentacles = {
+        name = "Four of Pentacles",
+        text = {
+          "Select {C:attention}#1#{} cards, destroy",
+          "all other cards in hand"
+        }
+      },
+      c_paperback_six_of_pentacles = {
+        name = "Six of Pentacles",
+        text = {
+          "Gives {C:attention}two{} random {C:attention}Tags{}",
+          "from the following list:",
+          "{C:money}Investment{}, {C:money}Economy{},",
+          "{C:red}Coupon{}, {C:green}D6{}, or {C:attention}Juggle{}"
+        }
+      },
       c_paperback_seven_of_pentacles = {
         name = "Seven of Pentacles",
         text = {
