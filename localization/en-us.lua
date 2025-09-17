@@ -2167,6 +2167,15 @@ return {
           "to {V:1}#2#{}",
         }
       },
+      c_paperback_three_of_pentacles = {
+        name = "Three of Pentacles",
+        text = {
+          "Select {C:attention}#1#{} cards, copy the",
+          "leftmost card's {C:attention}enhancement{}",
+          "to the other cards",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
       c_paperback_seven_of_pentacles = {
         name = "Seven of Pentacles",
         text = {
