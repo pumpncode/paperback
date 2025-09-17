@@ -2174,6 +2174,15 @@ return {
           "to {C:attention}#1#{} selected cards"
         }
       },
+      c_paperback_eight_of_pentacles = {
+        name = "Eight of Pentacles",
+        text = {
+          "Earn {C:money}$#1#{} for every",
+          "{C:tarot}Tarot{} and {C:paperback_minor_arcana}Minor Arcana{}",
+          "card used this run",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
       c_paperback_nine_of_pentacles = {
         name = "Nine of Pentacles",
         text = {

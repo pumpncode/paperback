@@ -77,6 +77,14 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
   end
+
+  -- track Tarot + Minor Arcana usage for 8 of Pentacles
+  if context.using_consumeable then
+    local set = context.consumeable.config.center.set
+    if set == "Tarot" or set == "paperback_minor_arcana" then
+      G.GAME.paperback.arcana_used = G.GAME.paperback.arcana_used + 1
+    end
+  end
 end
 
 -- Update values that get reset at the start of each round
@@ -494,7 +502,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "five_of_pentacles",
   -- "six_of_pentacles",
   "seven_of_pentacles",
-  -- "eight_of_pentacles",
+  "eight_of_pentacles",
    "nine_of_pentacles",
   -- "ten_of_pentacles",
   -- "page_of_pentacles",
