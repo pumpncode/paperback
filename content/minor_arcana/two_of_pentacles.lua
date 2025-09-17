@@ -13,7 +13,7 @@ PB_UTIL.MinorArcana {
 
       -- checks for non-compatible jokers that have eternal anyway
       -- just in case :P
-      return (joker.config.center.eternal_compat or joker.ability.eternal) and not joker.ability.perishable
+      return joker.config.center.eternal_compat or joker.ability.eternal
     end
   end,
 
@@ -24,6 +24,11 @@ PB_UTIL.MinorArcana {
       if joker.ability.eternal then
         joker:set_eternal(false)
       else
+        if joker.ability.perishable then
+          joker.ability.perishable = nil
+          joker.ability.perish_tally = nil
+          SMODS.recalc_debuff(joker)
+        end
         joker:set_eternal(true)
       end
     end)
