@@ -4,7 +4,16 @@ PB_UTIL.MinorArcana {
   pos = { x = 1, y = 6 },
 
   in_pool = function(self, args)
-    return G.GAME.modifiers.enable_eternals_in_shop
+    if G.GAME.challenge then
+      -- if challenge starts with eternal jokers then return false
+      for i, v in ipairs(SMODS.Challenges[G.GAME.challenge].jokers) do
+        if v.eternal then return false end
+      end
+      if G.GAME.challenge == "c_non_perishable_1" or G.GAME.challenge == "c_typecast_1" then
+        return false
+      end
+    end
+    return true
   end,
 
   can_use = function(self, card)
