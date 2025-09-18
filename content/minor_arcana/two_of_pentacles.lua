@@ -17,20 +17,30 @@ PB_UTIL.MinorArcana {
     end
   end,
 
+  keep_on_use = function(self, card)
+    return G.jokers.highlighted[1].config.center.key == "j_paperback_white_night"
+  end,
+
   use = function(self, card)
     local joker = G.jokers.highlighted[1]
 
-    PB_UTIL.use_consumable_animation(card, joker, function()
-      if joker.ability.eternal then
-        joker:set_eternal(false)
-      else
-        if joker.ability.perishable then
-          joker.ability.perishable = nil
-          joker.ability.perish_tally = nil
-          SMODS.recalc_debuff(joker)
+    if joker.config.center.key == "j_paperback_white_night" then
+      G.P_CENTERS[card.config.center.key].shatters = true
+      SMODS.destroy_cards(card)
+      G.P_CENTERS[card.config.center.key].shatters = false
+    else
+      PB_UTIL.use_consumable_animation(card, joker, function()
+        if joker.ability.eternal then
+          joker:set_eternal(false)
+        else
+          if joker.ability.perishable then
+            joker.ability.perishable = nil
+            joker.ability.perish_tally = nil
+            SMODS.recalc_debuff(joker)
+          end
+          joker:set_eternal(true)
         end
-        joker:set_eternal(true)
-      end
-    end)
+      end)
+    end
   end
 }
