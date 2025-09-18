@@ -717,15 +717,11 @@ if PB_UTIL.config.minor_arcana_enabled then
     draw_hand = true,
 
     loc_vars = function(self, info_queue, card)
-      return {
-        -- Removes the underscore with a digit at the end of a key if it exists,
-        -- allowing us to make only one localization entry per type
-        key = self.key:gsub('_%d$', ''),
-        vars = {
-          card.ability.choose,
-          card.ability.extra
-        }
-      }
+      local orig = SMODS.Booster.loc_vars(self, info_queue, card)
+      -- Removes the underscore with a digit at the end of a key if it exists,
+      -- allowing us to make only one localization entry per type
+      orig['key'] = self.key:gsub('_%d$', '')
+      return orig
     end,
 
     create_card = function(self, card, i)
@@ -843,15 +839,11 @@ if PB_UTIL.config.ego_gifts_enabled then
     select_card = 'consumeables',
 
     loc_vars = function(self, info_queue, card)
-      return {
-        -- Removes the underscore with a digit at the end of a key if it exists,
-        -- allowing us to make only one localization entry per type
-        key = self.key:gsub('_%d$', ''),
-        vars = {
-          card.ability.choose,
-          card.ability.extra
-        }
-      }
+      local orig = SMODS.Booster.loc_vars(self, info_queue, card)
+      -- Removes the underscore with a digit at the end of a key if it exists,
+      -- allowing us to make only one localization entry per type
+      orig['key'] = self.key:gsub('_%d$', '')
+      return orig
     end,
 
     create_card = function(self, card, i)
