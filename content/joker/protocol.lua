@@ -16,10 +16,10 @@ SMODS.Joker {
   end,
 
   add_to_deck = function(self, card, from_debuff)
-    G.GAME.paperback.bonus_pack_size = G.GAME.paperback.bonus_pack_size + card.ability.extra.pack_size
+    G.GAME.modifiers.booster_size_mod = (G.GAME.modifiers.booster_size_mod or 0) + card.ability.extra.pack_size
   end,
 
   remove_from_deck = function(self, card, from_debuff)
-    G.GAME.paperback.bonus_pack_size = G.GAME.paperback.bonus_pack_size - card.ability.extra.pack_size
+    G.GAME.modifiers.booster_size_mod = (G.GAME.modifiers.booster_size_mod or 0) - card.ability.extra.pack_size
   end
 }

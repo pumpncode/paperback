@@ -15,10 +15,10 @@ PB_UTIL.EGO_Gift {
   end,
 
   ego_add = function(self, card, from_debuff)
-    G.GAME.paperback.bonus_pack_size = G.GAME.paperback.bonus_pack_size + card.ability.bonus
+    G.GAME.modifiers.booster_size_mod = (G.GAME.modifiers.booster_size_mod or 0) + card.ability.bonus
   end,
 
   ego_remove = function(self, card, from_debuff)
-    G.GAME.paperback.bonus_pack_size = G.GAME.paperback.bonus_pack_size - card.ability.bonus
+    G.GAME.modifiers.booster_size_mod = (G.GAME.modifiers.booster_size_mod or 0) - card.ability.bonus
   end
 }
