@@ -2413,7 +2413,7 @@ return {
       m_paperback_ceramic = {
         name = "Ceramic Card",
         text = {
-          "Earns between {C:money}$#1#{}",
+          "Earn between {C:money}$#1#{}",
           "and {C:money}$#2#{} when scored",
           "{C:red}Shatters{} if {C:mult}Mult{} ended up",
           "{C:attention}greater{} than {C:chips}Chips",
