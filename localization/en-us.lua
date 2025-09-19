@@ -2177,9 +2177,9 @@ return {
       c_paperback_three_of_pentacles = {
         name = "Three of Pentacles",
         text = {
-          "Select {C:attention}#1#{} cards, copy the",
-          "leftmost card's {C:attention}enhancement{}",
-          "to the other cards",
+          "Select {C:attention}#1#{} cards, the",
+          "{C:attention}rightmost two{} copy the",
+          "{C:attention}leftmost{} card's {C:attention}enhancement{}",
           "{C:inactive}(Drag to rearrange)"
         }
       },
