@@ -2580,9 +2580,8 @@ return {
         name = "Energized",
         text = {
           "Cannot be copied by",
-          "{C:attention}#1#{},",
-          "{C:attention}#2#{} or",
-          "{C:attention}#3#{}"
+          "{C:attention}#1#{} or",
+          "{C:attention}#2#{}",
         }
       },
       paperback_temporary = {
