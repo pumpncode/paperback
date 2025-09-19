@@ -321,7 +321,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "the_normal_joker",
   -- "insurance_policy",
   "disco",
-  -- "union_help",
+  "unionized_labor",
   "better_call_jimbo",
   "jimbo_adventure",
   "ddakji",

@@ -1784,6 +1784,15 @@ return {
           "{C:inactive}(Last played: {C:attention}#1#{C:inactive})"
         }
       },
+      j_paperback_unionized_labor = {
+        name = "Unionized Labor",
+        text = {
+          "Triples all {C:attention}listed {C:green,E:1,S:1.1}probabilities",
+          "while below {C:money}$#1#{} and {C:attention}halves",
+          "probabilities otherwise",
+          "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#2# in #3#{C:inactive})"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
@@ -2581,7 +2590,7 @@ return {
         text = {
           "Cannot be copied by",
           "{C:attention}#1#{} or",
-          "{C:attention}#2#{}"
+          "{C:attention}#2#{}",
         }
       },
       paperback_temporary = {
