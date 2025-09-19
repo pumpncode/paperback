@@ -21,6 +21,11 @@ SMODS.Sticker {
           type = 'name_text',
           set = 'paperback_ego_gift',
           key = 'c_paperback_lightning_rod'
+        },
+        localize {
+          type = 'name_text',
+          set = 'paperback_ego_gift',
+          key = 'c_paperback_patrolling_flashlight'
         }
       }
     }
