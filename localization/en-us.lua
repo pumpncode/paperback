@@ -2244,6 +2244,14 @@ return {
           "card to the other cards"
         }
       },
+      c_paperback_king_of_pentacles = {
+        name = "King of Pentacles",
+        text = {
+          "Earn {C:money}$#1#{} for each {C:attention}face{}",
+          "card in your full deck",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {

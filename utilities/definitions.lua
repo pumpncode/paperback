@@ -508,7 +508,7 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   -- "page_of_pentacles",
   "knight_of_pentacles",
   "queen_of_pentacles",
-  -- "king_of_pentacles", -- PENTACLES
+  "king_of_pentacles", -- PENTACLES
 }
 
 PB_UTIL.ENABLED_EGO_GIFTS = {
