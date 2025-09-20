@@ -12,7 +12,7 @@ PB_UTIL.MinorArcana {
     return {
       vars = {
         card.ability.extra.money,
-        (G.GAME.paperback.arcana_used or 0) * card.ability.extra.money
+        (G.GAME.paperback.arcana_used and #G.GAME.paperback.arcana_used or 0) * card.ability.extra.money
       }
     }
   end,
@@ -22,7 +22,7 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    local amount = G.GAME.paperback.arcana_used
+    local amount = #G.GAME.paperback.arcana_used
 
     G.E_MANAGER:add_event(Event {
       trigger = 'after',

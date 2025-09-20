@@ -26,7 +26,7 @@ function Game.init_game_object(self)
     jjjj_count = 0,
     banned_run_keys = {},
     secret_hands = secrets,
-    arcana_used = 0,
+    arcana_used = {},
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',

@@ -2209,7 +2209,7 @@ return {
       c_paperback_eight_of_pentacles = {
         name = "Eight of Pentacles",
         text = {
-          "Earn {C:money}$#1#{} for every",
+          "Earn {C:money}$#1#{} for every unique",
           "{C:tarot}Tarot{} and {C:paperback_minor_arcana}Minor Arcana{}",
           "card used this run",
           "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
