@@ -2544,6 +2544,14 @@ return {
           "hand is played, scored cards",
           "permanently gain {C:mult}+#1#{} Mult"
         }
+      },
+      m_paperback_sleeved = {
+        name = "Sleeved Card",
+        text = {
+          "Cannot be {C:attention}debuffed{} or",
+          "{C:attention}flipped{} face down",
+          "Earn {C:money}$#1#{} if destroyed"
+        }
       }
     },
     Edition = {

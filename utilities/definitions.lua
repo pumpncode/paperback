@@ -744,6 +744,7 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "soaked",
   "stained",
   "domino",
+  "sleeved",
 }
 
 PB_UTIL.ENABLED_EDITIONS = {
