@@ -651,11 +651,12 @@ return {
         }
       },
       j_paperback_time_regression_mix = {
-        name = "Power Surge",
+        name = "Time Regression Mix",
         text = {
-          "If {C:attention}scoring hand{} contains atleast {C:attention}#1#{} suits,",
-          "this Joker gains {C:red}+2{} Mult",
-          "C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
+          "If {C:attention}scoring hand{} contains",
+          "at least {C:attention}#1#{} suits,",
+          "this Joker gains {C:mult}+#2#{} Mult",
+          "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
         }
       },
 
