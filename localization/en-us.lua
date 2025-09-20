@@ -2229,6 +2229,14 @@ return {
           "two {C:money}Investment{} {C:attention}Tags{}"
         }
       },
+      c_paperback_page_of_pentacles = {
+        name = "Page of Pentacles",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_knight_of_pentacles = {
         name = "Knight of Pentacles",
         text = {
