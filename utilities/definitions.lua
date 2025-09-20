@@ -304,6 +304,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "telamon",
   "weather_radio",
   "power_surge",
+  "time_regression_mix",
   "find_jimbo",
   "joker_crossing",
   -- "jimbos_inferno",

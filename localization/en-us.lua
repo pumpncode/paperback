@@ -650,6 +650,15 @@ return {
           "{C:red}destroy{} a card {C:attention}held in hand{}",
         }
       },
+      j_paperback_time_regression_mix = {
+        name = "Power Surge",
+        text = {
+          "If {C:attention}scoring hand{} contains atleast {C:attention}#1#{} suits,",
+          "this Joker gains {C:red}+2{} Mult",
+          "C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
+        }
+      },
+
       j_paperback_bismuth = {
         name = "Bismuth",
         text = {
