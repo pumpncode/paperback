@@ -12,7 +12,7 @@ PB_UTIL.MinorArcana {
     local faces = 0
     if G.playing_cards then
       for k, v in ipairs(G.playing_cards) do
-        if v:is_face() then faces = faces + 1 end
+        if v:is_face(true) then faces = faces + 1 end
       end
     elseif G.STATE == G.STATES.MENU then
       faces = 12
@@ -33,7 +33,7 @@ PB_UTIL.MinorArcana {
     local faces = 0
     if G.playing_cards then
       for k, v in ipairs(G.playing_cards) do
-        if v:is_face() then faces = faces + 1 end
+        if v:is_face(true) then faces = faces + 1 end
       end
     end
 
