@@ -15,6 +15,16 @@ PB_UTIL.MinorArcana {
     }
   end,
 
+  can_use = function(self, card)
+    if #G.hand.highlighted <= card.ability.max_highlighted and #G.hand.highlighted >= card.ability.min_highlighted then
+      local cards = PB_UTIL.get_sorted_by_position(G.hand)
+      local source = cards[1]
+      local has_rank = not SMODS.has_no_rank(source)
+      local has_suit = not SMODS.has_no_suit(source)
+      return has_rank or has_suit
+    end
+  end,
+
   use = function(self, card)
     local cards = PB_UTIL.get_sorted_by_position(G.hand)
     local source = cards[1]
