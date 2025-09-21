@@ -2606,8 +2606,8 @@ return {
       paperback_temporary = {
         name = "Temporary",
         text = {
-          "Will be {C:mult}destroyed",
-          "when round ends"
+          "{C:red}Removed{} when",
+          "round ends"
         }
       },
       paperback_corroded = {
@@ -2617,8 +2617,8 @@ return {
           "activating a {C:paperback_ego_gift}Sin",
           "{C:red}Self-destructs{} and",
           "activates the {C:paperback_ego_gift}Sin",
-          "after {C:attention}#1#{} Rounds",
-          "{C:inactive}({C:attention}#2#{C:inactive} Rounds left)",
+          "after {C:attention}#1#{} rounds",
+          "{C:inactive}({C:attention}#2#{C:inactive} rounds left)",
         }
       },
 
@@ -2629,7 +2629,7 @@ return {
           "{X:chips,C:white}X#1#{} Chips when",
           "{C:attention}scored{} for each",
           "{C:attention}Clip{} in {C:attention}held hand",
-          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
         }
       },
       paperback_red_clip = {
