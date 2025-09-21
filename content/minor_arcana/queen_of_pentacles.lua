@@ -19,24 +19,19 @@ PB_UTIL.MinorArcana {
     if #G.hand.highlighted <= card.ability.max_highlighted and #G.hand.highlighted >= card.ability.min_highlighted then
       local cards = PB_UTIL.get_sorted_by_position(G.hand)
       local source = cards[1]
-      local has_rank = not SMODS.has_no_rank(source)
-      local has_suit = not SMODS.has_no_suit(source)
-      return has_rank or has_suit
+      return not SMODS.has_no_rank(source)
     end
   end,
 
   use = function(self, card)
     local cards = PB_UTIL.get_sorted_by_position(G.hand)
     local source = cards[1]
-    local rank = (not SMODS.has_no_rank(source) and source.base.value) or nil
-    local suit = (not SMODS.has_no_suit(source) and source.base.suit) or nil
+    local rank = source.base.value
 
-    if rank or suit then
-      PB_UTIL.use_consumable_animation(card, cards, function()
-        for i = 2, #cards do
-          SMODS.change_base(cards[i], suit, rank)
-        end
-      end)
-    end
+    PB_UTIL.use_consumable_animation(card, cards, function()
+      for i = 2, #cards do
+        SMODS.change_base(cards[i], nil, rank)
+      end
+    end)
   end
 }

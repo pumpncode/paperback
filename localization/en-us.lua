@@ -2267,8 +2267,8 @@ return {
         name = "Queen of Pentacles",
         text = {
           "Select up to {C:attention}#1#{} cards.",
-          "Copy the {C:attention}leftmost's{} {C:attention}rank{}",
-          "and {C:attention}suit{} onto the others",
+          "Copy the {C:attention}leftmost{} card's", 
+          "{C:attention}rank{} onto the others",
           "{C:inactive}(Drag to rearrange)"
         }
       },
