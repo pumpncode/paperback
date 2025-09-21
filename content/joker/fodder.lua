@@ -11,6 +11,12 @@ SMODS.Joker {
     requires_ego_gifts = true
   },
 
+  in_pool = function(self, args)
+    for _, v in ipairs(G.consumeables or {}) do
+      if PB_UTIL.is_ego_gift(v) then return true end
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = { key = 'paperback_corroded', set = 'Other', vars = { G.GAME.paperback.corroded_rounds, G.GAME.paperback.corroded_rounds } }
   end,
