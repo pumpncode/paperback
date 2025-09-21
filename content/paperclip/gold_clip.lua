@@ -13,7 +13,9 @@ PB_UTIL.Paperclip {
     return {
       vars = {
         card.ability[self.key].money,
-        G.GAME.paperback.round.scored_clips or 0,
+        math.min(
+          card.ability[self.key].money * (G.GAME.paperback.round.scored_clips or 0),
+          card.ability[self.key].max_money),
         card.ability[self.key].max_money
       }
     }
