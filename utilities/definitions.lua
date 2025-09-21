@@ -948,6 +948,8 @@ if PB_UTIL.config.ego_gifts_enabled then
     unlocked = true,
     discovered = false,
     cost = 0,
+    -- This card is always selected, not used. It goes to the 'consumeables' area
+    select_card = "consumeables",
 
     loc_vars = function(self, info_queue, card)
       info_queue[#info_queue + 1] = PB_UTIL.sin_tooltip(card.ability.sin)
