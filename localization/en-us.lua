@@ -770,10 +770,8 @@ return {
       j_paperback_ice_cube = {
         name = "Ice Cube",
         text = {
-          "{X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}Food Joker{} you have",
-          "{s:0.9}Melts if {s:0.9,C:attention}score catches fire",
-          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+          "{C:blue}+#1#{} Hand when {C:attention}Blind{} is selected",
+          "Melts if {C:attention}score catches fire",
         }
       },
       j_paperback_champagne = {
