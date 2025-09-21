@@ -2238,8 +2238,8 @@ return {
       c_paperback_nine_of_pentacles = {
         name = "Nine of Pentacles",
         text = {
-          "Add a {C:purple}Purple Clip{} to up",
-          "to {C:attention}#1#{} selected cards"
+          "Add a {C:purple}Purple Clip{} to",
+          "{C:attention}#1#{} selected card"
         }
       },
       c_paperback_ten_of_pentacles = {
