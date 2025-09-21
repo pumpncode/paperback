@@ -2787,9 +2787,9 @@ return {
       pnr_paperback_virtual = {
         name = "Virtual",
         text = {
-          "Retrigger the {C:attention}first scoring",
-          "{C:paperback_light_suit}Light Suit{} in each played hand",
-          "if no {C:paperback_dark_suit}Dark Suits{} were played",
+          "Retrigger {C:attention}first scoring",
+          "{C:paperback_light_suit}Light Suit{} if",
+          "no {C:paperback_dark_suit}Dark Suits{} were played",
         }
       },
       pnr_paperback_aftermath = {
@@ -2797,7 +2797,6 @@ return {
         text = {
           "Scored {C:attention}face cards{}",
           "gain {C:chips}+#1#{} Chips",
-          "when scored",
         }
       },
       pnr_paperback_faker = {
