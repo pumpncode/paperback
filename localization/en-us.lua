@@ -343,9 +343,8 @@ return {
       j_paperback_king_me = {
         name = "King Me",
         text = {
-          "Scored {V:1}#1#{} increase",
-          "their rank by {C:attention}#2#",
-          "{C:inactive}(Does not increase after {C:attention}King{C:inactive})"
+          "Scored non-{C:attention}King{} {V:1}#1#{}",
+          "increase their rank by {C:attention}#2#",
         }
       },
       j_paperback_gambit = {
