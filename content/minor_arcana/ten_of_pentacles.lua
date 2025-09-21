@@ -4,7 +4,7 @@ PB_UTIL.MinorArcana {
   pos = { x = 2, y = 7 },
 
   config = { extra = {
-    min = 1,
+    min = 5,
     max = 10
   } },
 
