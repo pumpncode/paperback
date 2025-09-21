@@ -2102,11 +2102,9 @@ return {
       c_paperback_five_of_swords = {
         name = "Five of Swords",
         text = {
-          "Select {C:attention}#1#{} cards, destroy the",
-          "rightmost two and give the",
-          "leftmost a random {C:attention}edition{},",
+          "Give a random {C:attention}edition{},",
           "{C:attention}seal{} or {C:attention}enhancement",
-          "{C:inactive}(Drag to rearrange)"
+          "to {C:attention}#1#{} selected card"
         }
       },
       c_paperback_six_of_swords = {
