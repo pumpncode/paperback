@@ -289,17 +289,17 @@ return {
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
         name = "One Sin and Hundreds of Good Deeds",
         text = {
-          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
-          "give {C:mult}+#1#{} Mult when scored",
+          "Scored {C:attention}3s{} and {C:attention}rankless{} cards",
+          "give {C:mult}+#1#{} Mult",
           '{C:inactive}"It feeds on evil"',
         },
       },
       j_paperback_one_sin_and_hundreds_of_good_deeds_fed = {
         name = "{C:red}One Sin and Hundreds of Good Deeds{}",
         text = {
-          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
-          "give {C:mult}+Mult{} for each",
-          "remaining card in deck when scored",
+          "Scored {C:attention}3s{} and {C:attention}rankless{} cards",
+          "give {C:mult}+#1#{} Mult for each",
+          "remaining card in deck",
           "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive})",
         },
       },
@@ -845,7 +845,7 @@ return {
         name = "Mexican Train",
         text = {
           "Scored {C:attention}#1#s{} give {C:money}$#2#",
-          "for every scoring {C:attention}#1#{}",
+          "for every played {C:attention}#1#{}",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
@@ -1545,7 +1545,7 @@ return {
       j_paperback_the_wonder_of_you = {
         name = "The Wonder of You",
         text = {
-          "Upon selecting a {C:attention}Boss{} Blind",
+          "When selecting a {C:attention}Boss{} Blind,",
           "create two random {C:attention}tags"
         }
       },
