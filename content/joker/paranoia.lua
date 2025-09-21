@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'paranoia',
   config = {
     extra = {
-      a_mult = 3
+      a_mult = 2
     }
   },
   rarity = 3,

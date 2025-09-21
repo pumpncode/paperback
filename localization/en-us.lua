@@ -613,8 +613,8 @@ return {
       j_paperback_kintsugi_joker = {
         name = "Kintsugi Joker",
         text = {
-          "Increases the maximum payout",
-          "of {C:attention}#2#s{} by {C:money}$#1#{} when",
+          "Increases the payout of",
+          "{C:attention}#2#s{} by {C:money}$#1#{} when",
           "a {C:attention}#2#{} is destroyed",
           "{C:inactive}(Currently increased by {C:money}$#3#{C:inactive})"
         }
@@ -1249,7 +1249,7 @@ return {
         name = "Great Wave",
         text = {
           "Retrigger {C:attention}rightmost{} scoring card",
-          "{C:attention}once{} for every {C:attention}scoring card{}",
+          "{C:attention}once{} for each other {C:attention}scoring card{}",
         },
       },
       j_paperback_caramel_apple = {
