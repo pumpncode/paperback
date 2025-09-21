@@ -2214,9 +2214,9 @@ return {
       c_paperback_six_of_pentacles = {
         name = "Six of Pentacles",
         text = {
-          "Gives {C:attention}2{} random {C:attention}Tags{} from:",
-          "{C:money}Investment{}, {C:money}Economy{},",
-          "{C:red}Coupon{}, {C:green}D6{}, or {C:attention}Juggle{}"
+          "Gives an {C:money}Investment{},",
+          "{C:money}Economy{}, {C:red}Coupon{},",
+          "{C:green}D6{}, or {C:attention}Juggle Tag{}"
         }
       },
       c_paperback_seven_of_pentacles = {

@@ -23,15 +23,10 @@ PB_UTIL.MinorArcana {
       'tag_d_six',
       'tag_juggle'
     }
-    local tag1 = PB_UTIL.poll_tag("six_of_pentacles", tags)
-    for i, v in ipairs(tags) do
-      if v == tag1 then table.remove(tags, i) end
-    end
-    local tag2 = PB_UTIL.poll_tag("six_of_pentacles", tags)
+    local tag = PB_UTIL.poll_tag("six_of_pentacles", tags)
 
     PB_UTIL.use_consumable_animation(card, nil, function()
-      PB_UTIL.add_tag(tag1)
-      PB_UTIL.add_tag(tag2)
+      PB_UTIL.add_tag(tag)
     end)
   end
 }
