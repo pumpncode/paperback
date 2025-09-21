@@ -2642,8 +2642,8 @@ return {
         name = "Orange Clip",
         text = {
           "Earn {C:money}$#1#{} when",
-          "{C:attention}scored{} for every {C:attention}#2#",
-          "{C:attention}Clips{} in {C:attention}held hand",
+          "{C:attention}scored{} for every",
+          "{C:attention}2 Clips{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
@@ -2668,10 +2668,10 @@ return {
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
-          "Earn {C:money}$#1#{} for each scored {C:attention}Clip{}",
-          "if this card is {C:attention}held in hand",
-          "at the end of round",
-          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+          "If {C:attention}held in hand{} at {C:attention}end of{}",
+          "{C:attention}round{}, earn {C:money}$#1#{} for each",
+          "{C:attention}Clip{} scored this round",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive}/$#3# max)"
         }
       },
       paperback_white_clip = {
