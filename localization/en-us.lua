@@ -2205,8 +2205,10 @@ return {
       c_paperback_four_of_pentacles = {
         name = "Four of Pentacles",
         text = {
-          "Select {C:attention}#1#{} cards, destroy",
-          "all other cards in hand"
+          "Select {C:attention}#1#{} cards.",
+          "{C:green}#2# in #3#{} chance to",
+          "destroy each {C:attention}unselected{}",
+          "card in hand"
         }
       },
       c_paperback_six_of_pentacles = {
