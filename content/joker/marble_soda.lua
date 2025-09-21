@@ -54,7 +54,7 @@ SMODS.Joker {
         PB_UTIL.destroy_joker(card)
         return {
           message = localize('k_drank_ex'),
-          colour = G.C.FILTER
+          colour = G.C.BLUE
         }
       end
     end

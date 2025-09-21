@@ -60,7 +60,7 @@ SMODS.Joker {
 
           return {
             message = localize('paperback_destroyed_ex'),
-            colour = G.C.MULT
+            colour = G.C.RED
           }
         end
 

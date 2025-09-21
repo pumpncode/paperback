@@ -343,9 +343,8 @@ return {
       j_paperback_king_me = {
         name = "King Me",
         text = {
-          "Scored {V:1}#1#{} increase",
-          "their rank by {C:attention}#2#",
-          "{C:inactive}(Does not increase after {C:attention}King{C:inactive})"
+          "Scored non-{C:attention}King{} {V:1}#1#{}",
+          "increase their rank by {C:attention}#2#",
         }
       },
       j_paperback_gambit = {
@@ -613,8 +612,8 @@ return {
       j_paperback_kintsugi_joker = {
         name = "Kintsugi Joker",
         text = {
-          "Increases the maximum payout",
-          "of {C:attention}#2#s{} by {C:money}$#1#{} when",
+          "Increases the payout of",
+          "{C:attention}#2#s{} by {C:money}$#1#{} when",
           "a {C:attention}#2#{} is destroyed",
           "{C:inactive}(Currently increased by {C:money}$#3#{C:inactive})"
         }
@@ -770,10 +769,8 @@ return {
       j_paperback_ice_cube = {
         name = "Ice Cube",
         text = {
-          "{X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}Food Joker{} you have",
-          "{s:0.9}Melts if {s:0.9,C:attention}score catches fire",
-          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+          "{C:blue}+#1#{} Hand when {C:attention}Blind{} is selected",
+          "Melts if {C:attention}score catches fire",
         }
       },
       j_paperback_champagne = {
@@ -1249,7 +1246,7 @@ return {
         name = "Great Wave",
         text = {
           "Retrigger {C:attention}rightmost{} scoring card",
-          "{C:attention}once{} for every {C:attention}scoring card{}",
+          "{C:attention}once{} for each other {C:attention}scoring card{}",
         },
       },
       j_paperback_caramel_apple = {
@@ -2707,8 +2704,8 @@ return {
       paperback_temporary = {
         name = "Temporary",
         text = {
-          "Will be {C:mult}destroyed",
-          "when round ends"
+          "{C:red}Removed{} when",
+          "round ends"
         }
       },
       paperback_corroded = {
@@ -2718,8 +2715,8 @@ return {
           "activating a {C:paperback_ego_gift}Sin",
           "{C:red}Self-destructs{} and",
           "activates the {C:paperback_ego_gift}Sin",
-          "after {C:attention}#1#{} Rounds",
-          "{C:inactive}({C:attention}#2#{C:inactive} Rounds left)",
+          "after {C:attention}#1#{} rounds",
+          "{C:inactive}({C:attention}#2#{C:inactive} rounds left)",
         }
       },
 
@@ -2730,7 +2727,7 @@ return {
           "{X:chips,C:white}X#1#{} Chips when",
           "{C:attention}scored{} for each",
           "{C:attention}Clip{} in {C:attention}held hand",
-          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive})"
+          "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
         }
       },
       paperback_red_clip = {
