@@ -2245,8 +2245,7 @@ return {
       c_paperback_ten_of_pentacles = {
         name = "Ten of Pentacles",
         text = {
-          "Lose {C:money}$#1#{}. Gain",
-          "{C:attention}2{} {C:money}Investment{} {C:attention}Tags{}"
+          "Earn between {C:money}$#1#{} and {C:money}$#2#{}"
         }
       },
       c_paperback_page_of_pentacles = {
