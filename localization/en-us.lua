@@ -2212,8 +2212,7 @@ return {
       c_paperback_six_of_pentacles = {
         name = "Six of Pentacles",
         text = {
-          "Gives {C:attention}two{} random {C:attention}Tags{}",
-          "from the following list:",
+          "Gives {C:attention}2{} random {C:attention}Tags{} from:",
           "{C:money}Investment{}, {C:money}Economy{},",
           "{C:red}Coupon{}, {C:green}D6{}, or {C:attention}Juggle{}"
         }
@@ -2245,7 +2244,7 @@ return {
         name = "Ten of Pentacles",
         text = {
           "Lose {C:money}$#1#{}. Gain",
-          "two {C:money}Investment{} {C:attention}Tags{}"
+          "{C:attention}2{} {C:money}Investment{} {C:attention}Tags{}"
         }
       },
       c_paperback_page_of_pentacles = {
@@ -2259,16 +2258,16 @@ return {
       c_paperback_knight_of_pentacles = {
         name = "Knight of Pentacles",
         text = {
-          "Reset Reroll cost to {C:money}$#1#{}"
+          "Reset {C:green}Reroll{} cost to {C:money}$#1#{}"
         }
       },
       c_paperback_queen_of_pentacles = {
         name = "Queen of Pentacles",
         text = {
           "Select up to {C:attention}#1#{} cards.",
-          "If possible, copy the {C:attention}rank{}",
-          "and {C:attention}suit{} from the leftmost",
-          "card to the other cards"
+          "Copy the {C:attention}leftmost's{} {C:attention}rank{}",
+          "and {C:attention}suit{} onto the others",
+          "{C:inactive}(Drag to rearrange)"
         }
       },
       c_paperback_king_of_pentacles = {
