@@ -100,6 +100,13 @@ SMODS.current_mod.calculate = function(self, context)
   end
 end
 
+-- Sleeved cards can't be debuffed
+SMODS.current_mod.set_debuff = function(card)
+  if card.ability and card.ability.name == "m_paperback_sleeved" then
+    return "prevent_debuff"
+  end
+end
+
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
