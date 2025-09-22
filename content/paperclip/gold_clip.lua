@@ -4,6 +4,7 @@ PB_UTIL.Paperclip {
   pos = { x = 2, y = 0 },
   badge_colour = G.C.GOLD,
   badge_text_colour = G.C.WHITE,
+  shiny = true,
   config = {
     money = 1,
     max_money = 10,

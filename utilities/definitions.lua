@@ -858,6 +858,9 @@ if PB_UTIL.config.paperclips_enabled then
       local x_offset = (card.T.w / 71) * -4 * card.T.scale
       G.shared_stickers[self.key].role.draw_major = card
       G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, x_offset)
+      if self.shiny then
+        G.shared_stickers[self.key]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center, nil, nil, x_offset)
+      end
     end,
 
     apply = function(self, card, val)

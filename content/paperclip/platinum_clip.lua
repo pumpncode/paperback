@@ -4,6 +4,7 @@ PB_UTIL.Paperclip {
   pos = { x = 5, y = 0 },
   badge_colour = G.C.PAPERBACK_PLATINUM,
   badge_text_colour = G.C.WHITE,
+  shiny = true,
 
   calculate = function(self, card, context)
     if context.main_scoring and context.cardarea == G.play then
