@@ -175,20 +175,21 @@ SMODS.calculate_repetitions = function(card, context, reps)
   for _, area in ipairs(SMODS.get_card_areas('playing_cards')) do
     for k, v in ipairs(area.cards or {}) do
       if v ~= card then
-        local eval = v:calculate_enhancement {
-          paperback = {
-            other_card = card,
-            cardarea = card.area,
-            scoring_hand = context.scoring_hand,
-            repetition_from_playing_card = true,
+        if v:can_calculate(context.ignore_debuff, context.remove_playing_cards) then
+          local eval = v:calculate_enhancement {
+            paperback = {
+              other_card = card,
+              cardarea = card.area,
+              scoring_hand = context.scoring_hand,
+              repetition_from_playing_card = true,
+            }
           }
-        }
-
-        if eval and eval.repetitions then
-          for _ = 1, eval.repetitions do
-            eval.card = eval.card or card
-            eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
-            reps[#reps + 1] = { key = eval }
+          if eval and eval.repetitions then
+            for _ = 1, eval.repetitions do
+              eval.card = eval.card or card
+              eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
+              reps[#reps + 1] = { key = eval }
+            end
           end
         end
       end
