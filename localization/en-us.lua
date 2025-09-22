@@ -1100,8 +1100,8 @@ return {
       j_paperback_pop_stick = {
         name = "Pop-Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1134,8 +1134,8 @@ return {
       j_paperback_sticky_stick = {
         name = "Sticky Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1478,8 +1478,8 @@ return {
       j_paperback_pointy_stick = {
         name = "Pointy Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1503,8 +1503,8 @@ return {
       j_paperback_popsicle_stick = {
         name = "Popsicle Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
