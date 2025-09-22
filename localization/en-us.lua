@@ -289,17 +289,17 @@ return {
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
         name = "One Sin and Hundreds of Good Deeds",
         text = {
-          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
-          "give {C:mult}+#1#{} Mult when scored",
+          "Scored {C:attention}3s{} and {C:attention}rankless{} cards",
+          "give {C:mult}+#1#{} Mult",
           '{C:inactive}"It feeds on evil"',
         },
       },
       j_paperback_one_sin_and_hundreds_of_good_deeds_fed = {
         name = "{C:red}One Sin and Hundreds of Good Deeds{}",
         text = {
-          "Scored {C:attention}3s{} and {C:attention}Rankless Cards{}",
-          "give {C:mult}+Mult{} for each",
-          "remaining card in deck when scored",
+          "Scored {C:attention}3s{} and {C:attention}rankless{} cards",
+          "give {C:mult}+#1#{} Mult for each",
+          "remaining card in deck",
           "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive})",
         },
       },
@@ -845,7 +845,7 @@ return {
         name = "Mexican Train",
         text = {
           "Scored {C:attention}#1#s{} give {C:money}$#2#",
-          "for every scoring {C:attention}#1#{}",
+          "for every played {C:attention}#1#{}",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
@@ -1392,8 +1392,8 @@ return {
         name = "Solar System",
         text = {
           "Gives {X:mult,C:white}X#1#{} Mult for",
-          "every {C:attention}level{} over 1 {C:attention}all{}",
-          "9 base {C:planet}Planets{} share",
+          "every {C:attention}level{} all 9",
+          "base {C:planet}Planets{} share",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
       },
@@ -1545,7 +1545,7 @@ return {
       j_paperback_the_wonder_of_you = {
         name = "The Wonder of You",
         text = {
-          "Upon selecting a {C:attention}Boss{} Blind",
+          "When selecting a {C:attention}Boss{} Blind,",
           "create two random {C:attention}tags"
         }
       },
@@ -2102,11 +2102,9 @@ return {
       c_paperback_five_of_swords = {
         name = "Five of Swords",
         text = {
-          "Select {C:attention}#1#{} cards, destroy the",
-          "rightmost two and give the",
-          "leftmost a random {C:attention}edition{},",
+          "Give a random {C:attention}edition{},",
           "{C:attention}seal{} or {C:attention}enhancement",
-          "{C:inactive}(Drag to rearrange)"
+          "to {C:attention}#1#{} selected card"
         }
       },
       c_paperback_six_of_swords = {
@@ -2743,8 +2741,8 @@ return {
         name = "Orange Clip",
         text = {
           "Earn {C:money}$#1#{} when",
-          "{C:attention}scored{} for every {C:attention}#2#",
-          "{C:attention}Clips{} in {C:attention}held hand",
+          "{C:attention}scored{} for every",
+          "{C:attention}2 Clips{} in {C:attention}held hand",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
@@ -2769,10 +2767,10 @@ return {
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
-          "Earn {C:money}$#1#{} for each scored {C:attention}Clip{}",
-          "if this card is {C:attention}held in hand",
-          "at the end of round",
-          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+          "If {C:attention}held in hand{} at {C:attention}end of{}",
+          "{C:attention}round{}, earn {C:money}$#1#{} for each",
+          "{C:attention}Clip{} scored this round",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive}/$#3# max)"
         }
       },
       paperback_white_clip = {
@@ -2908,9 +2906,9 @@ return {
       pnr_paperback_virtual = {
         name = "Virtual",
         text = {
-          "Retrigger the {C:attention}first scoring",
-          "{C:paperback_light_suit}Light Suit{} in each played hand",
-          "if no {C:paperback_dark_suit}Dark Suits{} were played",
+          "Retrigger {C:attention}first scoring",
+          "{C:paperback_light_suit}Light Suit{} if",
+          "no {C:paperback_dark_suit}Dark Suits{} were played",
         }
       },
       pnr_paperback_aftermath = {
@@ -2918,7 +2916,6 @@ return {
         text = {
           "Scored {C:attention}face cards{}",
           "gain {C:chips}+#1#{} Chips",
-          "when scored",
         }
       },
       pnr_paperback_faker = {

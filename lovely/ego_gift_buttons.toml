@@ -4,6 +4,7 @@ version = "1.0.0"
 # G.UIDEF.card_focus_ui()
 # (controller buy/use/select buttons)
 # Treat EGO Gifts as non-consumable in this function
+# Effect: no "use"/"buy and use" buttons
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -29,26 +30,6 @@ if consumeable_saved then
 end
 '''
 match_indent = true
-
-# G.FUNCS.use_and_sell_buttons()
-# Trying to play nice w/ SMODS's existing functions (I don't recommend this, it was a pain)
-# Elsewhere, card:selectable_from_pack() was overridden to always returns true for EGO Gifts,
-# even for Spectral Packs.
-# These patches remove the booster_obj.select_card condition. Then SMODS's selectable_from_pack
-# logic will actually trigger for vanilla packs
-[[patches]]
-[patches.regex]
-target = "functions/UI_definitions.lua"
-pattern = '''booster_obj and booster_obj\.select_card and card:selectable_from_pack\(booster_obj\)'''
-position = "at"
-payload = '''booster_obj and card:selectable_from_pack(booster_obj)'''
-[[patches]]
-[patches.regex]
-target = "functions/button_callbacks.lua"
-pattern = '''booster_obj and booster_obj\.select_card and card:selectable_from_pack\(booster_obj\)'''
-position = "at"
-payload = '''booster_obj and card:selectable_from_pack(booster_obj)'''
-
 
 # Adapted from SDM_0's Stuff mod
 # (non-controller buy/use/select buttons)
