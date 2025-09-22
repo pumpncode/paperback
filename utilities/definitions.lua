@@ -562,7 +562,7 @@ PB_UTIL.ENABLED_SPECTRALS = {
   "apostle_of_cups",
   "apostle_of_wands",
   "apostle_of_swords",
-  --"apostle_of_pentacles",
+  "apostle_of_pentacles",
 
 
 }

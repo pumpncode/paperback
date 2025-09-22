@@ -1835,6 +1835,13 @@ return {
           "{C:attention}#1#{} Antes"
         }
       },
+      c_paperback_apostle_of_pentacles = {
+        name = "Apostle of Pentacles",
+        text = {
+          "Add a {C:paperback_platinum}Platinum Clip{} to",
+          "{C:attention}#1#{} selected card"
+        }
+      },
       c_paperback_golden_bough = {
         name = "Golden Bough",
         text = {
