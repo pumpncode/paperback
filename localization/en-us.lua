@@ -176,8 +176,9 @@ return {
       j_paperback_nichola = {
         name = "Nichola",
         text = {
-          "{C:attention}Face{} cards {C:attention}held in",
-          "{C:attention}hand{} count in {C:attention}scoring"
+          "After scoring played cards,",
+          "score {C:attention}face{} cards",
+          "{C:attention}held in hand{}"
         }
       },
       j_paperback_the_dynasty = {

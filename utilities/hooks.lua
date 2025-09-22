@@ -199,6 +199,24 @@ SMODS.calculate_repetitions = function(card, context, reps)
   return calculate_repetitions_ref(card, context, reps)
 end
 
+-- For nichola
+local calculate_main_scoring_ref = SMODS.calculate_main_scoring
+function SMODS.calculate_main_scoring(context, scoring_hand)
+  calculate_main_scoring_ref(context, scoring_hand)
+  if context.cardarea == G.play then
+    SMODS.calculate_context {
+      paperback = {
+        nichola = true -- Name can be changed later
+        -- the context is "after played cards score", a better name probably exists
+      },
+      full_hand = G.play.cards,
+      scoring_hand = context.scoring_hand,
+      scoring_name = context.scoring_name,
+      poker_hands = context.poker_hands
+    }
+  end
+end
+
 -- New context for when a tag is added
 local add_tag_ref = add_tag
 function add_tag(tag)
