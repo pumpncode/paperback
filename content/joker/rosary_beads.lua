@@ -23,7 +23,7 @@ SMODS.Joker {
     if context.joker_main then
       local hearts = 0
       for _, v in ipairs(G.play.cards) do
-        if v:is_suit('Hearts') then
+        if v:is_suit('Hearts', false, true) then
           hearts = hearts + 1
         end
       end

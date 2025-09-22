@@ -542,7 +542,7 @@ return {
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
-          "When a {C:attention}Planet{} card is used",
+          "When a {C:attention}Planet{} card is used,",
           "this Joker gains {C:mult}+#1#{} Mult",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
@@ -1355,8 +1355,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand",
-          "contains only {C:paperback_dark_suit}dark suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if played hand",
+          "scores no {C:paperback_dark_suit}dark suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1580,7 +1580,6 @@ return {
       j_paperback_black_rainbows = {
         name = "Black Rainbows",
         text = {
-          -- NOTE dark suits?
           "Scored {C:spades}Spades{} and {C:clubs}Clubs",
           "have a {C:green}#1# in #2#{} chance",
           "to become {C:dark_edition}Polychrome"
@@ -2788,8 +2787,8 @@ return {
         name = "Virtual",
         text = {
           "Retrigger {C:attention}first scoring",
-          "{C:paperback_light_suit}Light Suit{} if",
-          "no {C:paperback_dark_suit}Dark Suits{} were played",
+          "{C:paperback_light_suit}light suit{} if",
+          "no {C:paperback_dark_suit}dark suits{} were played",
         }
       },
       pnr_paperback_aftermath = {

@@ -33,7 +33,7 @@ SMODS.Joker {
       local upgrade = true
       -- Check scoring hand for only light suits
       for _, v in ipairs(context.scoring_hand) do
-        if not PB_UTIL.is_suit(v, 'light') then
+        if not PB_UTIL.is_suit(v, 'light', false, true) then
           upgrade = false
         end
       end

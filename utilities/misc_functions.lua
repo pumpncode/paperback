@@ -243,7 +243,8 @@ end
 ---Gets the number of unique suits in a provided scoring hand
 ---@param scoring_hand table
 ---@param bypass_debuff boolean?
----@param flush_calc boolean?
+---@param flush_calc boolean? Usually use this instead of bypass_debuff for Jokers:
+--- debuffed wild cards are considered their original suit only
 ---@return integer
 function PB_UTIL.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
   -- Set each suit's count to 0
@@ -252,6 +253,11 @@ function PB_UTIL.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
   for k, _ in pairs(SMODS.Suits) do
     suits[k] = 0
   end
+
+  -- NOTE greedy algorithm is technically wrong for cards with weird suit combos,
+  -- for example a card with suit A+B might count for A, blocking another card
+  -- that can only be A
+  -- (a bipartite matching algorithm would work)
 
   -- First we cover all the non Wild Cards in the hand
   for _, card in ipairs(scoring_hand) do
@@ -750,10 +756,13 @@ end
 ---Used to check whether a card is a light or dark suit
 ---@param card table
 ---@param type 'light' | 'dark'
+---@param bypass_debuff boolean?
+---@param flush_calc boolean? Usually use this instead of bypass_debuff for Jokers:
+--- debuffed wild cards are considered their original suit only
 ---@return boolean
-function PB_UTIL.is_suit(card, type)
+function PB_UTIL.is_suit(card, type, bypass_debuff, flush_calc)
   for _, v in ipairs(type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits) do
-    if card:is_suit(v) then return true end
+    if card:is_suit(v, bypass_debuff, flush_calc) then return true end
   end
   return false
 end

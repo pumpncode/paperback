@@ -29,7 +29,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
-      if PB_UTIL.get_unique_suits(context.scoring_hand, true) >= card.ability.extra.suits then
+      if PB_UTIL.get_unique_suits(context.scoring_hand, false, true) >= card.ability.extra.suits then
         card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
         return {
           message = localize {
