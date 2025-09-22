@@ -11,10 +11,10 @@ SMODS.current_mod.optional_features = {
 -- Global mod calculate
 SMODS.current_mod.calculate = function(self, context)
   -- green clip: gain mult for each played and scored clip
-  if context.before and context.cardarea == G.play then
+  if context.before then
     local clips_played = 0
     for _, v in ipairs(context.scoring_hand) do
-      if PB_UTIL.has_paperclip(v) then clips_played = clips_played + 1 end
+      if not v.debuff and PB_UTIL.has_paperclip(v) then clips_played = clips_played + 1 end
     end
     if clips_played > 0 then
       for _, v in ipairs(G.playing_cards) do
