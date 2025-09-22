@@ -252,7 +252,7 @@ if PB_UTIL.config.paperclips_enabled then
       end
     end
 
-    return SMODS.card_collection_UIBox(paperclips, { 5, 5 }, {
+    return SMODS.card_collection_UIBox(paperclips, { 6, 5 }, {
       snap_back = true,
       hide_single_page = true,
       collapse_single_page = true,

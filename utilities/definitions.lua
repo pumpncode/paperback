@@ -1177,4 +1177,5 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "blue_clip",
   "purple_clip",
   "pink_clip",
+  "platinum_clip"
 }

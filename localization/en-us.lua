@@ -2809,6 +2809,14 @@ return {
           "have a {C:attention}Clip{}"
         }
       },
+      paperback_platinum_clip = {
+        name = "Platinum Clip",
+        text = {
+          "When {C:attention}scored{}, forcefully",
+          "trigger all non-Platinum",
+          "{C:attention}Clips{} in {C:attention}held hand{}"
+        }
+      },
       -- E.G.O. Gift Sins
       paperback_sin_none = {
         name = "Vestige",
@@ -3226,6 +3234,7 @@ return {
       paperback_white_clip = "White Clip",
       paperback_green_clip = "Green Clip",
       paperback_purple_clip = "Purple Clip",
+      paperback_platinum_clip = "Platinum Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
