@@ -6,7 +6,7 @@ PB_UTIL.MinorArcana {
     }
   },
   atlas = 'minor_arcana_atlas',
-  pos = { x = 0, y = 8 }, -- change to x = 6, y = 7 when art is added
+  pos = { x = 6, y = 7 },
 
   loc_vars = function(self, info_queue, card)
     local faces = 0

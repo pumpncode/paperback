@@ -1,7 +1,7 @@
 PB_UTIL.MinorArcana {
   key = 'knight_of_pentacles',
   atlas = 'minor_arcana_atlas',
-  pos = { x = 0, y = 8 }, -- change to x = 4, y = 7 when art is added
+  pos = { x = 4, y = 7 },
 
   can_use = function(self, card)
     return true

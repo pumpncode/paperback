@@ -1,7 +1,7 @@
 PB_UTIL.MinorArcana {
   key = 'queen_of_pentacles',
   atlas = 'minor_arcana_atlas',
-  pos = { x = 0, y = 8 }, -- change to x = 5, y = 7 when art is added
+  pos = { x = 5, y = 7 },
   config = {
     min_highlighted = 2,
     max_highlighted = 3,
