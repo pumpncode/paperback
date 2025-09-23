@@ -31,7 +31,7 @@ SMODS.Joker {
       local destroy = true
       -- Check scoring hand for only Spades
       for _, v in ipairs(context.scoring_hand) do
-        if not v:is_suit(card.ability.extra.suit) then
+        if not v:is_suit(card.ability.extra.suit, false, true) then
           destroy = false
         end
       end

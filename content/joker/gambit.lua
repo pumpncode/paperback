@@ -31,7 +31,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.destroy_card and context.cardarea == G.hand and not card.ability.extra.triggered then
-      if not context.destroy_card:is_suit(card.ability.extra.suit) then
+      if not context.destroy_card:is_suit(card.ability.extra.suit, false, true) then
         for _, v in ipairs(context.scoring_hand) do
           if v:is_suit(card.ability.extra.suit) then
             if not context.blueprint then

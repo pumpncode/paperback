@@ -176,8 +176,9 @@ return {
       j_paperback_nichola = {
         name = "Nichola",
         text = {
-          "{C:attention}Face{} cards {C:attention}held in",
-          "{C:attention}hand{} count in {C:attention}scoring"
+          "After scoring played cards,",
+          "score {C:attention}face{} cards",
+          "{C:attention}held in hand{}"
         }
       },
       j_paperback_the_dynasty = {
@@ -542,7 +543,7 @@ return {
       j_paperback_blue_marble = {
         name = "Blue Marble",
         text = {
-          "When a {C:attention}Planet{} card is used",
+          "When a {C:attention}Planet{} card is used,",
           "this Joker gains {C:mult}+#1#{} Mult",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
@@ -1100,8 +1101,8 @@ return {
       j_paperback_pop_stick = {
         name = "Pop-Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1134,8 +1135,8 @@ return {
       j_paperback_sticky_stick = {
         name = "Sticky Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1355,8 +1356,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand",
-          "contains only {C:paperback_dark_suit}dark suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if played hand",
+          "scores no {C:paperback_dark_suit}dark suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1478,8 +1479,8 @@ return {
       j_paperback_pointy_stick = {
         name = "Pointy Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1503,8 +1504,8 @@ return {
       j_paperback_popsicle_stick = {
         name = "Popsicle Stick",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:attention}\"Stick\"{} Joker you have",
+          "{X:mult,C:white}X#1#{} Mult if you have",
+          "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1580,7 +1581,6 @@ return {
       j_paperback_black_rainbows = {
         name = "Black Rainbows",
         text = {
-          -- NOTE dark suits?
           "Scored {C:spades}Spades{} and {C:clubs}Clubs",
           "have a {C:green}#1# in #2#{} chance",
           "to become {C:dark_edition}Polychrome"
@@ -2922,8 +2922,8 @@ return {
         name = "Virtual",
         text = {
           "Retrigger {C:attention}first scoring",
-          "{C:paperback_light_suit}Light Suit{} if",
-          "no {C:paperback_dark_suit}Dark Suits{} were played",
+          "{C:paperback_light_suit}light suit{} if",
+          "no {C:paperback_dark_suit}dark suits{} were played",
         }
       },
       pnr_paperback_aftermath = {

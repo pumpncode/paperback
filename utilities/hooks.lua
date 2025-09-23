@@ -176,20 +176,21 @@ SMODS.calculate_repetitions = function(card, context, reps)
   for _, area in ipairs(SMODS.get_card_areas('playing_cards')) do
     for k, v in ipairs(area.cards or {}) do
       if v ~= card then
-        local eval = v:calculate_enhancement {
-          paperback = {
-            other_card = card,
-            cardarea = card.area,
-            scoring_hand = context.scoring_hand,
-            repetition_from_playing_card = true,
+        if v:can_calculate(context.ignore_debuff, context.remove_playing_cards) then
+          local eval = v:calculate_enhancement {
+            paperback = {
+              other_card = card,
+              cardarea = card.area,
+              scoring_hand = context.scoring_hand,
+              repetition_from_playing_card = true,
+            }
           }
-        }
-
-        if eval and eval.repetitions then
-          for _ = 1, eval.repetitions do
-            eval.card = eval.card or card
-            eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
-            reps[#reps + 1] = { key = eval }
+          if eval and eval.repetitions then
+            for _ = 1, eval.repetitions do
+              eval.card = eval.card or card
+              eval.message = eval.message or (not eval.remove_default_message and localize('k_again_ex'))
+              reps[#reps + 1] = { key = eval }
+            end
           end
         end
       end
@@ -197,6 +198,24 @@ SMODS.calculate_repetitions = function(card, context, reps)
   end
 
   return calculate_repetitions_ref(card, context, reps)
+end
+
+-- For nichola
+local calculate_main_scoring_ref = SMODS.calculate_main_scoring
+function SMODS.calculate_main_scoring(context, scoring_hand)
+  calculate_main_scoring_ref(context, scoring_hand)
+  if context.cardarea == G.play then
+    SMODS.calculate_context {
+      paperback = {
+        nichola = true -- Name can be changed later
+        -- the context is "after played cards score", a better name probably exists
+      },
+      full_hand = G.play.cards,
+      scoring_hand = context.scoring_hand,
+      scoring_name = context.scoring_name,
+      poker_hands = context.poker_hands
+    }
+  end
 end
 
 -- New context for when a tag is added
