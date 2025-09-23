@@ -3,7 +3,6 @@ SMODS.Joker {
   config = {
     extra = {
       a_mult = 10,
-      worker_tally = 0
     }
   },
   rarity = 1,
