@@ -766,6 +766,7 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "stained",
   "domino",
   "sleeved",
+  "antique"
 }
 
 PB_UTIL.ENABLED_EDITIONS = {

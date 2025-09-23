@@ -2581,6 +2581,15 @@ return {
           "{C:attention}flipped{} face down",
           "Earn {C:money}$#1#{} if destroyed"
         }
+      },
+      m_paperback_antique = {
+        name = "Antique Card",
+        text = {
+          "{X:chips,C:white}X#1#{} Chips",
+          "Gain {X:chips,C:white}X#2#{} Chips every",
+          "time this card is",
+          "played and scored"
+        }
       }
     },
     Edition = {
