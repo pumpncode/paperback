@@ -2308,9 +2308,10 @@ return {
       c_paperback_blue_lighter = {
         name = "Blue Zippo Lighter",
         text = {
-          "If {C:attention}score catches fire{}, {C:attention}convert",
-          "a card held in hand into",
-          "{C:attention}first{} card of scored hand"
+          "When selecting {C:attention}Blind",
+          "destroy a non-{C:paperback_ego_gift}E.G.O.",
+          "{C:paperback_ego_gift}gift{} and gain {X:mult,C:white}X0.25{} Mult",
+          "(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
       },
       c_paperback_broken_glasses = {
