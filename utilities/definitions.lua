@@ -307,7 +307,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "time_regression_mix",
   "find_jimbo",
   "joker_crossing",
-  -- "jimbos_inferno",
+  "jimbos_inferno",
   -- "tome",
   -- "jimbocards",
   "forlorn",

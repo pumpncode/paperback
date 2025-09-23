@@ -513,6 +513,15 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
         }
       },
+      j_paperback_jimbos_inferno = {
+        name = "Jimbo's Inferno",
+        text = {
+          "Scored {C:paperback_dark_suit}dark suits{} give",
+          "{C:red}+Mult{} equal to {C:attention}held{}",
+          "{C:paperback_dark_suit}dark suits{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
+        }
+      },
       j_paperback_better_call_jimbo = {
         name = "Better Call Jimbo",
         text = {
