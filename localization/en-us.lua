@@ -2213,6 +2213,14 @@ return {
           "card in hand"
         }
       },
+      c_paperback_five_of_pentacles = {
+        name = "Five of Pentacles",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
       c_paperback_six_of_pentacles = {
         name = "Six of Pentacles",
         text = {
