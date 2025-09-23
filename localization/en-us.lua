@@ -504,6 +504,15 @@ return {
           "{C:blue}Common {C:attention}Jokers"
         }
       },
+      j_paperback_insurance_policy = {
+        name = "Insurance Policy",
+        text = {
+          "Gives {C:red}+#1#{} Mult for each {C:attention}Jack{}",
+          "and {C:red}-#1#{} Mult for each {C:attention}King{}",
+          "in your full deck",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
+        }
+      },
       j_paperback_better_call_jimbo = {
         name = "Better Call Jimbo",
         text = {
