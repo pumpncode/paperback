@@ -25,6 +25,7 @@ SMODS.Enhancement {
   -- the actual center sprite should just be the base unenhanced card
   set_sprites = function(self, card, front)
     card.children.center:set_sprite_pos({ x = 6, y = 0 })
+    card.children.center.paperback_sleeved = true
   end
 }
 
@@ -33,7 +34,7 @@ SMODS.DrawStep {
   key = "sleeved",
   order = 21,
   func = function(self, layer)
-    if self.ability and self.ability.name == "m_paperback_sleeved" then
+    if self.children.center.paperback_sleeved then
       self.children.center:set_sprite_pos({ x = 7, y = 0 })
       self.children.center:draw_shader('dissolve')
       self.children.center:set_sprite_pos({ x = 6, y = 0 })
