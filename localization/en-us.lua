@@ -504,6 +504,24 @@ return {
           "{C:blue}Common {C:attention}Jokers"
         }
       },
+      j_paperback_insurance_policy = {
+        name = "Insurance Policy",
+        text = {
+          "Gives {C:mult}+#1#{} Mult for each {C:attention}Jack{}",
+          "and {C:mult}-#1#{} Mult for each {C:attention}King{}",
+          "in your full deck",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
+        }
+      },
+      j_paperback_jimbos_inferno = {
+        name = "Jimbo's Inferno",
+        text = {
+          "Scored {C:paperback_dark_suit}dark suits{} give",
+          "{C:mult}+1{} Mult for every",
+          "{C:paperback_dark_suit}dark suit{} {C:attention}held in hand{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
+        }
+      },
       j_paperback_better_call_jimbo = {
         name = "Better Call Jimbo",
         text = {
@@ -1489,16 +1507,16 @@ return {
         text = {
           "If scoring hand contains a {C:hearts}Heart{} and",
           "{C:attention}#1#{} other unique suits, this Joker gives",
-          "{X:mult,C:white}X#2#{} Mult for {C:attention}this hand{} and {C:attention}the next #3#",
+          "{X:mult,C:white}X#2#{} Mult for {C:attention}this hand{} and the {C:attention}next #3#",
           "{C:inactive}(Currently the next {C:attention}#4#{C:inactive} hands)"
         },
       },
       j_paperback_giga_size = {
         name = "GIGA SIZE",
         text = {
-          "This Joker gains {X:mult,C:white}X#2#{} Mult",
-          "for every hand played in current {C:attention}Blind{}",
-          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+          "This Joker gains {X:mult,C:white}X#2#{} Mult for",
+          "every hand played in current {C:attention}Blind{}",
+          "{C:inactive}(Will give {X:mult,C:white}X#1#{C:inactive} Mult)"
         },
       },
       j_paperback_popsicle_stick = {
@@ -2398,9 +2416,10 @@ return {
       c_paperback_blue_lighter = {
         name = "Blue Zippo Lighter",
         text = {
-          "If {C:attention}score catches fire{}, {C:attention}convert",
-          "a card held in hand into",
-          "{C:attention}first{} card of scored hand"
+          "When selecting {C:attention}Blind{},",
+          "destroy a non-{C:paperback_ego_gift}E.G.O. Gift{} consumable",
+          "and this {C:paperback_ego_gift}E.G.O. Gift{} gains {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
       },
       c_paperback_broken_glasses = {
