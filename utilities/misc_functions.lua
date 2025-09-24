@@ -98,15 +98,23 @@ end
 
 ---Fetches a random paperclip type using a given seed
 ---@param seed string
-function PB_UTIL.poll_paperclip(seed)
-  -- bleh, hardcoded
-  local clips = copy_table(PB_UTIL.ENABLED_PAPERCLIPS)
-  for i, v in pairs(clips) do
-    if v == "platinum_clip" then table.remove(clips, i) end
+---@param include_special boolean? if True, special clips such as Platinum Clips are allowed be polled (look at PB_UTIL.SPECIAL_PAPERCLIPS)
+function PB_UTIL.poll_paperclip(seed, include_special)
+  local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
+  while not include_special and PB_UTIL.is_special_clip(clip) do
+    clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
   end
-  local clip = pseudorandom_element(clips, pseudoseed(seed))
   clip = string.sub(clip, 1, #clip - 5)
   return clip
+end
+
+---Checks if a clip is a Special Paperclip
+---@param clip string
+function PB_UTIL.is_special_clip(clip)
+  for k, v in ipairs(PB_UTIL.SPECIAL_PAPERCLIPS) do
+    if v == clip then return true end
+  end
+  return false
 end
 
 ---Checks if a provided card is classified as a "Food Joker"
