@@ -860,7 +860,8 @@ if PB_UTIL.config.paperclips_enabled then
       G.shared_stickers[self.key].role.draw_major = card
       G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, x_offset)
       if self.shiny then
-        G.shared_stickers[self.key]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center, nil, nil, x_offset)
+        G.shared_stickers[self.key]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center, nil,
+          nil, x_offset)
       end
     end,
 
@@ -956,6 +957,8 @@ if PB_UTIL.config.ego_gifts_enabled then
         set = 'paperback_ego_gift',
         area = G.pack_cards,
         skip_materialize = true,
+        -- used in args.source inside of in_pool
+        key_append = 'paperback_extr'
       }
     end,
 
