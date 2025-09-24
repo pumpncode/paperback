@@ -507,8 +507,8 @@ return {
       j_paperback_insurance_policy = {
         name = "Insurance Policy",
         text = {
-          "Gives {C:red}+#1#{} Mult for each {C:attention}Jack{}",
-          "and {C:red}-#1#{} Mult for each {C:attention}King{}",
+          "Gives {C:mult}+#1#{} Mult for each {C:attention}Jack{}",
+          "and {C:mult}-#1#{} Mult for each {C:attention}King{}",
           "in your full deck",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
         }
@@ -517,8 +517,8 @@ return {
         name = "Jimbo's Inferno",
         text = {
           "Scored {C:paperback_dark_suit}dark suits{} give",
-          "{C:red}+Mult{} equal to {C:attention}held{}",
-          "{C:paperback_dark_suit}dark suits{}",
+          "{C:mult}+1{} Mult for every",
+          "{C:paperback_dark_suit}dark suit{} {C:attention}held in hand{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
         }
       },
@@ -2308,10 +2308,10 @@ return {
       c_paperback_blue_lighter = {
         name = "Blue Zippo Lighter",
         text = {
-          "When selecting {C:attention}Blind",
-          "destroy a non-{C:paperback_ego_gift}E.G.O.",
-          "{C:paperback_ego_gift}gift{} and gain {X:mult,C:white}X0.25{} Mult",
-          "(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+          "When selecting {C:attention}Blind{},",
+          "destroy a non-{C:paperback_ego_gift}E.G.O. Gift{} consumable",
+          "and this {C:paperback_ego_gift}E.G.O. Gift{} gains {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
       },
       c_paperback_broken_glasses = {
