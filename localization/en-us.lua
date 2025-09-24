@@ -2837,8 +2837,8 @@ return {
       paperback_green_clip = {
         name = "Green Clip",
         text = {
-          "Gains {C:mult}+#2#{} Mult for each",
-          "played {C:attention}Clip{} that scores,",
+          "Gains {C:mult}+#2#{} Mult for every",
+          "{C:attention}2{} scoring {C:attention}Clips{} played,",
           "{C:mult}#3#{} Mult for each",
           "discarded {C:attention}Clip{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
