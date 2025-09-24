@@ -1507,16 +1507,16 @@ return {
         text = {
           "If scoring hand contains a {C:hearts}Heart{} and",
           "{C:attention}#1#{} other unique suits, this Joker gives",
-          "{X:mult,C:white}X#2#{} Mult for {C:attention}this hand{} and {C:attention}the next #3#",
+          "{X:mult,C:white}X#2#{} Mult for {C:attention}this hand{} and the {C:attention}next #3#",
           "{C:inactive}(Currently the next {C:attention}#4#{C:inactive} hands)"
         },
       },
       j_paperback_giga_size = {
         name = "GIGA SIZE",
         text = {
-          "This Joker gains {X:mult,C:white}X#2#{} Mult",
-          "for every hand played in current {C:attention}Blind{}",
-          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
+          "This Joker gains {X:mult,C:white}X#2#{} Mult for",
+          "every hand played in current {C:attention}Blind{}",
+          "{C:inactive}(Will give {X:mult,C:white}X#1#{C:inactive} Mult)"
         },
       },
       j_paperback_popsicle_stick = {
