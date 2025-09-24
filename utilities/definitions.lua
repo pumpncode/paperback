@@ -8,6 +8,105 @@ SMODS.current_mod.optional_features = {
   quantum_enhancements = true,
 }
 
+-- Global mod calculate
+SMODS.current_mod.calculate = function(self, context)
+  -- green clip: gain mult for each played and scored clip
+  if context.before then
+    local clips_played = 0
+    for _, v in ipairs(context.scoring_hand) do
+      if not v.debuff and PB_UTIL.has_paperclip(v) then clips_played = clips_played + 1 end
+    end
+    if clips_played > 0 then
+      for _, v in ipairs(G.playing_cards) do
+        local clip = PB_UTIL.has_paperclip(v)
+        if clip == "paperback_green_clip" and not v.debuff then
+          local clip_table = v.ability.paperback_green_clip
+          clip_table.mult = clip_table.mult + (clip_table.mult_plus * clips_played)
+        end
+      end
+    end
+  end
+
+  -- green clip: lose mult for each discarded clip
+  if context.discard then
+    if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
+      for _, v in ipairs(G.playing_cards) do
+        local clip = PB_UTIL.has_paperclip(v)
+        if clip == "paperback_green_clip" and not v.debuff then
+          local clip_table = v.ability.paperback_green_clip
+          clip_table.mult = math.max(0, clip_table.mult - clip_table.mult_minus)
+        end
+      end
+    end
+  end
+
+  -- purple clip: retrigger card if it has a clip and is adjacent to a purple clip
+  if context.repetition then
+    local scoring = true
+    local index = 0
+
+    for k, v in ipairs(context.cardarea.cards) do
+      if v == context.other_card then
+        index = k
+        break
+      end
+    end
+
+    if context.cardarea == G.play then
+      scoring = false
+      for k, v in ipairs(context.scoring_hand) do
+        if v == context.other_card then
+          scoring = true
+          break
+        end
+      end
+    end
+
+    if index and scoring then
+      local left = context.cardarea.cards[index - 1]
+      local right = context.cardarea.cards[index + 1]
+      local reps = 0
+      if left and PB_UTIL.has_paperclip(left) == "paperback_purple_clip" then
+        reps = reps + 1
+      end
+      if right and PB_UTIL.has_paperclip(right) == "paperback_purple_clip" then
+        reps = reps + 1
+      end
+      if PB_UTIL.has_paperclip(context.other_card) and reps > 0 then
+        return {
+          repetitions = reps,
+          message_card = context.other_card,
+          colour = G.C.PURPLE
+        }
+      end
+    end
+  end
+
+  -- track Tarot + Minor Arcana usage for 8 of Pentacles
+  if context.using_consumeable then
+    local center = context.consumeable.config.center
+    local add_new = true
+    if center.set == "Tarot" or center.set == "paperback_minor_arcana" then
+      for _, v in ipairs(G.GAME.paperback.arcana_used) do
+        if center.key == v then
+          add_new = false
+          break
+        end
+      end
+      if add_new then
+        G.GAME.paperback.arcana_used[#G.GAME.paperback.arcana_used + 1] = center.key
+      end
+    end
+  end
+end
+
+-- Sleeved cards can't be debuffed
+SMODS.current_mod.set_debuff = function(card)
+  if card.ability and card.ability.name == "m_paperback_sleeved" then
+    return "prevent_debuff"
+  end
+end
+
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
@@ -418,19 +517,19 @@ PB_UTIL.ENABLED_MINOR_ARCANA = {
   "queen_of_swords",
   "king_of_swords", -- SWORDS
   "ace_of_pentacles",
-  -- "two_of_pentacles",
-  -- "three_of_pentacles",
-  -- "four_of_pentacles",
-  -- "five_of_pentacles",
-  -- "six_of_pentacles",
-  -- "seven_of_pentacles",
-  -- "eight_of_pentacles",
-  -- "nine_of_pentacles",
-  -- "ten_of_pentacles",
-  -- "page_of_pentacles",
-  -- "knight_of_pentacles",
-  -- "queen_of_pentacles",
-  -- "king_of_pentacles", -- PENTACLES
+  "two_of_pentacles",
+  "three_of_pentacles",
+  "four_of_pentacles",
+  "five_of_pentacles",
+  "six_of_pentacles",
+  "seven_of_pentacles",
+  "eight_of_pentacles",
+  "nine_of_pentacles",
+  "ten_of_pentacles",
+  "page_of_pentacles",
+  "knight_of_pentacles",
+  "queen_of_pentacles",
+  "king_of_pentacles", -- PENTACLES
 }
 
 PB_UTIL.ENABLED_EGO_GIFTS = {
@@ -463,7 +562,7 @@ PB_UTIL.ENABLED_SPECTRALS = {
   "apostle_of_cups",
   "apostle_of_wands",
   "apostle_of_swords",
-  --"apostle_of_pentacles",
+  "apostle_of_pentacles",
 
 
 }
@@ -666,6 +765,8 @@ PB_UTIL.ENABLED_ENHANCEMENTS = {
   "soaked",
   "stained",
   "domino",
+  "sleeved",
+  "antique"
 }
 
 PB_UTIL.ENABLED_EDITIONS = {
@@ -758,6 +859,9 @@ if PB_UTIL.config.paperclips_enabled then
       local x_offset = (card.T.w / 71) * -4 * card.T.scale
       G.shared_stickers[self.key].role.draw_major = card
       G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, x_offset)
+      if self.shiny then
+        G.shared_stickers[self.key]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center, nil, nil, x_offset)
+      end
     end,
 
     apply = function(self, card, val)
@@ -1073,8 +1177,9 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
   "red_clip",
   "orange_clip",
   "yellow_clip",
-  --"green_clip",
+  "green_clip",
   "blue_clip",
-  --"purple_clip",
+  "purple_clip",
   "pink_clip",
+  "platinum_clip"
 }

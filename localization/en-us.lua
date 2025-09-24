@@ -1853,6 +1853,13 @@ return {
           "{C:attention}#1#{} Antes"
         }
       },
+      c_paperback_apostle_of_pentacles = {
+        name = "Apostle of Pentacles",
+        text = {
+          "Add a {C:paperback_platinum}Platinum Clip{} to",
+          "{C:attention}#1#{} selected card"
+        }
+      },
       c_paperback_golden_bough = {
         name = "Golden Bough",
         text = {
@@ -2176,19 +2183,19 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
-      c_paperback_king_of_swords = {
-        name = "King of Swords",
-        text = {
-          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
-          "from selected Joker"
-        }
-      },
       c_paperback_queen_of_swords = {
         name = "Queen of Swords",
         text = {
           "Converts {C:attention}#1#{} random cards in",
           "full deck with {C:attention}different suits",
           "to the selected card's {C:attention}suit"
+        }
+      },
+      c_paperback_king_of_swords = {
+        name = "King of Swords",
+        text = {
+          "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
+          "from selected Joker"
         }
       },
       c_paperback_ace_of_pentacles = {
@@ -2198,7 +2205,108 @@ return {
           "{C:attention}#1#{} selected cards",
           "to {V:1}#2#{}",
         }
-      }
+      },
+      c_paperback_two_of_pentacles = {
+        name = "Two of Pentacles",
+        text = {
+          "Selected Joker gains",
+          "or loses {C:paperback_eternal}Eternal{}"
+        }
+      },
+      c_paperback_three_of_pentacles = {
+        name = "Three of Pentacles",
+        text = {
+          "Select {C:attention}#1#{} cards, the",
+          "{C:attention}rightmost two{} copy the",
+          "{C:attention}leftmost{} card's {C:attention}enhancement{}",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
+      c_paperback_four_of_pentacles = {
+        name = "Four of Pentacles",
+        text = {
+          "Select {C:attention}#1#{} cards.",
+          "{C:green}#2# in #3#{} chance to",
+          "destroy each {C:attention}unselected{}",
+          "card in hand"
+        }
+      },
+      c_paperback_five_of_pentacles = {
+        name = "Five of Pentacles",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
+      c_paperback_six_of_pentacles = {
+        name = "Six of Pentacles",
+        text = {
+          "Gives an {C:money}Investment{},",
+          "{C:money}Economy{}, {C:red}Coupon{},",
+          "{C:green}D6{}, or {C:attention}Juggle Tag{}"
+        }
+      },
+      c_paperback_seven_of_pentacles = {
+        name = "Seven of Pentacles",
+        text = {
+          "Add a {C:green}Green Clip{} to up",
+          "to {C:attention}#1#{} selected cards"
+        }
+      },
+      c_paperback_eight_of_pentacles = {
+        name = "Eight of Pentacles",
+        text = {
+          "Earn {C:money}$#1#{} for every unique",
+          "{C:tarot}Tarot{} and {C:paperback_minor_arcana}Minor Arcana{}",
+          "card used this run",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
+      c_paperback_nine_of_pentacles = {
+        name = "Nine of Pentacles",
+        text = {
+          "Add a {C:purple}Purple Clip{} to",
+          "{C:attention}#1#{} selected card"
+        }
+      },
+      c_paperback_ten_of_pentacles = {
+        name = "Ten of Pentacles",
+        text = {
+          "Earn between {C:money}$#1#{} and {C:money}$#2#{}"
+        }
+      },
+      c_paperback_page_of_pentacles = {
+        name = "Page of Pentacles",
+        text = {
+          "Enhances {C:attention}#1#{}",
+          "selected cards to",
+          "{C:attention}#2#s{}"
+        }
+      },
+      c_paperback_knight_of_pentacles = {
+        name = "Knight of Pentacles",
+        text = {
+          "Reset {C:green}Reroll{} cost to {C:money}$#1#{}"
+        }
+      },
+      c_paperback_queen_of_pentacles = {
+        name = "Queen of Pentacles",
+        text = {
+          "Select up to {C:attention}#1#{} cards.",
+          "Copy the {C:attention}leftmost{} card's", 
+          "{C:attention}rank{} onto the others",
+          "{C:inactive}(Drag to rearrange)"
+        }
+      },
+      c_paperback_king_of_pentacles = {
+        name = "King of Pentacles",
+        text = {
+          "Earn {C:money}$#1#{} for each {C:attention}face{}",
+          "card in your full deck",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
     },
     paperback_ego_gift = {
       c_paperback_dark_vestige = {
@@ -2492,6 +2600,23 @@ return {
           "hand is played, scored cards",
           "permanently gain {C:mult}+#1#{} Mult"
         }
+      },
+      m_paperback_sleeved = {
+        name = "Sleeved Card",
+        text = {
+          "Cannot be {C:attention}debuffed{} or",
+          "{C:attention}flipped{} face down",
+          "Earn {C:money}$#1#{} if destroyed"
+        }
+      },
+      m_paperback_antique = {
+        name = "Antique Card",
+        text = {
+          "{X:chips,C:white}X#1#{} Chips",
+          "Gain {X:chips,C:white}X#2#{} Chips every",
+          "time this card is",
+          "played and scored"
+        }
       }
     },
     Edition = {
@@ -2707,6 +2832,32 @@ return {
           "{C:attention}hand{}, increases by {X:mult,C:white}X#2#",
           "for each scored {C:attention}Clip",
           "{C:inactive}(Resets after played hand)"
+        }
+      },
+      paperback_green_clip = {
+        name = "Green Clip",
+        text = {
+          "Gains {C:mult}+#2#{} Mult for each",
+          "played {C:attention}Clip{} that scores,",
+          "{C:mult}#3#{} Mult for each",
+          "discarded {C:attention}Clip{}",
+          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        }
+      },
+      paperback_purple_clip = {
+        name = "Purple Clip",
+        text = {
+          "Retrigger adjacent",
+          "cards if they",
+          "have a {C:attention}Clip{}"
+        }
+      },
+      paperback_platinum_clip = {
+        name = "Platinum Clip",
+        text = {
+          "When {C:attention}scored{}, forcefully",
+          "trigger all non-Platinum",
+          "{C:attention}Clips{} in {C:attention}held hand{}"
         }
       },
       -- E.G.O. Gift Sins
@@ -3124,6 +3275,9 @@ return {
       paperback_yellow_clip = "Yellow Clip",
       paperback_gold_clip = "Gold Clip",
       paperback_white_clip = "White Clip",
+      paperback_green_clip = "Green Clip",
+      paperback_purple_clip = "Purple Clip",
+      paperback_platinum_clip = "Platinum Clip",
       paperback_dichrome = "Dichrome",
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
