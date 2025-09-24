@@ -39,7 +39,7 @@ SMODS.Joker {
         local dark = 0
 
         for k, v in pairs(G.hand.cards) do
-          if PB_UTIL.is_suit(v, 'dark') and not v.highlighted then dark = dark + 1 end
+          if PB_UTIL.is_suit(v, 'dark', false, true) and not v.highlighted then dark = dark + 1 end
         end
 
         return {
