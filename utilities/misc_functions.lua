@@ -99,7 +99,12 @@ end
 ---Fetches a random paperclip type using a given seed
 ---@param seed string
 function PB_UTIL.poll_paperclip(seed)
-  local clip = pseudorandom_element(PB_UTIL.ENABLED_PAPERCLIPS, pseudoseed(seed))
+  -- bleh, hardcoded
+  local clips = copy_table(PB_UTIL.ENABLED_PAPERCLIPS)
+  for i, v in pairs(clips) do
+    if v == "platinum_clip" then table.remove(clips, i) end
+  end
+  local clip = pseudorandom_element(clips, pseudoseed(seed))
   clip = string.sub(clip, 1, #clip - 5)
   return clip
 end
