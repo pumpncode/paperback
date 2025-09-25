@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'jimbos_inferno',
   config = {
     extra = {
-
+      mult_per_dark = 2,
     }
   },
   rarity = 1,
@@ -28,7 +28,8 @@ SMODS.Joker {
 
     return {
       vars = {
-        dark
+        card.ability.extra.mult_per_dark,
+        dark * card.ability.extra.mult_per_dark
       }
     }
   end,
@@ -43,7 +44,7 @@ SMODS.Joker {
         end
 
         return {
-          mult = dark,
+          mult = dark * card.ability.extra.mult_per_dark,
         }
       end
     end

@@ -516,9 +516,9 @@ return {
         name = "Jimbo's Inferno",
         text = {
           "Scored {C:paperback_dark_suit}dark suits{} give",
-          "{C:mult}+1{} Mult for every",
+          "{C:mult}+#1#{} Mult for every",
           "{C:paperback_dark_suit}dark suit{} {C:attention}held in hand{}",
-          "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult){}",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
         }
       },
       j_paperback_better_call_jimbo = {
