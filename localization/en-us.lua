@@ -1373,8 +1373,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand{}",
-          "contains only {C:paperback_dark_suit}dark suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if played hand",
+          "scores no {C:paperback_light_suit}light suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1485,8 +1485,8 @@ return {
       j_paperback_the_sun = {
         name = "The Sun",
         text = {
-          "If scored hand contains only",
-          "{C:paperback_light_suit}light suits{}, this Joker",
+          "If played hand scores no",
+          "{C:paperback_dark_suit}dark suits{}, this Joker",
           "gains {C:mult}+#1#{} Mult.",
           "This Joker loses {C:mult}-#1#{} Mult",
           "when a {C:paperback_dark_suit}dark suit{} is scored",

@@ -17,7 +17,7 @@ SMODS.Joker {
   perishable_compat = false,
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
 
     return {
       vars = {
@@ -31,7 +31,7 @@ SMODS.Joker {
     -- Upgrade the Joker when hand is played
     if context.before and context.main_eval and not context.blueprint then
       for _, v in ipairs(context.scoring_hand) do
-        if not PB_UTIL.is_suit(v, 'dark', false, true) then
+        if PB_UTIL.is_suit(v, 'light') then
           return
         end
       end
