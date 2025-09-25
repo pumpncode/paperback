@@ -1373,8 +1373,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if played hand",
-          "scores no {C:paperback_dark_suit}dark suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if {C:attention}scored hand{}",
+          "contains only {C:paperback_dark_suit}dark suits",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
