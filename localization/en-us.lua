@@ -582,6 +582,15 @@ return {
           "{C:inactive}(Must have room)"
         }
       },
+      j_paperback_collector = {
+        name = "Collector",
+        text = {
+          "Earn {C:money}$#1#{} at end of round",
+          "for each {C:attention}Sleeved Card{}",
+          "in your full deck",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+        }
+      },
       j_paperback_spotty_joker = {
         name = "Spotty Joker",
         text = {
@@ -2293,7 +2302,7 @@ return {
         name = "Queen of Pentacles",
         text = {
           "Select up to {C:attention}#1#{} cards.",
-          "Copy the {C:attention}leftmost{} card's", 
+          "Copy the {C:attention}leftmost{} card's",
           "{C:attention}rank{} onto the others",
           "{C:inactive}(Drag to rearrange)"
         }

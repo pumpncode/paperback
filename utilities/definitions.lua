@@ -468,6 +468,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "festive_joker",
   "sommelier",
   "spotty_joker",
+  "collector",
   "langely",
   "pedrillo",
   "nichola",
