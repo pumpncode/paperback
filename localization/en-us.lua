@@ -177,8 +177,7 @@ return {
         name = "Nichola",
         text = {
           "After scoring played cards,",
-          "score {C:attention}face{} cards",
-          "{C:attention}held in hand{}"
+          "score {C:attention}face{} cards {C:attention}held in hand{}"
         }
       },
       j_paperback_the_dynasty = {
@@ -510,7 +509,7 @@ return {
           "Gives {C:mult}+#1#{} Mult for each {C:attention}Jack{}",
           "and {C:mult}-#1#{} Mult for each {C:attention}King{}",
           "in your full deck",
-          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
+          "{C:inactive}(Currently {C:mult}#2#{C:inactive} Mult){}",
         }
       },
       j_paperback_jimbos_inferno = {
@@ -2612,10 +2611,9 @@ return {
       m_paperback_antique = {
         name = "Antique Card",
         text = {
-          "{X:chips,C:white}X#1#{} Chips",
-          "Gain {X:chips,C:white}X#2#{} Chips every",
-          "time this card is",
-          "played and scored"
+          "{X:chips,C:white}X#1#{} Chips,",
+          "increases by {X:chips,C:white}X#2#{} when",
+          "played in scoring hand",
         }
       }
     },
@@ -2631,7 +2629,7 @@ return {
       e_paperback_dichrome_playing_card = {
         name = "Dichrome",
         text = {
-          "When this card {C:attention}is drawn{}",
+          "When this card is {C:attention}drawn{}",
           "gain {C:attention}+#1#{C:blue} Hand{} or {C:red}Discard",
           "{C:inactive}(Whichever is lower)"
         }
@@ -2756,8 +2754,7 @@ return {
           "activating a {C:paperback_ego_gift}Sin",
           "{C:red}Self-destructs{} and",
           "activates the {C:paperback_ego_gift}Sin",
-          "after {C:attention}#1#{} rounds",
-          "{C:inactive}({C:attention}#2#{C:inactive} rounds left)",
+          "after {C:attention}#1#{} round#2#",
         }
       },
 
@@ -2855,9 +2852,9 @@ return {
       paperback_platinum_clip = {
         name = "Platinum Clip",
         text = {
-          "When {C:attention}scored{}, forcefully",
-          "trigger all non-Platinum",
-          "{C:attention}Clips{} in {C:attention}held hand{}"
+          "When {C:attention}scored{}, force-trigger",
+          "all non-{C:paperback_platinum}Platinum{} {C:attention}Clips{}",
+          "{C:attention}held in hand{}"
         }
       },
       -- E.G.O. Gift Sins

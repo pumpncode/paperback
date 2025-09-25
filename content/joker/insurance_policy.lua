@@ -29,7 +29,7 @@ SMODS.Joker {
     return {
       vars = {
         card.ability.extra.a_mult,
-        card.ability.extra.a_mult * worker_tally
+        SMODS.signed(card.ability.extra.a_mult * worker_tally)
       }
     }
   end,

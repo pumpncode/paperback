@@ -12,10 +12,11 @@ SMODS.Sticker {
   },
 
   loc_vars = function(self, info_queue, card)
+    local rounds = (card.ability or {}).paperback_corrode_tally or G.GAME.paperback.corroded_rounds
     return {
       vars = {
-        self.config.paperback_corrode_tally,
-        (card.ability or {}).paperback_corrode_tally or G.GAME.paperback.corroded_rounds,
+        rounds,
+        rounds == 1 and "" or "s"
       }
     }
   end,
