@@ -586,9 +586,9 @@ return {
         name = "Collector",
         text = {
           "Earn {C:money}$#1#{} at end of round",
-          "for each {C:attention}Sleeved Card{}",
+          "for each {C:attention}#2#{}",
           "in your full deck",
-          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
+          "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
       j_paperback_spotty_joker = {
