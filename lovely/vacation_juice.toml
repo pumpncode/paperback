@@ -29,7 +29,10 @@ payload = '''if not G.GAME.paperback.vacation_juice_trigger then'''
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
-pattern = '''if G.GAME.round_resets.temp_handsize then*'''
-position = "before"
+pattern = '''
+		v.ability.played_this_ante = nil
+	end
+end'''
+position = "after"
 match_indent = true
 payload = '''end'''
