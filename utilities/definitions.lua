@@ -1002,9 +1002,11 @@ if PB_UTIL.config.ego_gifts_enabled then
           end
         end
         if _hand then
-          SMODS.smart_level_up_hand(nil, _hand, false,
-            -math.min(PB_UTIL.EGO_GIFT_SINS.lust[1], G.GAME.hands[_hand].level - 1))
-          return nil, true
+          local lvls_down = math.min(PB_UTIL.EGO_GIFT_SINS.lust[1], G.GAME.hands[_hand].level - 1)
+          if to_big(lvls_down) > to_big(0) then
+            SMODS.smart_level_up_hand(nil, _hand, false, -lvls_down)
+            return nil, true
+          end
         end
       end
     },
