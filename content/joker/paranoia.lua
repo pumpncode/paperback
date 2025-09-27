@@ -29,7 +29,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-      if PB_UTIL.is_suit(context.other_card, 'light') then
+      if PB_UTIL.is_suit(context.other_card, 'light') and (G.GAME.paperback.destroyed_dark_suits * card.ability.extra.a_mult ~= 0) then
         return {
           mult = G.GAME.paperback.destroyed_dark_suits * card.ability.extra.a_mult
         }
