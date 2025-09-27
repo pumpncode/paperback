@@ -11,7 +11,7 @@ SMODS.Joker {
     return { vars = { card.ability.extra.mult_mod, card.ability.extra.dollars, card.ability.extra.mult } }
   end,
   calculate = function(self, card, context)
-    if context.buying_card and to_big(G.GAME.dollars) <= to_big(card.ability.extra.dollars) and context.card ~= card then
+    if not context.blueprint and context.buying_card and to_big(G.GAME.dollars) <= to_big(card.ability.extra.dollars) and context.card ~= card then
       card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
       return {
         message = localize('k_upgrade_ex'),
