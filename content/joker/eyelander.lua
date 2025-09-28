@@ -50,7 +50,12 @@ SMODS.Joker {
       local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
       -- this is literally just ectoplasm except we
       -- remove this joker from the available jokers to negative
-      table.remove(editionless_jokers, editionless_jokers[card])
+      for i, v in ipairs(editionless_jokers) do
+        if v == card then
+          table.remove(editionless_jokers, i)
+          break
+        end
+      end
       if next(editionless_jokers) then
         G.E_MANAGER:add_event(Event({
           trigger = 'immediate',
