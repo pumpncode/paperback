@@ -31,8 +31,8 @@ SMODS.Joker {
     end
 
     return {
-      card.ability.extra.money,
       vars = {
+        card.ability.extra.money,
         localize {
           type = 'name_text',
           set = 'Enhanced',
