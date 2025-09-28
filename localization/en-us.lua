@@ -1120,8 +1120,9 @@ return {
         text = {
           "Earn {C:money}$#1#{} at end of round",
           "Payout increases by {C:money}$#2#{} when cashing out",
-          "{C:green}#3# in #4#{} chance this card",
+          "{C:green}#4# in #5#{} chance this card",
           "is eaten at end of round",
+          "{C:inactive}(Up to {C:money}$#3#{C:inactive})",
         },
       },
       j_paperback_pop_stick = {
