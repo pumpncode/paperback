@@ -56,7 +56,7 @@ SMODS.Joker {
 
       -- Upgrade the Joker when the user cashes out
       if context.paperback and context.paperback.cashing_out then
-        if card.ability.extra.dollar_gain < card.ability.extra.dollar_max then
+        if card.ability.extra.dollar_bonus < card.ability.extra.dollar_max then
           card.ability.extra.dollar_bonus = card.ability.extra.dollar_bonus + card.ability.extra.dollar_gain
 
           return {
