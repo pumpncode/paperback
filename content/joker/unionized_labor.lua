@@ -6,9 +6,13 @@ SMODS.Joker {
   pos = { x = 20, y = 5 },
   atlas = "jokers_atlas",
   perishable_compat = false,
-  config = { extra = { dollars = 25, odds = 3 } },
+  config = { extra = { dollars = 25 } },
   loc_vars = function(self, info_queue, card)
-    local n, d = PB_UTIL.chance_vars(card)
+    local n, d = PB_UTIL.chance_vars(nil, nil, 1, 3) -- example
+    if not G.jokers then
+      -- outside game, manually modify
+      n = n * 3
+    end
     return { vars = { card.ability.extra.dollars, n, d } }
   end,
   calculate = function(self, card, context)

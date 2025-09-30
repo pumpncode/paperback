@@ -1119,8 +1119,8 @@ function PB_UTIL.chance(obj, seed, base_numerator, base_denominator, key)
 end
 
 --- Wrapper function around SMODS.get_probability_vars
----@param obj Card|table
----@param key string|nil -- If skipped, tries to set it to `obj.config.center_key`
+---@param obj? Card|table
+---@param key? string -- If skipped, tries to set it to `obj.config.center_key`
 ---@param base_numerator number|nil -- If skipped, defaults to 1
 ---@param base_denominator number|nil -- If skipped, tries to access `obj.ability.extra.odds`
 ---@return number numerator
@@ -1129,8 +1129,8 @@ function PB_UTIL.chance_vars(obj, key, base_numerator, base_denominator)
   return SMODS.get_probability_vars(
     obj,
     base_numerator or 1,
-    base_denominator or (obj.ability and obj.ability.extra and obj.ability.extra.odds),
-    key or (obj.config and obj.config.center_key),
+    base_denominator or (obj and obj.ability and obj.ability.extra and obj.ability.extra.odds),
+    key or (obj and obj.config and obj.config.center_key),
     false
   )
 end
