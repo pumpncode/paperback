@@ -1293,6 +1293,14 @@ return {
           "per {C:attention}card{} discarded",
         },
       },
+      j_paperback_trans_flag = {
+        name = "Trans Flag",
+        text = {
+          "Gives {C:red}+#1#{} Mult for each",
+          "remaining {C:attention}discard{}",
+          "{C:inactive}(Currently {C:red}+#2#{} {C:inactive}Mult)"
+        },
+      },
       j_paperback_pride_flag_spectrums = {
         name = "Pride Flag",
         text = {

@@ -369,6 +369,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "bicycle",
   "joke_master",
   -- "book_of_life",
+  "trans_flag",
   "pride_flag",
   "bismuth",
   "cherry_blossoms",
