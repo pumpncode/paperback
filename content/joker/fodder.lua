@@ -18,7 +18,7 @@ SMODS.Joker {
   end,
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = { key = 'paperback_corroded', set = 'Other', vars = { G.GAME.paperback.corroded_rounds, G.GAME.paperback.corroded_rounds } }
+    info_queue[#info_queue + 1] = SMODS.Stickers['paperback_corroded']:info_queue_entry()
   end,
 
   calculate = function(self, card, context)

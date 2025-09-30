@@ -988,7 +988,7 @@ return {
       j_paperback_fodder = {
         name = "Fodder",
         text = {
-          "Sell this card to {C:paperback_ego_gift}Corrode{}",
+          "Sell this card to {C:paperback_ego_gift}corrode{}",
           "the rightmost {C:paperback_ego_gift}E.G.O. Gift{}",
         }
       },
@@ -997,9 +997,9 @@ return {
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "when an {C:paperback_ego_gift}E.G.O. Gift{} is sold",
-          "or corrodes itself",
-          "{C:paperback_ego_gift}Corrodes{} an {C:paperback_ego_gift}E.G.O. Gift",
-          "when Defeating a {C:attention}Boss Blind",
+          "or corrodes",
+          "{C:paperback_ego_gift}Corrode{} an {C:paperback_ego_gift}E.G.O. Gift",
+          "when defeating a {C:attention}Boss Blind",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         }
       },

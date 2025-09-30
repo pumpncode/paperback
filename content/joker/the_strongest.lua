@@ -17,8 +17,14 @@ SMODS.Joker {
     }
   },
 
+  in_pool = function(self, args)
+    for _, v in ipairs(G.consumeables or {}) do
+      if PB_UTIL.is_ego_gift(v) then return true end
+    end
+  end,
+
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = { key = 'paperback_corroded', set = 'Other', vars = { G.GAME.paperback.corroded_rounds, G.GAME.paperback.corroded_rounds } }
+    info_queue[#info_queue + 1] = SMODS.Stickers['paperback_corroded']:info_queue_entry()
     return {
       vars = {
         card.ability.extra.xmult_mod,
