@@ -1122,7 +1122,7 @@ return {
           "Payout increases by {C:money}$#2#{} when cashing out",
           "{C:green}#4# in #5#{} chance this card",
           "is eaten at end of round",
-          "{C:inactive}(Up to {C:money}$#3#{C:inactive})",
+          "{C:inactive}(Max of {C:money}$#3#{C:inactive})",
         },
       },
       j_paperback_pop_stick = {
@@ -1194,7 +1194,7 @@ return {
         text = {
           "If played hand contains {C:attention}5 scoring",
           "{C:attention}cards{}, earn half the lowest scoring",
-          "card's {C:chips}Chip value{} as {C:money}$",
+          "card's {C:chips}Chip value{} as {C:money}money",
           "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
         },
       },
@@ -2474,7 +2474,7 @@ return {
         name = "Chalice of Trickle Down",
         text = {
           "During {C:attention}Boss Blinds{}, gives",
-          "{C:money}${} equal to lowest rank",
+          "{C:money}money{} equal to lowest rank",
           "in {C:attention}scoring hand"
         }
       },
