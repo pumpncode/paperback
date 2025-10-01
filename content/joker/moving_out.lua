@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "moving_out",
   config = {
     extra = {
-      a_mult = 5,
+      a_mult = 4,
       mult = 0,
     }
   },
