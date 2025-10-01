@@ -1217,3 +1217,14 @@ function PB_UTIL.count_destroyed_things(context)
   if context.paperback and context.paperback.destroying_non_playing_card then return 1 end
   return 0
 end
+
+-- Returns true if a jimbocards is at 0 hands left
+---@return boolean
+function PB_UTIL.check_jimbocards_at_0()
+  for _, v in ipairs(SMODS.find_card('j_paperback_jimbocards')) do
+    if v.ability.extra.hands_to_death <= 0 then
+      return true
+    end
+  end
+  return false
+end

@@ -5,17 +5,34 @@ SMODS.Joker {
       num_to_gen = 7,
       hands_to_death = 3,
       hands_reset = 3,
+      discount = 3,
     }
   },
-  rarity = 1,
+  rarity = 3,
   pos = { x = 8, y = 7 },
   atlas = "jokers_atlas",
-  cost = 13,
+  cost = 14,
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = false,
 
+  -- TODO should never appear when, say, an effect similar to top-up tag creates Jokers
+  -- can appear in shop or pack
+
+  set_ability = function(self, card, initial, delay_sprites)
+    card:add_sticker('eternal', true)
+  end,
+
   add_to_deck = function(self, card, from_debuff)
+    -- Apply discount
+    G.GAME.inflation = G.GAME.inflation - card.ability.extra.discount
+    -- Code taken from base game, search 'G.GAME.modifiers.inflation'
+    G.E_MANAGER:add_event(Event({func = function()
+      for k, v in pairs(G.I.CARD) do
+        if v.set_cost then v:set_cost() end
+      end
+      return true end }))
+
     -- Destroy all Jokers currently in possession (not itself)
     G.E_MANAGER:add_event(Event {
       trigger = 'immediate',
@@ -46,15 +63,33 @@ SMODS.Joker {
     })
   end,
 
+  remove_from_deck = function(self, card, from_debuff)
+    -- Remove discount
+    G.GAME.inflation = G.GAME.inflation + card.ability.extra.discount
+    G.E_MANAGER:add_event(Event({func = function()
+      for k, v in pairs(G.I.CARD) do
+        if v.set_cost then v:set_cost() end
+      end
+      return true end }))
+  end,
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-
+        card.ability.extra.num_to_gen,
+        card.ability.extra.discount,
+        card.ability.extra.hands_reset,
+        card.ability.extra.hands_to_death,
       }
     }
   end,
 
   calculate = function(self, card, context)
-
+    if context.before and not context.blueprint then
+      card.ability.extra.hands_to_death = math.max(card.ability.extra.hands_to_death - 1, 0)
+    end
+    if context.ante_change and context.ante_end and not context.blueprint then
+      card.ability.extra.hands_to_death = card.ability.extra.hands_reset
+    end
   end
 }
