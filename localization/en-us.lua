@@ -2295,8 +2295,8 @@ return {
         name = "Five of Pentacles",
         text = {
           "Enhances {C:attention}#1#{}",
-          "selected cards to",
-          "{C:attention}#2#s{}"
+          "selected card to",
+          "an {C:attention}#2#{}"
         }
       },
       c_paperback_six_of_pentacles = {
