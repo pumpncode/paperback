@@ -847,15 +847,29 @@ function PB_UTIL.has_modded_suit_in_deck()
   return false
 end
 
+-- Balance a fraction of chips and mult. Return the new values.
+-- This just does the math, no side effects
+---@param chips number
+---@param mult number
+---@param frac number? -- Defaults to 1
+---@return number
+---@return number
+function PB_UTIL.calculate_balance_frac(chips, mult, frac)
+  if not frac then frac = 1 end
+  local tot = (chips + mult) * frac
+  return math.floor(chips * (1-frac) + tot/2), math.floor(mult * (1-frac) + tot/2)
+end
+
 --- Balances chips and shows the cosmetic effects just like Plasma deck
 ---@param card (table|Card)?
 ---@param only_visual boolean whether to only do the visual effects
-function PB_UTIL.apply_plasma_effect(card, only_visual)
+---@param frac -- Fraction of chips and mult to balance
+function PB_UTIL.apply_plasma_effect(card, only_visual, frac)
   -- Actually balance the chips and mult
   if not only_visual then
-    local tot = hand_chips + mult
-    hand_chips = mod_chips(math.floor(tot / 2))
-    mult = mod_mult(math.floor(tot / 2))
+    local new_chips, new_mult = PB_UTIL.calculate_balance_frac(hand_chips, mult, frac)
+    hand_chips = mod_chips(new_chips)
+    mult = mod_mult(new_mult)
   end
 
   update_hand_text({ delay = 0 }, { mult = mult, chips = hand_chips })
