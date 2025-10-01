@@ -129,17 +129,36 @@ function Tag.yep(self, message, _colour, func)
   return yep_ref(self, message, _colour, func)
 end
 
--- Add new context that happens after destroying jokers
+-- Add new context that happens after destroying things
 local remove_ref = Card.remove
 function Card.remove(self)
-  -- Check that the card being removed is a joker that's in the player's deck and that it's not being sold
-  if self.added_to_deck and self.ability.set == 'Joker' and not G.CONTROLLER.locks.selling_card then
-    SMODS.calculate_context({
-      paperback = {
-        destroying_joker = true,
-        destroyed_joker = self
-      }
-    })
+  -- Check that the card being removed is owned by the player and that it's not being sold
+  if not self.playing_card and self.added_to_deck and (
+    -- Ways that mods indicate the card was destroyed
+    self.getting_sliced or self.shattered or self.destroyed
+    -- Or: check if we aren't selling or using something. A mod
+    -- might destroy something and not set the flags above.
+    -- Unfortunately this might leak cases where a card is somehow destroyed
+    -- during selling/using another object
+    or (not (G.CONTROLLER.locks.selling_card or G.CONTROLLER.locks.use))
+  ) then
+    if self.ability.set == 'Joker' then
+      SMODS.calculate_context({
+        paperback = {
+          destroying_joker = true,
+          destroying_non_playing_card = true,
+          destroyed_joker = self,
+          destroyed_card = self
+        }
+      })
+    else
+      SMODS.calculate_context({
+        paperback = {
+          destroying_non_playing_card = true,
+          destroyed_card = self
+        }
+      })
+    end
   end
 
   return remove_ref(self)

@@ -45,10 +45,9 @@ SMODS.Joker {
       }
     end
 
-    if not context.blueprint and (
-      context.remove_playing_cards and context.removed and #context.removed > 0
-      or context.paperback and context.paperback.destroying_joker and card ~= context.paperback.destroyed_joker
-    ) then
+    if not context.blueprint and PB_UTIL.count_destroyed_things(context) > 0
+    and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
+    then
       PB_UTIL.destroy_joker(card)
       return {
         message = localize('k_eaten_ex'),

@@ -27,29 +27,22 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    -- Gains mult when jokers are destroyed
-    if not context.blueprint and context.paperback and context.paperback.destroying_joker then
-      -- Make sure that this joker isn't being removed
-      if card ~= context.paperback.destroyed_joker then
-        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+    local count = PB_UTIL.count_destroyed_things(context)
+    -- Gains mult when any cards are destroyed. Each card destroyed provides the specified mult_mod
+    if not context.blueprint and count > 0
+    -- Make sure that this joker isn't being removed
+    and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
+    then
+      card.ability.extra.mult = card.ability.extra.mult + count * card.ability.extra.mult_mod
 
-        return {
-          message = localize {
-            type = 'variable',
-            key = 'a_mult',
-            vars = { card.ability.extra.mult_mod }
-          },
-          colour = G.C.MULT
-        }
-      end
-    end
-
-    -- Gains mult when playing cards are destroyed. Each card destroyed provides the specified mult_mod
-    if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
-      card.ability.extra.mult = card.ability.extra.mult + (#context.removed * card.ability.extra.mult_mod)
-
-      card_eval_status_text(card, 'extra', nil, nil, nil,
-        { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult_mod * #context.removed } } })
+      return {
+        message = localize {
+          type = 'variable',
+          key = 'a_mult',
+          vars = { count * card.ability.extra.mult_mod }
+        },
+        colour = G.C.MULT
+      }
     end
 
     -- Gives the mult when scoring

@@ -1194,3 +1194,12 @@ end
 function PB_UTIL.is_ego_gift(card)
   return card.ability.set == "paperback_ego_gift" or card.config.center_key == "c_paperback_golden_bough"
 end
+
+-- Returns the number of things destroyed in `context`.
+---@param context CalcContext
+---@return number
+function PB_UTIL.count_destroyed_things(context)
+  if context.remove_playing_cards then return #context.removed end
+  if context.paperback and context.paperback.destroying_non_playing_card then return 1 end
+  return 0
+end
