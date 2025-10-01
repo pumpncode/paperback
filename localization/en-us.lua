@@ -1406,6 +1406,15 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
+      j_paperback_the_sun_rises = {
+        name = "The Sun Rises",
+        text = {
+          "Set base Chips to {C:chips}#1#{}",
+          "Scored {C:paperback_light_suit}light suits{} give {C:chips}+#3#{} Chip",
+          "for each {C:paperback_light_suit}light suit{} you've scored",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+        },
+      },
       j_paperback_jestrica = {
         name = "Jestrica",
         text = {
