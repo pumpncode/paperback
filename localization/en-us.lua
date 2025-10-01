@@ -962,6 +962,17 @@ return {
           "{C:inactive}({C:attention}#4#{C:inactive} hands left)"
         }
       },
+      j_paperback_jimbocards_collection = {
+        name = "Jimbocards",
+        text = {
+          "When obtained, destroy all Jokers and",
+          "create {C:attention}#1#{} random {C:dark_edition}Negative{} Jokers.",
+          "All purchases cost {C:money}$#2#{} less.",
+          "Clear each {C:attention}Ante{} in {C:attention}#3#{} hands, or you {S:1.1,C:red,E:2}lose{}",
+          "{C:inactive}({C:attention}#4#{C:inactive} hands left)",
+          "Always {C:paperback_eternal}Eternal",
+        }
+      },
       j_paperback_forlorn = {
         name = "Forlorn",
         text = {
