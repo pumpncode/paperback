@@ -359,7 +359,7 @@ copy_card = function(other, new_card, card_scale, playing_card, strip_edition)
   local card = copy_card_ref(other, new_card, card_scale, playing_card, strip_edition)
   local clip = PB_UTIL.has_paperclip(card)
   clip = clip and string.sub(clip, 11) -- bleh, hardcoded for paperback's prefix
-  if PB_UTIL.is_special_clip(clip) then
+  if not G.SETTINGS.paused and PB_UTIL.is_special_clip(clip) then
     PB_UTIL.set_paperclip(card, PB_UTIL.poll_paperclip('plat_copy', false))
   end
   return card
