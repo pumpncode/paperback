@@ -361,6 +361,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "determination",
   "prince_of_darkness",
   "giga_size",
+  "mandela_effect",
   "jester_of_nihil",
   "shopkeep",
   "wild_prize",

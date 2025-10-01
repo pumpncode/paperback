@@ -892,6 +892,13 @@ return {
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
         }
       },
+      j_paperback_mandela_effect = {
+        name = "Mandela Effect",
+        text = {
+          "Randomly {C:attention}enhance{} the first",
+          "scored {C:attention}face card{} each hand"
+        }
+      },
       j_paperback_jester_of_nihil = {
         name = "Jester of Nihil",
         text = {
@@ -3182,6 +3189,7 @@ return {
       paperback_plus_minor_arcana = "+1 M. Arcana",
       paperback_plus_consumable = "+1 Consumable",
       paperback_plus_tag = "+1 Tag",
+      paperback_enhanced_ex = "Enhanced!",
       paperback_edition_ex = "Edition!",
       paperback_rare_ex = "Rare!",
       paperback_saved_unholy_alliance = "Saved by Unholy Alliance",
