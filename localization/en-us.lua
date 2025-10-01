@@ -521,6 +521,14 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult){}",
         }
       },
+      j_paperback_tome = {
+        name = "Tome",
+        text = {
+          "{C:attention}+#1#{} Consumable Slot for every",
+          "unique Joker {C:attention}rarity{} you have",
+          "{C:inactive}(Currently {C:attention}+#2#{C:inactive} Slot#3#){}",
+        }
+      },
       j_paperback_better_call_jimbo = {
         name = "Better Call Jimbo",
         text = {
