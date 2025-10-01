@@ -15,6 +15,9 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = false,
+  paperback = {
+    permanently_eternal = true,
+  },
 
   in_pool = function(self, args)
     return args and args.source and (args.source == 'sho' or args.source == 'buf')

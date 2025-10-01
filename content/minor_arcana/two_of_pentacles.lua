@@ -27,13 +27,13 @@ PB_UTIL.MinorArcana {
   end,
 
   keep_on_use = function(self, card)
-    return G.jokers.highlighted[1].config.center.key == "j_paperback_white_night"
+    return G.jokers.highlighted[1].config.center.paperback and G.jokers.highlighted[1].config.center.paperback.permanently_eternal
   end,
 
   use = function(self, card)
     local joker = G.jokers.highlighted[1]
 
-    if joker.config.center.key == "j_paperback_white_night" then
+    if joker.config.center.paperback and joker.config.center.paperback.permanently_eternal then
       G.P_CENTERS[card.config.center.key].shatters = true
       SMODS.destroy_cards(card)
       G.P_CENTERS[card.config.center.key].shatters = false

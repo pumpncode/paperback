@@ -16,7 +16,8 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = false,
   paperback = {
-    requires_ranks = true
+    requires_ranks = true,
+    permanently_eternal = true,
   },
 
   specific_vars = {
