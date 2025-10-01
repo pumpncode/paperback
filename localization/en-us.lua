@@ -932,9 +932,9 @@ return {
       j_paperback_joker_crossing = {
         name = "Joker Crossing",
         text = {
-          "{C:attention}Enhanced{} Cards ",
-          "a have {C:green}#1#{} in {C:green}#2#{}",
-          "chance of retriggering"
+          "{C:attention}Enhanced{} cards",
+          "have a {C:green}#1#{} in {C:green}#2#{}",
+          "chance to retrigger"
         }
       },
       j_paperback_forlorn = {
