@@ -1416,6 +1416,15 @@ return {
           "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
         },
       },
+      j_paperback_moving_out = {
+        name = "Moving Out",
+        text = {
+          "This Joker gains {C:mult}+#1#{} Mult",
+          "if {C:attention}winning{} poker hand is",
+          "not your most played hand",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+        },
+      },
       j_paperback_ready_to_fly = {
         name = "Ready to Fly",
         text = {

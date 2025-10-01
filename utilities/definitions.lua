@@ -351,6 +351,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "satellite_array",
   "aurora_borealis",
   "grand_strategy",
+  "moving_out",
   "ready_to_fly",
   "great_wave",
   "let_it_happen",
