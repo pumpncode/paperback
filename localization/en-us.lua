@@ -948,7 +948,7 @@ return {
         name = "Joker Crossing",
         text = {
           "{C:attention}Enhanced{} cards",
-          "have a {C:green}#1#{} in {C:green}#2#{}",
+          "have a {C:green}#1# in #2#{}",
           "chance to retrigger"
         }
       },
