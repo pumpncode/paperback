@@ -895,8 +895,8 @@ return {
       j_paperback_mandela_effect = {
         name = "Mandela Effect",
         text = {
-          "Randomly {C:attention}enhance{} the first",
-          "scored {C:attention}face card{} each hand"
+          "Randomly {C:attention}enhance{} the {C:attention}first",
+          "scored {C:attention}face{} card each hand"
         }
       },
       j_paperback_jester_of_nihil = {
@@ -1163,8 +1163,8 @@ return {
         text = {
           "If first hand of round",
           "scores no {C:attention}face cards{},",
-          "create the {C:planet}Planet{} card of",
-          "the played {C:attention}poker hand",
+          "create the {C:planet}Planet{} card",
+          "for played {C:attention}poker hand",
           "{C:inactive}(Must have room)",
         },
       },
