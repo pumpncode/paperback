@@ -16,8 +16,9 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = false,
 
-  -- TODO should never appear when, say, an effect similar to top-up tag creates Jokers
-  -- can appear in shop or pack
+  in_pool = function(self, args)
+    return args and args.source and (args.source == 'sho' or args.source == 'buf')
+  end,
 
   set_ability = function(self, card, initial, delay_sprites)
     card:add_sticker('eternal', true)
@@ -27,11 +28,14 @@ SMODS.Joker {
     -- Apply discount
     G.GAME.inflation = G.GAME.inflation - card.ability.extra.discount
     -- Code taken from base game, search 'G.GAME.modifiers.inflation'
-    G.E_MANAGER:add_event(Event({func = function()
-      for k, v in pairs(G.I.CARD) do
-        if v.set_cost then v:set_cost() end
+    G.E_MANAGER:add_event(Event({
+      func = function()
+        for k, v in pairs(G.I.CARD) do
+          if v.set_cost then v:set_cost() end
+        end
+        return true
       end
-      return true end }))
+    }))
 
     -- Destroy all Jokers currently in possession (not itself)
     G.E_MANAGER:add_event(Event {
@@ -66,11 +70,14 @@ SMODS.Joker {
   remove_from_deck = function(self, card, from_debuff)
     -- Remove discount
     G.GAME.inflation = G.GAME.inflation + card.ability.extra.discount
-    G.E_MANAGER:add_event(Event({func = function()
-      for k, v in pairs(G.I.CARD) do
-        if v.set_cost then v:set_cost() end
+    G.E_MANAGER:add_event(Event({
+      func = function()
+        for k, v in pairs(G.I.CARD) do
+          if v.set_cost then v:set_cost() end
+        end
+        return true
       end
-      return true end }))
+    }))
   end,
 
   loc_vars = function(self, info_queue, card)
