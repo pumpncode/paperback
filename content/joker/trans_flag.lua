@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'trans_flag',
   config = {
     extra = {
-      a_mult = 3,
+      a_mult = 5,
     }
   },
   rarity = 1,
