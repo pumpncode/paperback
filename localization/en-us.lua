@@ -243,8 +243,9 @@ return {
       j_paperback_pinot_noir = {
         name = "Pinot Noir",
         text = {
-          "The next {C:attention}#1#{} times a {C:attention}#2#",
-          "triggers, it gives {C:mult}+#3#{} more permanent Mult"
+          "The next {C:attention}#1#{} times a",
+          "{C:attention}#2#{} triggers, it",
+          "gives {C:mult}+#3#{} more permanent Mult"
         }
       },
       j_paperback_jestosterone = {
@@ -2306,7 +2307,7 @@ return {
         name = "Five of Pentacles",
         text = {
           "Enhances {C:attention}#1#{}",
-          "selected card to",
+          "selected card into",
           "an {C:attention}#2#{}"
         }
       },
@@ -2693,7 +2694,7 @@ return {
       e_paperback_dichrome = {
         name = "Dichrome",
         text = {
-          "When {C:attention}Blind{} is selected",
+          "When {C:attention}Blind{} is selected,",
           "gain {C:attention}+#1#{C:blue} Hand{} or {C:red}Discard",
           "{C:inactive}(Whichever is lower)"
         }
@@ -2701,7 +2702,7 @@ return {
       e_paperback_dichrome_playing_card = {
         name = "Dichrome",
         text = {
-          "When this card is {C:attention}drawn{}",
+          "When this card is {C:attention}drawn{},",
           "gain {C:attention}+#1#{C:blue} Hand{} or {C:red}Discard",
           "{C:inactive}(Whichever is lower)"
         }
