@@ -710,6 +710,14 @@ return {
           "once, and scored {C:attention}#3#s{} twice"
         }
       },
+      j_paperback_penumbra_phantasm = {
+        name = "Penumbra Phantasm",
+        text = {
+          "This Joker gains {C:red}+#1#{} Mult whenever",
+          "a {C:attention}rankless{} card is {C:attention}scored.",
+          "{C:inactive}(Currently {C:red}+#2#{C:inactive})"
+        }
+      },
       j_paperback_ncj = {
         name = "NoCopyrightJokers",
         text = {

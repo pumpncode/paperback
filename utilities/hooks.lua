@@ -134,14 +134,14 @@ local remove_ref = Card.remove
 function Card.remove(self)
   -- Check that the card being removed is owned by the player and that it's not being sold
   if not self.playing_card and self.added_to_deck and (
-    -- Ways that mods indicate the card was destroyed
-    self.getting_sliced or self.shattered or self.destroyed
-    -- Or: check if we aren't selling or using something. A mod
-    -- might destroy something and not set the flags above.
-    -- Unfortunately this might leak cases where a card is somehow destroyed
-    -- during selling/using another object
-    or (not (G.CONTROLLER.locks.selling_card or G.CONTROLLER.locks.use))
-  ) then
+      -- Ways that mods indicate the card was destroyed
+        self.getting_sliced or self.shattered or self.destroyed
+        -- Or: check if we aren't selling or using something. A mod
+        -- might destroy something and not set the flags above.
+        -- Unfortunately this might leak cases where a card is somehow destroyed
+        -- during selling/using another object
+        or (not (G.CONTROLLER.locks.selling_card or G.CONTROLLER.locks.use))
+      ) then
     if self.ability.set == 'Joker' then
       SMODS.calculate_context({
         paperback = {
@@ -290,7 +290,6 @@ function G.FUNCS.get_poker_hand_info(_cards)
   return text, loc_disp_text, poker_hands, scoring_hand, disp_text
 end
 
-
 -- When calculating the sell cost for an E.G.O. Gift, override it to 0
 -- None and Pride respectively get set to 5 and -15
 -- Unless corroded
@@ -339,7 +338,7 @@ function inc_career_stat(stat, mod)
   if stat == 'c_shop_dollars_spent' then
     if to_big(mod) > to_big(0) then
       G.GAME.paperback.this_shop_dollars_spent = (G.GAME.paperback.this_shop_dollars_spent or 0) + mod
-      check_for_unlock({type = 'spend_in_one_shop', spent = G.GAME.paperback.this_shop_dollars_spent})
+      check_for_unlock({ type = 'spend_in_one_shop', spent = G.GAME.paperback.this_shop_dollars_spent })
     end
   end
   return inc_career_stat_ref(stat, mod)

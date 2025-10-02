@@ -366,6 +366,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "shopkeep",
   "wild_prize",
   "deadringer",
+  "penumbra_phantasm",
   "a_balatro_movie",
   "ncj",
   "bicycle",
