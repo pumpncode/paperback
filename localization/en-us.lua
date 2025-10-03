@@ -100,9 +100,9 @@ return {
       bl_paperback_natural = {
         name = 'The Natural',
         text = {
-          'Cards in poker hands',
-          'above your lowest hand',
-          'level are debuffed'
+          'Play lowest level',
+          'poker hand, or else',
+          'debuff scored cards'
         }
       },
       bl_paperback_coda = {
