@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'insurance_policy',
   config = {
     extra = {
-      a_mult = 10,
+      a_mult = 8,
     }
   },
   rarity = 2,
