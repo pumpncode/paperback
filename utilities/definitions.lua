@@ -418,6 +418,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jimbocards",
   "forlorn",
   "protocol",
+  "showdown",
   "guns_blazin",
   "burning_pact",
   "blade_dance",

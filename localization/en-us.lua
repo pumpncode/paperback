@@ -121,6 +121,14 @@ return {
       },
     },
     Joker = {
+      j_paperback_showdown = {
+        name = "Showdown",
+        text = {
+          "{V:1}#1#{} and {V:2}#2#{} {C:attention}held",
+          "{C:attention}in hand{} have a {C:green}#3# in #4#",
+          "chance to earn {C:money}$#5#",
+        }
+      },
       j_paperback_golden_egg = {
         name = "Golden Egg",
         text = {
