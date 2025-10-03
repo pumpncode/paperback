@@ -4,7 +4,7 @@ SMODS.Joker {
     extra = {
       money_for_suit = 1,
       money_for_rank = 5,
-      money_for_both = 50,
+      money_for_both = 25,
     }
   },
   rarity = 2,
@@ -29,12 +29,6 @@ SMODS.Joker {
         }
       }
     }
-  end,
-
-  set_ability = function(self, card, initial, delay_sprites)
-    -- this spin's just for fun!
-    card.ability.extra.suit = pseudorandom_element(PB_UTIL.base_suits, pseudoseed('roulette_suit'))
-    card.ability.extra.rank = pseudorandom_element(PB_UTIL.base_ranks, pseudoseed('roulette_rank'))
   end,
 
   calculate = function(self, card, context)
