@@ -880,9 +880,9 @@ return {
         text = {
           "Each hand played, this Joker chooses a",
           "{C:attention}random rank{} and {C:attention}suit{}. Scored cards earn",
-          "{C:money}$#3#{} if they match suit,",
-          "{C:money}$#4#{} if they match rank,",
-          "or {C:money}$#5#{} if they match exactly",
+          "{C:money}$#1#{} if they match suit,",
+          "{C:money}$#2#{} if they match rank,",
+          "or {C:money}$#3#{} if they match exactly",
         }
       },
       j_paperback_mexican_train = {

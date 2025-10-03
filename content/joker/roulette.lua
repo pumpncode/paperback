@@ -19,8 +19,6 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        localize(card.ability.extra.rank, 'ranks'),
-        localize(card.ability.extra.suit, 'suits_plural'),
         card.ability.extra.money_for_suit,
         card.ability.extra.money_for_rank,
         card.ability.extra.money_for_both,
