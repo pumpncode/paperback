@@ -222,6 +222,14 @@ return {
           "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
         }
       },
+      j_paperback_teapot = {
+        name = "Teapot",
+        text = {
+          "This Joker gains {C:blue}+#1#{} Chips whenever",
+          "a {C:attention}#2#{} is {C:attention}scored",
+          "{C:inactive}(Currently {C:blue}+#3#{C:inactive} Chips)"
+        }
+      },
       j_paperback_the_one_who_waits = {
         name = "The One Who Waits",
         text = {
@@ -714,8 +722,8 @@ return {
         name = "Penumbra Phantasm",
         text = {
           "This Joker gains {C:red}+#1#{} Mult whenever",
-          "a {C:attention}rankless{} card is {C:attention}scored.",
-          "{C:inactive}(Currently {C:red}+#2#{C:inactive})"
+          "a {C:attention}rankless{} card is {C:attention}scored",
+          "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
         }
       },
       j_paperback_ncj = {
