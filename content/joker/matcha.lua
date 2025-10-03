@@ -44,7 +44,7 @@ SMODS.Joker {
       }
     end
 
-    if not context.blueprint and context.discard then
+    if not context.blueprint and context.pre_discard and not context.hook then
       if PB_UTIL.chance(card, 'matcha') then
         PB_UTIL.destroy_joker(card)
 
