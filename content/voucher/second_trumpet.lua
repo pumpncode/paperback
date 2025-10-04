@@ -12,10 +12,10 @@ SMODS.Voucher {
     requires_ego_gifts = true,
   },
 
-  loc_vars = function(self, info_queue)
+  loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        self.config.a_slot
+        card.a_slot or self.config.a_slot
       }
     }
   end,

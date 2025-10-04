@@ -761,7 +761,7 @@ PB_UTIL.ENABLED_VOUCHERS = {
   -- 'filing_cabinet',
   -- 'paperclip_optimization',
   'second_trumpet',
-  -- 'rabbit_protocol',
+  'rabbit_protocol',
 }
 
 PB_UTIL.ENABLED_TAGS = {
@@ -1091,6 +1091,8 @@ if PB_UTIL.config.ego_gifts_enabled then
     calculate = function(self, card, context)
       if context.selling_self then
         if card.ability.sin then
+          G.GAME.paperback.sold_ego_gifts[#G.GAME.paperback.sold_ego_gifts + 1] = card
+          check_for_unlock({ type = 'paperback_sold_ego_gifts' })
           SMODS.calculate_context({
             paperback = {
               sold_ego_gift = card,

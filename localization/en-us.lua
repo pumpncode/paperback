@@ -2604,6 +2604,16 @@ return {
           "gives {C:attention}+#1#{} consumable slot"
         }
       },
+      v_paperback_rabbit_protocol = {
+        name = "Rabbit Protocol",
+        text = {
+          "Your first {C:attention}sold{} {C:paperback_ego_gift}EGO gift{}",
+          "{C:attention}disables{} the current {C:attention}Boss Blind"
+        },
+        unlock = {
+          "Sell {C:attention}#1#{} {C:paperback_ego_gift}EGO Gifts{} in one Run"
+        }
+      },
     },
     Tag = {
       tag_paperback_angel_investment = {
