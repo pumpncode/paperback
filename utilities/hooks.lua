@@ -363,3 +363,20 @@ copy_card = function(other, new_card, card_scale, playing_card, strip_edition)
   end
   return card
 end
+
+local pseudorandom_element_ref = pseudorandom_element
+function pseudorandom_element(_t, seed, args)
+  -- Remove EGO Gift consumable type when randomly selecting anything
+  -- This is very much special cased and very slow,
+  -- maybe there's a better and more efficient way.
+  local keys_to_remove = {}
+  for k, v in pairs(_t) do
+    if v == SMODS.ConsumableTypes['paperback_ego_gift'] then
+      table.insert(keys_to_remove, k)
+    end
+  end
+  for _, remove_key in ipairs(keys_to_remove) do
+    _t[remove_key] = nil
+  end
+  return pseudorandom_element_ref(_t, seed, args)
+end
