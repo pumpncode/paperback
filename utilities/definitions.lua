@@ -1135,7 +1135,9 @@ if PB_UTIL.config.ego_gifts_enabled then
       end
       if dupe then
         local vestige = SMODS.add_card { key = 'c_paperback_dark_vestige' }
+        G.GAME.paperback.destroy_no_calc = true
         SMODS.destroy_cards({ card })
+        G.GAME.paperback.destroy_no_calc = nil
       end
 
       if self.ego_add then
