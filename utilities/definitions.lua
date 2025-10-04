@@ -758,6 +758,10 @@ PB_UTIL.ENABLED_EGO_GIFT_BOOSTERS = {
 PB_UTIL.ENABLED_VOUCHERS = {
   'celtic_cross',
   'soothsay',
+  'second_trumpet',
+  --  'soothsay',
+  --'celtic_cross',
+  --'soothsay',
 }
 
 PB_UTIL.ENABLED_TAGS = {

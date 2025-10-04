@@ -2597,6 +2597,13 @@ return {
           "appear in the {C:money}Shop"
         }
       },
+      v_paperback_second_trumpet = {
+        name = "Second Trumpet",
+        text = {
+          "Your first {C:paperback_ego_gift}EGO gift{}",
+          "gives {C:attention}+#1#{} consumable slot"
+        }
+      },
     },
     Tag = {
       tag_paperback_angel_investment = {
