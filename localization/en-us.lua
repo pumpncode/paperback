@@ -1415,6 +1415,13 @@ return {
           "{C:inactive}(Currently {C:mult}+#3# {C:inactive}Mult){}",
         },
       },
+      j_paperback_greeting_card = {
+        name = "Greeting Card",
+        text = {
+          "Gains {C:money}$#1#{} of {C:attention}sell value{} if a",
+          "played {C:attention}#2#{} is {C:attention}scored",
+        },
+      },
       j_paperback_calling_card = {
         name = "Calling Card",
         text = {

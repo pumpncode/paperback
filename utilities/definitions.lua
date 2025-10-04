@@ -415,6 +415,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "joker_crossing",
   "jimbos_inferno",
   "tome",
+  "greeting_card",
   "jimbocards",
   "forlorn",
   "protocol",
