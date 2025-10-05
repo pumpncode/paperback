@@ -39,13 +39,11 @@ if PB_UTIL.config.suits_enabled then
 
           SMODS.calculate_effect {
             message = localize('k_reset'),
-            colour = G.C.MULT,
+            colour = G.C.RED,
             card = card,
           }
-        end
-
         -- Give chips if hand contains a Spectrum
-        if PB_UTIL.get_unique_suits(context.scoring_hand, nil, true) >= 5 then
+        elseif PB_UTIL.get_unique_suits(context.full_hand, nil, true) >= 5 then
           card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
 
           SMODS.calculate_effect {
