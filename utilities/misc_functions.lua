@@ -782,10 +782,44 @@ end
 --- debuffed wild cards are considered their original suit only
 ---@return boolean
 function PB_UTIL.is_suit(card, type, bypass_debuff, flush_calc)
+  assert(type == 'light' or type == 'dark')
   for _, v in ipairs(type == 'light' and PB_UTIL.light_suits or PB_UTIL.dark_suits) do
     if card:is_suit(v, bypass_debuff, flush_calc) then return true end
   end
   return false
+end
+
+--- PB_UTIL.is_non_suit(card, X) checks if `card` specifically can only be a non-X suit.
+--- Usually used to check for a negative effect happening, like
+--- in Derecho: if the hand contains a non-dark -> no upgrade.
+---
+--- Works with edge cases:
+--- - Stones return false (not a suit)
+--- - Wilds return false (can always count as an X)
+--- - Debuffed cards with a base suit of non-X return false,
+---   if bypass_debuff and flush_calc are both false
+---   (debuffed cards are non-scoring)
+--- 
+--- These edge cases are also why this should generally be used for negative effects only.
+---
+---@param card table
+---@param type 'string' 'light', 'dark', or a suit key
+---@param bypass_debuff boolean?
+---@param flush_calc boolean? Usually use this instead of bypass_debuff for Jokers:
+--- debuffed wild cards are considered their original suit only
+---@return boolean
+function PB_UTIL.is_non_suit(card, type, bypass_debuff, flush_calc)
+  local suit_arr = (
+    type == 'light' and PB_UTIL.light_suits
+    or type == 'dark' and PB_UTIL.dark_suits
+    or { type }
+  )
+  for _, v in ipairs(suit_arr) do
+    if card:is_suit(v, bypass_debuff, flush_calc) then return false end
+  end
+  if SMODS.has_no_suit(card) then return false end
+  if card.debuff and not bypass_debuff and not flush_calc then return false end
+  return true
 end
 
 ---Checks if the provided suit is currently in the deck

@@ -17,7 +17,7 @@ SMODS.Joker {
   perishable_compat = false,
 
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
+    info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
 
     return {
       vars = {
@@ -29,14 +29,12 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
-      local upgrade = true
+      local bad_suit = false
       -- Check for no scoring dark suit
       for _, v in ipairs(context.scoring_hand) do
-        if PB_UTIL.is_suit(v, 'dark') then
-          upgrade = false
-        end
+        bad_suit = bad_suit or PB_UTIL.is_non_suit(v, 'light')
       end
-      if upgrade then
+      if not bad_suit then
         card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.a_mult
         return {
           message = localize {
@@ -51,7 +49,7 @@ SMODS.Joker {
 
     if context.individual and context.cardarea == G.play and not context.blueprint then
       if card.ability.extra.mult > 0 then
-        if PB_UTIL.is_suit(context.other_card, 'dark') then
+        if PB_UTIL.is_non_suit(context.other_card, 'light') then
           card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.a_mult
           return {
             message = localize {

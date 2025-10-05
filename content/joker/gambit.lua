@@ -34,6 +34,7 @@ SMODS.Joker {
       if not context.destroy_card:is_suit(card.ability.extra.suit, false, true) then
         for _, v in ipairs(context.scoring_hand) do
           if v:is_suit(card.ability.extra.suit) then
+            -- TODO if first crown debuffed, should say "Debuffed"
             if not context.blueprint then
               card.ability.extra.triggered = true
             end

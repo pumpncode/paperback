@@ -22,7 +22,7 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     for _, v in ipairs(G.deck.cards) do
-      if v:is_suit('paperback_Stars') or v:is_suit('paperback_Crowns') then return true end
+      if v:is_suit('paperback_Stars', true) or v:is_suit('paperback_Crowns', true) then return true end
     end
   end,
 

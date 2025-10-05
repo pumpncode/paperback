@@ -42,6 +42,7 @@ Partner_API.Partner {
         end
       end
       if PB_UTIL.is_suit(context.other_card, 'light') and card.ability.extra.active then
+        -- TODO if first light suit is debuffed, show "Debuffed" instead
         card.ability.extra.active = false
         if next(SMODS.find_card("j_paperback_paranoia")) then
           return {

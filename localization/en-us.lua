@@ -1001,8 +1001,8 @@ return {
       j_paperback_forlorn = {
         name = "Forlorn",
         text = {
-          "If {C:attention}scoring hand{} contains only",
-          "{V:1}#1#{}, destroy a random",
+          "If played hand's only scored suit",
+          "is {V:1}#1#{}, destroy a random",
           "card {C:attention}held in hand",
         },
       },
@@ -1459,8 +1459,8 @@ return {
       j_paperback_derecho = {
         name = "Derecho",
         text = {
-          "Gains {X:mult,C:white}X#1#{} Mult if played hand",
-          "scores no {C:paperback_light_suit}light suits",
+          "Gains {X:mult,C:white}X#1#{} Mult if",
+          "scored suits are all {C:paperback_dark_suit}dark{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
       },
@@ -1589,11 +1589,10 @@ return {
       j_paperback_the_sun = {
         name = "The Sun",
         text = {
-          "If played hand scores no",
-          "{C:paperback_dark_suit}dark suits{}, this Joker",
-          "gains {C:mult}+#1#{} Mult.",
-          "This Joker loses {C:mult}-#1#{} Mult",
-          "when a {C:paperback_dark_suit}dark suit{} is scored",
+          "If all scored suits are {C:paperback_light_suit}light{},",
+          "this Joker gains {C:mult}+#1#{} Mult",
+          "When a suit that isn't {C:paperback_light_suit}light{} scores,",
+          "this Joker loses {C:mult}-#1#{} Mult",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
       },
