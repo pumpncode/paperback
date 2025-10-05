@@ -32,7 +32,7 @@ SMODS.Joker {
       local spade = false
       -- Check scoring hand for only Spades/suitless, at least 1 Spade/Wild
       for _, v in ipairs(context.scoring_hand) do
-        bad_suit = bad_suit or PB_UTIL.is_non_suit(v)
+        bad_suit = bad_suit or PB_UTIL.is_non_suit(v, 'Spades')
         spade = spade or v:is_suit('Spades')
       end
       if not bad_suit and spade then
