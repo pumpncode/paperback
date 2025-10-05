@@ -187,8 +187,8 @@ return {
         name = "Milk Tea",
         text = {
           "{C:purple}Balance{} {C:attention}#1#%{} of {C:chips}Chips{} and {C:mult}Mult",
-          "Reduces by {C:attention}#2#%{} if, after balancing,",
-          "{C:mult}Mult{} is {C:attention}greater{} than {C:chips}Chips"
+          "Reduces by {C:attention}#2#%{} if a hand's {C:attention{}final{}",
+          "{C:mult}Mult{} ends up {C:attention}greater{} than its {C:chips}Chips"
         }
       },
       j_paperback_nichola = {
