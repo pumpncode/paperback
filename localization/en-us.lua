@@ -52,6 +52,16 @@ return {
           "Earn no {C:money}Interest"
         }
       },
+      b_paperback_glimmer = {
+        name = "Glimmer Deck",
+        text = {
+          "{C:attention}+#1#{} consumable slot",
+          "for every unique {C:attention}Sin{} owned",
+          "{C:attention}#2#{} Joker Slots",
+          "{C:paperback_ego_gift}EGO Gifts Packs{} are",
+          "{C:attention}5x{} more common"
+        }
+      },
     },
     Blind = {
       bl_paperback_quarter = {
@@ -3038,7 +3048,7 @@ return {
         }
       },
       p_paperback_ego_gift_normal = {
-        name = "E.G.O. Gift Extraction",
+        name = "E.G.O. Gift Extraction Pack",
         text = {
           "Choose {C:attention}#1#{} of up to",
           "{C:attention}#2#{C:paperback_ego_gift} E.G.O Gifts{}",
@@ -3200,7 +3210,25 @@ return {
           "Defeating a {C:attention}Showdown Blind",
           "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
         }
-      }
+      }, --[[
+      sleeve_paperback_glimmer = {
+        name = "Passionate Sleeve",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain a",
+          "{C:attention,T:tag_paperback_high_risk}#1#",
+          "Earn no {C:money}Interest"
+        }
+      },
+      sleeve_paperback_glimmer_buff = {
+        name = "Passionate Sleeve",
+        text = {
+          "Every other {C:attention}Boss Blind{} is",
+          "replaced with a {C:attention}Showdown Blind",
+          "Defeating a {C:attention}Showdown Blind",
+          "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
+        }
+      }--]]
     }
   },
   misc = {

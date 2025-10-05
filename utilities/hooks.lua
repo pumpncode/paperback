@@ -36,7 +36,9 @@ function Game.init_game_object(self)
     skipped_blind = false,
     blind_multiplier = 1,
 
-    corroded_rounds = 3
+    corroded_rounds = 3,
+
+    glimmer_change = 0
   }
   return ret
 end

@@ -1,0 +1,21 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = "v.current_weight = v.get_weight and v:get_weight() or v.weight or 1"
+position = "after"
+match_indent = true
+payload = '''
+local is_paperback_glimmer = ((G.GAME.selected_back_key or {}).key == 'b_paperback_glimmer')
+  or (G.GAME.selected_sleeve == 'sleeve_paperback_glimmer')
+
+if is_paperback_glimmer then
+  if v.kind == "paperback_ego_gift" then
+    v.current_weight = v.current_weight * 5
+  end
+end
+'''
