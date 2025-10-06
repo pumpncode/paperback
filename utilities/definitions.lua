@@ -817,7 +817,7 @@ PB_UTIL.ENABLED_DECKS = {
   'dreamer',
   'antique',
   'passionate',
-  'glimmer',
+  'shimmering',
 }
 
 PB_UTIL.ENABLED_STICKERS = {

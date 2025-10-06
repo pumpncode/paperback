@@ -52,8 +52,8 @@ return {
           "Earn no {C:money}Interest"
         }
       },
-      b_paperback_glimmer = {
-        name = "Glimmer Deck",
+      b_paperback_shimmering = {
+        name = "Shimmering Deck",
         text = {
           "{C:attention}+#1#{} consumable slot for",
           "every unique {C:attention}Sin{} owned",
@@ -3219,8 +3219,8 @@ return {
           "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
         }
       },
-      sleeve_paperback_glimmer = {
-        name = "Glimmering Sleeve",
+      sleeve_paperback_shimmering = {
+        name = "Shimmering Sleeve",
         text = {
           "{C:attention}+#1#{} consumable slot for",
           "every unique {C:attention}Sin{} owned",
@@ -3229,8 +3229,8 @@ return {
           "are {C:attention}5X{} more common"
         }
       },
-      sleeve_paperback_glimmer_buff = {
-        name = "Glimmering Sleeve",
+      sleeve_paperback_shimmering_buff = {
+        name = "Shimmering Sleeve",
         text = {
           "TBD"
         }

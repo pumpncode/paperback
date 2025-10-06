@@ -38,7 +38,7 @@ function Game.init_game_object(self)
 
     corroded_rounds = 3,
 
-    glimmer_change = 0
+    shimmering_change = 0
   }
   return ret
 end

@@ -10,10 +10,10 @@ pattern = "v.current_weight = v.get_weight and v:get_weight() or v.weight or 1"
 position = "after"
 match_indent = true
 payload = '''
-local is_paperback_glimmer = ((G.GAME.selected_back_key or {}).key == 'b_paperback_glimmer')
-  or (G.GAME.selected_sleeve == 'sleeve_paperback_glimmer')
+local is_paperback_shimmering = ((G.GAME.selected_back_key or {}).key == 'b_paperback_shimmering')
+  or (G.GAME.selected_sleeve == 'sleeve_paperback_shimmering')
 
-if is_paperback_glimmer then
+if is_paperback_shimmering then
   if v.kind == "paperback_ego_gift" then
     v.current_weight = v.current_weight * 5
   end

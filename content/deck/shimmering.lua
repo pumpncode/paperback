@@ -1,6 +1,6 @@
 if PB_UTIL.config.ego_gifts_enabled then
   SMODS.Back {
-    key = 'glimmer',
+    key = 'shimmering',
     atlas = 'decks_atlas',
     config = {
       joker_slot = -2,
@@ -28,7 +28,7 @@ if PB_UTIL.config.ego_gifts_enabled then
       end
     end,
     -- Utility function to recalculate consumable slot bonus
-    paperback_glimmer_update = function(self)
+    paperback_shimmering_update = function(self)
       local sins = {}
       local count = 0
       for _, v in ipairs(G.consumeables.cards) do
@@ -41,11 +41,11 @@ if PB_UTIL.config.ego_gifts_enabled then
       end
 
 
-      local change = count - G.GAME.paperback.glimmer_change
+      local change = count - G.GAME.paperback.shimmering_change
       if change ~= 0 then
         G.consumeables:change_size(change)
 
-        G.GAME.paperback.glimmer_change = count
+        G.GAME.paperback.shimmering_change = count
       end
     end
   }
@@ -53,15 +53,15 @@ if PB_UTIL.config.ego_gifts_enabled then
   local add_to_deck_ref = Card.add_to_deck
   function Card.add_to_deck(...)
     add_to_deck_ref(...)
-    if G.GAME.selected_back_key and G.GAME.selected_back_key.key == 'b_paperback_glimmer' then
-      G.GAME.selected_back_key:paperback_glimmer_update()
+    if G.GAME.selected_back_key and G.GAME.selected_back_key.key == 'b_paperback_shimmering' then
+      G.GAME.selected_back_key:paperback_shimmering_update()
     end
   end
   local remove_from_deck_ref = Card.remove_from_deck
   function Card.remove_from_deck(...)
     remove_from_deck_ref(...)
-    if G.GAME.selected_back_key and G.GAME.selected_back_key.key == 'b_paperback_glimmer' then
-      G.GAME.selected_back_key:paperback_glimmer_update()
+    if G.GAME.selected_back_key and G.GAME.selected_back_key.key == 'b_paperback_shimmering' then
+      G.GAME.selected_back_key:paperback_shimmering_update()
     end
   end
 end
