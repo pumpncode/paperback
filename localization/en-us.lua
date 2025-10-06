@@ -55,11 +55,11 @@ return {
       b_paperback_glimmer = {
         name = "Glimmer Deck",
         text = {
-          "{C:attention}+#1#{} consumable slot",
-          "for every unique {C:attention}Sin{} owned",
-          "{C:attention}#2#{} Joker Slots",
-          "{C:paperback_ego_gift}EGO Gifts Packs{} are",
-          "{C:attention}5x{} more common"
+          "{C:attention}+#1#{} consumable slot for",
+          "every unique {C:attention}Sin{} owned",
+          "{C:red}#2#{} Joker Slots",
+          "{C:paperback_ego_gift}E.G.O. Gift Extraction Packs{}",
+          "are {C:attention}5X{} more common"
         }
       },
     },
@@ -2465,7 +2465,7 @@ return {
       c_paperback_decamillennial_stewpot = {
         name = "Decamillenial Stewpot",
         text = {
-          "If {C:attention}first played hand{} of round",
+          "If {C:attention}first hand{} of round",
           "is a {C:attention}single{} card, destroy it",
         }
       },
@@ -2479,7 +2479,7 @@ return {
       c_paperback_rusty_coin = {
         name = "Rusty Commemorative Coin",
         text = {
-          "If {C:attention}first played hand{} of round",
+          "If {C:attention}first hand{} of round",
           "is a {C:attention}single{} card,",
           "add a random {C:attention}seal{} to it"
         }
@@ -3210,25 +3210,23 @@ return {
           "Defeating a {C:attention}Showdown Blind",
           "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
         }
-      }, --[[
+      },
       sleeve_paperback_glimmer = {
-        name = "Passionate Sleeve",
+        name = "Glimmering Sleeve",
         text = {
-          "After defeating each",
-          "{C:attention}Boss Blind{}, gain a",
-          "{C:attention,T:tag_paperback_high_risk}#1#",
-          "Earn no {C:money}Interest"
+          "{C:attention}+#1#{} consumable slot for",
+          "every unique {C:attention}Sin{} owned",
+          "{C:red}#2#{} Joker Slots",
+          "{C:paperback_ego_gift}E.G.O. Gift Extraction Packs{}",
+          "are {C:attention}5X{} more common"
         }
       },
       sleeve_paperback_glimmer_buff = {
-        name = "Passionate Sleeve",
+        name = "Glimmering Sleeve",
         text = {
-          "Every other {C:attention}Boss Blind{} is",
-          "replaced with a {C:attention}Showdown Blind",
-          "Defeating a {C:attention}Showdown Blind",
-          "gives a {C:dark_edition,T:tag_negative}Negative{} Tag"
+          "TBD"
         }
-      }--]]
+      }
     }
   },
   misc = {
