@@ -9,9 +9,9 @@ PB_UTIL.EGO_Gift {
   soul_pos = { x = 5, y = 4 },
 
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.bonus
-    }
+    } }
   end,
 
   ego_add = function(self, card, from_debuff)

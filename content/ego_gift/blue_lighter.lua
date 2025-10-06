@@ -10,10 +10,10 @@ PB_UTIL.EGO_Gift {
   soul_pos = { x = 4, y = 4 },
 
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.a_xmult,
       card.ability.xmult
-    }
+    } }
   end,
 
   ego_gift_calc = function(self, card, context)

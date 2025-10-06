@@ -2502,6 +2502,14 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         }
       },
+      c_paperback_thrill_inactive = {
+        name = "Thrill",
+        text = {
+          "On {C:attention}first{} hand of round,",
+          "this {C:paperback_ego_gift}E.G.O. Gift{} gives {X:mult,C:white}X#1#{} Mult",
+          "for every {C:attention}discard{} used this {C:attention}round",
+        }
+      },
       c_paperback_disk_fragment = {
         name = "Disk Fragment",
         text = {
@@ -2570,7 +2578,7 @@ return {
         text = {
           "Cards {C:attention}held in hand{}",
           "have a {C:green}#1# in #2#",
-          "chance of retriggering"
+          "chance to retrigger"
         }
       },
       c_paperback_chalice_of_trickle_down = {

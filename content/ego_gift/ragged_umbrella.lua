@@ -11,10 +11,10 @@ PB_UTIL.EGO_Gift {
 
 
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.chip_mod,
       card.ability.chips
-    }
+    } }
   end,
 
   ego_gift_calc = function(self, card, context)

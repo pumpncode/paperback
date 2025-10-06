@@ -8,27 +8,29 @@ PB_UTIL.EGO_Gift {
   pos = { x = 6, y = 2 },
   soul_pos = { x = 6, y = 5 },
 
-  ego_main_end = function(self, info_queue, card)
+  ego_loc_vars = function(self, info_queue, card)
     if G.consumeables then
       local color = card.ability.active and G.C.GREEN or G.C.RED
       local text = card.ability.active and 'k_active' or 'paperback_inactive'
       return {
-        {
-          n = G.UIT.C,
-          config = { align = "bm", padding = 0.02 },
-          nodes = {
-            {
-              n = G.UIT.C,
-              config = { align = "m", colour = color, r = 0.05, padding = 0.06 },
-              nodes = {
-                {
-                  n = G.UIT.T,
-                  config = {
-                    text = localize(text),
-                    colour = G.C.UI.TEXT_LIGHT,
-                    scale = 0.3
-                  }
-                },
+        main_end = {
+          {
+            n = G.UIT.C,
+            config = { align = "bm", padding = 0.02 },
+            nodes = {
+              {
+                n = G.UIT.C,
+                config = { align = "m", colour = color, r = 0.05, padding = 0.06 },
+                nodes = {
+                  {
+                    n = G.UIT.T,
+                    config = {
+                      text = localize(text),
+                      colour = G.C.UI.TEXT_LIGHT,
+                      scale = 0.3
+                    }
+                  },
+                }
               }
             }
           }

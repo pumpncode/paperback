@@ -12,10 +12,10 @@ PB_UTIL.EGO_Gift {
 
 
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.threshold,
       card.ability.discarded,
-    }
+    } }
   end,
   ego_gift_calc = function(self, card, context)
     if context.pre_discard and not context.blueprint then

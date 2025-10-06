@@ -14,9 +14,9 @@ PB_UTIL.EGO_Gift {
   soul_rate = 0.001,
 
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.delta
-    }
+    } }
   end,
 
   ego_gift_calc = function(self, card, context)

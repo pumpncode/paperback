@@ -7,11 +7,6 @@ PB_UTIL.EGO_Gift {
   pos = { x = 2, y = 1 },
   soul_pos = { x = 2, y = 4 },
 
-  ego_loc_vars = function(self, info_queue, card)
-    return {
-    }
-  end,
-
   ego_gift_calc = function(self, card, context)
     if context.before and #context.full_hand == 1 and G.GAME.current_round.hands_played <= 0 and not context.blueprint then
       local coin = context.full_hand[1]

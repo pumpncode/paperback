@@ -13,9 +13,9 @@ PB_UTIL.EGO_Gift {
 
   ego_loc_vars = function(self, info_queue, card)
     local n, d = PB_UTIL.chance_vars(card, nil)
-    return {
+    return { vars = {
       n, d, card.ability.xmult
-    }
+    } }
   end,
 
   ego_gift_calc = function(self, card, context)

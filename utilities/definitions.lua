@@ -1079,13 +1079,8 @@ if PB_UTIL.config.ego_gifts_enabled then
       info_queue[#info_queue + 1] = PB_UTIL.sin_tooltip(card.ability.sin)
       local loc = {}
       if self.ego_loc_vars then
-        loc.vars = self.ego_loc_vars(self, info_queue, card)
+        loc = self.ego_loc_vars(self, info_queue, card)
       end
-
-      if self.ego_main_end then
-        loc.main_end = self.ego_main_end(self, info_queue, card)
-      end
-
       return loc
     end,
 

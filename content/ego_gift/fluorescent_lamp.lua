@@ -41,10 +41,10 @@ PB_UTIL.EGO_Gift {
     else
       card.ability.total = card.ability.discards
     end
-    return {
+    return { vars = {
       card.ability.discards,
       card.ability.threshold,
       card.ability.total
-    }
+    } }
   end,
 }

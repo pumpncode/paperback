@@ -9,9 +9,9 @@ PB_UTIL.EGO_Gift {
   pos = { x = 1, y = 0 },
   soul_pos = { x = 1, y = 3 },
   ego_loc_vars = function(self, info_queue, card)
-    return {
+    return { vars = {
       card.ability.dollars
-    }
+    } }
   end,
 
   calc_dollar_bonus = function(self, card)

@@ -10,9 +10,9 @@ PB_UTIL.EGO_Gift {
 
   ego_loc_vars = function(self, info_queue, card)
     local n, d = PB_UTIL.chance_vars(card, nil, 1, card.ability.odds)
-    return {
+    return { vars = {
       n, d
-    }
+    } }
   end,
   ego_gift_calc = function(self, card, context)
     if context.remove_playing_cards and #context.removed > 0 and #context.removed <= 2 then
