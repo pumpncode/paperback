@@ -811,8 +811,8 @@ return {
       j_paperback_marble_soda = {
         name = "Marble Soda",
         text = {
-          "{C:attention}#1#s{} give an additional",
-          "{X:mult,C:white}X#2#{} Mult when scored",
+          "Scored {C:attention}#1#s{}",
+          "give {X:mult,C:white}X#2#{} Mult",
           "Drank after {C:attention}#3#{} playing",
           "card#4# #5# {C:attention}destroyed{}"
         }
