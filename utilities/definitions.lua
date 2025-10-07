@@ -6,6 +6,9 @@ SMODS.current_mod.optional_features = {
   retrigger_joker = true,
   post_trigger = true,
   quantum_enhancements = true,
+  cardareas = {
+    deck = true
+  }
 }
 
 -- Global mod calculate
