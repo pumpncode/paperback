@@ -41,7 +41,7 @@ SMODS.Joker {
   in_pool = function(self, args)
     -- Only in pool if you have played a Five of a Kind or a Flush Five
     for k, v in pairs(G.GAME.hands) do
-      if string.find(k, "Five of a Kind", nil, true) or string.find(k, "Flush Five", nil, true) then
+      if string.find(k, "Five of a Kind", nil, true) or string.find(k, "Flush Five", nil, true) or string.find(k, "Spectrum Five", nil, true) then
         if G.GAME.hands[k].played > 0 then
           return true
         end
