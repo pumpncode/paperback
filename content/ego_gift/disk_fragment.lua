@@ -24,11 +24,16 @@ PB_UTIL.EGO_Gift {
       end
       if no_planets then
         for i = 1, card.ability.cards, 1 do
-          local new_card = SMODS.create_card {
-            set = 'Planet',
-            edition = 'e_negative',
-          }
-          G.consumeables:emplace(new_card)
+          G.E_MANAGER:add_event(Event({
+            func = function()
+              SMODS.add_card {
+                set = 'Planet',
+                key_append = 'paperback_disk_fragment',
+                edition = 'e_negative'
+              }
+              return true
+            end
+          }))
         end
         return {
           colour = G.C.BLUE
