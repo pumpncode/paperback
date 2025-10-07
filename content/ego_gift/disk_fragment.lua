@@ -9,9 +9,11 @@ PB_UTIL.EGO_Gift {
   soul_pos = { x = 3, y = 4 },
 
   ego_loc_vars = function(self, info_queue, card)
-    return { vars = {
-      card.ability.cards
-    } }
+    return {
+      vars = {
+        card.ability.cards
+      }
+    }
   end,
 
   ego_gift_calc = function(self, card, context)
@@ -29,6 +31,7 @@ PB_UTIL.EGO_Gift {
             edition = 'e_negative',
           }
           G.consumeables:emplace(new_card)
+          PB_UTIL.set_sell_value(new_card, 1)
         end
         return {
           colour = G.C.BLUE
