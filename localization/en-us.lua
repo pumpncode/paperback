@@ -251,7 +251,7 @@ return {
       j_paperback_the_one_who_waits = {
         name = "The One Who Waits",
         text = {
-          "If played hand has a {C:attention}scoring{} {V:1}#1#,",
+          "When a {V:1}#1#{} is scored,",
           "{C:green}#2# in #3#{} chance this Joker gains {X:mult,C:white}X#4#{} Mult",
           "{C:inactive}(Currently {X:mult,C:white}X#8#{C:inactive} Mult)",
           "{C:green}#5# in #6#{} chance to create a {C:tarot}#7#{} Tarot",
@@ -1300,7 +1300,8 @@ return {
       j_paperback_wild_plus_four = {
         name = "Wild +4",
         text = {
-          "{C:attention}+#1#{} hand size"
+          "{C:attention}+#1#{} hand size",
+          "{C:blue}#2#{} Hand"
         }
       },
       j_paperback_quick_fix = {
