@@ -1088,8 +1088,8 @@ return {
       j_paperback_everything_must_go = {
         name = "Everything Must Go!",
         text = {
-          "Shops have {C:attention}#1#{} additional",
-          "{C:attention}Voucher{} for sale"
+          "Shops have {C:attention}+#1#{} additional",
+          "{C:attention}Voucher{} slot"
         }
       },
       j_paperback_card_sleeve = {
