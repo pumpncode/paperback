@@ -9,9 +9,11 @@ PB_UTIL.EGO_Gift {
   soul_pos = { x = 3, y = 4 },
 
   ego_loc_vars = function(self, info_queue, card)
-    return { vars = {
-      card.ability.cards
-    } }
+    return {
+      vars = {
+        card.ability.cards
+      }
+    }
   end,
 
   ego_gift_calc = function(self, card, context)
@@ -26,11 +28,12 @@ PB_UTIL.EGO_Gift {
         for i = 1, card.ability.cards, 1 do
           G.E_MANAGER:add_event(Event({
             func = function()
-              SMODS.add_card {
+              local new_card = SMODS.add_card {
                 set = 'Planet',
                 key_append = 'paperback_disk_fragment',
                 edition = 'e_negative'
               }
+              PB_UTIL.set_sell_value(new_card, 1)
               return true
             end
           }))

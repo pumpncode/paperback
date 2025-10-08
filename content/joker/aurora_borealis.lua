@@ -2,7 +2,7 @@ SMODS.Joker {
   key = 'aurora_borealis',
   config = {
     extra = {
-      a_xmult = 1,
+      a_xmult = 0.5,
     }
   },
   rarity = 2,

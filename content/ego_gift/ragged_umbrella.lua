@@ -19,7 +19,7 @@ PB_UTIL.EGO_Gift {
 
   ego_gift_calc = function(self, card, context)
     if context.final_scoring_step and hand_chips then
-      if not ((hand_chips * mult) + G.GAME.chips > G.GAME.blind.chips) then
+      if not ((SMODS.calculate_round_score()) + G.GAME.chips > G.GAME.blind.chips) then
         card.ability.chips = card.ability.chips + card.ability.chip_mod
         return {
           message = localize {
@@ -31,7 +31,7 @@ PB_UTIL.EGO_Gift {
         }
       end
     end
-    if context.joker_main and context.cardarea == G.consumeables then
+    if context.joker_main then
       return {
         chips = card.ability.chips
       }
