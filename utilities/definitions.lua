@@ -47,12 +47,14 @@ SMODS.current_mod.calculate = function(self, context)
   -- purple clip: retrigger card if it has a clip and is adjacent to a purple clip
   if context.repetition then
     local scoring = true
-    local index = 0
+    local index
 
-    for k, v in ipairs(context.cardarea.cards) do
-      if v == context.other_card then
-        index = k
-        break
+    if context.cardarea ~= 'unscored' then
+      for k, v in ipairs(context.cardarea.cards) do
+        if v == context.other_card then
+          index = k
+          break
+        end
       end
     end
 
