@@ -43,19 +43,17 @@ SMODS.Voucher {
   end
 }
 
-do
-  local add_to_deck_ref = Card.add_to_deck
-  function Card.add_to_deck(self, ...)
-    add_to_deck_ref(self, ...)
-    if PB_UTIL.is_ego_gift(self) then
-      SMODS.Centers['v_paperback_second_trumpet']:update_second_trumpet()
-    end
+local add_to_deck_ref = Card.add_to_deck
+function Card.add_to_deck(self, ...)
+  add_to_deck_ref(self, ...)
+  if PB_UTIL.is_ego_gift(self) then
+    SMODS.Centers['v_paperback_second_trumpet']:update_second_trumpet()
   end
-  local remove_from_deck_ref = Card.remove_from_deck
-  function Card.remove_from_deck(self, ...)
-    remove_from_deck_ref(self, ...)
-    if PB_UTIL.is_ego_gift(self) then
-      SMODS.Centers['v_paperback_second_trumpet']:update_second_trumpet()
-    end
+end
+local remove_from_deck_ref = Card.remove_from_deck
+function Card.remove_from_deck(self, ...)
+  remove_from_deck_ref(self, ...)
+  if PB_UTIL.is_ego_gift(self) then
+    SMODS.Centers['v_paperback_second_trumpet']:update_second_trumpet()
   end
 end

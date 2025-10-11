@@ -137,16 +137,9 @@ end
 -- Add new context that happens after destroying things
 local remove_ref = Card.remove
 function Card.remove(self)
-  -- Check that the card being removed is owned by the player and that it's not being sold
-  if not self.playing_card and self.added_to_deck and (
-      -- Ways that mods indicate the card was destroyed
-        self.getting_sliced or self.shattered or self.destroyed
-        -- Or: check if we aren't selling or using something. A mod
-        -- might destroy something and not set the flags above.
-        -- Unfortunately this might leak cases where a card is somehow destroyed
-        -- during selling/using another object
-        or (not (G.CONTROLLER.locks.selling_card or G.CONTROLLER.locks.use))
-      ) then
+  -- Check that the card being removed is owned by the player and that it's not being sold/used
+  if not self.playing_card and self.added_to_deck
+  and not (self.paperback_sell_flag or self.paperback_use_flag) then
     if self.ability.set == 'Joker' then
       SMODS.calculate_context({
         paperback = {
