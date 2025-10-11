@@ -982,7 +982,6 @@ if PB_UTIL.config.ego_gifts_enabled then
         set = 'paperback_ego_gift',
         area = G.pack_cards,
         skip_materialize = true,
-        -- used in args.source inside of in_pool
         key_append = 'paperback_extr'
       }
     end,
