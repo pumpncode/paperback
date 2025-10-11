@@ -2618,14 +2618,14 @@ return {
       v_paperback_second_trumpet = {
         name = "Second Trumpet",
         text = {
-          "Your first {C:paperback_ego_gift}EGO gift{}",
+          "Your first {C:paperback_ego_gift}E.G.O. Gift{}",
           "gives {C:attention}+#1#{} consumable slot"
         }
       },
       v_paperback_rabbit_protocol = {
         name = "Rabbit Protocol",
         text = {
-          "Your first {C:attention}sold{} {C:paperback_ego_gift}EGO gift{}",
+          "{C:attention}Selling{} an {C:paperback_ego_gift}E.G.O. Gift{}",
           "{C:attention}disables{} the current {C:attention}Boss Blind"
         },
         unlock = {

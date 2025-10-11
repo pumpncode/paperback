@@ -1,8 +1,5 @@
 SMODS.Voucher {
   key = 'rabbit_protocol',
-  config = {
-    triggered = false
-  },
   atlas = 'vouchers_atlas',
   pos = { x = 2, y = 1 },
   unlocked = false,
@@ -25,19 +22,15 @@ SMODS.Voucher {
 
   calculate = function(self, card, context)
     if context.selling_card and G.GAME.blind then
-      if PB_UTIL.is_ego_gift(context.card) and G.GAME.blind.boss and not card.ability.triggered then
+      if PB_UTIL.is_ego_gift(context.card) and G.GAME.blind.boss and not G.GAME.blind.disabled then
         return {
           focus = context.card,
           message = localize('ph_boss_disabled'),
           func = function()
             G.GAME.blind:disable()
-            card.ability.triggered = true
           end
         }
       end
-    end
-    if context.end_of_round and G.GAME.blind.boss then
-      card.ability.triggered = false
     end
   end
 }
