@@ -1165,7 +1165,7 @@ return {
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult for",
           "each unique scored {C:attention}rank{}.",
-          "Resets after defeating a {C:attention}Boss Blind",
+          "Resets after {C:attention}Boss Blind",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
           "{C:inactive}(Ranks played:{C:attention}#3#{C:inactive})",
         },
