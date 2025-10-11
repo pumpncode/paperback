@@ -14,11 +14,13 @@ SMODS.Joker {
     if not card.debuff then
       if context.repetition and context.cardarea == G.play then
         if context.other_card == context.scoring_hand[#context.scoring_hand] then
-          return {
-            message = localize('k_again_ex'),
-            repetitions = #context.scoring_hand - 1,
-            card = card
-          }
+          if #context.scoring_hand > 1 then
+            return {
+              message = localize('k_again_ex'),
+              repetitions = #context.scoring_hand - 1,
+              card = card
+            }
+          end
         end
       end
     end

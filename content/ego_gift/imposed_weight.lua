@@ -12,9 +12,11 @@ PB_UTIL.EGO_Gift {
     if context.repetition and context.scoring_hand then
       if context.other_card == context.scoring_hand[#context.scoring_hand] then
         local empty_slots = G.jokers.config.card_limit - #G.jokers.cards
-        return {
-          repetitions = card.ability.a_rep * math.max(0, empty_slots)
-        }
+        if empty_slots > 0 then
+          return {
+            repetitions = card.ability.a_rep * empty_slots
+          }
+        end
       end
     end
   end,
