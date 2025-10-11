@@ -369,12 +369,16 @@ end
 
 local pseudorandom_element_ref = pseudorandom_element
 function pseudorandom_element(_t, seed, args)
-  -- Remove EGO Gift consumable type when randomly selecting anything
+  -- Remove EGO Gift consumables/type when randomly selecting anything
   -- This is very much special cased and very slow,
   -- maybe there's a better and more efficient way.
   local keys_to_remove = {}
   for k, v in pairs(_t) do
-    if v == SMODS.ConsumableTypes['paperback_ego_gift'] then
+    if v == SMODS.ConsumableTypes['paperback_ego_gift']
+    or (
+      type(v) == 'table' and
+        (v.set == "paperback_ego_gift" or v.key == "c_paperback_golden_bough"))
+    then
       table.insert(keys_to_remove, k)
     end
   end
