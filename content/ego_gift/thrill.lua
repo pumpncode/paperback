@@ -44,7 +44,7 @@ PB_UTIL.EGO_Gift {
   end,
 
   ego_gift_calc = function(self, card, context)
-    if context.pre_discard and G.GAME.current_round.hands_played <= 0 then
+    if context.pre_discard and not context.hook and G.GAME.current_round.hands_played <= 0 then
       return {
         message = localize {
           type = 'variable',
