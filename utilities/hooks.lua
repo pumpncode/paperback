@@ -253,6 +253,7 @@ end
 local get_straight_ref = get_straight
 function get_straight(hand, min_length, skip, wrap)
   local orig_straights = get_straight_ref(hand, min_length, skip, wrap)
+  if wrap then return orig_straights end
   local result = {}
   for _, straight in ipairs(orig_straights) do
     local has_king_queen = false
