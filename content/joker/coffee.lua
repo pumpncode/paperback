@@ -34,6 +34,14 @@ SMODS.Joker {
     }
   end,
 
+  add_to_deck = function(self, card, from_debuff)
+    G.hand:change_size(card.ability.extra.hand_size)
+  end,
+
+  remove_from_deck = function(self, card, from_debuff)
+    G.hand:change_size(-card.ability.extra.hand_size)
+  end,
+
   calculate = function(self, card, context)
     if context.blueprint then return end
 
