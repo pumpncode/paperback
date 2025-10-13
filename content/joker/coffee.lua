@@ -59,9 +59,6 @@ SMODS.Joker {
       if PB_UTIL.chance(card, 'coffee') then
         PB_UTIL.destroy_joker(card)
 
-        -- Revert all the hand size increase when eaten
-        G.hand:change_size(-card.ability.extra.hand_size)
-
         return {
           message = localize('paperback_consumed_ex'),
           colour = G.C.MULT
