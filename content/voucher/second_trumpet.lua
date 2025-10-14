@@ -27,18 +27,20 @@ SMODS.Voucher {
   -- Utility function
   update_second_trumpet = function(self)
     local found_gift = 0
-    for _, v in ipairs(G.consumeables.cards) do
-      if PB_UTIL.is_ego_gift(v) then
-        found_gift = 1
-        break
+    if G.consumeables then
+      for _, v in ipairs(G.consumeables.cards) do
+        if PB_UTIL.is_ego_gift(v) then
+          found_gift = 1
+          break
+        end
       end
-    end
 
-    local slots = self.config.a_slot * found_gift * G.GAME.paperback.second_trumpets
-    local change = slots - G.GAME.paperback.second_trumpet_change
-    if change ~= 0 then
-      G.consumeables:change_size(change)
-      G.GAME.paperback.second_trumpet_change = slots
+      local slots = self.config.a_slot * found_gift * G.GAME.paperback.second_trumpets
+      local change = slots - G.GAME.paperback.second_trumpet_change
+      if change ~= 0 then
+        G.consumeables:change_size(change)
+        G.GAME.paperback.second_trumpet_change = slots
+      end
     end
   end
 }
