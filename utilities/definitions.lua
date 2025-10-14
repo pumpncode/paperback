@@ -24,16 +24,11 @@ SMODS.current_mod.calculate = function(self, context)
         local clip = PB_UTIL.has_paperclip(v)
         if clip == "paperback_green_clip" and not v.debuff then
           local clip_table = v.ability.paperback_green_clip
-          clip_table.mult = clip_table.mult + (clip_table.mult_plus * clips_played / 2)
-          if math.floor(clip_table.mult) ~= clip_table.mult then
-            if clip_table.odd == 1 then
-              clip_table.mult = math.floor(clip_table.mult) + 1
-              clip_table.odd = 0
-            else
-              clip_table.mult = math.floor(clip_table.mult)
-              clip_table.odd = 1
-            end
-          end
+          local clips_played_plus_odd = clip_table.odd + clips_played
+          -- Every 2 clips go into mult,
+          -- remaining odd clip goes to `odd`
+          clip_table.mult = clip_table.mult + clip_table.mult_plus * math.floor(clips_played_plus_odd / 2)
+          clip_table.odd = clips_played_plus_odd % 2
         end
       end
     end
