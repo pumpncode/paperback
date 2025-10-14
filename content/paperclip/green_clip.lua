@@ -6,7 +6,8 @@ PB_UTIL.Paperclip {
   config = {
     mult = 0,
     mult_plus = 1,
-    mult_minus = 5
+    mult_minus = 5,
+    odd = 0
   },
 
   loc_vars = function(self, info_queue, card)
