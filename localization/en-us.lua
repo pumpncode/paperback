@@ -748,8 +748,8 @@ return {
         name = "NoCopyrightJokers",
         text = {
           "{C:chips}+#1#{} Chips for every",
-          "{C:money}$1{} of {C:attention}sell value",
-          "of all other owned Jokers",
+          "{C:money}$1{} of {C:attention}sell value{}",
+          "your other Jokers have",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
