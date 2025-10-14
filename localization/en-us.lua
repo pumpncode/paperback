@@ -2901,43 +2901,39 @@ return {
       paperback_blue_clip = {
         name = "Blue Clip",
         text = {
-          "{X:chips,C:white}X#1#{} Chips when",
-          "{C:attention}scored{} for each",
-          "{C:attention}Clip{} in {C:attention}held hand",
+          "When {C:attention}scored{}, {X:chips,C:white}X#1#{} Chips",
+          "for each {C:attention}Clip{} held in hand",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
         }
       },
       paperback_red_clip = {
         name = "Red Clip",
         text = {
-          "{C:mult}+#1#{} Mult when",
-          "{C:attention}scored{} for each",
-          "{C:attention}Clip{} in {C:attention}held hand",
+          "When {C:attention}scored{}, {C:mult}+#1#{} Mult",
+          "for each {C:attention}Clip{} held in hand",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
       },
       paperback_orange_clip = {
         name = "Orange Clip",
         text = {
-          "Earn {C:money}$#1#{} when",
-          "{C:attention}scored{} for every",
-          "{C:attention}2 Clips{} in {C:attention}held hand",
+          "When {C:attention}scored{}, earn {C:money}$#1#{}",
+          "for every {C:attention}2 Clips{} held in hand",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         }
       },
       paperback_black_clip = {
         name = "Black Clip",
         text = {
-          "Retriggers when",
-          "{C:attention}scored{} if a {C:attention}Clip",
-          "is {C:attention}held in hand",
+          "Retriggers when {C:attention}scored{}",
+          "if a {C:attention}Clip{} is held in hand",
         }
       },
       paperback_yellow_clip = {
         name = "Yellow Clip",
         text = {
-          "If {C:attention}scored{} while a {C:attention}Clip",
-          "is {C:attention}held in hand{},",
+          "If {C:attention}scored{} while",
+          "a {C:attention}Clip{} is held in hand,",
           "{C:green}#1# in #2#{} chance for {C:red}+#3#{} Mult,",
           "{C:green}#4# in #5#{} chance for {X:mult,C:white}X#6#{} Mult",
           "and {C:green}#7# in #8#{} chance for {C:money}$#9#{}",
@@ -2946,8 +2942,8 @@ return {
       paperback_gold_clip = {
         name = "Gold Clip",
         text = {
-          "If {C:attention}held in hand{} at {C:attention}end of{}",
-          "{C:attention}round{}, earn {C:money}$#1#{} for each",
+          "If {C:attention}held in hand{} at {C:attention}end of round{},",
+          "earn {C:money}$#1#{} for each",
           "{C:attention}Clip{} scored this round",
           "{C:inactive}(Currently {C:money}$#2#{C:inactive}/$#3# max)"
         }
@@ -2955,37 +2951,35 @@ return {
       paperback_white_clip = {
         name = "White Clip",
         text = {
-          "If {C:attention}held in hand{} at {C:attention}end of",
-          "{C:attention}round{}, gains {C:chips}+#1#{} Chips for",
-          "each {C:attention}Clip{} scored this round",
+          "If {C:attention}held in hand{} at {C:attention}end of round{},",
+          "this Clip gains {C:chips}+#1#{} Chips",
+          "for each {C:attention}Clip{} scored this round",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
       paperback_pink_clip = {
         name = "Pink Clip",
         text = {
-          "{X:mult,C:white}X#1#{} Mult when {C:attention}held in",
-          "{C:attention}hand{}, increases by {X:mult,C:white}X#2#",
-          "for each scored {C:attention}Clip",
+          "When {C:attention}held in hand{}, {X:mult,C:white}X#1#{} Mult",
+          "Increases by {X:mult,C:white}X#2#{}",
+          "for each scored {C:attention}Clip{}",
           "{C:inactive}(Resets after played hand)"
         }
       },
       paperback_green_clip = {
         name = "Green Clip",
         text = {
-          "Gains {C:mult}+#2#{} Mult for every",
-          "{C:attention}2{} scoring {C:attention}Clips{} played,",
-          "{C:mult}#3#{} Mult for each",
-          "discarded {C:attention}Clip{}",
+          "This Clip gains {C:mult}+#2#{} Mult",
+          "for every {C:attention}2{} scoring {C:attention}Clips{} played,",
+          "{C:mult}#3#{} Mult for each discarded {C:attention}Clip{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
         }
       },
       paperback_purple_clip = {
         name = "Purple Clip",
         text = {
-          "Retrigger adjacent",
-          "cards if they",
-          "have a {C:attention}Clip{}"
+          "Retrigger {C:attention}adjacent{} cards",
+          "if they have a {C:attention}Clip{}"
         }
       },
       paperback_platinum_clip = {
@@ -2993,7 +2987,7 @@ return {
         text = {
           "When {C:attention}scored{}, force-trigger",
           "all non-{C:paperback_platinum}Platinum{} {C:attention}Clips{}",
-          "{C:attention}held in hand{}"
+          "held in hand"
         }
       },
       -- E.G.O. Gift Sins
