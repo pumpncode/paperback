@@ -39,4 +39,30 @@ SMODS.Joker {
       end
     end
   end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+          }
+        }
+      },
+      reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "unique_specials" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "card_modifiers_required" },
+        { text = ")" },
+      },
+      calc_function = function(card)
+        card.joker_display_values.unique_specials = PB_UTIL.special_cards_in_deck(true, false)
+        card.joker_display_values.x_mult =
+            card.joker_display_values.unique_specials >= card.ability.extra.card_modifiers_required
+            and card.ability.extra.xMult or 1
+      end
+    }
+  end,
 }

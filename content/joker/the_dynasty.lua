@@ -26,6 +26,7 @@ if PB_UTIL.should_load_spectrum_items() then
       }
     end,
 
+    -- Copied from JokerDisplay
     joker_display_def = function(JokerDisplay)
       return {
         text = {

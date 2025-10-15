@@ -3,7 +3,6 @@ SMODS.Joker {
   config = {
     extra = {
       xmult_mod = 0.1,
-      xmult_red = 0.1,
       xmult = 1,
     }
   },
@@ -32,7 +31,6 @@ SMODS.Joker {
           set = 'Enhanced',
           key = 'm_paperback_domino'
         },
-        card.ability.extra.xmult_red,
         card.ability.extra.xmult,
       }
     }
@@ -60,5 +58,18 @@ SMODS.Joker {
         x_mult = card.ability.extra.xmult,
       }
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+          }
+        }
+      },
+    }
   end,
 }

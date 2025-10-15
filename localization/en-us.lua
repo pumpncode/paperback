@@ -632,7 +632,7 @@ return {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "for every {C:attention}#2#{}",
           "in {C:attention}scoring hand{}",
-          "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)"
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
         }
       },
       j_paperback_sommelier = {
@@ -3366,6 +3366,10 @@ return {
       paperback_da_capo_Diamonds = "Movement 3",
       paperback_da_capo_Hearts = "Movement 4",
       paperback_da_capo_None = "Finale!",
+
+      -- Suit category
+      paperback_light = "Light",
+      paperback_dark = "Dark",
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",

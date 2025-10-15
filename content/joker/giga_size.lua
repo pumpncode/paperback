@@ -38,5 +38,21 @@ SMODS.Joker {
         message = localize('k_reset')
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+          }
+        }
+      },
+      calc_function = function(card)
+        card.joker_display_values.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
+      end
+    }
+  end,
 }

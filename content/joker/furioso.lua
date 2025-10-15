@@ -102,10 +102,19 @@ SMODS.Joker {
         }
       },
       calc_function = function(card)
-        local x_mult = card.ability.extra.x_mult
         local new_ranks = {}
-        -- TODO in-round scaling matters for this joker
-        card.joker_display_values.x_mult = x_mult + card.ability.extra.x_mult_mod * #new_ranks
+        local new_ranks_count = 0
+        local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+        for _, scoring_card in ipairs(scoring_hand) do
+          if not scoring_card.debuff then
+            local rank = not SMODS.has_no_rank(scoring_card) and scoring_card:get_id()
+            if rank and not card.ability.extra.ranks[rank] and not new_ranks[rank] then
+              new_ranks[rank] = true
+              new_ranks_count = new_ranks_count + 1
+            end
+          end
+        end
+        card.joker_display_values.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod * new_ranks_count
       end,
     }
   end,
