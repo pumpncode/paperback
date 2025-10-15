@@ -40,13 +40,13 @@ SMODS.Joker {
   joker_display_def = function(JokerDisplay)
     return {
       reminder_text = {
-        { text = '(',   colour = G.C.UI.TEXT_INACTIVE },
+        { text = '(', colour = G.C.UI.TEXT_INACTIVE },
         { text = 'Ace', colour = G.C.IMPORTANT },
-        { text = ', ',  colour = G.C.UI.TEXT_INACTIVE },
-        { text = '7',   colour = G.C.IMPORTANT },
-        { text = ', ',  colour = G.C.UI.TEXT_INACTIVE },
-        { text = '9',   colour = G.C.IMPORTANT },
-        { text = ')',   colour = G.C.UI.TEXT_INACTIVE },
+        { text = ', ', colour = G.C.UI.TEXT_INACTIVE },
+        { text = '7', colour = G.C.IMPORTANT },
+        { text = ', ', colour = G.C.UI.TEXT_INACTIVE },
+        { text = '9', colour = G.C.IMPORTANT },
+        { text = 'x2)', colour = G.C.UI.TEXT_INACTIVE },
       },
     }
   end,

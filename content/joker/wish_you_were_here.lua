@@ -45,5 +45,25 @@ SMODS.Joker {
         colour = G.C.MONEY
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+      reminder_text = {
+        { text = "(" },
+        { text = "$", colour = G.C.GOLD },
+        { ref_table = "card", ref_value = "sell_cost", colour = G.C.GOLD },
+        { text = ")" },
+      },
+      reminder_text_config = { scale = 0.35 },
+      calc_function = function(card)
+        card.joker_display_values.mult = card.ability.extra.mult_mod * card.sell_cost
+      end
+    }
+  end,
 }

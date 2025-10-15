@@ -30,7 +30,8 @@ SMODS.Joker {
   end,
 
   loc_vars = function(self, info_queue, card)
-    local numerator, denominator = PB_UTIL.chance_vars(card, nil, card.ability.extra.numerator, card.ability.extra.denominator)
+    local numerator, denominator = PB_UTIL.chance_vars(card, nil, card.ability.extra.numerator,
+      card.ability.extra.denominator)
 
     return {
       vars = {
@@ -65,5 +66,34 @@ SMODS.Joker {
         card = card
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.CHIPS },
+      extra = {
+        {
+          { text = '(' },
+          { ref_table = 'card.joker_display_values', ref_value = 'odds' },
+          { text = ')' },
+        },
+      },
+      extra_config = {
+        colour = G.C.GREEN,
+        scale = 0.3,
+      },
+      calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds',
+          vars = {
+            PB_UTIL.chance_vars(card, nil, card.ability.extra.numerator,
+              card.ability.extra.denominator)
+          }
+        }
+      end
+    }
+  end,
 }

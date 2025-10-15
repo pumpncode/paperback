@@ -57,7 +57,8 @@ SMODS.Joker {
           border_nodes = {
             { text = 'X' },
             { ref_table = 'card.ability.extra', ref_value = 'Xchip' }
-          }
+          },
+          border_colour = G.C.CHIPS
         }
       },
     }

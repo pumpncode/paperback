@@ -81,7 +81,20 @@ SMODS.Joker {
         colour = G.C.SUITS[G.GAME.paperback.da_capo_suit] or G.C.PAPERBACK_SOLEMN_WHITE
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+          }
+        }
+      }
+    }
+  end,
 }
 
 -- We hook into the vanilla function used to update the debuffed status of cards

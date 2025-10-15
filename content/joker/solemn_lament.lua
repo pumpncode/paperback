@@ -37,9 +37,9 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
       local suits = {
-        dark = 0, -- max 1
+        dark = 0,  -- max 1
         light = 0, -- max 1
-        wild = 0, -- can fill in for the others
+        wild = 0,  -- can fill in for the others
       }
 
       for _, v in ipairs(context.scoring_hand) do
@@ -80,5 +80,18 @@ SMODS.Joker {
         x_mult = card.ability.extra.x_mult,
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "x_mult", retrigger_type = "exp" }
+          }
+        }
+      },
+    }
+  end,
 }

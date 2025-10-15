@@ -30,7 +30,6 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.end_of_round and context.main_eval then
-
       local other_played_count = 0 -- calculate highest played count for other hands
       for k, v in pairs(G.GAME.hands) do
         if v.visible and k ~= G.GAME.last_hand_played then
@@ -59,5 +58,15 @@ SMODS.Joker {
         mult = card.ability.extra.mult
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+    }
+  end,
 }
