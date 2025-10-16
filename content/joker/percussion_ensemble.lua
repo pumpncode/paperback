@@ -33,5 +33,22 @@ SMODS.Joker {
         }
       end
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+          }
+        }
+      },
+      calc_function = function(card)
+        local unique_specials = PB_UTIL.special_cards_in_deck(true, false) or 0
+        card.joker_display_values.x_mult = card.ability.extra.xMult_mod * unique_specials + card.ability.extra.xMult
+      end
+    }
+  end,
 }
