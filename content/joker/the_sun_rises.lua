@@ -46,6 +46,40 @@ SMODS.Joker {
         chips = chips
       }
     end
-  end
+  end,
 
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "=" },
+        { ref_table = "card.ability.extra", ref_value = "set_base_chips" },
+        { text = " +" },
+        { ref_table = "card.joker_display_values", ref_value = "chips" }
+      },
+      text_config = { colour = G.C.CHIPS },
+      reminder_text = {
+        { text = "(" },
+        {
+          text = localize('paperback_light'),
+          colour = lighten(G.C.PAPERBACK_LIGHT_SUIT, 0.35)
+        },
+        { text = ")" },
+      },
+      calc_function = function(card)
+        local count = 0
+        local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+        for _, scoring_card in pairs(scoring_hand) do
+          if PB_UTIL.is_suit(scoring_card, 'light') then
+            count = count +
+                JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+          end
+        end
+        count = count * JokerDisplay.calculate_joker_triggers(card)
+
+        card.joker_display_values.chips =
+            count * card.ability.extra.chips
+            + count * (count - 1) / 2 * card.ability.extra.chip_inc_per_light
+      end
+    }
+  end,
 }

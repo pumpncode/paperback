@@ -24,5 +24,19 @@ SMODS.Joker {
         end
       end
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        if held_in_hand then return 0 end
+        if playing_card == JokerDisplay.calculate_rightmost_card(scoring_hand) then
+          if #scoring_hand > 1 then
+            return (#scoring_hand - 1) * JokerDisplay.calculate_joker_triggers(joker_card)
+          end
+        end
+        return 0
+      end
+    }
+  end,
 }

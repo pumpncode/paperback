@@ -53,5 +53,38 @@ SMODS.Joker {
         end
       end
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+      },
+      text_config = { colour = G.C.SECONDARY_SET.Planet },
+      extra = {
+        {
+          { text = "(" },
+          { ref_table = "card.joker_display_values", ref_value = "odds" },
+          { text = ")" },
+        }
+      },
+      extra_config = { colour = G.C.GREEN, scale = 0.3 },
+      calc_function = function(card)
+        local count = 0
+        -- Taken from JokerDisplay's Shoot The Moon
+        for _, playing_card in ipairs(G.hand.cards) do
+          if not playing_card.highlighted then
+            if playing_card.facing and not (playing_card.facing == 'back')
+            and not playing_card.debuff
+            and PB_UTIL.is_rank(playing_card, card.ability.extra.rank) then
+              count = count + JokerDisplay.calculate_card_triggers(playing_card, nil, true)
+            end
+          end
+        end
+        card.joker_display_values.count = count
+        card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { PB_UTIL.chance_vars(card) } }
+      end
+    }
+  end,
 }

@@ -49,5 +49,37 @@ SMODS.Joker {
         message = localize('k_reset')
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+      reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+      },
+      calc_function = function(card)
+        local count = 0
+        local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+        for _, scoring_card in pairs(scoring_hand) do
+          if PB_UTIL.is_rank(scoring_card, card.ability.extra.rank) then
+            count = count +
+                JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+          end
+        end
+        count = count * JokerDisplay.calculate_joker_triggers(card)
+
+        card.joker_display_values.mult =
+            count * card.ability.extra.mult
+            + count * (count - 1) / 2 * card.ability.extra.mult_inc
+
+        card.joker_display_values.localized_text = localize(card.ability.extra.rank, 'ranks')
+      end
+    }
+  end,
 }

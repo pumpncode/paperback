@@ -60,5 +60,44 @@ SMODS.Joker {
         end
       end
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+$" },
+        { ref_table = "card.joker_display_values", ref_value = "dollars", retrigger_type = "mult" },
+        { text = "?" },
+      },
+      text_config = { colour = G.C.GOLD },
+      calc_function = function(card)
+        local dollars = 0
+        local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+        for _, scoring_card in ipairs(scoring_hand) do
+          local suit_matches = 0
+          for _, suit in ipairs(PB_UTIL.base_suits) do
+            if scoring_card:is_suit(suit) then
+              suit_matches = suit_matches + 1
+            end
+          end
+          local rank_matches = 0
+          for _, rank in ipairs(PB_UTIL.base_ranks) do
+            if PB_UTIL.is_rank(scoring_card, rank) and not scoring_card.debuff then
+              rank_matches = rank_matches + 1
+            end
+          end
+          local scoring_card_dollars =
+              card.ability.extra.money_for_suit * suit_matches / 4 +
+              card.ability.extra.money_for_rank * rank_matches / 13 +
+              (card.ability.extra.money_for_both
+                - card.ability.extra.money_for_suit
+                - card.ability.extra.money_for_rank
+              ) * suit_matches / 4 * rank_matches / 13
+          dollars = dollars + scoring_card_dollars *
+              JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+        end
+        card.joker_display_values.dollars = dollars
+      end
+    }
+  end,
 }

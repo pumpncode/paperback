@@ -29,7 +29,7 @@ SMODS.Joker {
     return {
       vars = {
         card.ability.extra.a_mult,
-        SMODS.signed(card.ability.extra.a_mult * worker_tally)
+        PB_UTIL.force_signed(card.ability.extra.a_mult * worker_tally)
       }
     }
   end,
@@ -48,5 +48,25 @@ SMODS.Joker {
         card = card
       }
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+      calc_function = function(card)
+        local worker_tally = 0
+        if G.playing_cards then
+          for k, v in pairs(G.playing_cards) do
+            -- Checks both in case a card counts as both a King and a Jack
+            if PB_UTIL.is_rank(v, 11) then worker_tally = worker_tally + 1 end
+            if PB_UTIL.is_rank(v, 13) then worker_tally = worker_tally - 1 end
+          end
+        end
+        card.joker_display_values.mult = PB_UTIL.force_signed(card.ability.extra.a_mult * worker_tally)
+      end
+    }
   end,
 }

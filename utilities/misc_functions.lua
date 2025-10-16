@@ -799,7 +799,7 @@ end
 --- - Debuffed cards with a base suit of non-X return false,
 ---   if bypass_debuff and flush_calc are both false
 ---   (debuffed cards are non-scoring)
---- 
+---
 --- These edge cases are also why this should generally be used for negative effects only.
 ---
 ---@param card table
@@ -891,7 +891,7 @@ end
 function PB_UTIL.calculate_balance_frac(chips, mult, frac)
   if not frac then frac = 1 end
   local tot = (chips + mult) * frac
-  return math.floor(chips * (1-frac) + tot/2), math.floor(mult * (1-frac) + tot/2)
+  return math.floor(chips * (1 - frac) + tot / 2), math.floor(mult * (1 - frac) + tot / 2)
 end
 
 --- Balances chips and shows the cosmetic effects just like Plasma deck
@@ -922,7 +922,7 @@ function PB_UTIL.apply_plasma_effect(card, only_visual, frac)
       if card then
         SMODS.calculate_effect({
           message = localize('k_balanced'),
-          colour  = { 0.8, 0.45, 0.85, 1 },
+          colour = { 0.8, 0.45, 0.85, 1 },
           instant = true
         }, card)
       end
@@ -959,6 +959,14 @@ function PB_UTIL.apply_plasma_effect(card, only_visual, frac)
   }))
 
   delay(0.6)
+end
+
+--- Convert number to string, ensuring either `+` or `-` is put in front
+--- (SMODS.signed will leave 0 as is)
+--- @param val number
+--- @return string
+function PB_UTIL.force_signed(val)
+  return (val >= 0 and '+' or '') .. val
 end
 
 --- Logic for the Panorama Jokers

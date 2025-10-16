@@ -42,7 +42,7 @@ if PB_UTIL.config.suits_enabled then
             colour = G.C.RED,
             card = card,
           }
-        -- Give chips if hand contains a Spectrum
+          -- Give chips if hand contains a Spectrum
         elseif PB_UTIL.get_unique_suits(context.full_hand, nil, true) >= 5 then
           card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
 
@@ -60,7 +60,17 @@ if PB_UTIL.config.suits_enabled then
           chips = card.ability.extra.chips
         }
       end
-    end
+    end,
+
+    joker_display_def = function(JokerDisplay)
+      return {
+        text = {
+          { text = "+" },
+          { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
+        },
+        text_config = { colour = G.C.CHIPS },
+      }
+    end,
   }
 else
   SMODS.Joker {
@@ -116,6 +126,16 @@ else
           mult = card.ability.extra.mult
         }
       end
-    end
+    end,
+
+    joker_display_def = function(JokerDisplay)
+      return {
+        text = {
+          { text = "+" },
+          { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+        },
+        text_config = { colour = G.C.MULT },
+      }
+    end,
   }
 end

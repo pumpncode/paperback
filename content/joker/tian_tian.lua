@@ -30,7 +30,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
--- Gains x_mult when playing cards are destroyed. Each card destroyed provides the specified xmult_mod
+    -- Gains x_mult when playing cards are destroyed. Each card destroyed provides the specified xmult_mod
     if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
       card.ability.extra.x_mult = card.ability.extra.x_mult + (#context.removed * card.ability.extra.a_xmult)
 
@@ -44,5 +44,18 @@ SMODS.Joker {
         x_mult = card.ability.extra.x_mult
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "x_mult", retrigger_type = "exp" }
+          }
+        }
+      },
+    }
+  end,
 }

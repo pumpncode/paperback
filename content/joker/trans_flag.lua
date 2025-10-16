@@ -30,5 +30,18 @@ SMODS.Joker {
         mult = G.GAME.current_round.discards_left * card.ability.extra.a_mult
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+      calc_function = function(card)
+        card.joker_display_values.mult = G.GAME.current_round.discards_left * card.ability.extra.a_mult
+      end
+    }
+  end,
 }
