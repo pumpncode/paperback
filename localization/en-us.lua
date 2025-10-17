@@ -1479,9 +1479,8 @@ return {
         name = "The Sun Rises",
         text = {
           "Set base Chips to {C:chips}#1#{}",
-          "Scored {C:paperback_light_suit}light suits{} give {C:chips}+#3#{} Chip",
-          "for each {C:paperback_light_suit}light suit{} you've scored",
-          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+          "Scored {C:paperback_light_suit}light suits{} give {C:chips}+#2#{} Chips",
+          "and increase Chips given by {C:chips}+#3#{}",
         },
       },
       j_paperback_jestrica = {
