@@ -1631,6 +1631,20 @@ return {
           "{C:inactive}(Will give {X:mult,C:white}X#1#{C:inactive} Mult)"
         },
       },
+      j_paperback_photocopy = {
+        name = "Photocopy",
+        text = {
+          "Copies the ability",
+          "of rightmost {C:attention}Joker{}"
+        },
+      },
+      j_paperback_master_plan = {
+        name = "Master Plan",
+        text = {
+          "Copies ability of",
+          "{C:attention}Joker{} to the left"
+        },
+      },
       j_paperback_popsicle_stick = {
         name = "Popsicle Stick",
         text = {
