@@ -2420,9 +2420,9 @@ return {
       c_paperback_queen_of_pentacles = {
         name = "Queen of Pentacles",
         text = {
-          "Select up to {C:attention}#1#{} cards.",
-          "Copy the {C:attention}leftmost{} card's",
-          "{C:attention}rank{} onto the others",
+          "Select {C:attention}#1#{} cards.",
+          "Copy the {C:attention}left{} card's",
+          "{C:attention}rank{} onto the {C:attention}right{} card",
           "{C:inactive}(Drag to rearrange)"
         }
       },
