@@ -2282,8 +2282,9 @@ return {
       c_paperback_nine_of_swords = {
         name = "Nine of Swords",
         text = {
-          "Destroy selected Joker",
-          "It {C:red}cannot{} appear again this run"
+          "Destroy selected Joker and earn {C:money}$#2#{}",
+          "It {C:red}cannot{} appear again this run",
+          "{C:inactive}(Can destroy {C:paperback_eternal}Eternals{C:inactive})"
         }
       },
       c_paperback_ten_of_swords = {
