@@ -26,6 +26,14 @@ PB_UTIL.MinorArcana {
 
   use = function(self, card, area)
     local joker = G.jokers.highlighted[1]
+    if joker.config.center.paperback and joker.config.center.paperback.indestructible then
+      -- Same as two of pentacles, bit of a hack
+      G.P_CENTERS[card.config.center.key].shatters = true
+      SMODS.destroy_cards(card)
+      G.P_CENTERS[card.config.center.key].shatters = false
+      return
+    end
+
     G.GAME.paperback.banned_run_keys[joker.config.center_key] = true
     PB_UTIL.destroy_joker(joker, function()
       card:juice_up()

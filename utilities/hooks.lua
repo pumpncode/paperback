@@ -331,6 +331,7 @@ function Card.set_eternal(self, eternal)
   end
 end
 
+-- Keep track of G.GAME.paperback.this_shop_dollars_spent
 -- Redoing this a bit more accurately than Bunco
 local inc_career_stat_ref = inc_career_stat
 function inc_career_stat(stat, mod)
@@ -382,4 +383,14 @@ function pseudorandom_element(_t, seed, args)
     _t[remove_key] = nil
   end
   return pseudorandom_element_ref(_t, seed, args)
+end
+
+
+-- WhiteNight is indestructible
+-- Currently doesn't do much because WhiteNight always
+-- gets the Eternal sticker
+local is_eternal_ref = SMODS.is_eternal
+function SMODS.is_eternal(card, ...)
+  return is_eternal_ref(card, ...)
+      or card.config.center.paperback and card.config.center.paperback.indestructible
 end
