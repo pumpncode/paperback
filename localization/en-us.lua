@@ -1327,10 +1327,9 @@ return {
         name = "Surfer",
         text = {
           "This Joker gains {C:chips}+#1#{} Chips",
-          "for every {C:attention}#3#{} held in hand",
-          "at {C:attention}end of round{}, and {C:chips}+#2#",
-          "Chips for every {C:attention}#3#{} scored",
-          "{C:inactive}(Currently {C:chips}+#4#{C:inactive} chips)"
+          "for every {C:attention}#2#{} held in hand",
+          "at {C:attention}end of round{}",
+          "{C:inactive}(Currently {C:chips}+#3#{C:inactive} chips)"
         }
       },
       j_paperback_blue_bonnets = {
