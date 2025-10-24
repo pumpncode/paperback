@@ -16,7 +16,7 @@ SMODS.Joker {
         chips = card.ability.extra.chips
       }
     end
-    if context.final_scoring_step and card.ability.extra.chips > 0 then
+    if context.after and card.ability.extra.chips > 0 and not context.blueprint then
       card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_rem
       return {
         message = localize('paperback_downgrade_ex'),
