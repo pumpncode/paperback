@@ -116,7 +116,7 @@ end
 
 -- Sleeved cards can't be debuffed
 SMODS.current_mod.set_debuff = function(card)
-  if card.ability and card.ability.name == "m_paperback_sleeved" then
+  if SMODS.has_enhancement(card, "m_paperback_sleeved") then
     return "prevent_debuff"
   end
 end
