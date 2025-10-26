@@ -142,6 +142,23 @@ SMODS.current_mod.reset_game_globals = function(run_start)
     end
   end
   if run_start then
+    -- Set last_scored_suit to a sensible value.
+    -- Mostly matters if Jester of Nihil is obtained before the first blind
+    -- on a deck with different suit distribution, like Checkered + Dreamer Deck/Sleeve
+    -- Might still fail if Joker is created before the run even begins?
+    G.E_MANAGER:add_event(Event({
+      func = function()
+        local cards = {}
+        for k, v in ipairs(G.playing_cards) do
+          if not SMODS.has_no_suit(v) then
+            cards[#cards + 1] = v
+          end
+        end
+        local selected = pseudorandom_element(cards, pseudoseed('paperback_last_scored_suit'))
+        if selected then G.GAME.paperback.last_scored_suit = selected.base.suit end
+        return true
+      end
+    }))
     G.GAME.paperback.banned_run_keys = {}
   end
 end
