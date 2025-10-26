@@ -14,7 +14,7 @@ PB_UTIL.EGO_Gift {
   ego_loc_vars = function(self, info_queue, card)
     return { vars = {
       card.ability.threshold,
-      card.ability.discarded,
+      card.ability.threshold - card.ability.discarded,
     } }
   end,
   ego_gift_calc = function(self, card, context)
