@@ -18,7 +18,8 @@ PB_UTIL.EGO_Gift {
     } }
   end,
   ego_gift_calc = function(self, card, context)
-    if context.pre_discard and not context.blueprint then
+    if context.pre_discard and not context.blueprint
+    and not (card.ability.discarded >= card.ability.threshold) then
       card.ability.discarded = math.min(card.ability.threshold, card.ability.discarded + #context.full_hand)
       if card.ability.discarded >= card.ability.threshold then
         return {
