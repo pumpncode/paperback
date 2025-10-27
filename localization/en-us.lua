@@ -1867,7 +1867,7 @@ return {
         name = "Eyelander",
         text = {
           "Scored {C:attention}face{} cards are destroyed.",
-          "After scoring {C:attention}#1# face{} cards",
+          "After scoring {C:attention}#1# face{} cards,",
           "{C:attention}selling{} this Joker adds {C:dark_edition}Negative{}",
           "to a {C:attention}random{} Joker",
           "{C:inactive}(Currently {C:attention}#2#{C:inactive} Heads)"
