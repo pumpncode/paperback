@@ -16,7 +16,7 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
-  set_ability = function(self, card, initial, delay_sprites)
+  update = function(self, card, dt)
     PB_UTIL.update_solar_system(card)
   end,
 
