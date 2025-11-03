@@ -112,6 +112,15 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
   end
+
+  -- Keep Solar System global variable updated
+  if context.paperback and context.paperback.level_up then
+    PB_UTIL.update_solar_system(card)
+  end
+  -- Keep Reference Card global variable updated
+  if context.before then
+    PB_UTIL.calculate_highest_shared_played(card)
+  end
 end
 
 -- Sleeved cards can't be debuffed

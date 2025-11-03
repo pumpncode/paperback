@@ -12,6 +12,9 @@ function Game.init_game_object(self)
   end
 
   ret.paperback = {
+    solar_system_ct = 1,
+    reference_card_ct = 0,
+
     round = {
       scored_clips = 0
     },
