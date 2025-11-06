@@ -2,6 +2,22 @@
 version = "1.0.0"
 priority = 0
 
+# Apostles ignore `wrap` in get_straight
+[[patches]]
+[patches.regex]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = '(?<wrap>wrap).*rank\.straight_edge.*then'
+position = "at"
+root_capture = "$wrap"
+payload = '''(wrap and key ~= 'paperback_Apostle')'''
+[[patches]]
+[patches.regex]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = '(?<wrap>wrap).*SMODS\.Ranks\[v\]\.straight_edge.*then'
+position = "at"
+root_capture = "$wrap"
+payload = '''(wrap and v ~= 'paperback_Apostle')'''
+
 # next_ranks() doesn't allow K-A-2 or Apostle-A-Apostle
 # Paperback makes Ace have straight_edge = false, this fixes the side effects.
 ## Define helper to check
