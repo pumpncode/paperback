@@ -1,6 +1,6 @@
 if PB_UTIL.config.minor_arcana_enabled then
   PB_UTIL.EGO_Gift {
-    key = 'pendant_of_nostalgia_minor_arcana',
+    key = 'pendant_of_nostalgia',
     config = {
       sin = 'gloom',
     },
@@ -8,6 +8,14 @@ if PB_UTIL.config.minor_arcana_enabled then
     pos = { x = 4, y = 0 },
     soul_pos = { x = 4, y = 3 },
 
+    ego_loc_vars = function(self, info_queue, card)
+      return {
+        vars = {
+          card.ability.a_rep
+        },
+        key = "c_paperback_pendant_of_nostalgia_minor_arcana"
+      }
+    end,
 
     ego_gift_calc = function(self, card, context)
       if context.remove_playing_cards then
@@ -47,6 +55,14 @@ else
     pos = { x = 4, y = 0 },
     soul_pos = { x = 4, y = 3 },
 
+    ego_loc_vars = function(self, info_queue, card)
+      return {
+        vars = {
+          card.ability.a_rep
+        },
+        key = "c_paperback_pendant_of_nostalgia"
+      }
+    end,
 
     ego_gift_calc = function(self, card, context)
       if context.remove_playing_cards then
