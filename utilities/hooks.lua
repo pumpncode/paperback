@@ -259,11 +259,10 @@ function G.FUNCS.get_poker_hand_info(_cards)
     local has_apostle = false
     local all_top = true
     for i = 1, #scoring_hand do
-      local rank = not SMODS.has_no_rank(scoring_hand[i]) and SMODS.Ranks[scoring_hand[i].base.value]
-      if rank.key == 'paperback_Apostle' then has_apostle = true end
-      if rank.key ~= 'Ace' and rank.key ~= 'paperback_Apostle' and not rank.face then all_top = false end
+      local rank = SMODS.Ranks[scoring_hand[i].base.value]
+      has_apostle = has_apostle or rank.key == 'paperback_Apostle'
+      all_top = all_top and (rank.key == 'paperback_Apostle' or rank.key == 'Ace' or rank.face)
     end
-
     if has_apostle and all_top then
       disp_text = "paperback_Straight Flush (Rapture)"
       loc_disp_text = localize(disp_text, "poker_hands")
@@ -358,7 +357,7 @@ function pseudorandom_element(_t, seed, args)
     if v == SMODS.ConsumableTypes['paperback_ego_gift']
     or (
       type(v) == 'table' and
-        (v.set == "paperback_ego_gift" or v.key == "c_paperback_golden_bough"))
+      (v.set == "paperback_ego_gift" or v.key == "c_paperback_golden_bough"))
     then
       table.insert(keys_to_remove, k)
     end
@@ -368,7 +367,6 @@ function pseudorandom_element(_t, seed, args)
   end
   return pseudorandom_element_ref(_t, seed, args)
 end
-
 
 -- WhiteNight is indestructible
 -- Currently doesn't do much because WhiteNight always
