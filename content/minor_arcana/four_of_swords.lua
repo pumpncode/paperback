@@ -17,16 +17,10 @@ PB_UTIL.MinorArcana {
   use = function(self, card, area)
     local pool = {}
 
-    for _, v in pairs(SMODS.Ranks) do
+    for _, rank_key in ipairs(SMODS.Rank.obj_buffer) do
+      local v = SMODS.Ranks[rank_key]
       if v.face then
         pool[#pool + 1] = v
-      end
-    end
-
-    for _, playing_card in ipairs(G.playing_cards) do
-      if PB_UTIL.is_rank(playing_card, 'paperback_Apostle') then
-        table.insert(pool, SMODS.Ranks.paperback_Apostle)
-        break
       end
     end
 
