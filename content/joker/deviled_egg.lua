@@ -46,7 +46,7 @@ SMODS.Joker {
     if context.end_of_round and context.cardarea == G.jokers then
       card.ability.extra.enabled = true
       card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
-      if card.ability.extra.rounds_left == 0 then
+      if card.ability.extra.rounds_left <= 0 then
         PB_UTIL.destroy_joker(card)
         return {
           message = localize('k_eaten_ex'),
