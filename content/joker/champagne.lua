@@ -3,7 +3,6 @@ SMODS.Joker {
   config = {
     extra = {
       money = 1,
-      a_money = 1,
       rounds_left = 3
     }
   },
@@ -31,8 +30,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play and G.GAME.blind.boss then
       return {
-        dollars = card.ability.extra.money *
-            (context.other_card.seal and (card.ability.extra.a_money * 2) or card.ability.extra.a_money),
+        dollars = context.other_card.seal and (card.ability.extra.money * 2) or card.ability.extra.money,
         card = card
       }
     end
@@ -61,15 +59,15 @@ SMODS.Joker {
   joker_display_def = function(JokerDisplay)
     return {
       text = {
-        { text = '+$',                             colour = G.C.MONEY },
+        { text = '+$', colour = G.C.MONEY },
         { ref_table = 'card.joker_display_values', ref_value = 'money', colour = G.C.MONEY },
       },
 
       extra = {
         {
-          { text = '(',                        colour = G.C.UI.TEXT_INACTIVE },
-          { ref_table = 'card.ability.extra.', ref_value = 'rounds_left',    colour = G.C.IMPORTANT },
-          { text = ')',                        colour = G.C.UI.TEXT_INACTIVE },
+          { text = '(', colour = G.C.UI.TEXT_INACTIVE },
+          { ref_table = 'card.ability.extra.', ref_value = 'rounds_left', colour = G.C.IMPORTANT },
+          { text = ')', colour = G.C.UI.TEXT_INACTIVE },
         }
       },
       extra_config = {
@@ -89,7 +87,7 @@ SMODS.Joker {
             local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
 
             for i = 1, triggers do
-              money = money + (v.seal and (card.ability.extra.a_money * 2) or card.ability.extra.a_money)
+              money = money + (v.seal and (card.ability.extra.money * 2) or card.ability.extra.money)
             end
           end
         end
