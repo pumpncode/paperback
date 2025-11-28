@@ -11,8 +11,7 @@ version = ""
 [patches.regex]
 target = "functions/state_events.lua"
 pattern = '''
-[\t ]*G\.FUNCS\.draw_from_hand_to_discard\(\)(.*\n){0,50}
-.*G\.GAME\.blind:get_type\(\) == 'Boss'()'''
+[\t ]*G\.FUNCS\.draw_from_hand_to_discard\(\)(.*\n){0,50}.*G\.GAME\.blind:get_type\(\) == 'Boss'()'''
 position = "after"
 payload = ''' and not G.GAME.paperback.vacation_juice_trigger'''
 
