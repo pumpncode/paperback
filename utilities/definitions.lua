@@ -1143,6 +1143,10 @@ if PB_UTIL.config.ego_gifts_enabled then
     -- This card is always selected, not used. It goes to the 'consumeables' area
     select_card = "consumeables",
 
+    in_pool = function(self, args)
+      return not PB_UTIL.create_card_in_consumable_area
+    end,
+
     loc_vars = function(self, info_queue, card)
       info_queue[#info_queue + 1] = PB_UTIL.sin_tooltip(card.ability.sin)
       local loc = {}
