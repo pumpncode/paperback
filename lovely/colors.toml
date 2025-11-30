@@ -10,6 +10,7 @@ pattern = "RENTAL = HEX('b18f43'),"
 position = "after"
 match_indent = true
 payload = '''
+PAPERBACK_MAIN_COLOR = HEX('8B61AD'),
 PAPERBACK_LIGHT_SUIT = HEX('F06841'),
 PAPERBACK_DARK_SUIT = HEX('3C4A4E'),
 PAPERBACK_STARS_LC = HEX('BFBFBF'),

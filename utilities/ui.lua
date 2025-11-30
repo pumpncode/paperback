@@ -642,3 +642,122 @@ function PB_UTIL.create_select_card_ui(card, area)
     }
   }
 end
+
+-- Extra button
+SMODS.DrawStep {
+  key = 'extra_button',
+  prefix_config = { key = true },
+  order = -29,
+  func = function(card, layer)
+    if card.children.paperback_extra_button then
+      card.children.paperback_extra_button:draw()
+    end
+  end
+}
+
+SMODS.draw_ignore_keys.paperback_extra_button = true
+
+local highlight_ref = Card.highlight
+function Card.highlight(self, is_higlighted)
+  if self.config.center.paperback and self.config.center.paperback.extra_button then
+    local should_show = is_higlighted
+
+    if self.config.center.paperback.extra_button.should_show then
+      should_show = should_show and self.config.center.paperback.extra_button:should_show(self)
+    end
+
+    if should_show then
+      self.children.paperback_extra_button = self.config.center:paperback_create_extra_button(self)
+    elseif self.children.paperback_extra_button then
+      self.children.paperback_extra_button:remove()
+      self.children.paperback_extra_button = nil
+    end
+  end
+
+  return highlight_ref(self, is_higlighted)
+end
+
+---@param center { key: string }|table
+---@param button_data table
+function PB_UTIL.setup_extra_button(center, button_data)
+  center.paperback_create_extra_button = function(self, card)
+    local click_func = self.key .. "_click"
+    local can_use_func = self.key .. "_can_use"
+    local text = { string = localize(button_data.text) }
+
+    G.FUNCS[click_func] = function(e)
+      local c = e.config.ref_table
+      if c and button_data.click and type(button_data.click) == "function" then
+        button_data:click(c)
+      end
+      text.string = localize(button_data.text)
+    end
+
+    G.FUNCS[can_use_func] = function(e)
+      local c = e.config.ref_table
+      if c and button_data.can_use and type(button_data.can_use) == "function" then
+        return button_data:can_use(c)
+      end
+      return true
+    end
+
+    return UIBox {
+      definition = {
+        n = G.UIT.ROOT,
+        config = {
+          colour = G.C.CLEAR
+        },
+        nodes = {
+          {
+            n = G.UIT.C,
+            config = {
+              align = 'cm',
+              padding = 0.15,
+              r = 0.08,
+              hover = true,
+              shadow = true,
+              colour = button_data.colour or G.C.PURPLE,
+              button = click_func,
+              func = can_use_func,
+              ref_table = card,
+            },
+            nodes = {
+              {
+                n = G.UIT.R,
+                nodes = {
+                  {
+                    n = G.UIT.O,
+                    config = {
+                      object = DynaText {
+                        string = { {
+                          ref_table = text,
+                          ref_value = 'string'
+                        } },
+                        scale = 0.4,
+                        shadow = true,
+                        colours = { button_data.text_colour or G.C.UI.TEXT_LIGHT }
+                      }
+                    }
+                  },
+                  {
+                    n = G.UIT.B,
+                    config = {
+                      w = 0.1,
+                      h = 0.4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      config = {
+        align = 'cl',
+        major = card,
+        parent = card,
+        offset = { x = 0.2, y = 0 }
+      }
+    }
+  end
+end

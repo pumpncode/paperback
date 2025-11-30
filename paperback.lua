@@ -28,10 +28,10 @@ if PB_UTIL.config.minor_arcana_enabled then
 
   -- Register the sprite for undiscovered Minor Arcana
   SMODS.UndiscoveredSprite {
-    key           = 'minor_arcana',
+    key = 'minor_arcana',
     prefix_config = { key = true },
-    atlas         = "minor_arcana_atlas",
-    pos           = { x = 0, y = 8 }
+    atlas = "minor_arcana_atlas",
+    pos = { x = 0, y = 8 }
   }
 
   -- Register Minor Arcana cards
@@ -71,11 +71,11 @@ if PB_UTIL.config.ego_gifts_enabled then
 
   -- Register the sprite for undiscovered E.G.O Gifts
   SMODS.UndiscoveredSprite {
-    key           = 'ego_gift',
+    key = 'ego_gift',
     prefix_config = { key = true },
-    atlas         = "ego_gift_atlas",
-    pos           = { x = 7, y = 1 },
-    no_overlay    = true,
+    atlas = "ego_gift_atlas",
+    pos = { x = 7, y = 1 },
+    no_overlay = true,
   }
 
   -- Register E.G.O Gift cards
@@ -244,6 +244,11 @@ for _, v in ipairs(objects) do
       end
 
       return ret, dupes
+    end
+
+    -- Add an extra button if it exists in the config
+    if config.extra_button then
+      PB_UTIL.setup_extra_button(obj, config.extra_button)
     end
   end
 end

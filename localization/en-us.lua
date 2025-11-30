@@ -3332,6 +3332,8 @@ return {
       paperback_ui_enable_spectrals = "Enable Spectral Cards",
       paperback_ui_plague_doctor_quotes = "Plague Doctor Quotes",
       paperback_ui_select = "Select",
+      paperback_ui_info = "(i)",
+      paperback_ui_remaining_hands = "Remaining Hands",
 
       -- Plague Doctor's quotes
       paperback_plague_quote_1_1 = 'On this rock I will build my church, and the',
