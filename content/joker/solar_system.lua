@@ -14,15 +14,31 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
-  soul_pos = nil,
+  paperback = {
+    extra_button = {
+      text = 'paperback_ui_info',
+      colour = G.C.PAPERBACK_MAIN_COLOR,
+      click = function(self, card)
+        card.paperback_show_hands = not card.paperback_show_hands
+        self.text = card.paperback_show_hands and 'paperback_ui_info_expanded' or 'paperback_ui_info'
+      end,
+      should_show = function(self, card)
+        return card.area == G.jokers
+      end
+    }
+  },
 
   loc_vars = function(self, info_queue, card)
     local x_mult = card.ability.extra.x_mult_mod * G.GAME.paperback.solar_system_ct
+
     return {
       vars = {
         card.ability.extra.x_mult_mod,
         x_mult
-      }
+      },
+      main_end = card.paperback_show_hands and PB_UTIL.create_base_remaining_hands_ui(function(hand)
+        return hand.level <= G.GAME.paperback.solar_system_ct
+      end)
     }
   end,
 

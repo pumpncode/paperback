@@ -643,6 +643,79 @@ function PB_UTIL.create_select_card_ui(card, area)
   }
 end
 
+--- Creates a 3x3 representation of the filtered base poker hands
+---@param filter fun(hand: table): boolean
+function PB_UTIL.create_base_remaining_hands_ui(filter)
+  local hand_columns = {
+    [1] = {},
+    [2] = {},
+    [3] = {}
+  }
+
+  for i, hand in ipairs(PB_UTIL.base_poker_hands) do
+    if filter(G.GAME.hands[hand]) then
+      table.insert(hand_columns[((i - 1) % 3) + 1], {
+        n = G.UIT.R,
+        config = { align = 'cm', padding = 0.1, emboss = 0.04, r = 0.02, colour = G.C.UI.BACKGROUND_DARK },
+        nodes = {
+          {
+            n = G.UIT.T,
+            config = {
+              text = localize(hand, 'poker_hands'),
+              scale = 0.3,
+              colour = G.C.UI.TEXT_LIGHT,
+            }
+          }
+        }
+      })
+    end
+  end
+
+  return {
+    {
+      n = G.UIT.C,
+      config = { align = 'cm', padding = 0.05 },
+      nodes = {
+        {
+          n = G.UIT.R,
+          config = { align = 'cm' },
+          nodes = {
+            {
+              n = G.UIT.T,
+              config = {
+                text = localize('paperback_ui_remaining_hands'),
+                scale = 0.4,
+                colour = G.C.CHIPS
+              }
+            }
+          }
+        },
+        {
+          n = G.UIT.R,
+          config = { align = 'cm' },
+          nodes = {
+            #hand_columns[1] > 0 and {
+              n = G.UIT.C,
+              config = { align = 'cm', padding = 0.1 },
+              nodes = hand_columns[1]
+            } or nil,
+            #hand_columns[2] > 0 and {
+              n = G.UIT.C,
+              config = { align = 'cm', padding = 0.1 },
+              nodes = hand_columns[2]
+            } or nil,
+            #hand_columns[3] > 0 and {
+              n = G.UIT.C,
+              config = { align = 'cm', padding = 0.1 },
+              nodes = hand_columns[3]
+            } or nil
+          }
+        }
+      }
+    }
+  }
+end
+
 -- Extra button
 SMODS.DrawStep {
   key = 'extra_button',
@@ -680,26 +753,28 @@ end
 ---@param center { key: string }|table
 ---@param button_data table
 function PB_UTIL.setup_extra_button(center, button_data)
+  local click_func = center.key .. "_click"
+  local can_use_func = center.key .. "_can_use"
+  local text = {}
+
+  G.FUNCS[click_func] = function(e)
+    local c = e.config.ref_table
+    if c and button_data.click and type(button_data.click) == "function" then
+      button_data:click(c)
+    end
+    text.string = localize(button_data.text)
+  end
+
+  G.FUNCS[can_use_func] = function(e)
+    local c = e.config.ref_table
+    if c and button_data.can_use and type(button_data.can_use) == "function" then
+      return button_data:can_use(c)
+    end
+    return true
+  end
+
   center.paperback_create_extra_button = function(self, card)
-    local click_func = self.key .. "_click"
-    local can_use_func = self.key .. "_can_use"
-    local text = { string = localize(button_data.text) }
-
-    G.FUNCS[click_func] = function(e)
-      local c = e.config.ref_table
-      if c and button_data.click and type(button_data.click) == "function" then
-        button_data:click(c)
-      end
-      text.string = localize(button_data.text)
-    end
-
-    G.FUNCS[can_use_func] = function(e)
-      local c = e.config.ref_table
-      if c and button_data.can_use and type(button_data.can_use) == "function" then
-        return button_data:can_use(c)
-      end
-      return true
-    end
+    text.string = localize(button_data.text)
 
     return UIBox {
       definition = {
