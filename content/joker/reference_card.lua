@@ -20,6 +20,7 @@ SMODS.Joker {
       colour = G.C.PAPERBACK_MAIN_COLOR,
       click = function(self, card)
         card.paperback_show_hands = not card.paperback_show_hands
+        self.text = card.paperback_show_hands and 'paperback_ui_info_expanded' or 'paperback_ui_info'
       end,
       should_show = function(self, card)
         return card.area == G.jokers

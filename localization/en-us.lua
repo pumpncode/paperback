@@ -3333,6 +3333,7 @@ return {
       paperback_ui_plague_doctor_quotes = "Plague Doctor Quotes",
       paperback_ui_select = "Select",
       paperback_ui_info = "(i)",
+      paperback_ui_info_expanded = "( i )",
       paperback_ui_remaining_hands = "Remaining Hands",
 
       -- Plague Doctor's quotes
