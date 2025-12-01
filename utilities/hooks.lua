@@ -22,6 +22,8 @@ function Game.init_game_object(self)
     bandaged_inc = 0,
     stained_inc = 0,
     destroyed_dark_suits = 0,
+    destroyed_cards = 0,
+    destroyed_cards_this_round = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',
@@ -31,6 +33,9 @@ function Game.init_game_object(self)
     secret_hands = secrets,
     arcana_used = {},
     sold_ego_gifts = {},
+    find_jimbo_unlock = false,
+    max_consumeables = 0,
+    let_it_happen_unlock_check = false,
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
@@ -175,6 +180,21 @@ G.FUNCS.cash_out = function(e)
   })
 
   cash_out_ref(e)
+end
+
+-- Adds a new context for checking the maximum amount of consumables you had during a run
+local card_area_emplace_ref = CardArea.emplace
+function CardArea:emplace(card, location, stay_flipped)
+  local ret = card_area_emplace_ref(self, card, location, stay_flipped)
+  if self == G.consumeables then
+    local consumeable_tally = 0
+    for i = 1, #G.consumeables.cards do
+      consumeable_tally = consumeable_tally + 1
+    end
+    if consumeable_tally > G.GAME.paperback.max_consumeables then G.GAME.paperback.max_consumeables = consumeable_tally end
+    check_for_unlock({ type = 'modify_consumeable' })
+  end
+  return ret
 end
 
 -- Adds a new context for leveling up a hand
