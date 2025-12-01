@@ -19,7 +19,7 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'modify_deck' then
       local count = 0
-      for _, v in ipairs(G.playing_cards) do
+      for _, v in ipairs(G.playing_cards or {}) do
         if PB_UTIL.is_rank(v, 'Ace') then
           count = count + 1
           if count >= 11 then

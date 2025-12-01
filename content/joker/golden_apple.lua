@@ -47,7 +47,7 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'modify_deck' then
       local count = 0
-      for _, v in ipairs(G.playing_cards) do
+      for _, v in ipairs(G.playing_cards or {}) do
         if SMODS.has_enhancement(v, 'm_gold') and PB_UTIL.is_rank(v, 'Ace') then
           count = count + 1
           if count >= 5 then
@@ -60,7 +60,7 @@ SMODS.Joker {
   end,
 
   in_pool = function(self, args)
-    for _, v in ipairs(G.playing_cards) do
+    for _, v in ipairs(G.playing_cards or {}) do
       if v.ability.set == 'Enhanced' then
         return true
       end
