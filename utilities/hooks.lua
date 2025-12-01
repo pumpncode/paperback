@@ -33,6 +33,7 @@ function Game.init_game_object(self)
     secret_hands = secrets,
     arcana_used = {},
     sold_ego_gifts = {},
+    finished_antes = {},
     find_jimbo_unlock = false,
     max_consumeables = 0,
     let_it_happen_unlock_check = false,
@@ -395,4 +396,12 @@ local is_eternal_ref = SMODS.is_eternal
 function SMODS.is_eternal(card, ...)
   return is_eternal_ref(card, ...)
       or card.config.center.paperback and card.config.center.paperback.indestructible
+end
+
+-- Keep track of which antes we have been in
+-- Used by Torii to know whether we should allow rewinding current ante
+local ease_ante_ref = ease_ante
+function ease_ante(mod)
+  G.GAME.paperback.finished_antes[G.GAME.round_resets.ante] = true
+  return ease_ante_ref(mod)
 end
