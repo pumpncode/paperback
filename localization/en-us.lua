@@ -1858,7 +1858,7 @@ return {
       j_paperback_aperol = {
         name = "Aperol",
         text = {
-          "Scored {C:diamonds}#1#{} cards give {C:money}$#2#{} Mult when scored",
+          "Scored {C:diamonds}#1#{} cards give {C:money}$#2#{} when scored",
           "Increases by {C:money}$#3#{} if scoring hand contains",
           "atleast {C:attention}4{} {C:diamonds}#4#{}, otherwise decreases by {C:money}$#3#{}",
         },
