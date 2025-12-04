@@ -1293,3 +1293,81 @@ function PB_UTIL.check_jimbocards_at_0()
   end
   return false
 end
+
+--- Logic for the Suit Drink Jokers
+--- @param self (SMODS.Center)
+--- @param card (Card)
+--- @param context (CalcContext)
+function PB_UTIL.suit_drink_logic(self, card, context)
+  if context.before and not context.blueprint then
+    -- Count scoring cards of the specified suit
+    local upgraded = 0
+    local upgrade
+    local suit_count = 0
+    for i, v in ipairs(context.scoring_hand) do
+      if v:is_suit(card.ability.extra.suit) then
+        suit_count = suit_count + 1
+      end
+    end
+    -- Upgrade if 4 or more of the specified suit are scored
+    if suit_count >= 4 then
+      upgraded = 1
+      card.ability.extra.current = card.ability.extra.current + card.ability.extra.gain
+      -- Downgrade if not enough of the specified suit are scored
+    else
+      if suit_count <= (card.ability.extra.downgrade_req or 3) then
+        upgraded = -1
+        card.ability.extra.current = card.ability.extra.current - card.ability.extra.gain
+      end
+    end
+
+    if card.ability.extra.current <= card.ability.extra.floor then
+      PB_UTIL.destroy_joker(card)
+    end
+    upgrade = {
+      message = localize {
+        type = card.ability.extra.upgrade.type,
+        key = card.ability.extra.upgrade.key,
+        vars = { card.ability.extra.current }
+      },
+    }
+    if self.paperback_lager_effect then
+      return self.paperback_lager_effect(card, context.other_card, upgraded, upgrade)
+    end
+    return upgrade
+  end
+
+  -- Activate the ability if the specified suit is scored
+  if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
+    if self.paperback_suit_drink_effect then
+      return self.paperback_suit_drink_effect(card, context.other_card)
+    end
+  end
+end
+
+--- Loc Vars function for the Suit Drink Jokers
+---@param self table
+---@param info_queue table
+---@param card Card
+---@return table
+function PB_UTIL.suit_drink_loc_vars(self, info_queue, card)
+  local downgrade_req = 3
+  if not card.ability.extra.downgrade_req then
+    downgrade_req = card.ability.extra.downgrade_req
+  end
+  local current
+  if self.paperback_lager_effect then
+    current = '+' .. tostring(card.ability.extra.current)
+  else
+    current = card.ability.extra.current
+  end
+  return {
+    vars = {
+      localize(card.ability.extra.suit, 'suits_singular'),
+      current,
+      card.ability.extra.gain,
+      localize(card.ability.extra.suit, 'suits_plural'),
+      downgrade_req
+    }
+  }
+end

@@ -1838,6 +1838,57 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
+      -- Suit Drinks
+      j_paperback_grenadine = {
+        name = "Grenadine",
+        text = {
+          "Scored {C:hearts}#1#{} cards give {X:mult,C:white}X#2#{} Mult when scored",
+          "Increases by {X:mult,C:white}X#3#{} if scoring hand contains",
+          "atleast {C:attention}4{} {C:hearts}#4#{}, otherwise decreases by {X:mult,C:white}X#3#{}",
+        },
+      },
+      j_paperback_stout = {
+        name = "Stout",
+        text = {
+          "Scored {C:spades}#1#{} cards give {C:chips}+#2#{} Chips when scored",
+          "Increases by {C:chips}+#3#{} if scoring hand contains",
+          "atleast {C:attention}4{} {C:spades}#4#{}, otherwise decreases by {C:chips}+#3#{}",
+        },
+      },
+      j_paperback_aperol = {
+        name = "Aperol",
+        text = {
+          "Scored {C:diamonds}#1#{} cards give {C:money}$#2#{} Mult when scored",
+          "Increases by {C:money}$#3#{} if scoring hand contains",
+          "atleast {C:attention}4{} {C:diamonds}#4#{}, otherwise decreases by {C:money}$#3#{}",
+        },
+      },
+      j_paperback_blue_curacao = {
+        name = "Blue Curaçao",
+        text = {
+          "Scored {C:clubs}#1#{} cards give {C:mult}+#2#{} Mult when scored",
+          "Increases by {C:mult}+#3#{} if scoring hand contains",
+          "atleast {C:attention}4{} {C:clubs}#4#{}, otherwise decreases by {C:mult}+#3#{}",
+        },
+      },
+      j_paperback_nigori = {
+        name = "Nigori",
+        text = {
+          "Scored {C:paperback_stars}#1#{} cards give {X:chips,C:white}X#2#{} Chips when scored",
+          "Increases by {X:chips,C:white}X#3#{} if scoring hand",
+          "contains atleast {C:attention}4{} {C:paperback_stars}#4#{}",
+          "If less than {C:attention}#5#{} {C:paperback_stars}#4#{} are scored decreased by {X:chips,C:white}X#3#{}",
+        },
+      },
+      j_paperback_lager = {
+        name = "Lager",
+        text = {
+          "{C:attention}#2#{} Consumable slots",
+          "Increases by {C:attention}+#3#{} if scoring hand",
+          "contains at least {C:attention}4{} {C:paperback_crowns}#4#{}",
+          "If less than {C:attention}#5#{} {C:paperback_crowns}#4#{} are scored decreased by {C:attention}#3#{}",
+        },
+      },
       j_paperback_paranoia = {
         name = "Paranoia",
         text = {
@@ -3725,6 +3776,10 @@ return {
       paperback_a_round_minus = "-#1# Round",
       paperback_a_plus_cards = "+#1# #2#s",
       paperback_a_plus_tags = "+#1# Tags",
+      paperback_a_dollars = "$#1#",
+
+      paperback_a_plus_consumable_slot = "+#1# Consumable Slots",
+      paperback_a_minus_consumable_slot = "-#1# Consumable Slots",
       paperback_a_ante = "#1# Ante",
     },
     ranks = {
