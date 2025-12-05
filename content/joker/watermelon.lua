@@ -6,10 +6,10 @@ SMODS.Joker {
       x_mult = 1,
     }
   },
-  rarity = 3,
+  rarity = 2,
   pos = { x = 12, y = 10 },
   atlas = "jokers_atlas",
-  cost = 8,
+  cost = 6,
   unlocked = true,
   discovered = false,
   blueprint_compat = true,
@@ -30,7 +30,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.setting_ability and context.other_card.ability.set == 'Enhanced' and not context.unchanged then
+    if not context.blueprint and context.setting_ability and context.other_card.ability.set == 'Enhanced' and not context.unchanged then
       card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
       return {
         message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.a_xmult } },
