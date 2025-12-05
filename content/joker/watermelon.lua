@@ -37,7 +37,7 @@ SMODS.Joker {
         colour = G.C.MULT
       }
     end
-    if context.remove_playing_cards and #context.removed > 0 then
+    if not context.blueprint and context.remove_playing_cards and #context.removed > 0 then
       card.ability.extra.x_mult = card.ability.extra.x_mult - (card.ability.extra.a_xmult * #context.removed)
       if card.ability.extra.x_mult < 1 then
         PB_UTIL.destroy_joker(card)
