@@ -26,7 +26,7 @@ SMODS.Joker {
   paperback_suit_drink_effect = function(card, other_card)
     return {
       dollars = card.ability.extra.current,
-      card = other_card
+      message_card = other_card
     }
   end
 }

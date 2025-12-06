@@ -21,13 +21,16 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback = {
+    requires_stars = true
+  },
 
   loc_vars = PB_UTIL.suit_drink_loc_vars,
   calculate = PB_UTIL.suit_drink_logic,
   paperback_suit_drink_effect = function(card, other_card)
     return {
       xchips = card.ability.extra.current,
-      card = other_card
+      message_card = card
     }
   end
 }

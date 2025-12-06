@@ -21,7 +21,10 @@ SMODS.Joker {
   pools = {
     Food = true
   },
-
+  paperback = {
+    requires_crowns = true
+  },
+  
   loc_vars = PB_UTIL.suit_drink_loc_vars,
   calculate = PB_UTIL.suit_drink_logic,
 
