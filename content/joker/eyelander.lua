@@ -3,7 +3,8 @@ SMODS.Joker {
   config = {
     extra = {
       heads = 0,
-      heads_req = 9
+      heads_req = 9,
+      trigerred = false
     }
   },
   rarity = 3,
@@ -34,12 +35,15 @@ SMODS.Joker {
             ]]
           }
         else
-          juice_card_until(card, function() return true end, true)
-          return {
-            remove = true,
-            message = localize('k_active_ex'),
-            colour = G.C.ORANGE
-          }
+          if not card.ability.extra.trigerred then
+            card.ability.extra.trigerred = true
+            juice_card_until(card, function() return true end, true)
+            return {
+              remove = true,
+              message = localize('k_active_ex'),
+              colour = G.C.ORANGE
+            }
+          end
         end
       end
     end
