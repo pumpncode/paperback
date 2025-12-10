@@ -17,6 +17,8 @@ SMODS.Joker {
   unlocked = true,
   discovered = false,
   blueprint_compat = true,
+  eternal_compat = false,
+  perishable_compat = false,
   soul_pos = nil,
   pools = {
     Food = true
@@ -24,7 +26,7 @@ SMODS.Joker {
   paperback = {
     requires_crowns = true
   },
-  
+
   loc_vars = PB_UTIL.suit_drink_loc_vars,
   calculate = PB_UTIL.suit_drink_logic,
 
