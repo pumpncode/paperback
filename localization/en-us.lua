@@ -612,6 +612,30 @@ return {
           "and {E:1,C:paperback_minor_arcana}Minor Arcana{} card",
         }
       },
+      j_paperback_oujia_board = {
+        name = "Oujia Board",
+        text = {
+          "{C:spectral}Spectral{} cards may appear",
+          "in the shop. Jokers are",
+          "{C:attention}shuffled{} before scoring",
+        },
+        unlock = {
+          "Use the {C:attention}Oujia{}",
+          "{C:spectral}Spectral{} card",
+        }
+      },
+      j_paperback_planchette = {
+        name = "Planchette",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "when a {C:spectral}Spectral{} card is used",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+        unlock = {
+          "Use {C:attention}#1# {C:spectral}Spectral",
+          "cards in one run",
+        }
+      },
       j_paperback_prescript = {
         name = "Prescript",
         text = {
@@ -883,6 +907,7 @@ return {
       j_paperback_penumbra_phantasm = {
         name = "Penumbra Phantasm",
         text = {
+          "{C:attention}Face{} cards are considered {C:attention}rankless{}.",
           "This Joker gains {C:red}+#1#{} Mult whenever",
           "a {C:attention}rankless{} card is {C:attention}scored",
           "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
@@ -1320,6 +1345,15 @@ return {
           "to the right {C:attention}Eternal{}",
         }
       },
+      j_paperback_plastic_wrap = {
+        name = "Plastic Wrap",
+        text = {
+          "When a {C:attention}Sleeved{} card is",
+          "{C:attention}destroyed{}, enhance {C:attention}#1#{}",
+          "{C:attention}unenhanced{} cards in",
+          "your deck to {C:attention}Sleeve{} cards",
+        }
+      },
       j_paperback_percussion_ensemble = {
         name = "Percussion Ensemble",
         text = {
@@ -1334,6 +1368,14 @@ return {
         text = {
           "{C:paperback_stars}Stars{} are considered {C:attention}Bonus Cards",
           "{C:attention}Bonus Cards{} are considered {C:paperback_stars}Stars{}",
+        },
+      },
+      j_paperback_trust_us = {
+        name = "Trust Us!",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult if played hand",
+          "contains a {C:attention}Three of a Kind{},",
+          "{X:mult,C:white}X#2#{} Mult otherwise",
         },
       },
       j_paperback_da_capo = {
@@ -1980,6 +2022,21 @@ return {
           "challenge"
         }
       },
+      j_paperback_56_leaf_clover = {
+        name = "56 Leaf Clover",
+        text = {
+          "If the winning hand of a {C:attention}Boss{}",
+          "{C:attention}Blind{} contains a scoring {C:clubs}Club{},",
+          "create a {C:dark_edition}Negative {C:attention}Tag{}",
+        }
+      },
+      j_paperback_57_leaf_clover = {
+        name = "57 Leaf Clover",
+        text = {
+          "{C:green}+#1#{} to all {C:green}listed probabilites{},",
+          "gains {C:green}+#2#{} per Blind defeated this {C:attention}Ante{}",
+        }
+      },
       j_paperback_popsicle_stick = {
         name = "Popsicle Stick",
         text = {
@@ -2226,6 +2283,16 @@ return {
           "{C:attention}#2#{} {C:inactive}(#3#){} skipped Blinds",
           "{C:inactive}(Only counts skips in new antes,{}",
           "{C:inactive}currently {V:1}#4#{C:inactive})",
+        }
+      },
+      j_paperback_freight = {
+        name = "Freight",
+        text = {
+          "If cleared Blind is a {C:attention}Boss Blind{},",
+          "gain {C:money}$#1#{} of sell value, otherwise",
+          "{C:attention}earn{} the sell value of this Joker.",
+          "When sold, gain {C:red}+#2#{} discard per {C:money}$#3#{}",
+          "of sell value {C:attention}instead{} of money",
         }
       },
       j_paperback_banana_man = {
@@ -3666,6 +3733,7 @@ return {
       paperback_plus_minor_arcana = "+1 M. Arcana",
       paperback_plus_consumable = "+1 Consumable",
       paperback_plus_tag = "+1 Tag",
+      paperback_plus_odds = "+1 Odds",
       paperback_enhanced_ex = "Enhanced!",
       paperback_edition_ex = "Edition!",
       paperback_rare_ex = "Rare!",
