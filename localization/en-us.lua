@@ -2084,6 +2084,14 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
         }
       },
+      j_paperback_deck_of_cards = {
+        name = "Deck of Cards",
+        text = {
+          "If played hand is a single {C:attention}#1#{},",
+          "this Joker gains {X:chips,C:white}X#2#{} Mult, ",
+          "{C:inactive}(Currently {X:chips,C:white}X#3#{} {C:inactive}Chips)"
+        }
+      },
       j_paperback_the_wonder_of_you = {
         name = "The Wonder of You",
         text = {

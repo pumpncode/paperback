@@ -506,7 +506,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jimbo_adventure",
   "ddakji",
   -- "yacht_dice",
-  -- "deck_of_cards",
+  "deck_of_cards",
   "pocket_pair",
   "ultra_rare",
   -- "lore_digger",
