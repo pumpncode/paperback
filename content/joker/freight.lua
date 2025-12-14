@@ -34,7 +34,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.end_of_round and G.GAME.blind.boss and context.main_eval then
+    if context.end_of_round and G.GAME.blind.boss and context.main_eval and not context.blueprint then
       card.ability.extra_value = (card.ability.extra_value or 0) + card.ability.extra.gain
       card:set_cost()
       return {
@@ -42,7 +42,7 @@ SMODS.Joker {
         colour = G.C.MONEY
       }
     end
-    if context.selling_self then
+    if context.selling_self and not context.blueprint then
       local discards = card.ability.extra.discards * math.floor(card.sell_cost / card.ability.extra.per_dollar)
       PB_UTIL.set_sell_value(card, 0)
       ease_discard(discards)
