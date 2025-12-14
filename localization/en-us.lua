@@ -1140,6 +1140,13 @@ return {
           "scored {C:attention}face{} card each hand"
         }
       },
+      j_paperback_gauze = {
+        name = "Gauze",
+        text = {
+          "If last discard of round is a single card,",
+          "it becomes a {C:attention}#1#{}"
+        }
+      },
       j_paperback_jester_of_nihil = {
         name = "Jester of Nihil",
         text = {

@@ -422,7 +422,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "ncj",
   "bicycle",
   -- "mezzetino",
-  -- "gauze",
+  "gauze",
   "joke_master",
   "jokers_11",
   "book_of_life",
