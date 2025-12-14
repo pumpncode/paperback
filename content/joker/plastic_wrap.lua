@@ -14,6 +14,10 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+  enhancement_gate = 'm_paperback_sleeved',
+  paperback = {
+    requires_enhancements = true
+  },
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.amount } }
