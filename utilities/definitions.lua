@@ -547,7 +547,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "clippy",
   "clothespin",
   "kintsugi_joker",
-  -- "happy_accident",
+  "happy_accident",
   "watercolor_joker",
   "medic",
   "festive_joker",

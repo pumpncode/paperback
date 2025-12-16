@@ -2242,6 +2242,16 @@ return {
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
       },
+      j_paperback_happy_accident = {
+        name = "Happy Accident",
+        text = {
+          "Each {C:attention}#1#{}",
+          "held in hand",
+          "gives {X:chips,C:white}XChips{}",
+          "at {C:attention}halved{} scaling",
+          "{X:chips,C:white}X1.5{C:inactive} -> {X:chips,C:white}X1.25{}",
+        },
+      },
       j_paperback_watercolor_joker = {
         name = "Watercolor Joker",
         text = {
