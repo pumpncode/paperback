@@ -6,7 +6,7 @@ SMODS.Joker {
       enhancement = 'm_paperback_antique',
     }
   },
-  pos = { x = 21, y = 1 },
+  pos = { x = 21, y = 0 },
   atlas = 'jokers_atlas',
   cost = 7,
   blueprint_compat = true,
