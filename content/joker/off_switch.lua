@@ -31,6 +31,7 @@ SMODS.Joker {
     }
   end,
   add_to_deck = function(self, card, from_debuff)
+    if from_debuff then return end
     G.E_MANAGER:add_event(Event({
       func = function()
         for _, v in ipairs(self.paperback_off_addons) do
@@ -47,6 +48,7 @@ SMODS.Joker {
   end,
 
   remove_from_deck = function(self, card, from_debuff)
+    if from_debuff then return end
     for k, v in ipairs(G.jokers.cards) do
       for _, addon_key in ipairs(self.paperback_off_addons) do
         if v.config.center.key == addon_key then
