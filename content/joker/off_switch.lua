@@ -84,8 +84,8 @@ SMODS.Joker {
     end
 
     if not context.blueprint and context.paperback and context.paperback.destroyed_joker and
-    not (card == context.paperback.destroyed_joker) and
-    not (context.paperback.destroyed_joker.config.center.paperback and context.paperback.destroyed_joker.config.center.paperback.addon) then
+    not (card == context.paperback.destroyed_joker) then
+      card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
       return {
         message = localize {
           type = 'variable',
