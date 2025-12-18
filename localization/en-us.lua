@@ -2006,6 +2006,46 @@ return {
           "{C:attention,E:1}50{} additional {C:attention,E:1}Chips{}",
         },
       },
+      j_paperback_the_batter = {
+        name = "The Batter",
+        text = {
+          "Scored {C:attention}3s{} are destroyed",
+          "{C:inactive}({C:attention}#1#{C:inactive}/{C:attention}#2#...{C:inactive})",
+          "{S:0.9,C:inactive}(Doesn't require room..?){}",
+        }
+      },
+      j_paperback_off_switch = {
+        name = "OFF Switch",
+        text = {
+          "When a {C:attention}playing card{} is destroyed,",
+          "attempt to destroy leftmost destructible Joker",
+          "and gain {X:mult,C:white}X#1#{} Mult if successful",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{} Mult)",
+        }
+      },
+      j_paperback_off_alpha = {
+        name = "Alpha",
+        text = {
+          "Gains {C:chips}+#1#{} Chips for each",
+          "Joker {C:attention}destroyed",
+          "{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
+        },
+      },
+      j_paperback_off_omega = {
+        name = "Omega",
+        text = {
+          "Gains {C:mult}+#1#{} Mult for each",
+          "Joker {C:attention}destroyed",
+          "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
+        },
+      },
+      j_paperback_off_epsilon = {
+        name = "Epsilon",
+        text = {
+          "Earns {C:gold}$#1#{} for each",
+          "Joker {C:attention}destroyed",
+        },
+      },
       j_paperback_photocopy = {
         name = "Photocopy",
         text = {
@@ -3775,6 +3815,7 @@ return {
       paperback_punch_card_ex = "Wrong Warp!",
       paperback_hamsa_reverse = "Reversed!",
       paperback_der_freischutz_fire = "Fire...",
+      paperback_off_switch_ex = "Swing!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
