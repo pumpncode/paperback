@@ -403,6 +403,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "moving_out",
   "ready_to_fly",
   "great_wave",
+  'one_shift_more',
   "let_it_happen",
   -- "paralyzed"
   "in_case_i_make_it",

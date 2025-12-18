@@ -683,6 +683,14 @@ return {
           "your deck"
         }
       },
+      j_paperback_one_shift_more = {
+        name = "One Shift More",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "for every {C:attention}#2#{C:inactive} [#3#]{} scored {C:hearts}Heart{} cards",
+          "{C:inactive}(Currently {X:mult,C:white}#4#{C:inactive} Mult)",
+        },
+      },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
         text = {
@@ -3816,6 +3824,8 @@ return {
       paperback_hamsa_reverse = "Reversed!",
       paperback_der_freischutz_fire = "Fire...",
       paperback_off_switch_ex = "Swing!",
+      paperback_one_shift_more_true = "Heart!",
+      paperback_one_shift_more_false = "Beat!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
