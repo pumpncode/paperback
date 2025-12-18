@@ -2028,7 +2028,7 @@ return {
           "When a {C:attention}playing card{} is destroyed,",
           "attempt to destroy leftmost destructible Joker",
           "and gain {X:mult,C:white}X#1#{} Mult if successful",
-          "{C:inactive}(Currently {X:mult,C:white}X#2#{} Mult)",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         }
       },
       j_paperback_off_alpha = {
