@@ -37,7 +37,8 @@ SMODS.Joker {
           SMODS.add_card {
             key = v,
             set = 'Joker',
-            edition = card.edition or nil,
+            stickers = { "eternal" },
+            force_stickers = true
           }
         end
         return true
