@@ -21,6 +21,11 @@ SMODS.Joker {
     indestructible = true,
     addon = true
   },
+  paperback_secret_unlock = true,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { G.localization.descriptions.Joker.j_paperback_off_switch.name } }
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

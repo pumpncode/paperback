@@ -11,7 +11,7 @@ SMODS.Joker {
   soul_pos = { x = 21, y = 2 },
   atlas = 'jokers_atlas',
   cost = 13,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -21,6 +21,11 @@ SMODS.Joker {
     'j_paperback_off_omega',
     'j_paperback_off_epsilon',
   },
+  paperback_secret_unlock = true,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { G.localization.descriptions.Joker.j_paperback_the_batter.name } }
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {
