@@ -23,6 +23,10 @@ SMODS.Joker {
   },
   paperback_secret_unlock = true,
 
+  in_pool = function(self, args)
+    return false
+  end,
+
   locked_loc_vars = function(self, info_queue, card)
     return { vars = { G.localization.descriptions.Joker.j_paperback_off_switch.name } }
   end,
