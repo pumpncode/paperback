@@ -2019,7 +2019,7 @@ return {
         text = {
           "Scored {C:attention}3s{} are destroyed",
           "{C:inactive}({C:attention}#1#{C:inactive}/{C:attention}#2#...{C:inactive})",
-          "{S:0.9,C:inactive}(Doesn't require room..?){}",
+          "{s:0.9,C:inactive}(Doesn't require room..?){}",
         }
       },
       j_paperback_off_switch = {
