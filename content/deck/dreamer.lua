@@ -13,19 +13,13 @@ if PB_UTIL.config.spectrals_enabled then
     locked_loc_vars = function(self, info_queue, back)
       return {
         vars = {
-          10,
           localize { type = 'name_text', set = 'Stake', key = 'stake_gold' },
           colours = { get_stake_col(8) }
         }
       }
     end,
     check_for_unlock = function(self, args)
-      if args.type == 'win_stake' then 
-        local highest_win, lowest_win = get_deck_win_stake(nil)
-        if G.PROGRESS and G.PROGRESS.joker_stickers.tally >= 10 and highest_win >= 8 then
-          return true
-        end
-      end
+      return args.type == 'win_stake' and get_deck_win_stake() >= 8
     end,
 
     loc_vars = function(self)
