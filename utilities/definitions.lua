@@ -179,13 +179,14 @@ PB_UTIL.credits = {
       'PaperMoon',
       '「S_C_R_U_B_Y」',
       'Firch',
-      'Fennex'
+      'Fennex',
+      "MaveBoy"
     }
   },
   developers = {
     color = G.C.GREEN,
     entries = {
-      'OppositeWolf770, srockw, Nether, B, ejwu2, metanite64, TheSnaz',
+      'OppositeWolf770, srockw, Nether, B, ejwu2, metanite64, Dowfrin',
       'InfinityPlus05, aliahmed2k03'
     }
   },
@@ -815,6 +816,48 @@ PB_UTIL.DECK_SKINS = {
   {
     id = 'gardevoir',
     name = "Pokemon (Gardevoir)",
+    suits = {
+      'Spades'
+    }
+  },
+  {
+    id = 'guides',
+    name = "Limbus Company",
+    suits = {
+      'paperback_Stars'
+    }
+  },
+  {
+    id = 'enforcers',
+    name = "Limbus Company",
+    suits = {
+      'paperback_Crowns'
+    }
+  },
+  {
+    id = 'wrath',
+    name = "Limbus Company",
+    suits = {
+      'Hearts'
+    }
+  },
+  {
+    id = 'gloom',
+    name = "Limbus Company",
+    suits = {
+      'Clubs'
+    }
+  },
+  {
+    id = 'sloth',
+    name = "Limbus Company",
+    suits = {
+      'Diamonds'
+    }
+  },
+  {
+    id = 'envy',
+    name = "Limbus Company",
     suits = {
       'Spades'
     }
