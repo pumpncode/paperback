@@ -9,13 +9,7 @@ if PB_UTIL.config.suits_enabled then
     },
     unlocked = false,
     check_for_unlock = function(self, args)
-      if args.type == 'hand_contents' then
-        local eval = evaluate_poker_hand(args.cards)
-        if next(eval['paperback_Spectrum']) then
-          return true
-        end
-      end
-      return false
+      return PB_UTIL.spectrum_played()
     end,
   }
 end
