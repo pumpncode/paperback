@@ -641,6 +641,7 @@ return {
         text = {
           "Retrigger all played cards this {C:attention}round{}",
           "if {C:attention}first{} hand of round contains a {C:attention}#1#{}",
+          "{s:0.8}Poker hand changes every round",
           "{C:inactive}(Currently {V:1}#2#{C:inactive})",
         },
       },
