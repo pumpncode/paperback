@@ -102,7 +102,7 @@ SMODS.Joker {
       },
 
       calc_function = function(card)
-        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { PB_UTIL.chance_vars(card) } }
+        card.joker_display_values.odds = localize { type = 'variable', key = 'jdis_odds', vars = { PB_UTIL.chance_vars(card, nil, card.ability.extra.chance_multiplier) } }
       end
     }
   end
