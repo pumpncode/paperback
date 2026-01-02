@@ -33,7 +33,7 @@ SMODS.Joker {
         card.ability.extra.slots,
         card.ability.extra.a_slots,
         card.ability.extra.req,
-        card.ability.extra.suit,
+        localize(card.ability.extra.suit, 'suits_plural'),
       }
     }
   end,

@@ -28,7 +28,7 @@ SMODS.Joker {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.suit,
+        localize(card.ability.extra.suit, 'suits_plural'),
         card.ability.extra.xchips,
         card.ability.extra.a_xchips,
         card.ability.extra.req,

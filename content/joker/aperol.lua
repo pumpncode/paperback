@@ -29,7 +29,7 @@ SMODS.Joker {
       vars = {
         card.ability.extra.a_mult,
         card.ability.extra.req,
-        card.ability.extra.suit,
+        localize(card.ability.extra.suit, 'suits_plural'),
         math.max(math.floor(G.GAME.dollars / card.ability.extra.req), 0) * card.ability.extra.a_mult,
       }
     }
