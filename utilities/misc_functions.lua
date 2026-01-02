@@ -1,3 +1,13 @@
+-- Literally just an implementation of table.find since this version of lua doesn't have one by default
+function PB_UTIL.find(table, value)
+  for i, v in ipairs(table) do
+    if v == value then
+      return i
+    end
+  end
+  return nil
+end
+
 -- Initialize Food pool if not existing, which may be created by other mods.
 -- Any joker can add itself to this pool by adding a pools table to its definition
 -- Credits to Cryptid for the idea
@@ -1295,79 +1305,47 @@ function PB_UTIL.check_jimbocards_at_0()
 end
 
 --- Logic for the Suit Drink Jokers
---- @param self (SMODS.Center)
+--- @param check (boolean) whether to only check for the suit presence
 --- @param card (Card)
 --- @param context (CalcContext)
-function PB_UTIL.suit_drink_logic(self, card, context)
-  if context.before and not context.blueprint then
-    -- Count scoring cards of the specified suit
-    local upgraded = 0
-    local upgrade
-    local suit_count = 0
-    for i, v in ipairs(context.scoring_hand) do
-      if v:is_suit(card.ability.extra.suit) then
-        suit_count = suit_count + 1
-      end
+function PB_UTIL.suit_drink_logic(card, context, check)
+  local has_suit = false
+  -- Check if played hand contains the required suit
+  for _, v in ipairs(context.scoring_hand) do
+    if v:is_suit(card.ability.extra.suit) then
+      has_suit = true
+      card.ability.extra.risk = false
+      break
     end
-    -- Upgrade if 4 or more of the specified suit are scored
-    if suit_count >= 4 then
-      upgraded = 1
-      card.ability.extra.current = card.ability.extra.current + card.ability.extra.gain
-      -- Downgrade if not enough of the specified suit are scored
+  end
+
+  if check then
+    return not has_suit
+  end
+
+  if not has_suit then
+    -- If the function is only checking for the suit presence, return here
+
+    -- Check if card is already at risk of being consumed, otherwise put it at risk
+    if not card.ability.extra.risk then
+      card.ability.extra.risk = true
+      juice_card_until(
+        card,
+        function() return card.ability.extra.risk and not G.RESET_JIGGLES end,
+        true
+      )
+      return {
+        message = localize('paperback_tipsy_ex'),
+        colour = G.C.SUITS[card.ability.extra.suit],
+        card = card
+      }
     else
-      if suit_count <= (card.ability.extra.downgrade_req or 3) then
-        upgraded = -1
-        card.ability.extra.current = card.ability.extra.current - card.ability.extra.gain
-      end
-    end
-
-    if card.ability.extra.current <= card.ability.extra.floor then
       PB_UTIL.destroy_joker(card)
-    end
-    upgrade = {
-      message = localize {
-        type = card.ability.extra.upgrade.type,
-        key = card.ability.extra.upgrade.key,
-        vars = { card.ability.extra.current }
-      },
-    }
-    if self.paperback_lager_effect then
-      return self.paperback_lager_effect(card, context.other_card, upgraded, upgrade)
-    end
-    return upgrade
-  end
-
-  -- Activate the ability if the specified suit is scored
-  if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
-    if self.paperback_suit_drink_effect then
-      return self.paperback_suit_drink_effect(card, context.other_card)
+      return {
+        message = localize('paperback_consumed_ex'),
+        colour = G.C.SUITS[card.ability.extra.suit],
+        card = card
+      }
     end
   end
-end
-
---- Loc Vars function for the Suit Drink Jokers
----@param self table
----@param info_queue table
----@param card Card
----@return table
-function PB_UTIL.suit_drink_loc_vars(self, info_queue, card)
-  local downgrade_req = 3
-  if not card.ability.extra.downgrade_req then
-    downgrade_req = card.ability.extra.downgrade_req
-  end
-  local current
-  if self.paperback_lager_effect then
-    current = '+' .. tostring(card.ability.extra.current)
-  else
-    current = card.ability.extra.current
-  end
-  return {
-    vars = {
-      localize(card.ability.extra.suit, 'suits_singular'),
-      current,
-      card.ability.extra.gain,
-      localize(card.ability.extra.suit, 'suits_plural'),
-      downgrade_req
-    }
-  }
 end

@@ -2,11 +2,9 @@ SMODS.Joker {
   key = "grenadine",
   config = {
     extra = {
-      current = 1.15,
-      gain = 0.05,
-      floor = 1.0,
+      xmult = 1.25,
+      a_xmult = 0.025,
       suit = "Hearts",
-      upgrade = { type = 'variable', key = 'a_xmult', colour = G.C.MULT }
     }
   },
   rarity = 3,
@@ -22,13 +20,42 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback = {
+    suit_drink = true
+  },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
-  paperback_suit_drink_effect = function(card, other_card)
+  loc_vars = function(self, info_queue, card)
     return {
-      xmult = card.ability.extra.current,
-      message_card = other_card
+      vars = {
+        card.ability.extra.suit,
+        card.ability.extra.xmult,
+        card.ability.extra.a_xmult,
+      }
     }
-  end
+  end,
+
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.pseudorandom_result and not context.result then
+      card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.a_xmult
+      return {
+        message = localize {
+          type = 'variable',
+          key = 'a_xmult',
+          vars = { card.ability.extra.xmult }
+        },
+      }
+    end
+
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit(card.ability.extra.suit) then
+        return {
+          xmult = card.ability.extra.xmult,
+        }
+      end
+    end
+  end,
 }

@@ -2,11 +2,9 @@ SMODS.Joker {
   key = "aperol",
   config = {
     extra = {
-      current = 2,
-      gain = 1,
-      floor = 0,
+      a_mult = 2,
+      req = 5,
       suit = "Diamonds",
-      upgrade = { type = 'variable', key = 'paperback_a_dollars', colour = G.C.GOLD }
     }
   },
   rarity = 3,
@@ -22,13 +20,32 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback = {
+    suit_drink = true
+  },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
-  paperback_suit_drink_effect = function(card, other_card)
+  loc_vars = function(self, info_queue, card)
     return {
-      dollars = card.ability.extra.current,
-      message_card = other_card
+      vars = {
+        card.ability.extra.a_mult,
+        card.ability.extra.req,
+        card.ability.extra.suit,
+        math.max(math.floor(G.GAME.dollars / card.ability.extra.req), 0) * card.ability.extra.a_mult,
+      }
     }
-  end
+  end,
+
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit(card.ability.extra.suit) then
+        return {
+          mult = card.ability.extra.a_mult * (math.max(math.floor(G.GAME.dollars / card.ability.extra.req), 0)),
+        }
+      end
+    end
+  end,
 }

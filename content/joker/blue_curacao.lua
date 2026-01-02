@@ -2,11 +2,10 @@ SMODS.Joker {
   key = "blue_curacao",
   config = {
     extra = {
-      current = 6,
-      gain = 2,
-      floor = 0,
+      xmult = 1,
+      a_xmult = 0.1,
       suit = "Clubs",
-      upgrade = { type = 'variable', key = 'a_mult', colour = G.C.MULT }
+      req = 3
     }
   },
   rarity = 3,
@@ -22,13 +21,51 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback = {
+    suit_drink = true
+  },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
-  paperback_suit_drink_effect = function(card, other_card)
+  loc_vars = function(self, info_queue, card)
     return {
-      mult = card.ability.extra.current,
-      message_card = other_card
+      vars = {
+        card.ability.extra.suit,
+        card.ability.extra.xmult,
+        card.ability.extra.a_xmult,
+        card.ability.extra.req,
+      }
     }
-  end
+  end,
+
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.before and not context.blueprint then
+      local clubs = 0
+      for _, v in ipairs(context.scoring_hand) do
+        if v:is_suit(card.ability.extra.suit, false, true) then
+          clubs = clubs + 1
+        end
+      end
+      if clubs >= card.ability.extra.req then
+        card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.a_xmult
+        return {
+          message = localize {
+            type = 'variable',
+            key = 'a_xmult',
+            vars = { card.ability.extra.xmult }
+          },
+        }
+      end
+    end
+
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit(card.ability.extra.suit) then
+        return {
+          xmult = card.ability.extra.xmult,
+        }
+      end
+    end
+  end,
 }

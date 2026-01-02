@@ -2,12 +2,10 @@ SMODS.Joker {
   key = "lager",
   config = {
     extra = {
-      current = 1,
-      gain = 1,
-      floor = -1,
+      a_slots = 1,
+      slots = 1,
       suit = "paperback_Crowns",
-      upgrade = { type = 'variable', key = 'paperback_a_plus_consumable_slot' },
-      downgrade_req = 2,
+      req = 5,
     }
   },
   rarity = 3,
@@ -24,22 +22,53 @@ SMODS.Joker {
     Food = true
   },
   paperback = {
-    requires_crowns = true
+    requires_crowns = true,
+    suit_drink = true,
+
   },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
+  loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        card.ability.extra.slots,
+        card.ability.extra.a_slots,
+        card.ability.extra.req,
+        card.ability.extra.suit,
+      }
+    }
+  end,
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.before and not context.blueprint then
+      local crowns = 0
+      for _, c in ipairs(context.scoring_hand) do
+        if c:is_suit(card.ability.extra.suit) then
+          crowns = crowns + 1
+        end
+      end
+      if crowns >= card.ability.extra.req then
+        card.ability.extra.slots = card.ability.extra.slots + card.ability.extra.a_slots
+        G.consumeables:change_size(card.ability.extra.a_slots)
+        return {
+          message = localize {
+            type = 'variable',
+            key = 'paperback_a_plus_consumable_slot',
+            colour = G.C.SUITS[card.ability.extra.suit],
+            vars = { card.ability.extra.slots }
+          }
+        }
+      end
+    end
+  end,
 
   add_to_deck = function(self, card, from_debuff)
-    G.consumeables:change_size(card.ability.extra.current)
+    G.consumeables:change_size(card.ability.extra.slots)
   end,
 
   remove_from_deck = function(self, card, from_debuff)
-    G.consumeables:change_size(-card.ability.extra.current)
+    G.consumeables:change_size(-card.ability.extra.slots)
   end,
-
-  paperback_lager_effect = function(card, other_card, upgraded, upgrade)
-    G.consumeables:change_size(upgraded)
-    return upgrade
-  end
 }

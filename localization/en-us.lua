@@ -1901,50 +1901,46 @@ return {
         name = "Grenadine",
         text = {
           "Scored {C:hearts}#1#{} cards give {X:mult,C:white}X#2#{} Mult when scored",
-          "Increases by {X:mult,C:white}X#3#{} if scoring hand contains",
-          "atleast {C:attention}4{} {C:hearts}#4#{}, otherwise decreases by {X:mult,C:white}X#3#{}",
+          "Increases by {X:mult,C:white}X#3#{} when a {C:green}probability{} fails",
         },
       },
       j_paperback_stout = {
         name = "Stout",
         text = {
-          "Scored {C:spades}#1#{} cards give {C:chips}+#2#{} Chips when scored",
-          "Increases by {C:chips}+#3#{} if scoring hand contains",
-          "atleast {C:attention}4{} {C:spades}#4#{}, otherwise decreases by {C:chips}+#3#{}",
+          "Scored {C:spades}#1#{} cards give {X:chips,C:white}X#2#{} chips when scored",
+          "Increases by {X:chips,C:white}X#3#{} when {C:attention}#4#{} or more",
+          "played {C:spades}#1#{} are scoring",
         },
       },
       j_paperback_aperol = {
         name = "Aperol",
         text = {
-          "Scored {C:diamonds}#1#{} cards give {C:money}$#2#{} when scored",
-          "Increases by {C:money}$#3#{} if scoring hand contains",
-          "atleast {C:attention}4{} {C:diamonds}#4#{}, otherwise decreases by {C:money}$#3#{}",
+          "Scored {C:diamonds}#3#{} cards give {C:mult}+#1#{} Mult",
+          "for every {C:money}$#2#{} owned when scored",
+          "{C:inactive}(Currently {C:mult}+#4#{C:inactive} Mult)",
         },
       },
       j_paperback_blue_curacao = {
         name = "Blue Curaçao",
         text = {
-          "Scored {C:clubs}#1#{} cards give {C:mult}+#2#{} Mult when scored",
-          "Increases by {C:mult}+#3#{} if scoring hand contains",
-          "atleast {C:attention}4{} {C:clubs}#4#{}, otherwise decreases by {C:mult}+#3#{}",
+          "Scored {C:clubs}#1#{} cards give {X:mult,C:white}X#2#{} Mult when scored",
+          "Increases by {X:mult,C:white}X#3#{} when {C:attention}#4#{} or more",
+          "played {C:clubs}#1#{} are scoring",
         },
       },
       j_paperback_nigori = {
         name = "Nigori",
         text = {
-          "Scored {C:paperback_stars}#1#{} cards give {X:chips,C:white}X#2#{} Chips when scored",
-          "Increases by {X:chips,C:white}X#3#{} if scoring hand",
-          "contains atleast {C:attention}4{} {C:paperback_stars}#4#{}",
-          "If less than {C:attention}#5#{} {C:paperback_stars}#4#{} are scored decreased by {X:chips,C:white}X#3#{}",
+          "Scored {C:paperback_stars}#1#{} cards give {C:chips}+#2#{} chips when scored",
+          "Increases by {C:chips}+#3#{} whenever {X:chips,C:white}Xchips{} is scored",
         },
       },
       j_paperback_lager = {
         name = "Lager",
         text = {
-          "{C:attention}#2#{} Consumable slots",
-          "Increases by {C:attention}+#3#{} if scoring hand",
-          "contains at least {C:attention}4{} {C:paperback_crowns}#4#{}",
-          "If less than {C:attention}#5#{} {C:paperback_crowns}#4#{} are scored decreased by {C:attention}#3#{}",
+          "{C:attention}+#1#{} Consumable slots",
+          "Increases by {C:attention}+#2#{} if scoring hand",
+          "contains at least {C:attention}3{} {C:paperback_crowns}#4#{}",
         },
       },
       j_paperback_paranoia = {
@@ -3612,6 +3608,15 @@ return {
           "to be used immediately"
         }
       },
+      -- Informational
+      paperback_suit_drink = {
+        name = "Suit Drink",
+        text = {
+          "This Joker {C:red}self-destructs{} after",
+          "playing no {C:attention}scoring{} {V:1}#1#{}",
+          "for {C:attention}two{} hands in a row",
+        }
+      },
     },
     Partner = {
       pnr_paperback_virtual = {
@@ -3799,6 +3804,7 @@ return {
       paperback_downgrade_ex = "Downgrade!",
       paperback_copy_ex = "Copy!",
       paperback_consumed_ex = "Consumed!",
+      paperback_tipsy_ex = "Tipsy!",
       paperback_too_hot_ex = "Too Hot!",
       paperback_inactive = "inactive",
       paperback_supplies_ex = "Supplies!",

@@ -2,11 +2,10 @@ SMODS.Joker {
   key = "stout",
   config = {
     extra = {
-      current = 45,
-      gain = 15,
-      floor = 0,
+      xchips = 1,
+      a_xchips = 0.15,
       suit = "Spades",
-      upgrade = { type = 'variable', key = 'a_chips', colour = G.C.CHIPS }
+      req = 5
     }
   },
   rarity = 3,
@@ -22,13 +21,51 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback = {
+    suit_drink = true
+  },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
-  paperback_suit_drink_effect = function(card, other_card)
+  loc_vars = function(self, info_queue, card)
     return {
-      chips = card.ability.extra.current,
-      message_card = other_card
+      vars = {
+        card.ability.extra.suit,
+        card.ability.extra.xchips,
+        card.ability.extra.a_xchips,
+        card.ability.extra.req,
+      }
     }
-  end
+  end,
+
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.before and not context.blueprint then
+      local spades = 0
+      for _, v in ipairs(context.scoring_hand) do
+        if v:is_suit(card.ability.extra.suit, false, true) then
+          spades = spades + 1
+        end
+      end
+      if spades >= card.ability.extra.req then
+        card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.a_xchips
+        return {
+          message = localize {
+            type = 'variable',
+            key = 'a_xchips',
+            vars = { card.ability.extra.xchips }
+          },
+        }
+      end
+    end
+
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit(card.ability.extra.suit) then
+        return {
+          xchips = card.ability.extra.xchips,
+        }
+      end
+    end
+  end,
 }

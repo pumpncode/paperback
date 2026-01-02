@@ -405,3 +405,18 @@ function ease_ante(mod)
   G.GAME.paperback.finished_antes[G.GAME.round_resets.ante] = true
   return ease_ante_ref(mod)
 end
+
+-- Evaluate context when XChips is scored (for Nigori scaling)
+-- Could be expanded on to contain other scoring effects but this is all that's necessary currently
+local calculate_individual_effect_ref = SMODS.calculate_individual_effect
+function SMODS.calculate_individual_effect(effect, scored_card, key, amount, from_edition)
+  local xchips_keys = { 'x_chips', 'xchips', 'Xchip_mod', }
+  if PB_UTIL.find(xchips_keys, key) and amount ~= 0 then
+    SMODS.calculate_context({
+      paperback = {
+        xchips_scored = true,
+      }
+    })
+  end
+  return calculate_individual_effect_ref(effect, scored_card, key, amount, from_edition)
+end

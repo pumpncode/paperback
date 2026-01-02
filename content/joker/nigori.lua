@@ -2,12 +2,9 @@ SMODS.Joker {
   key = "nigori",
   config = {
     extra = {
-      current = 1.3,
-      gain = 0.1,
-      floor = 1.0,
+      chips = 50,
+      a_chips = 5,
       suit = "paperback_Stars",
-      upgrade = { type = 'variable', key = 'a_xchips', colour = G.C.CHIPS },
-      downgrade_req = 2,
     }
   },
   rarity = 3,
@@ -24,15 +21,41 @@ SMODS.Joker {
     Food = true
   },
   paperback = {
-    requires_stars = true
+    requires_stars = true,
+    suit_drink = true
   },
 
-  loc_vars = PB_UTIL.suit_drink_loc_vars,
-  calculate = PB_UTIL.suit_drink_logic,
-  paperback_suit_drink_effect = function(card, other_card)
+  loc_vars = function(self, info_queue, card)
     return {
-      xchips = card.ability.extra.current,
-      message_card = card
+      vars = {
+        card.ability.extra.suit,
+        card.ability.extra.chips,
+        card.ability.extra.a_chips,
+      }
     }
-  end
+  end,
+  calculate = function(self, card, context)
+    if context.before and not context.blueprint and PB_UTIL.suit_drink_logic(card, context, true) then
+      return PB_UTIL.suit_drink_logic(card, context, false)
+    end
+
+    if context.paperback and context.paperback.xchips_scored then
+      card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
+      return {
+        message = localize {
+          type = 'variable',
+          key = 'a_chips',
+          vars = { card.ability.extra.chips }
+        },
+      }
+    end
+
+    if context.individual and context.cardarea == G.play then
+      if context.other_card:is_suit(card.ability.extra.suit) then
+        return {
+          chips = card.ability.extra.chips,
+        }
+      end
+    end
+  end,
 }
