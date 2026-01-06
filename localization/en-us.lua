@@ -2140,7 +2140,7 @@ return {
         name = "Deck of Cards",
         text = {
           "If played hand is a single {C:attention}#1#{},",
-          "this Joker gains {X:chips,C:white}X#2#{} Mult, ",
+          "this Joker gains {X:chips,C:white}X#2#{} Mult and destroys it",
           "{C:inactive}(Currently {X:chips,C:white}X#3#{} {C:inactive}Chips)"
         }
       },
