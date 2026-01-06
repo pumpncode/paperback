@@ -1931,8 +1931,10 @@ return {
       j_paperback_nigori = {
         name = "Nigori",
         text = {
-          "Scored {C:paperback_stars}#1#{} cards give {C:chips}+#2#{} chips when scored",
-          "Increases by {C:chips}+#3#{} whenever {X:chips,C:white}Xchips{} is scored",
+          "Scored {C:paperback_stars}#1#{} cards give",
+          "{C:chips}+#2#{} Chips when scored",
+          "Increases by {C:chips}+#3#{} whenever",
+          "{X:chips,C:white}XChips{} is scored",
         },
       },
       j_paperback_lager = {
