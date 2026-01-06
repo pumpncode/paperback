@@ -8,8 +8,8 @@ SMODS.Joker {
   perishable_compat = false,
   config = { extra = { mult_mod = 2, dollars = 25, mult = 0 } },
   paperback_credit = {
-    artist = 'thermo',
-    coder = 'thermo'
+    artist = { 'thermo' },
+    coder = { 'thermo' }
   },
 
   loc_vars = function(self, info_queue, card)

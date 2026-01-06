@@ -16,7 +16,7 @@ SMODS.Joker {
   perishable_compat = true,
 
   paperback_credit = {
-    coder = { 'trans_flag' }
+    coder = { 'dowfrin' }
   },
 
   loc_vars = function(self, info_queue, card)
