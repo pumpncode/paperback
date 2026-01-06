@@ -17,6 +17,10 @@ SMODS.Joker {
     requires_enhancements = true
   },
 
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_paperback_domino
     local count = 0

@@ -8,6 +8,10 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = false,
   eternal_compat = true,
+  paperback_credit = {
+    artist = { 'dylan_hall' },
+    coder = { ' ejwu' }
+  },
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then

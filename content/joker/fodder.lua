@@ -11,6 +11,9 @@ SMODS.Joker {
     requires_ego_gifts = true
   },
   unlocked = false,
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
   check_for_unlock = function(self, args)
     if args.type == 'paperback_sold_ego_gifts' then
       return #G.GAME.paperback.sold_ego_gifts >= 1

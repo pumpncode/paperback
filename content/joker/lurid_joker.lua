@@ -17,6 +17,10 @@ if PB_UTIL.should_load_spectrum_items() then
       requires_spectrum_or_suit = true
     },
 
+    paperback_credit = {
+      coder = { 'dowfrin' },
+    },
+
     loc_vars = function(self, info_queue, card)
       return {
         vars = {

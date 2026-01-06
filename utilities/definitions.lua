@@ -956,6 +956,9 @@ if PB_UTIL.config.minor_arcana_enabled then
     group_key = 'paperback_minor_arcana_pack',
     kind = 'paperback_minor_arcana',
     draw_hand = true,
+    paperback_credit = {
+      composer = { 'larantula' },
+    },
 
     loc_vars = function(self, info_queue, card)
       local orig = SMODS.Booster.loc_vars(self, info_queue, card)
@@ -1017,6 +1020,8 @@ if PB_UTIL.config.minor_arcana_enabled then
     set = 'paperback_minor_arcana',
     unlocked = true,
     discovered = false,
+    paperback_credit = {
+    },
 
     loc_vars = function(self, info_queue, card)
       if not self.config then return end
@@ -1198,6 +1203,9 @@ if PB_UTIL.config.ego_gifts_enabled then
     cost = 0,
     -- This card is always selected, not used. It goes to the 'consumeables' area
     select_card = "consumeables",
+    paperback_credit = {
+      coder = { 'dowfrin' }
+    },
 
     in_pool = function(self, args)
       return not PB_UTIL.create_card_in_consumable_area

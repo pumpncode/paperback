@@ -19,6 +19,11 @@ SMODS.Joker {
     permanently_eternal = true,
   },
   unlocked = false,
+
+  paperback_credit = {
+    coder = { 'ejwu' },
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     return { vars = { 13 }, key = 'j_paperback_jimbocards_collection' }
   end,

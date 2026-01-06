@@ -20,6 +20,9 @@ SMODS.Joker { -- Banana Man
   unlocked = false,
   discovered = false,
   atlas = 'jokers_atlas',
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
 
   loc_vars = function(self, info_queue, card)
     local new_numerator, new_denominator = PB_UTIL.chance_vars(card, 'banana_man')

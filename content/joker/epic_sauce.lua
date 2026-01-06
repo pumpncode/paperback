@@ -17,6 +17,9 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

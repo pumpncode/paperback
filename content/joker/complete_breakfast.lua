@@ -18,6 +18,10 @@ SMODS.Joker {
     Food = true
   },
   unlocked = false,
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   check_for_unlock = function(self, args)
     if args.type == 'modify_jokers' and G.jokers then
       local count = 0

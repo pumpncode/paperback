@@ -21,6 +21,10 @@ SMODS.Joker {
   yes_pool_flag = 'paperback_legacy_can_spawn',
   paperback_secret_unlock = true,
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

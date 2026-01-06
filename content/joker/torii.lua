@@ -18,6 +18,10 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'vitellary' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local active, colours
     if G.GAME.paperback.finished_antes[G.GAME.round_resets.ante] then
@@ -44,7 +48,8 @@ SMODS.Joker {
       if card.ability.extra.current >= card.ability.extra.max then
         card.ability.extra.current = 0
         ease_ante(card.ability.extra.antes)
-        G.GAME.round_resets.blind_ante = (G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante) + card.ability.extra.antes
+        G.GAME.round_resets.blind_ante = (G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante) +
+            card.ability.extra.antes
         return {
           message = localize {
             type = 'variable',

@@ -19,6 +19,10 @@ SMODS.Joker {
   perishable_compat = false,
   pixel_size = { w = 35, h = 45 },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   in_pool = function(self, args)
     if G.playing_cards then
       for _, card in ipairs(G.playing_cards) do

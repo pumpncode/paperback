@@ -13,6 +13,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   unlocked = false,
+  paperback_credit = {
+    coder = { 'infinityplus' },
+  },
+
   locked_loc_vars = function(self, info_queue)
     return { vars = { 20 } }
   end,

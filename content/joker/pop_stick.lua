@@ -16,6 +16,10 @@ SMODS.Joker {
   soul_pos = nil,
   yes_pool_flag = "sticks_can_spawn",
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local xMult = PB_UTIL.calculate_stick_xMult(card)
 

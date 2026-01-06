@@ -15,6 +15,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = false,
 
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')

@@ -19,6 +19,9 @@ SMODS.Joker {
   paperback = {
     ignores_the_world = true
   },
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

@@ -23,6 +23,10 @@ SMODS.Joker {
   },
   paperback_secret_unlock = true,
 
+  paperback_credit = {
+    artist = { 'dylan_hall' },
+    coder = { 'dowfrin' }
+  },
   in_pool = function(self, args)
     return false
   end,

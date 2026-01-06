@@ -12,6 +12,10 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'vitellary' }
+  },
+
   add_to_deck = function(self, card, from_debuff)
     G.GAME.spectral_rate = G.GAME.spectral_rate + 2 -- same rate as ghost deck
     card.ability.extra.allow_soul = G.GAME.selected_back_key.key == 'b_ghost'

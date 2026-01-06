@@ -8,6 +8,11 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   unlocked = false,
+
+  paperback_credit = {
+    coder = { 'infinityplus' },
+  },
+
   check_for_unlock = function(self, args)
     if args.type == 'win_challenge' and G.GAME.challenge == 'c_city_1' then
       self.challenge_bypass = true

@@ -18,6 +18,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = false,
 
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local hand = G.GAME.paperback.weather_radio_hand
 

@@ -11,6 +11,10 @@ SMODS.Joker {
   perishable_compat = true,
   config = { extra = { h_size = 4, hands = -1 } },
 
+  paperback_credit = {
+    coder = { 'infinityplus' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.h_size, card.ability.extra.hands } }
   end,

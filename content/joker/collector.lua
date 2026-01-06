@@ -17,6 +17,10 @@ SMODS.Joker {
   paperback = {
     requires_enhancements = true
   },
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
+
   enhancement_gate = 'm_paperback_sleeved',
 
   loc_vars = function(self, info_queue, card)

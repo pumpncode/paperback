@@ -11,6 +11,10 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   -- Calculate function for the Joker
   calculate = function(self, card, context)
     if context.before then

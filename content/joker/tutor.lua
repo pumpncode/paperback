@@ -7,6 +7,10 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+
+  paperback_credit = {
+    coder = { 'dowfrin' }
+  },
 }
 local get_chip_bonus_ref = Card.get_chip_bonus
 function Card.get_chip_bonus(self)

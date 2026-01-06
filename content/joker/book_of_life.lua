@@ -15,6 +15,9 @@ SMODS.Joker {
   eternal_compat = false,
   perishable_compat = true,
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'vitellary' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return { vars = { PB_UTIL.chance_vars(card) } }

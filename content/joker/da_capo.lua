@@ -14,6 +14,10 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'dowfrin' },
+    artist = { 'shizi' }
+  },
 
   add_to_deck = function(self, card, from_debuff)
     for k, v in ipairs(G.playing_cards) do

@@ -20,6 +20,10 @@ SMODS.Joker {
     Food = true
   },
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
 

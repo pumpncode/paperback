@@ -11,12 +11,18 @@ SMODS.Joker {
   perishable_compat = true,
   config = { extra = { slots_per = 1, slots = 1 } },
 
+  paperback_credit = {
+    coder = { 'ejwu' }
+  },
+
   loc_vars = function(self, info_queue, card)
-    return { vars = {
-      card.ability.extra.slots_per,
-      card.ability.extra.slots,
-      card.ability.extra.slots == 1 and "" or "s",
-    } }
+    return {
+      vars = {
+        card.ability.extra.slots_per,
+        card.ability.extra.slots,
+        card.ability.extra.slots == 1 and "" or "s",
+      }
+    }
   end,
 
   add_to_deck = function(self, card, from_debuff)

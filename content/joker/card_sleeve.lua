@@ -7,6 +7,9 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
   perishable_compat = true,
+  paperback_credit = {
+    coder = { 'infinityplus' }
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = { key = 'eternal', set = 'Other' }
@@ -21,7 +24,7 @@ SMODS.Joker {
     if other_joker then
       -- Conditions from `Card:set_eternal`
       local compat = other_joker.config.center.eternal_compat and
-        not other_joker.ability.paperback_temporary
+          not other_joker.ability.paperback_temporary
       local color = compat and G.C.GREEN or G.C.RED
       local text = compat and 'k_compatible' or 'k_incompatible'
 

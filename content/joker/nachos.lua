@@ -19,6 +19,10 @@ SMODS.Joker {
     Food = true
   },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.extra.X_chips = card.ability.extra.X_chips or 1
     card.ability.extra.reduction_amount = 0.05

@@ -12,6 +12,9 @@ SMODS.Joker {
   paperback = {
     requires_ranks = true
   },
+  paperback_credit = {
+    coder = { 'dowfrin' }
+  },
 
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do
@@ -63,7 +66,7 @@ SMODS.Joker {
       end
     end
   end,
-  joker_display_def = function (JokerDisplay)
+  joker_display_def = function(JokerDisplay)
     return {
       text = {
         { text = "+" },
@@ -97,7 +100,7 @@ SMODS.Joker {
         if text then
           for _, child in ipairs(text.children) do
             child.config.colour = card.joker_display_values.card_type_given == 'Spectral' and G.C.SECONDARY_SET.Spectral or
-              G.C.SECONDARY_SET.Tarot
+                G.C.SECONDARY_SET.Tarot
           end
         end
         return false

@@ -18,6 +18,10 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  paperback_credit = {
+    artist = { 'dylan_hall' },
+    coder = { 'ejwu' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

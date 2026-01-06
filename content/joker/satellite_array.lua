@@ -7,6 +7,11 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   perishable_compat = false,
   config = { extra = { chips_mod = 15, chips_rem = 5, chips = 0 } },
+
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips_rem, card.ability.extra.chips } }
   end,

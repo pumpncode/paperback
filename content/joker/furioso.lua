@@ -16,6 +16,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
 
   check_for_unlock = function(self, args)
     return args.type == 'round_win' and G.GAME.current_round.hands_played == 1 and

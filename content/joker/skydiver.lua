@@ -19,6 +19,10 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local lowest_rank = localize(card.ability.extra.lowest_rank, 'ranks')
 

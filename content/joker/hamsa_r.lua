@@ -16,6 +16,10 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'vitellary' },
+  },
+
   loc_vars = function(self, info_queue, card)
     local vars = { vars = { card.ability.extra.luck } }
     if card.area and card.area.config.collection then

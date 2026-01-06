@@ -3915,6 +3915,32 @@ return {
       -- Suit category
       paperback_light = "Light",
       paperback_dark = "Dark",
+
+      -- Credit
+      paperback_art_credit = 'Art by ',
+      paperback_code_credit = 'Code by ',
+      paperback_music_credit = 'Composed by ',
+      paperback_and_spacer = ' and ',
+
+      -- Developers
+
+      paperback_dev_dowfrin = 'Dowfrin',
+      paperback_dev_srockw = 'srockw',
+      paperback_dev_papermoonqueen = 'PaperMoonQueen',
+      paperback_dev_dylan_hall = 'Dylan Hall',
+      paperback_dev_metanite = 'metanite64',
+      paperback_dev_infinityplus = 'InfinityPlus05',
+      paperback_dev_vitellary = 'vitellary',
+      paperback_dev_ejwu = 'ejwu2',
+      paperback_dev_b = 'B',
+      paperback_dev_nether = 'Nether',
+      paperback_dev_oppositewolf = 'OppositeWolf770',
+      paperback_dev_thermo = 'ThermoDyn',
+      paperback_dev_aa7 = 'aa7_2k03',
+      paperback_dev_shizi = 'Shizi',
+      paperback_dev_nevernamed = 'NeverNamed',
+      paperback_dev_scruby = 'S_C_R_U_B_Y',
+      paperback_dev_larantula = 'Larantula',
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",

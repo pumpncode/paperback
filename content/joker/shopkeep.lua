@@ -14,13 +14,19 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
 
+  paperback_credit = {
+    coder = { 'aa7' }
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_coupon
     info_queue[#info_queue + 1] = G.P_TAGS.tag_voucher
-    return { vars = {
-      card.ability.extra.coupon_blinds_needed,
-      card.ability.extra.count % card.ability.extra.coupon_blinds_needed
-    } }
+    return {
+      vars = {
+        card.ability.extra.coupon_blinds_needed,
+        card.ability.extra.count % card.ability.extra.coupon_blinds_needed
+      }
+    }
   end,
 
   check_for_unlock = function(self, args)

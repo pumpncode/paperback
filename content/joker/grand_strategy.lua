@@ -16,6 +16,9 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
 
   loc_vars = function(self, info_queue, card)
     local unique_specials = PB_UTIL.special_cards_in_deck(true, false)

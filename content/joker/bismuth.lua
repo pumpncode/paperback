@@ -18,6 +18,10 @@ SMODS.Joker {
   paperback = {
     requires_custom_suits = true
   },
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   check_for_unlock = function(self, args)
     if args.type == 'modify_deck' then
       return PB_UTIL.has_suit_in_deck("paperback_Crowns", true) or PB_UTIL.has_suit_in_deck("paperback_Stars", true)

@@ -15,11 +15,15 @@ SMODS.Joker {
   perishable_compat = true,
   cost = 4,
   pos = { x = 13, y = 9 },
+
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.hearts, card.ability.extra.dollars } }
   end,
   calculate = function(self, card, context)
-
     if context.joker_main then
       local hearts = 0
       for _, v in ipairs(G.play.cards) do

@@ -18,6 +18,10 @@ SMODS.Joker {
   pools = {
     Music = true
   },
+  paperback_credit = {
+    artist = { 'dylan_hall' },
+    coder = { 'dowfrin' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

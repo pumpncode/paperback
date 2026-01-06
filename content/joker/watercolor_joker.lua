@@ -20,6 +20,10 @@ SMODS.Joker {
   },
   enhancement_gate = 'm_paperback_soaked',
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   check_for_unlock = function(self, args)
     if args.type == 'hand_contents' then
       for j = 1, #args.cards do

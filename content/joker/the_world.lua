@@ -9,6 +9,11 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = true,
   soul_pos = nil,
+
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     return { vars = { 12 } }
   end,

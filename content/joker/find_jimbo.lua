@@ -14,6 +14,9 @@ SMODS.Joker {
   unlocked = false,
   blueprint_compat = true,
   eternal_compat = true,
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
 
   check_for_unlock = function(self, args)
     if args.type == 'hand' and args.handname == 'High Card' then

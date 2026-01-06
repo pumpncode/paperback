@@ -17,6 +17,11 @@ SMODS.Joker {
     requires_spectrum_or_suit = true
   },
   unlocked = false,
+
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     return { vars = { 5 } }
   end,

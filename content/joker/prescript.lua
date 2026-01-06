@@ -17,6 +17,10 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'vitellary' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local active, colours
     if card.ability.extra.active then
@@ -40,7 +44,8 @@ SMODS.Joker {
     for k, v in pairs(G.GAME.hands) do
       if SMODS.is_poker_hand_visible(k) then _poker_hands[#_poker_hands + 1] = k end
     end
-    card.ability.extra.hand = pseudorandom_element(_poker_hands, pseudoseed((card.area and card.area.config.collection) and 'prescript_fake' or 'prescript'))
+    card.ability.extra.hand = pseudorandom_element(_poker_hands,
+      pseudoseed((card.area and card.area.config.collection) and 'prescript_fake' or 'prescript'))
   end,
 
   calculate = function(self, card, context)

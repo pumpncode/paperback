@@ -14,6 +14,10 @@ SMODS.Joker {
   perishable_compat = true,
   cost = 4,
   pos = { x = 17, y = 2 },
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
@@ -52,7 +56,7 @@ SMODS.Joker {
         local is_last = text == card.ability.extra.last_hand_played
         card.joker_display_values.dollars = is_last and card.ability.extra.dollars or 0
         card.joker_display_values.last_hand_played = card.ability.extra.last_hand_played and
-        localize(card.ability.extra.last_hand_played, 'poker_hands') or 'None'
+            localize(card.ability.extra.last_hand_played, 'poker_hands') or 'None'
       end
     }
   end,

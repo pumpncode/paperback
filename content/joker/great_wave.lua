@@ -10,6 +10,10 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   calculate = function(self, card, context)
     if not card.debuff then
       if context.repetition and context.cardarea == G.play then

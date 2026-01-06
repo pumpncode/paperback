@@ -16,11 +16,16 @@ SMODS.Joker {
     requires_custom_suits = true
   },
 
+
+  paperback_credit = {
+    coder = { 'infinityplus' },
+  },
+
   in_pool = function()
     if G.playing_cards then
       for _, v in pairs(G.playing_cards) do
         if SMODS.has_enhancement(v, 'm_bonus') or
-            (not SMODS.has_no_suit(v) and v.base.suit == 'paperback_Stars') then
+        (not SMODS.has_no_suit(v) and v.base.suit == 'paperback_Stars') then
           return true
         end
       end
@@ -40,7 +45,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.check_enhancement and (context.other_card.base.suit == "paperback_Stars"
-          or context.other_card.config.center_key == 'm_wild' or context.other_card.config.center.any_suit) then
+      or context.other_card.config.center_key == 'm_wild' or context.other_card.config.center.any_suit) then
       return { m_bonus = true }
     end
   end

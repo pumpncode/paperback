@@ -17,6 +17,11 @@ SMODS.Joker {
   paperback = {
     requires_ranks = true
   },
+
+  paperback_credit = {
+    coder = { 'metanite' }
+  },
+
   locked_loc_vars = function(self, info_queue)
     return { vars = { 5 } }
   end,

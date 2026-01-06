@@ -19,6 +19,9 @@ SMODS.Joker {
   paperback = {
     requires_custom_suits = true
   },
+  paperback_credit = {
+    coder = { 'b' },
+  },
 
   in_pool = function(self, args)
     return PB_UTIL.spectrum_played() or PB_UTIL.has_suit_in_deck('paperback_Crowns', true)

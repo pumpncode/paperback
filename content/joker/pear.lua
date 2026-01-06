@@ -20,6 +20,11 @@ SMODS.Joker {
     Food = true
   },
 
+
+  paperback_credit = {
+    coder = { 'metanite' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

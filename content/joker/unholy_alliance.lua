@@ -18,6 +18,10 @@ SMODS.Joker {
   perishable_compat = false,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

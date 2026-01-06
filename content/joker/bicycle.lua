@@ -14,6 +14,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
 
   enhancement_gate = "m_wild",
 
@@ -37,7 +40,7 @@ SMODS.Joker {
   joker_display_def = function(JokerDisplay)
     return {
       text = {
-        { text = "+",                              colour = G.C.MULT },
+        { text = "+", colour = G.C.MULT },
         { ref_table = "card.joker_display_values", ref_value = "mult", colour = G.C.MULT },
       },
 

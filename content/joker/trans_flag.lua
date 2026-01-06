@@ -15,6 +15,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
+  paperback_credit = {
+    coder = { 'trans_flag' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local discards = 0
     if G.GAME then discards = G.GAME.current_round.discards_left end

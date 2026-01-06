@@ -16,6 +16,10 @@ SMODS.Joker {
   perishable_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'vitellary' },
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.select } }
   end,

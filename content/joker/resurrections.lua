@@ -19,6 +19,10 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
 
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
     local numerator, denominator = PB_UTIL.chance_vars(card, nil, card.ability.extra.chance_mult)

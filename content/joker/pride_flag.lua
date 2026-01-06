@@ -20,6 +20,10 @@ if PB_UTIL.config.suits_enabled then
       requires_spectrum_or_suit = true
     },
 
+    paperback_credit = {
+      coder = { 'oppositewolf' }
+    },
+
     loc_vars = function(self, info_queue, card)
       return {
         vars = {
@@ -100,6 +104,9 @@ else
     perishable_compat = false,
     soul_pos = nil,
 
+    paperback_credit = {
+      coder = { 'oppositewolf' }
+    },
     loc_vars = function(self, info_queue, card)
       return {
         vars = {

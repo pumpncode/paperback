@@ -19,6 +19,11 @@ SMODS.Joker {
   paperback = {
     requires_minor_arcana = true
   },
+
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     return {
       vars = {

@@ -16,6 +16,11 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = { card.ability.extra.bonus, card.ability.extra.card_req, card.ability.extra.mult }

@@ -18,6 +18,10 @@ SMODS.Joker {
   eternal_compat = true,
   enhancement_gate = 'm_wild',
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
 

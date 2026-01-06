@@ -8,6 +8,11 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   unlocked = true,
+
+  paperback_credit = {
+    coder = { 'infinityplus' }
+  },
+
   loc_vars = function(self, info_queue, card)
     if card.area == G.jokers and G.jokers.cards[#G.jokers.cards] ~= card and G.jokers.cards[#G.jokers.cards].config.center.blueprint_compat then
       card.ability.blueprint_compat = ' ' .. localize('k_compatible') .. ' '

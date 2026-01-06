@@ -17,6 +17,10 @@ if PB_UTIL.config.minor_arcana_enabled then
     eternal_compat = true,
     perishable_compat = true,
 
+    paperback_credit = {
+      coder = { 'srockw' }
+    },
+
     loc_vars = function(self, info_queue, card)
       local n1, d1 = PB_UTIL.chance_vars(card, nil, nil, card.ability.extra.tarot_odds)
       local n2, d2 = PB_UTIL.chance_vars(card, nil, nil, card.ability.extra.minor_arcana_odds)
@@ -85,6 +89,10 @@ else
     eternal_compat = true,
     perishable_compat = true,
     soul_pos = nil,
+
+    paperback_credit = {
+      coder = { 'srockw' }
+    },
 
     loc_vars = function(self, info_queue, card)
       local n1, d1 = PB_UTIL.chance_vars(card, nil, nil, card.ability.extra.planet_odds)

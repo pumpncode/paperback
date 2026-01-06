@@ -9,6 +9,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   unlocked = false,
+  paperback_credit = {
+    coder = { 'srockw' },
+    artist = { 'nevernamed' }
+  },
 
   -- Also see SMODS.calculate_main_scoring hook
   calculate = function(self, card, context)
@@ -26,8 +30,10 @@ SMODS.Joker {
           -- Copied from SMODS.calculate_main_scoring
           G.GAME.blind.triggered = true
           G.E_MANAGER:add_event(Event({
-              trigger = 'immediate',
-              func = (function() SMODS.juice_up_blind();return true end)
+            trigger = 'immediate',
+            func = (function()
+              SMODS.juice_up_blind(); return true
+            end)
           }))
           card_eval_status_text(v, 'debuff')
         elseif v:can_calculate() and v:is_face() then

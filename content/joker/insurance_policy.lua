@@ -15,6 +15,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
+
 
   loc_vars = function(self, info_queue, card)
     -- a reference to nothing in particular

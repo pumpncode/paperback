@@ -14,6 +14,9 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   check_for_unlock = function(self, args)
     return args.type == 'win' and G.GAME.paperback.max_consumeables <= 0

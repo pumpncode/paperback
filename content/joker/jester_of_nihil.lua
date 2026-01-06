@@ -15,6 +15,11 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
+
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     return {
       vars = { 4 }
@@ -24,11 +29,11 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'hand_contents' then
       local tally = 0
-        for j = 1, #args.cards do
-          if args.cards[j].debuff then
-            tally = tally + 1
-          end
+      for j = 1, #args.cards do
+        if args.cards[j].debuff then
+          tally = tally + 1
         end
+      end
       if tally >= 4 then
         return true
       end

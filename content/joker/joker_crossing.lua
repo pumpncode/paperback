@@ -11,6 +11,10 @@ SMODS.Joker {
   perishable_compat = true,
   config = { extra = { odds = 3 } },
 
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
+
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
 

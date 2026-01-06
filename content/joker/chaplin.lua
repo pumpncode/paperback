@@ -9,6 +9,9 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   unlocked = false,
+  paperback_credit = {
+    coder = { 'dowfrin' }
+  },
 
   calculate = function(self, card, context)
     if context.buying_card and context.card.ability.set == "Voucher" and not context.blueprint then

@@ -18,6 +18,10 @@ SMODS.Joker {
   eternal_compat = true,
   soul_pos = nil,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   locked_loc_vars = function(self, info_queue, card)
     local other_name = localize('k_unknown')
     if G.P_CENTERS['b_plasma'].unlocked then

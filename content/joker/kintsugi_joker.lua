@@ -21,6 +21,10 @@ SMODS.Joker {
   },
   enhancement_gate = 'm_paperback_ceramic',
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

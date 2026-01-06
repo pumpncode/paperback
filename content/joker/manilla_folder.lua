@@ -18,6 +18,10 @@ SMODS.Joker {
     requires_paperclips = true
   },
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do
       if PB_UTIL.has_paperclip(v) then return true end

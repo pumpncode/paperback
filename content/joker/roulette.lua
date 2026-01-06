@@ -15,6 +15,11 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
+
+  paperback_credit = {
+    coder = { 'ejwu' }
+  },
+
   check_for_unlock = function(self, args)
     if args.type == 'hand_contents' then
       local eval = evaluate_poker_hand(args.cards)

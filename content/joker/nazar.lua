@@ -20,13 +20,18 @@ SMODS.Joker {
     requires_minor_arcana = true
   },
 
+  paperback_credit = {
+    coder = { 'vitellary' },
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips_gain, card.ability.extra.chips } }
   end,
 
   check_for_unlock = function(self, args)
     if args.type == 'discover_amount' and (G.DISCOVER_TALLIES['paperback_minor_arcanas'] ~= nil) then
-      return (G.DISCOVER_TALLIES['tarots'].tally >= G.DISCOVER_TALLIES['tarots'].of) and (G.DISCOVER_TALLIES['paperback_minor_arcanas'].tally >= G.DISCOVER_TALLIES['paperback_minor_arcanas'].of)
+      return (G.DISCOVER_TALLIES['tarots'].tally >= G.DISCOVER_TALLIES['tarots'].of) and
+          (G.DISCOVER_TALLIES['paperback_minor_arcanas'].tally >= G.DISCOVER_TALLIES['paperback_minor_arcanas'].of)
     end
   end,
 

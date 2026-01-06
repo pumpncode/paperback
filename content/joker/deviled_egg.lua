@@ -18,6 +18,9 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback_credit = {
+    coder = { 'metanite' },
+  },
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.rounds_left } }

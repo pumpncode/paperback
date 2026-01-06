@@ -12,6 +12,10 @@ SMODS.Joker {
   atlas = 'jokers_atlas',
   blueprint_compat = false,
 
+  paperback_credit = {
+    coder = { 'infinityplus' },
+  },
+
   in_pool = function(self, args)
     return not next(SMODS.find_card('j_paperback_jestrogen'))
   end,

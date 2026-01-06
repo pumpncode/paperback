@@ -13,6 +13,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
+  paperback_credit = {
+    coder = { 'aa7' }
+  },
+
   calculate = function(self, card, context)
     if context.setting_blind and G.GAME.blind:get_type() == 'Boss' then
       for _ = 1, card.ability.extra.tag_count, 1 do

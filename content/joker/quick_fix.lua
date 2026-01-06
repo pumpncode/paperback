@@ -17,6 +17,10 @@ SMODS.Joker {
   soul_pos = nil,
   yes_pool_flag = "quick_fix_can_spawn",
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.h_size = card.ability.extra.h_size or 0
     card.ability.extra.odds = card.ability.extra.odds or 1

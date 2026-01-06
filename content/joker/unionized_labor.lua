@@ -7,6 +7,11 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   perishable_compat = false,
   config = { extra = { dollars = 25 } },
+  paperback_credit = {
+    artist = { 'thermo' },
+    coder = { 'thermo' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local n, d = PB_UTIL.chance_vars(nil, nil, 1, 3) -- example
     if not G.jokers then

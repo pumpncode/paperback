@@ -14,6 +14,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  paperback_credit = {
+    coder = { 'aa7' },
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

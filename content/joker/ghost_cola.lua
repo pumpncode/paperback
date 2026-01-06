@@ -16,6 +16,10 @@ SMODS.Joker {
     Food = true
   },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_negative
 

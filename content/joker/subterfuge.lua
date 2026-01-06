@@ -13,6 +13,11 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   soul_pos = nil,
+
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   check_for_unlock = function(self, args)
     if G.GAME.paperback.destroyed_cards_this_round >= 6 then
       return true

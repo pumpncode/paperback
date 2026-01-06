@@ -15,6 +15,10 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
+  paperback_credit = {
+    artist = { 'dylan_hall' },
+    coder = { 'dowfrin' }
+  },
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

@@ -1,6 +1,94 @@
 PB_UTIL = {}
 
+-- By Eremel from Stocking Stuffer's PotatoPatch utils
+PB_UTIL.CREDITS = {}
+
+PB_UTIL.CREDITS.generate_string = function(developers, prefix)
+  if type(developers) ~= 'table' then return end
+
+  local amount = #developers
+  local credit_string = {
+    n = G.UIT.R,
+    config = { align = 'tm' },
+    nodes = {
+      { n = G.UIT.R, config = { align = 'cm' }, nodes = { { n = G.UIT.T, config = { text = localize(prefix), shadow = true, colour = G.C.UI.BACKGROUND_WHITE, scale = 0.27 } } } }
+    }
+  }
+
+  for i, name in ipairs(developers) do
+    local target_row = math.ceil(i / 3)
+    local dev = PB_UTIL.Developers[name] or {}
+    if target_row > #credit_string.nodes then
+      table.insert(credit_string.nodes,
+        { n = G.UIT.R, config = { align = 'cm' }, nodes = {} })
+    end
+    table.insert(credit_string.nodes[target_row].nodes, {
+      n = G.UIT.O,
+      config = {
+        object = DynaText({
+          string = dev.loc and localize(dev.loc) or dev.name or name,
+          colours = { dev and dev.colour or G.C.UI.BACKGROUND_WHITE },
+          scale = 0.27,
+          silent = true,
+          shadow = true,
+          y_offset = -0.6,
+        })
+      }
+    })
+    if i < amount then
+      table.insert(credit_string.nodes[target_row].nodes,
+        { n = G.UIT.T, config = { text = localize(i + 1 == amount and 'paperback_and_spacer' or 'paperback_comma_spacer'), shadow = true, colour = G.C.UI.BACKGROUND_WHITE, scale = 0.27 } })
+    end
+  end
+
+  return credit_string
+end
+
+local card_popup_ref = G.UIDEF.card_h_popup
+function G.UIDEF.card_h_popup(card)
+  local ret_val = card_popup_ref(card)
+  local obj = card.config.center and card.config.center.paperback_credit
+  local target = ret_val.nodes[1].nodes[1].nodes[1].nodes
+  if obj and obj.artist then
+    local str = PB_UTIL.CREDITS.generate_string(obj.artist, 'paperback_art_credit')
+    if str then
+      table.insert(target, str)
+    end
+  end
+  if obj and obj.coder then
+    local str = PB_UTIL.CREDITS.generate_string(obj.coder, 'paperback_code_credit')
+    if str then
+      table.insert(target, str)
+    end
+  end
+  if obj and obj.composer then
+    local str = PB_UTIL.CREDITS.generate_string(obj.composer, 'paperback_music_credit')
+    if str then
+      table.insert(target, str)
+    end
+  end
+  if obj and not obj.artist then
+    local str = PB_UTIL.CREDITS.generate_string({ 'papermoonqueen' }, 'paperback_art_credit')
+    if str then
+      table.insert(target, str)
+    end
+  end
+  return ret_val
+end
+
+PB_UTIL.Developers = { internal_count = 0 }
+PB_UTIL.Developer = Object:extend()
+function PB_UTIL.Developer:init(args)
+  self.name = args.name
+  self.colour = args.colour
+  self.loc = args.loc and type(args.loc) == 'boolean' and 'paperback_dev_' .. args.name or args.loc
+
+  PB_UTIL.Developers[args.name] = self
+  PB_UTIL.Developers.internal_count = PB_UTIL.Developers.internal_count + 1
+end
+
 -- Load utility functions into PB_UTIL
+SMODS.load_file("utilities/developers.lua")()
 SMODS.load_file("utilities/definitions.lua")()
 SMODS.load_file("utilities/misc_functions.lua")()
 SMODS.load_file("utilities/ui.lua")()

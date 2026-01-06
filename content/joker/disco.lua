@@ -7,6 +7,11 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   perishable_compat = false,
   config = { extra = { mult_mod = 2, dollars = 25, mult = 0 } },
+  paperback_credit = {
+    artist = 'thermo',
+    coder = 'thermo'
+  },
+
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.mult_mod, card.ability.extra.dollars, card.ability.extra.mult } }
   end,

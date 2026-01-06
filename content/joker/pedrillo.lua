@@ -16,6 +16,10 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  paperback_credit = {
+    coder = { 'dowfrin' },
+    artist = { 'nevernamed' }
+  },
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then

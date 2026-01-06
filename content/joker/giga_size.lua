@@ -11,6 +11,9 @@ SMODS.Joker {
   perishable_compat = true,
   config = { extra = { xmult = 1, xmult_mod = 1 } },
   soul_pos = nil,
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

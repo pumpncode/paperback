@@ -18,6 +18,9 @@ SMODS.Joker {
   paperback = {
     requires_enhancements = true
   },
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.enhancement]

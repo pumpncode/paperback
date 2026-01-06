@@ -28,6 +28,10 @@ SMODS.Joker {
     }
   },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     local x_mult = card.ability.extra.x_mult_mod * G.GAME.paperback.solar_system_ct
 

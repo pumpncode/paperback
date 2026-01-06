@@ -18,6 +18,9 @@ SMODS.Joker {
   paperback = {
     requires_paperclips = true
   },
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
 
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do
@@ -58,7 +61,7 @@ SMODS.Joker {
   joker_display_def = function(JokerDisplay)
     return {
       text = {
-        { text = '+',                       colour = G.C.CHIPS },
+        { text = '+', colour = G.C.CHIPS },
         { ref_table = 'card.ability.extra', ref_value = 'chips', colour = G.C.CHIPS },
       },
     }
