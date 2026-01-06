@@ -9,4 +9,7 @@ PB_UTIL.EGO_GiftBooster {
   weight = 1,
   cost = 4,
   discovered = false,
+  paperback_credit = {
+    artist = { 'papermoonqueen' }
+  },
 }

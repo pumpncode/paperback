@@ -1204,6 +1204,7 @@ if PB_UTIL.config.ego_gifts_enabled then
     -- This card is always selected, not used. It goes to the 'consumeables' area
     select_card = "consumeables",
     paperback_credit = {
+      artist = { 'papermoonqueen', 'ari' },
       coder = { 'dowfrin' }
     },
 
