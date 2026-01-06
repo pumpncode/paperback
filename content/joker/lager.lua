@@ -14,7 +14,7 @@ SMODS.Joker {
   cost = 9,
   unlocked = true,
   discovered = false,
-  blueprint_compat = true,
+  blueprint_compat = false,
   eternal_compat = false,
   perishable_compat = false,
   soul_pos = nil,
