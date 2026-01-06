@@ -3943,6 +3943,7 @@ return {
       paperback_dev_nevernamed = 'NeverNamed',
       paperback_dev_scruby = 'S_C_R_U_B_Y',
       paperback_dev_larantula = 'Larantula',
+      paperback_dev_ari = 'ari',
     },
     v_dictionary = {
       paperback_a_discards = "+#1# Discards",

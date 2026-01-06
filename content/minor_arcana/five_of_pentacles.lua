@@ -8,6 +8,11 @@ PB_UTIL.MinorArcana {
   pos = { x = 4, y = 6 },
   unlocked = true,
   discovered = false,
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
+
   paperback = {
     requires_enhancements = true
   }

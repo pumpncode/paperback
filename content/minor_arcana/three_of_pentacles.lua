@@ -6,6 +6,10 @@ PB_UTIL.MinorArcana {
     min_highlighted = 3,
     max_highlighted = 3,
   },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

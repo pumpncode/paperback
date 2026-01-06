@@ -5,6 +5,9 @@ PB_UTIL.MinorArcana {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 5, y = 5 },
+  paperback_credit = {
+    coder = { 'dowfrin' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

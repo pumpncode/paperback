@@ -2,6 +2,9 @@ PB_UTIL.MinorArcana {
   key = 'king_of_swords',
   atlas = 'minor_arcana_atlas',
   pos = { x = 6, y = 5 },
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   in_pool = function(self, args)
     return G.GAME.modifiers.enable_perishables_in_shop and G.GAME.modifiers.enable_rentals_in_shop

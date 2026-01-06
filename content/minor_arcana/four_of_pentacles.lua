@@ -10,6 +10,10 @@ PB_UTIL.MinorArcana {
       denominator = 2
     }
   },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
 
   loc_vars = function(self, info_queue, card)
     local num, dem = SMODS.get_probability_vars(

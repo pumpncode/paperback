@@ -94,6 +94,12 @@ PB_UTIL.Developer({
   loc = true,
 })
 
+PB_UTIL.Developer({
+  name = 'ari',
+  loc = true,
+  colour = HEX('FF66D9')
+})
+
 -- Composers
 
 PB_UTIL.Developer({

@@ -2,6 +2,10 @@ PB_UTIL.MinorArcana {
   key = 'two_of_pentacles',
   atlas = 'minor_arcana_atlas',
   pos = { x = 1, y = 6 },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
 
   in_pool = function(self, args)
     if G.GAME.challenge then

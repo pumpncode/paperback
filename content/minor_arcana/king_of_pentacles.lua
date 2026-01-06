@@ -7,6 +7,9 @@ PB_UTIL.MinorArcana {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 6, y = 7 },
+  paperback_credit = {
+    coder = { 'metanite' }
+  },
 
   loc_vars = function(self, info_queue, card)
     local faces = 0

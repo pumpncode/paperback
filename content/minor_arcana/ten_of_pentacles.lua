@@ -2,6 +2,10 @@ PB_UTIL.MinorArcana {
   key = 'ten_of_pentacles',
   atlas = 'minor_arcana_atlas',
   pos = { x = 2, y = 7 },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
 
   config = { extra = {
     min = 5,

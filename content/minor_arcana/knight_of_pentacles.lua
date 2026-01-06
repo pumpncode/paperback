@@ -2,6 +2,9 @@ PB_UTIL.MinorArcana {
   key = 'knight_of_pentacles',
   atlas = 'minor_arcana_atlas',
   pos = { x = 4, y = 7 },
+  paperback_credit = {
+    coder = { 'metanite' }
+  },
 
   can_use = function(self, card)
     return true

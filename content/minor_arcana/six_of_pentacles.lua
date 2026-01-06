@@ -2,6 +2,10 @@ PB_UTIL.MinorArcana {
   key = 'six_of_pentacles',
   atlas = 'minor_arcana_atlas',
   pos = { x = 5, y = 6 },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' }
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_investment

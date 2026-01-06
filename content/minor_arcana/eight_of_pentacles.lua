@@ -7,6 +7,10 @@ PB_UTIL.MinorArcana {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 0, y = 7 },
+  paperback_credit = {
+    artist = { 'ari' },
+    coder = { 'metanite' },
+  },
 
   loc_vars = function(self, info_queue, card)
     return {

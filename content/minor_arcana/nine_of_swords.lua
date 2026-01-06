@@ -8,6 +8,9 @@ PB_UTIL.MinorArcana {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 1, y = 5 },
+  paperback_credit = {
+    coder = { 'dowfrin' }
+  },
 
   can_use = function(self, card)
     if #G.jokers.highlighted == card.ability.extra.max_jokers then

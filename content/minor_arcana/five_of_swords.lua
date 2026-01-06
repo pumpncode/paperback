@@ -5,6 +5,9 @@ PB_UTIL.MinorArcana {
   config = {
     max_highlighted = 1,
   },
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {
