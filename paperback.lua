@@ -49,28 +49,29 @@ function G.UIDEF.card_h_popup(card)
   local ret_val = card_popup_ref(card)
   local obj = card.config.center and card.config.center.paperback_credit
   local target = ret_val.nodes[1].nodes[1].nodes[1].nodes
-  if obj and obj.artist then
-    local str = PB_UTIL.CREDITS.generate_string(obj.artist, 'paperback_art_credit')
-    if str then
-      table.insert(target, str)
+  if obj then
+    if obj.artist then
+      local str = PB_UTIL.CREDITS.generate_string(obj.artist, 'paperback_art_credit')
+      if str then
+        table.insert(target, str)
+      end
+    else
+      local str = PB_UTIL.CREDITS.generate_string({ 'papermoonqueen' }, 'paperback_art_credit')
+      if str then
+        table.insert(target, str)
+      end
     end
-  end
-  if obj and obj.coder then
-    local str = PB_UTIL.CREDITS.generate_string(obj.coder, 'paperback_code_credit')
-    if str then
-      table.insert(target, str)
+    if obj.coder then
+      local str = PB_UTIL.CREDITS.generate_string(obj.coder, 'paperback_code_credit')
+      if str then
+        table.insert(target, str)
+      end
     end
-  end
-  if obj and obj.composer then
-    local str = PB_UTIL.CREDITS.generate_string(obj.composer, 'paperback_music_credit')
-    if str then
-      table.insert(target, str)
-    end
-  end
-  if obj and not obj.artist then
-    local str = PB_UTIL.CREDITS.generate_string({ 'papermoonqueen' }, 'paperback_art_credit')
-    if str then
-      table.insert(target, str)
+    if obj.composer then
+      local str = PB_UTIL.CREDITS.generate_string(obj.composer, 'paperback_music_credit')
+      if str then
+        table.insert(target, str)
+      end
     end
   end
   return ret_val
