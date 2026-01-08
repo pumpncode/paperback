@@ -22,10 +22,10 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
-      card.ability.extra.active = false
+      card.ability.extra.active = true
       for _, other in ipairs(context.scoring_hand) do
-        if other:is_suit('Clubs') then
-          card.ability.extra.active = true
+        if not other:is_suit('Clubs') then
+          card.ability.extra.active = false
           break
         end
       end

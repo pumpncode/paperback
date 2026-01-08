@@ -2080,7 +2080,7 @@ return {
         name = "56 Leaf Clover",
         text = {
           "If the winning hand of a {C:attention}Boss{}",
-          "{C:attention}Blind{} contains a scoring {C:clubs}Club{},",
+          "{C:attention}Blind{} scores only {C:clubs}Clubs{},",
           "create a {C:dark_edition}Negative {C:attention}Tag{}",
         }
       },
