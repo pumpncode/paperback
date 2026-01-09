@@ -1382,8 +1382,8 @@ return {
       j_paperback_its_tv_time = {
         name = "It's TV Time!",
         text = {
-          "{C:paperback_stars}Stars{} are considered {C:attention}Bonus Cards",
-          "{C:attention}Bonus Cards{} are considered {C:paperback_stars}Stars{}",
+          "Played {C:paperback_stars}#1#{} give",
+          "{C:chips}+#2#{} chips when scored",
         },
       },
       j_paperback_trust_us = {
