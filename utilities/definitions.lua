@@ -47,55 +47,6 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
-  -- purple clip: retrigger card if it has a clip and is adjacent to a purple clip
-  if context.repetition then
-    local area_cards
-    if context.cardarea == 'unscored' then
-      area_cards = {}
-      local scoring_hand_i = 1
-      -- Run through `full_hand`. Take cards if they aren't in `scoring_hand`
-      -- We only need to check scoring_hand[scoring_hand_i] at each point
-      for _, c in ipairs(context.full_hand) do
-        if context.scoring_hand[scoring_hand_i] == c then
-          scoring_hand_i = scoring_hand_i + 1
-        else
-          table.insert(area_cards, c)
-        end
-      end
-    elseif context.cardarea == G.play then
-      area_cards = context.scoring_hand
-    else
-      area_cards = context.cardarea.cards
-    end
-
-    local index
-    for k, v in ipairs(area_cards) do
-      if v == context.other_card then
-        index = k
-        break
-      end
-    end
-
-    if index then
-      local left = area_cards[index - 1]
-      local right = area_cards[index + 1]
-      local reps = 0
-      if left and PB_UTIL.has_paperclip(left) == "paperback_purple_clip" then
-        reps = reps + 1
-      end
-      if right and PB_UTIL.has_paperclip(right) == "paperback_purple_clip" then
-        reps = reps + 1
-      end
-      if PB_UTIL.has_paperclip(context.other_card) and reps > 0 then
-        return {
-          repetitions = reps,
-          message_card = context.other_card,
-          colour = G.C.PURPLE
-        }
-      end
-    end
-  end
-
   -- track Tarot + Minor Arcana usage for 8 of Pentacles
   if context.using_consumeable then
     local center = context.consumeable.config.center
