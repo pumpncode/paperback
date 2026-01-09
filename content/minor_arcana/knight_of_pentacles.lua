@@ -20,5 +20,6 @@ PB_UTIL.MinorArcana {
 
   use = function(self, card, area)
     G.GAME.current_round.reroll_cost = G.GAME.round_resets.reroll_cost
+    G.GAME.current_round.reroll_cost_increase = 0
   end
 }
