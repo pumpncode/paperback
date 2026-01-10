@@ -26,7 +26,7 @@ PB_UTIL.Paperclip {
     if context.main_scoring and context.cardarea == G.hand and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
       if SMODS.pseudorandom_probability(card, "purple_clip", card.ability[self.key].numerator, card.ability[self.key].denominator, "purple_clip") then
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-        return { extra = {
+        return {
           message = localize("k_plus_tarot"),
           message_card = card,
           func = function()
@@ -38,7 +38,7 @@ PB_UTIL.Paperclip {
               end
             }))
           end
-        } }
+        }
       end
     end
   end

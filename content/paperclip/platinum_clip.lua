@@ -90,31 +90,22 @@ PB_UTIL.platinum_effects = {
     return { x_chips = clip.x_chips_base + clips * clip.x_chips_mod }
   end,
 
-  paperback_purple_clip = function(card, context)
-    local ctx = {
-      cardarea = G.play,
-      full_hand = G.play.cards,
-      scoring_hand = context.scoring_hand,
-      scoring_name = context.scoring_name,
-      poker_hands = context.poker_hands,
-      platinum_trigger = true
-    }
-
-    local index = 0
-    for k, v in ipairs(G.hand.cards) do
-      if v == card then
-        index = k
-        break
-      end
-    end
-
-    local left = G.hand.cards[index - 1]
-    local right = G.hand.cards[index + 1]
-    if left and PB_UTIL.has_paperclip(left) and left:can_calculate() then
-      SMODS.score_card(left, ctx)
-    end
-    if right and PB_UTIL.has_paperclip(right) and right:can_calculate() then
-      SMODS.score_card(right, ctx)
+  paperback_purple_clip = function(card)
+    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and SMODS.pseudorandom_probability(card, "purple_clip", card.ability.paperback_purple_clip.numerator, card.ability.paperback_purple_clip.denominator, "purple_clip") then
+      G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+      return {
+        message = localize("k_plus_tarot"),
+        message_card = card,
+        func = function()
+          G.E_MANAGER:add_event(Event({
+            func = function()
+              SMODS.add_card { set = "Tarot", key_append = "paperback_purple_clip" }
+              G.GAME.consumeable_buffer = 0
+              return true
+            end
+          }))
+        end
+      }
     end
   end,
 
