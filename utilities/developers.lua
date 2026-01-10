@@ -74,7 +74,7 @@ PB_UTIL.Developer({
 PB_UTIL.Developer({
   name = 'papermoonqueen',
   loc = true,
-  colour = HEX('BA40F3')
+  colour = G.C.PAPERBACK_MINOR_ARCANA
 })
 
 PB_UTIL.Developer({
