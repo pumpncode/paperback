@@ -624,7 +624,7 @@ PB_UTIL.ENABLED_BLINDS = {
   "hold",
   "glissando",
   -- "denim_da_capo",
-  -- "misty_bass",
+  "misty_bass",
   "taupe_treble"
   -- "black_silence",
   -- "pearlescent_orchestra",

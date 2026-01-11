@@ -150,8 +150,8 @@ return {
       bl_paperback_hold = {
         name = "The Hold",
         text = {
-          "All cards are face down",
-          "Cards played face down",
+          "All cards are face down;",
+          "cards played face down",
           "are redrawn face up"
         }
       },
@@ -161,6 +161,13 @@ return {
           "Ranks below the highest",
           "rank scored this round",
           "are debuffed"
+        }
+      },
+      bl_paperback_misty_bass = {
+        name = "Misty Bass",
+        text = {
+          "Shuffles all Jokers and",
+          "pins the leftmost one"
         }
       },
       bl_paperback_taupe_treble = {
