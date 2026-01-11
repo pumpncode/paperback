@@ -86,6 +86,7 @@ end
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
+  G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
   -- Shopkeep
@@ -621,7 +622,7 @@ PB_UTIL.ENABLED_BLINDS = {
   "natural",
   "coda",
   "hold",
-  -- "glissando",
+  "glissando",
   -- "denim_da_capo",
   -- "misty_bass",
   "taupe_treble"

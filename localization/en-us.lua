@@ -155,6 +155,14 @@ return {
           "are redrawn face up"
         }
       },
+      bl_paperback_glissando = {
+        name = "The Glissando",
+        text = {
+          "Ranks below the highest",
+          "rank scored this round",
+          "are debuffed"
+        }
+      },
       bl_paperback_taupe_treble = {
         name = 'Taupe Treble',
         text = {
