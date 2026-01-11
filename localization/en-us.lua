@@ -2280,13 +2280,21 @@ return {
           "{C:inactive}(Resets after each hand played)",
         },
       },
-      j_paperback_clothespin = {
-        name = "Clothespin",
+      j_paperback_chip_clip = {
+        name = "Chip Clip",
         text = {
           "This Joker gains {C:chips}+#1#{} Chips",
           "for each {C:attention}Clip{} {C:attention}held in hand",
           "at {C:attention}end of round{}",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+        }
+      },
+
+      j_paperback_clothespin = {
+        name = "Clothespin",
+        text = {
+          "This Joker simultaneously counts as a {C:attention}played{}",
+          "and {C:attention}held{} {C:attention}paperclip{}",
         }
       },
       j_paperback_happy_accident = {

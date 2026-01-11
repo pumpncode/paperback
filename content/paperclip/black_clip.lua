@@ -6,16 +6,7 @@ PB_UTIL.Paperclip {
 
   calculate = function(self, card, context)
     if context.repetition and context.cardarea == G.play and not context.platinum_trigger then
-      local clip_held = false
-
-      for _, v in ipairs(G.hand.cards) do
-        if not v.debuff and PB_UTIL.has_paperclip(v) then
-          clip_held = true
-          break
-        end
-      end
-
-      if clip_held then
+      if PB_UTIL.count_paperclips { area = G.hand } > 0 then
         return {
           repetitions = 1
         }

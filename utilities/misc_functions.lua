@@ -70,14 +70,17 @@ end
 --- @return integer
 function PB_UTIL.count_paperclips(args)
   local clips = 0
-
-  for _, v in ipairs(args.area and args.area.cards or {}) do
+  for _, v in ipairs(args.area.cards or args.area) do
     local debuff_check = args.allow_debuff or not v.debuff
     local highlighted_check = not args.exclude_highlighted or not v.highlighted
 
     if PB_UTIL.has_paperclip(v) and debuff_check and highlighted_check then
       clips = clips + 1
     end
+  end
+
+  for i, v in ipairs(SMODS.find_card('j_paperback_clothespin', args.allow_debuff)) do
+    clips = clips + 1
   end
 
   return clips
