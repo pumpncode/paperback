@@ -50,7 +50,7 @@ function G.UIDEF.card_h_popup(card)
   local obj = card.config.center and card.config.center.paperback_credit
   local target = ret_val.nodes[1].nodes[1].nodes[1].nodes
   local owned = function(card)
-    if next(SMODS.find_card(card.config.center.key)) then
+    if next(SMODS.find_card(card.config.center.key, true)) then
       if PB_UTIL.find(SMODS.find_card(card.config.center.key), card) then
         return true
       end
