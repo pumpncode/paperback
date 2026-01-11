@@ -620,7 +620,7 @@ PB_UTIL.ENABLED_BLINDS = {
   "sharp",
   "natural",
   "coda",
-  -- "hold",
+  "hold",
   -- "glissando",
   -- "denim_da_capo",
   -- "misty_bass",

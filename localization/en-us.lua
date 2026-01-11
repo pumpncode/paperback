@@ -147,6 +147,14 @@ return {
           'cannot be moved',
         }
       },
+      bl_paperback_hold = {
+        name = "The Hold",
+        text = {
+          "All cards are face down",
+          "Cards played face down",
+          "are redrawn face up"
+        }
+      },
       bl_paperback_taupe_treble = {
         name = 'Taupe Treble',
         text = {
