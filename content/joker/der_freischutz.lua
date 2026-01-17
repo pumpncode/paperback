@@ -1,3 +1,8 @@
+SMODS.Sound {
+  key = 'der-freischutz-fire',
+  path = 'der-freischutz-fire.ogg',
+}
+
 SMODS.Joker {
   key = "der_freischutz",
   config = {
@@ -54,7 +59,7 @@ SMODS.Joker {
           SMODS.destroy_cards({ target })
           if card.ability.extra.current == card.ability.extra.max then
             juice_card_until(card, function()
-              return not card.ability.extra.triggered
+              return not (card.ability.extra.current < card.ability.extra.max)
             end, true, 0.5)
           end
           return {
@@ -62,10 +67,20 @@ SMODS.Joker {
           }
         elseif not context.blueprint then
           card.ability.extra.current = 0
-          SMODS.destroy_cards(G.hand.cards)
+
+          G.E_MANAGER:add_event(Event({
+            func = function()
+              for _, card in ipairs(G.hand.cards) do
+                SMODS.destroy_cards({ card })
+              end
+              play_sound("paperback_der-freischutz-fire")
+              return true
+            end
+          }))
+
           return {
             message = localize('paperback_der_freischutz_fire'),
-            delay = 0.8
+            delay = 0.8,
           }
         end
       end
