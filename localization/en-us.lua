@@ -712,7 +712,7 @@ return {
         text = {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "for every {C:attention}#2#{C:inactive} [#3#]{} scored {C:hearts}Heart{} cards",
-          "{C:inactive}(Currently {X:mult,C:white}#4#{C:inactive} Mult)",
+          "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
         },
       },
       j_paperback_the_normal_joker = {
@@ -2472,6 +2472,13 @@ return {
           "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#2# in #3#{C:inactive})"
         }
       },
+      j_paperback_chocolate_coins = {
+        name = "Chocolate Coins",
+        text = {
+          "Earn {C:money}$#1#{} at the end of round",
+          "Reduces by {C:money}$#2#{} each round"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
@@ -2850,6 +2857,13 @@ return {
         name = "King of Swords",
         text = {
           "Remove {C:money}Rental{} and {C:paperback_perishable}Perishable",
+          "from selected Joker"
+        }
+      },
+      c_paperback_king_of_swords_bunc = {
+        name = "King of Swords",
+        text = {
+          "Remove all Stickers except {C:paperback_eternal}Eternal{}",
           "from selected Joker"
         }
       },

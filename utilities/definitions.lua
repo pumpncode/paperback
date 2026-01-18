@@ -305,6 +305,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "ice_cube",
   "cream_liqueur",
   "deviled_egg",
+  "chocolate_coins",
   "golden_apple",
   "champagne",
   "coffee",
