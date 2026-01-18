@@ -2489,6 +2489,14 @@ return {
           "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
         }
       },
+      j_paperback_keycard = {
+        name = "Keycard",
+        text = {
+          "After defeating a {C:attention}Boss Blind",
+          "This Joker {C:attention}self-destructs{}",
+          "And gain {C:money}$#1#{}"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

@@ -443,6 +443,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jimbos_inferno",
   "tome",
   "park_postcard",
+  "keycard",
   "greeting_card",
   -- "an_invitation",
   "jimbocards",
