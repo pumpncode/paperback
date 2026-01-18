@@ -2479,6 +2479,16 @@ return {
           "Reduces by {C:money}$#2#{} each round"
         }
       },
+      j_paperback_park_postcard = {
+        name = "Park Postcard",
+        text = {
+          "This Joker gains",
+          "{X:mult,C:white}X#1#{} Mult After each round",
+          "{C:attention}Resets{} when a card is",
+          "{C:attention}added{} or {C:attention}removed{} from deck",
+          "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

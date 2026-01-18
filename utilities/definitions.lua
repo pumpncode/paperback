@@ -442,6 +442,7 @@ PB_UTIL.ENABLED_JOKERS = {
   -- "tower_of_balatro",
   "jimbos_inferno",
   "tome",
+  "park_postcard",
   "greeting_card",
   -- "an_invitation",
   "jimbocards",
