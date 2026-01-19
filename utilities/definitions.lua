@@ -485,6 +485,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "birches",
   "black_star",
   "shooting_star",
+  "stella_octangula",
   "blue_star",
   "shadowmantle",
   "zealous_joker",

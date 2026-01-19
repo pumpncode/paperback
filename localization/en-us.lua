@@ -2505,6 +2505,13 @@ return {
           "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
         }
       },
+      j_paperback_stella_octangula = {
+        name = "Stella Octangula",
+        text = {
+          "The first played {V:1}#2#{} each round",
+          "Gives {X:chips,C:white} X#1# {} Chips"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
