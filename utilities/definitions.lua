@@ -457,6 +457,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "inner_peace",
   "jimbos_joyous_joker_jamboree",
   "banana_man",
+  "mind_electric",
   "the_normal_joker",
   "insurance_policy",
   "disco",

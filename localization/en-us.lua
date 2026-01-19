@@ -2497,6 +2497,14 @@ return {
           "And gain {C:money}$#1#{}"
         }
       },
+      j_paperback_mind_electric = {
+        name = "The Mind Electric",
+        text = {
+          "Scored {C:mult}#3#s{} are {C:attention}destroyed",
+          "And give this Joker {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
