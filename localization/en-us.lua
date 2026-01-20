@@ -2479,6 +2479,39 @@ return {
           "Reduces by {C:money}$#2#{} each round"
         }
       },
+      j_paperback_park_postcard = {
+        name = "Park Postcard",
+        text = {
+          "This Joker gains",
+          "{X:mult,C:white}X#1#{} Mult After each round",
+          "{C:attention}Resets{} when a card is",
+          "{C:attention}added{} or {C:attention}removed{} from deck",
+          "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        }
+      },
+      j_paperback_keycard = {
+        name = "Keycard",
+        text = {
+          "After defeating a {C:attention}Boss Blind",
+          "This Joker {C:attention}self-destructs{}",
+          "And gain {C:money}$#1#{}"
+        }
+      },
+      j_paperback_mind_electric = {
+        name = "The Mind Electric",
+        text = {
+          "Scored {C:mult}#3#s{} are {C:attention}destroyed",
+          "And give this Joker {X:mult,C:white}X#1#{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        }
+      },
+      j_paperback_stella_octangula = {
+        name = "Stella Octangula",
+        text = {
+          "The first played {V:1}#2#{} each round",
+          "Gives {X:chips,C:white} X#1# {} Chips"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
