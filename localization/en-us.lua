@@ -2516,7 +2516,7 @@ return {
       j_paperback_cast_iron = {
         name = "Cast Iron",
         text = {
-          "Gives {C:attention}+#1#{} hand size",
+          "Gives {C:attention}+1{} hand size",
           "for every {C:attention}#2# #3#s",
           "in your {C:attention}full deck",
           "{C:inactive}(Currently {C:attention}+#4#{C:inactive} hand size, Max #5#){}"
