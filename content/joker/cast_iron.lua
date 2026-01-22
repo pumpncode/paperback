@@ -14,7 +14,7 @@ SMODS.Joker {
   pos = { x = 12, y = 11 },
   atlas = "jokers_atlas",
   cost = 7,
-  blueprint_compat = true,
+  blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
 
@@ -60,6 +60,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
+    if context.blueprint then return end
     if context.remove_playing_cards or context.playing_card_added or context.setting_ability then
       self:update_hands(card)
     end
