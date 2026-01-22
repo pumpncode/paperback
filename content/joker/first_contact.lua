@@ -3,7 +3,6 @@ SMODS.Joker {
   config = {
     extra = {
       required = 17,
-      current = 0
     }
   },
 
@@ -24,18 +23,14 @@ SMODS.Joker {
     return {
       vars = {
         card.ability.extra.required,
-        card.ability.extra.required - card.ability.extra.current
+        card.ability.extra.required - (G.GAME.paperback.first_contact_count % card.ability.extra.required)
       }
     }
   end,
 
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play then
-      if PB_UTIL.is_suit(context.other_card, 'dark') and not context.blueprint then
-        card.ability.extra.current = card.ability.extra.current + 1
-      end
-      if card.ability.extra.current >= card.ability.extra.required then
-        card.ability.extra.current = 0
+      if G.GAME.paperback.first_contact_count % card.ability.extra.required < 1 then
         if PB_UTIL.try_spawn_card { set = 'Spectral' } then
           return {
             message = localize('k_plus_spectral'),

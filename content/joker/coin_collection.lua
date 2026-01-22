@@ -9,7 +9,8 @@ SMODS.Joker {
     pos = { x = 7, y = 11 },
     atlas = "jokers_atlas",
     cost = 6,
-    blueprint_compat = true,
+    -- it would be a lot of work to make it blueprint compatible
+    blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
     paperback_credit = {

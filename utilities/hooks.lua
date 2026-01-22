@@ -29,6 +29,7 @@ function Game.init_game_object(self)
     last_scored_suit = 'Spades',
     domino_ranks = {},
     jjjj_count = 0,
+    first_contact_count = 0,
     banned_run_keys = {},
     secret_hands = secrets,
     arcana_used = {},
