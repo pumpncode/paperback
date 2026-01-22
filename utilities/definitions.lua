@@ -354,7 +354,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "high_speed_rail",
   "small_scale_onshore_wind",
   "satellite_array",
-  -- "first_contact",
+  "first_contact",
   "aurora_borealis",
   "grand_strategy",
   "moving_out",

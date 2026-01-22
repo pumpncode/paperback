@@ -2522,6 +2522,14 @@ return {
           "{C:inactive}(Currently {C:attention}+#4#{C:inactive} hand size, Max #5#){}"
         }
       },
+      j_paperback_first_contact = {
+        name = "First Contact",
+        text = {
+          "Create a random {C:spectral}Spectral{} card",
+          "for every {C:attention}#1#{C:inactive} [#2#]{} scored {C:attention}Dark Suits",
+          "{C:inactive}(Must have room)",
+        },
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
