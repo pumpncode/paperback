@@ -2530,6 +2530,13 @@ return {
           "{C:inactive}(Must have room)",
         },
       },
+      j_paperback_paralyzed = {
+        name = "Paralyzed",
+        text = {
+          "Create a random {C:tarot}Tarot{} card",
+          "upon clearing a blind"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

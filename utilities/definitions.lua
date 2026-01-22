@@ -362,7 +362,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "great_wave",
   'one_shift_more',
   "let_it_happen",
-  -- "paralyzed"
+  "paralyzed",
   "in_case_i_make_it",
   "rosary_beads",
   "joker_cd_i",
