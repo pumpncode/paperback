@@ -18,15 +18,24 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
-  loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = G.P_CENTERS.m_steel
-
-    local steel_tally = 0
+  update_hands = function(self, card)
     if G.playing_cards then
+      local steel_tally = 0
       for _, playing_card in ipairs(G.playing_cards) do
         if SMODS.has_enhancement(playing_card, 'm_steel') then steel_tally = steel_tally + 1 end
       end
+      local new_handsize = math.min(math.floor(steel_tally / card.ability.extra.divisor))
+      if new_handsize > card.ability.extra.max then return end
+      local change = new_handsize - card.ability.extra.hand_size
+      if change ~= 0 then
+        card.ability.extra.hand_size = new_handsize
+        G.hand:change_size(change)
+      end
     end
+  end,
+
+  loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = G.P_CENTERS.m_steel
     return {
       vars = {
         card.ability.extra.add_hands,
@@ -36,57 +45,25 @@ SMODS.Joker {
           set = 'Enhanced',
           key = 'm_steel'
         },
-        math.floor(steel_tally / card.ability.extra.divisor),
+        card.ability.extra.hand_size,
         card.ability.extra.max
       }
     }
   end,
 
   add_to_deck = function(self, card, from_debuff)
-    local steel_tally = 0
-    if G.playing_cards then
-      for _, playing_card in ipairs(G.playing_cards) do
-        if SMODS.has_enhancement(playing_card, 'm_steel') then steel_tally = steel_tally + 1 end
-      end
-    end
-    local hands = math.floor(steel_tally / card.ability.extra.divisor)
-    if hands ~= 0 then
-      G.hand:change_size(hands)
-    end
+    self:update_hands(card)
   end,
 
   remove_from_deck = function(self, card, from_debuff)
-    local steel_tally = 0
-    if G.playing_cards then
-      for _, playing_card in ipairs(G.playing_cards) do
-        if SMODS.has_enhancement(playing_card, 'm_steel') then steel_tally = steel_tally + 1 end
-      end
-    end
-    local hands = math.floor(steel_tally / card.ability.extra.divisor)
-    if hands ~= 0 then
-      G.hand:change_size(-hands)
-    end
+    G.hand:change_size(-card.ability.extra.hand_size)
   end,
 
-  update = function(self, card, dt)
-    if G.playing_cards then
-      local steel_tally = 0
-      for _, playing_card in ipairs(G.playing_cards) do
-        if SMODS.has_enhancement(playing_card, 'm_steel') then steel_tally = steel_tally + 1 end
-      end
-      local new_handsize = math.min(math.floor(steel_tally / card.ability.extra.divisor))
-
-      if card.added_to_deck or card.removed or card.modified then
-        local change = new_handsize - card.ability.extra.hand_size
-        if change ~= 0 then
-          G.consumeables:change_size(change)
-        end
-      end
-      card.ability.extra.hand_size = new_handsize
-
+  calculate = function(self, card, context)
+    if context.remove_playing_cards or context.playing_card_added or context.setting_ability then
+      self:update_hands(card)
     end
   end,
-
 
   in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_steel'`
     for _, playing_card in ipairs(G.playing_cards or {}) do
