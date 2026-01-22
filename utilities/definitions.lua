@@ -348,6 +348,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "its_tv_time",
   "trust_us",
   "eyelander",
+  "cast_iron",
   "torii",
   "freight",
   "high_speed_rail",

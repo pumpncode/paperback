@@ -8,7 +8,7 @@ SMODS.Joker {
       first_star = nil
     }
   },
-  rarity = 3,
+  rarity = 1,
   pos = { x = 23, y = 7 },
   atlas = "jokers_atlas",
   cost = 6,
