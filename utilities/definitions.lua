@@ -408,6 +408,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "roulette",
   "57_leaf_clover",
   "mexican_train",
+  "coin_collection",
   "chocolate_joker",
   "resurrections",
   "summoning_circle",

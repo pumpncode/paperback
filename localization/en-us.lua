@@ -2537,6 +2537,13 @@ return {
           "upon clearing a blind"
         }
       },
+      j_paperback_coin_collection = {
+        name = "Coin Collection",
+        text = {
+          "Any time you earn {C:money}money{}",
+          "Earn an additional {C:money}$#1#"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
