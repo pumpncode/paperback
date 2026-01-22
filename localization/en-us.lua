@@ -2544,6 +2544,14 @@ return {
           "Earn an additional {C:money}$#1#"
         }
       },
+      j_paperback_attacking_vertical = {
+        name = "Attacking Vertical",
+        text = {
+          "Scored {C:attention}#1#{}'s and {C:attention}#2#{}'s give {X:mult,C:white} X#3# {} Mult",
+          "Increased by {X:mult,C:white} X#4# {} Mult",
+          "Upon clearing a {C:attention}Boss Blind"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
