@@ -2561,6 +2561,22 @@ return {
           "a random {C:spectral}Spectral{} card"
         }
       },
+      j_paperback_jester = {
+        name = "Jester",
+        text = {
+          "Any time a card is {C:attention}destroyed",
+          "destroy a {C:attention}random{} card in deck"
+        }
+      },
+      j_paperback_journal = {
+        name = "Journal",
+        text = {
+          "This Joker gives the",
+          "total {C:chips}Chips{} of",
+          "the previous hand.",
+          "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

@@ -168,10 +168,8 @@ function Card.remove(self)
       })
     end
   end
-
   return remove_ref(self)
 end
-
 -- Add new context that happens when pressing the cash out button
 local cash_out_ref = G.FUNCS.cash_out
 G.FUNCS.cash_out = function(e)
