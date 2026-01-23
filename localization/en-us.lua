@@ -2522,6 +2522,69 @@ return {
           "{C:inactive}(Currently {C:attention}+#4#{C:inactive} hand size, Max #5#){}"
         }
       },
+      j_paperback_first_contact = {
+        name = "First Contact",
+        text = {
+          "Create a random {C:spectral}Spectral{} card",
+          "for every {C:attention}#1#{C:inactive} [#2#]{} scored {C:attention}Dark Suits",
+          "{C:inactive}(Must have room)",
+        },
+      },
+      j_paperback_paralyzed = {
+        name = "Paralyzed",
+        text = {
+          "Create a random {C:tarot}Tarot{} card",
+          "upon clearing a blind"
+        }
+      },
+      j_paperback_coin_collection = {
+        name = "Coin Collection",
+        text = {
+          "Any time you earn {C:money}money{}",
+          "Earn an additional {C:money}$#1#"
+        }
+      },
+      j_paperback_attacking_vertical = {
+        name = "Attacking Vertical",
+        text = {
+          "Scored {C:attention}#1#{}'s and {C:attention}#2#{}'s give {X:mult,C:white} X#3# {} Mult",
+          "Increased by {X:mult,C:white} X#4# {} Mult",
+          "Upon clearing a {C:attention}Boss Blind"
+        }
+      },
+      j_paperback_emf_reader = {
+        name = "EMF Reader",
+        text = {
+          "If {C:attention}first hand{} of round",
+          "contains a {C:attention}#1#{}, destroy",
+          "played cards and create",
+          "a random {C:spectral}Spectral{} card"
+        }
+      },
+      j_paperback_jester = {
+        name = "Jester",
+        text = {
+          "Any time a card is {C:attention}destroyed",
+          "destroy a {C:attention}random{} card in deck"
+        }
+      },
+      j_paperback_journal = {
+        name = "Journal",
+        text = {
+          "This Joker gives the",
+          "total {C:chips}Chips{} of",
+          "the previous hand.",
+          "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+        }
+      },
+      j_paperback_silent_assassin = {
+        name = "Silent Assassin",
+        text = {
+          "Scored {C:attention}#1#{}'s and {C:attention}#2#{}'s give {C:mult}+#3#{} Mult",
+          "Increased by {C:mult}+#4#{} Mult",
+          "For every {C:attention}#5#{C:inactive} [#6#]{} cards {C:attention}destroyed"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

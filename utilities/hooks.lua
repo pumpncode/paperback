@@ -29,6 +29,7 @@ function Game.init_game_object(self)
     last_scored_suit = 'Spades',
     domino_ranks = {},
     jjjj_count = 0,
+    first_contact_count = 0,
     banned_run_keys = {},
     secret_hands = secrets,
     arcana_used = {},
@@ -37,6 +38,7 @@ function Game.init_game_object(self)
     find_jimbo_unlock = false,
     max_consumeables = 0,
     let_it_happen_unlock_check = false,
+    journal_destroying_cards = false,
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
@@ -167,10 +169,8 @@ function Card.remove(self)
       })
     end
   end
-
   return remove_ref(self)
 end
-
 -- Add new context that happens when pressing the cash out button
 local cash_out_ref = G.FUNCS.cash_out
 G.FUNCS.cash_out = function(e)
@@ -419,4 +419,17 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
     })
   end
   return calculate_individual_effect_ref(effect, scored_card, key, amount, from_edition)
+end
+
+-- Check if money has been added
+-- Used by Coin Collection to add dollars
+local ease_dollars_ref = ease_dollars
+function ease_dollars(mod, instant)
+  if mod > 0 and next(SMODS.find_card("j_paperback_coin_collection")) then
+    for _, c in ipairs(SMODS.find_card("j_paperback_coin_collection")) do
+      mod = mod + c.ability.extra.dollars
+      SMODS.calculate_effect({message = "+$" .. c.ability.extra.dollars}, c)
+    end
+  end
+  return ease_dollars_ref(mod, instant)
 end
