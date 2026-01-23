@@ -465,6 +465,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "banana_man",
   "mind_electric",
   "the_normal_joker",
+  "silent_assassin",
   "insurance_policy",
   "disco",
   "unionized_labor",

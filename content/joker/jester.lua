@@ -22,7 +22,8 @@ SMODS.Joker {
       SMODS.destroy_cards(cards_to_destroy)
       G.GAME.paperback.journal_destroying_cards = false
       return {
-        message = "killed :)"
+        message = localize('paperback_destroyed_ex'),
+        colour = G.C.MULT
       }
     end
   end

@@ -2577,6 +2577,14 @@ return {
           "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
         }
       },
+      j_paperback_silent_assassin = {
+        name = "Silent Assassin",
+        text = {
+          "Scored {C:attention}#1#{}'s and {C:attention}#2#{}'s give {C:mult}+#3#{} Mult",
+          "Increased by {C:mult}+#4#{} Mult",
+          "For every {C:attention}#5#{C:inactive} [#6#]{} cards {C:attention}destroyed"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
