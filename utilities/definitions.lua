@@ -443,7 +443,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "time_regression_mix",
   "find_jimbo",
   "joker_crossing",
-  -- "jester",
+  "jester",
   -- "tower_of_balatro",
   "jimbos_inferno",
   "tome",

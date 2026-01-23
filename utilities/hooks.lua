@@ -38,6 +38,7 @@ function Game.init_game_object(self)
     find_jimbo_unlock = false,
     max_consumeables = 0,
     let_it_happen_unlock_check = false,
+    journal_destroying_cards = false,
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',

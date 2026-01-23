@@ -12,13 +12,15 @@ SMODS.Joker {
   },
 
   calculate = function(self, card, context)
-    if context.remove_playing_cards then
+    if context.remove_playing_cards and not G.GAME.paperback.journal_destroying_cards then
+      G.GAME.paperback.journal_destroying_cards = true
       local cards_to_destroy = {}
       local count = math.min(#context.removed, #G.playing_cards)
       for i = 1, count, 1 do
         cards_to_destroy[i] = pseudorandom_element(G.playing_cards, "jester")
       end
       SMODS.destroy_cards(cards_to_destroy)
+      G.GAME.paperback.journal_destroying_cards = false
       return {
         message = "killed :)"
       }
