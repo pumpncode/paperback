@@ -2552,6 +2552,15 @@ return {
           "Upon clearing a {C:attention}Boss Blind"
         }
       },
+      j_paperback_emf_reader = {
+        name = "EMF Reader",
+        text = {
+          "If {C:attention}first hand{} of round",
+          "contains a {C:attention}#1#{}, destroy",
+          "played cards and create",
+          "a random {C:spectral}Spectral{} card"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
