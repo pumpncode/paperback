@@ -41,5 +41,15 @@ PB_UTIL.Paperclip {
         }
       end
     end
+
+    if context.after and context.cardarea == G.hand then
+      G.E_MANAGER:add_event(Event({
+        trigger = "after",
+        func = function()
+          card.ability[self.key].numerator = 0
+          return true
+        end
+      }))
+    end
   end
 }
