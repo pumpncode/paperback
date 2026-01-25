@@ -134,14 +134,16 @@ PB_UTIL.credits = {
       '「S_C_R_U_B_Y」',
       'Firch',
       'Fennex',
-      "MaveBoy"
+      "MaveBoy",
+      'Dylan Hall',
+      "Ari"
     }
   },
   developers = {
     color = G.C.GREEN,
     entries = {
       'OppositeWolf770, srockw, Nether, B, ejwu2, metanite64, Dowfrin',
-      'InfinityPlus05, aliahmed2k03'
+      'InfinityPlus05, aliahmed2k03, ThermoDyn'
     }
   },
   localization = {
