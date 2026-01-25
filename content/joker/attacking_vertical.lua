@@ -18,7 +18,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     paperback_credit = {
-        coder = 'thermo'
+        coder = { 'thermo' }
     },
 
     loc_vars = function(self, info_queue, card)
@@ -34,7 +34,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == card.ability.extra.ranks[1] or card.ability.extra.ranks[2] then
+            if context.other_card:get_id() == card.ability.extra.ranks[1] or context.other_card:get_id() == card.ability.extra.ranks[2] then
                 return {
                     xmult = card.ability.extra.xm
                 }

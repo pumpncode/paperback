@@ -2585,6 +2585,50 @@ return {
           "For every {C:attention}#5#{C:inactive} [#6#]{} cards {C:attention}destroyed"
         }
       },
+      j_paperback_yacht_dice = {
+        name = "Yacht Dice",
+        text = {
+          "This Joker gains {X:mult,C:white} X#1# {} Mult",
+          "for each {C:attention}unique{} hand type",
+          "played this run",
+          "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        }
+      },
+      j_paperback_stereoscopic_specs = {
+        name = "Stereoscopic Specs",
+        text = {
+          "Create a {C:attention}copy{} of the",
+          "last tag used after",
+          "beating a {C:attention}boss{} blind",
+          "{C:inactive}(Currently {C:attention}#1#{C:inactive})"
+        }
+      },
+      j_paperback_yacht = {
+        name = "Yacht",
+        text = {
+          "This Joker gains {C:chips}+#1#{} Chips if",
+          "hand contained a scoring",
+          "{C:paperback_stars}Star{} or {C:paperback_crowns}Crown",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+        }
+      },
+      j_paperback_towering_pillar_of_hats = {
+        name = "Towering Pillar of Hats",
+        text = {
+          "Played {C:paperback_crowns}Crowns{} give {C:mult}+#1#{} Mult for every {C:attention}#3#",
+          "Jack, Queen or King in the deck",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        },
+      },
+      j_paperback_joker_duty = {
+        name = "Joker Duty",
+        text = {
+          "This Joker gains {C:mult}+#1#{} Mult if",
+          "round was cleared with",
+          "equal {C:chips}hands{} and {C:mult}discards",
+          "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
