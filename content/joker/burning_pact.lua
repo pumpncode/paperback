@@ -35,7 +35,7 @@ SMODS.Joker {
     if context.drawing_cards and card.ability.extra.active and not context.blueprint then
       card.ability.extra.active = false
       return {
-        modify = card.ability.extra.cards
+        modify = card.ability.extra.cards + context.amount
       }
     end
   end
