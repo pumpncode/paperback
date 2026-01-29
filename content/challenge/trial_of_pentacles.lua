@@ -45,8 +45,8 @@ SMODS.Challenge {
   key = "trial_of_pentacles",
   rules = {
     custom = {
-      { id = "all_eternal" },
-      { id = "scaling", value = 2 }
+      { id = "scaling", value = 2 },
+      { id = "all_eternal" }
     }
   },
   vouchers = {
