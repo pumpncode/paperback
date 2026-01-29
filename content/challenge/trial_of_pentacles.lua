@@ -58,6 +58,7 @@ SMODS.Challenge {
       { id = "tag_charm" }
     },
     banned_other = {
+      { id = "bl_window", type = "blind" },
       { id = "bl_final_leaf", type = "blind" }
     }
   },

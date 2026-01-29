@@ -50,6 +50,9 @@ SMODS.Challenge {
     banned_cards = banned,
     banned_tags = {
       { id = "tag_charm" }
+    },
+    banned_other = {
+      { id = "bl_club", type = "blind" }
     }
   },
   deck = {
