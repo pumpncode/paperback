@@ -3970,6 +3970,7 @@ return {
   },
   misc = {
     challenge_names = {
+      c_paperback_trial_of_cups = "Trial of Cups",
       c_paperback_trial_of_wands = "Trial of Wands",
       c_paperback_trial_of_swords = "Trial of Swords",
       c_paperback_trial_of_pentacles = "Trial of Pentacles"
@@ -4166,6 +4167,18 @@ return {
     },
     v_text = {
       ch_c_scaling = { "{C:attention}Increased{} blind scaling" },
+      ch_c_cup_trial_1 = {
+        "When a {C:attention}Boss Blind{} is defeated, {C:attention}destroy{}"
+      },
+      ch_c_cup_trial_2 = {
+        "the leftmost {C:attention}Joker{} and create a new one"
+      },
+      ch_c_cup_trial_3 = {
+        "of the same rarity or higher if possible"
+      },
+      ch_c_cup_trial_4 = {
+        "{C:inactive}(Cannot upgrade to {C:legendary}Legendary{C:inactive}){}"
+      },
       ch_c_wand_trial = {
         "Gain 1 {C:attention}Joker slot{} when a {C:attention}Boss Blind{} is defeated"
       },
