@@ -243,6 +243,9 @@ end
 -- Load custom Decks
 PB_UTIL.register_items(PB_UTIL.ENABLED_DECKS, "content/deck")
 
+-- Load custom Challenges
+PB_UTIL.register_items(PB_UTIL.ENABLED_CHALLENGES, "content/challenge")
+
 -- Register DeckSkins for Friends of Paperback
 for _, data in ipairs(PB_UTIL.DECK_SKINS) do
   for _, suit in ipairs(data.suits) do

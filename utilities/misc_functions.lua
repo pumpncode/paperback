@@ -70,6 +70,7 @@ end
 --- @return integer
 function PB_UTIL.count_paperclips(args)
   local clips = 0
+  if not args.area then return 0 end
   for _, v in ipairs(args.area.cards or args.area) do
     local debuff_check = args.allow_debuff or not v.debuff
     local highlighted_check = not args.exclude_highlighted or not v.highlighted

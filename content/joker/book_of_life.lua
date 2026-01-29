@@ -12,7 +12,7 @@ SMODS.Joker {
   unlocked = true,
   discovered = false,
   blueprint_compat = true,
-  eternal_compat = false,
+  eternal_compat = true,
   perishable_compat = true,
   soul_pos = nil,
   paperback_credit = {

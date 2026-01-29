@@ -12,7 +12,7 @@ SMODS.Joker {
   unlocked = false,
   discovered = false,
   blueprint_compat = false,
-  eternal_compat = false,
+  eternal_compat = true,
   soul_pos = nil,
   enhancement_gate = "m_paperback_stained",
   paperback = {
