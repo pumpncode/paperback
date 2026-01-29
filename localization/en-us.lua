@@ -4164,7 +4164,7 @@ return {
       paperback_a_ante = "#1# Ante",
     },
     v_text = {
-      ch_c_scaling = { "{C:purple}Purple Stake{} blind scaling" }
+      ch_c_scaling = { "{C:attention}Increased{} blind scaling" }
     },
     ranks = {
       paperback_Apostle = 'Apostle',
