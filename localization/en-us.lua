@@ -3970,6 +3970,7 @@ return {
   },
   misc = {
     challenge_names = {
+      c_paperback_trial_of_swords = "Trial of Swords",
       c_paperback_trial_of_pentacles = "Trial of Pentacles"
     },
     dictionary = {

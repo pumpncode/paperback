@@ -1319,5 +1319,6 @@ PB_UTIL.SPECIAL_PAPERCLIPS = {
 }
 
 PB_UTIL.ENABLED_CHALLENGES = {
+  "trial_of_swords",
   "trial_of_pentacles"
 }
