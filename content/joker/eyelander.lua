@@ -30,22 +30,18 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.destroy_card and context.cardarea == G.play and not context.blueprint then
       if context.destroy_card:is_face() then
-        if card.ability.extra.heads <= card.ability.extra.heads_req then
-          card.ability.extra.heads = card.ability.extra.heads + 1
-          return {
+        card.ability.extra.heads = card.ability.extra.heads + 1
+        local ret = { remove = true }
+        if not card.ability.extra.trigerred and card.ability.extra.heads >= card.ability.extra.heads_req then
+          card.ability.extra.trigerred = true
+          juice_card_until(card, function() return true end, true)
+          ret = {
             remove = true,
+            message = localize('k_active_ex'),
+            colour = G.C.ORANGE
           }
-        else
-          if not card.ability.extra.trigerred then
-            card.ability.extra.trigerred = true
-            juice_card_until(card, function() return true end, true)
-            return {
-              remove = true,
-              message = localize('k_active_ex'),
-              colour = G.C.ORANGE
-            }
-          end
         end
+        return ret
       end
     end
 
