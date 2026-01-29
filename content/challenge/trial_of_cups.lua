@@ -40,7 +40,8 @@ SMODS.Challenge {
       { id = "cup_trial_1" },
       { id = "cup_trial_2" },
       { id = "cup_trial_3" },
-      { id = "cup_trial_4" }
+      { id = "cup_trial_4" },
+      { id = "cup_trial" }
     }
   },
   vouchers = {

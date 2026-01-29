@@ -53,6 +53,20 @@ function Game.init_game_object(self)
     second_trumpets = 0,
     second_trumpet_change = 0,
   }
+
+  return ret
+end
+
+-- set tarot_rate to 0 if in the minor arcana trials
+local start_run_ref = Game.start_run
+Game.start_run = function(self, args)
+  local ret = start_run_ref(self, args)
+  if self.GAME.modifiers.cup_trial
+  or self.GAME.modifiers.wand_trial
+  or self.GAME.modifiers.sword_trial
+  or self.GAME.modifiers.pentacle_trial then
+    self.GAME.tarot_rate = 0
+  end
   return ret
 end
 

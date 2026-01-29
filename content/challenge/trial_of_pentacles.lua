@@ -46,7 +46,8 @@ SMODS.Challenge {
   rules = {
     custom = {
       { id = "scaling", value = 2 },
-      { id = "all_eternal" }
+      { id = "all_eternal" },
+      { id = "pentacle_trial" }
     }
   },
   vouchers = {

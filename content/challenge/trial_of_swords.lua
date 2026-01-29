@@ -38,7 +38,8 @@ SMODS.Challenge {
     custom = {
       { id = "scaling", value = 2 },
       { id = "sword_trial_1" },
-      { id = "sword_trial_2" }
+      { id = "sword_trial_2" },
+      { id = "sword_trial" }
     }
   },
   vouchers = {
