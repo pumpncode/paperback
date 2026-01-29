@@ -1317,3 +1317,7 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
 PB_UTIL.SPECIAL_PAPERCLIPS = {
   "platinum_clip"
 }
+
+PB_UTIL.ENABLED_CHALLENGES = {
+  "trial_of_pentacles"
+}

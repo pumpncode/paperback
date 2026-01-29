@@ -3969,6 +3969,9 @@ return {
     }
   },
   misc = {
+    challenge_names = {
+      c_paperback_trial_of_pentacles = "Trial of Pentacles"
+    },
     dictionary = {
       -- Badge under cards
       k_paperback_minor_arcana = "Minor Arcana",
@@ -4158,6 +4161,9 @@ return {
       paperback_a_plus_consumable_slot = "+#1# Consumable Slots",
       paperback_a_minus_consumable_slot = "-#1# Consumable Slots",
       paperback_a_ante = "#1# Ante",
+    },
+    v_text = {
+      ch_c_scaling = { "{C:purple}Purple Stake{} blind scaling" }
     },
     ranks = {
       paperback_Apostle = 'Apostle',
