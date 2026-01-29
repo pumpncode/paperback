@@ -29,8 +29,8 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.individual and context.cardarea == G.play then
-      if G.GAME.paperback.first_contact_count % card.ability.extra.required < 1 then
+    if context.individual and context.cardarea == G.play and PB_UTIL.is_suit(context.other_card, 'dark') then
+      if G.GAME.paperback.first_contact_count % card.ability.extra.required <= 0 then
         if PB_UTIL.try_spawn_card { set = 'Spectral' } then
           return {
             message = localize('k_plus_spectral'),
