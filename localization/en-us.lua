@@ -2647,6 +2647,15 @@ return {
           "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#2# in #3#{C:inactive})"
         }
       },
+      j_paperback_tropic_birds = {
+        name = "Tropic Birds",
+        text = {
+          "If scoring hand",
+          "contains an {C:attention}Ace",
+          "Retrigger the {C:attention}first",
+          "and {C:attention}last{} card"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

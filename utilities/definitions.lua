@@ -412,6 +412,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "mexican_train",
   "coin_collection",
   "chocolate_joker",
+  "tropic_birds",
   "attacking_vertical",
   "resurrections",
   "summoning_circle",
