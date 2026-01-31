@@ -2629,6 +2629,15 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         }
       },
+      j_paperback_shuttle = {
+        name = "Shuttle",
+        text = {
+          "The {C:attention}first{} played hand of round",
+          "gives {C:money}money{} equal to",
+          "{C:attention}double{} the played hand's level",
+          "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
