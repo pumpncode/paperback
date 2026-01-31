@@ -27,6 +27,7 @@ function Game.init_game_object(self)
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',
+    hand_cointained_crown = false,
     domino_ranks = {},
     jjjj_count = 0,
     first_contact_count = 0,

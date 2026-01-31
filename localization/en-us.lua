@@ -2638,6 +2638,15 @@ return {
           "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
         }
       },
+      j_paperback_loaded_dice = {
+        name = "Loaded Dice",
+        text = {
+          "Adds #1# to all listed {C:green,E:1,S:1.1}probabilities",
+          "If hand contains a",
+          "scoring {C:paperback_crowns}Crown{}",
+          "{C:inactive}(ex: {C:green}1 in 3{C:inactive} -> {C:green}#2# in #3#{C:inactive})"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",

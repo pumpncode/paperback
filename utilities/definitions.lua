@@ -517,7 +517,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "solar_eclipse",
   "gambit",
   "king_me",
-  -- "loaded_dice",
+  "loaded_dice",
   -- "regicide",
   -- "bergentrucking"
   "towering_pillar_of_hats",
