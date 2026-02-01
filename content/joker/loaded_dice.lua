@@ -2,7 +2,7 @@ SMODS.Joker {
   key = "loaded_dice",
   config = {
     extra = {
-      odds = 1,
+      a_odds = 1,
       triggered = nil
     }
   },
@@ -21,26 +21,26 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
-    local n, d = PB_UTIL.chance_vars(nil, nil, 1, 3)     -- example
-    if not G.jokers then
-      -- outside game, manually modify
-      n = n + 1
-    end
-    return { vars = { card.ability.extra.dollars, n, d } }
+    return { vars = { PB_UTIL.force_signed(card.ability.extra.a_odds) } }
   end,
 
   calculate = function(self, card, context)
-    if context.mod_probability and not context.blueprint then
-      if G.GAME.paperback.hand_cointained_crown then
+    if context.blueprint then return end
+
+    if context.before then
+      if G.GAME.paperback.hand_contained_crown then
         card.ability.extra.triggered = true
-        return {
-          numerator = context.numerator + 1,
-        }
       end
     end
-    if context.after and card.ability.extra.triggered then
+
+    if context.mod_probability and card.ability.extra.triggered then
+      return {
+        numerator = context.numerator + card.ability.extra.a_odds,
+      }
+    end
+
+    if context.after then
       card.ability.extra.triggered = nil
-      G.GAME.paperback.hand_cointained_crown = false
     end
   end
 }
