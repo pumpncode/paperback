@@ -28,6 +28,15 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
+    info_queue[#info_queue + 1] = {
+      set = 'Other',
+      key = 'paperback_suit_drink',
+      vars = {
+        localize(card.ability.extra.suit, 'suits_plural'),
+        colours = { G.C.SUITS[card.ability.extra.suit] }
+      }
+    }
+
     return {
       vars = {
         card.ability.extra.a_mult,
