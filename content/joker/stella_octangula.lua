@@ -42,7 +42,7 @@ if PB_UTIL.should_load_spectrum_items() then
     calculate = function(self, card, context)
       -- vremade puts the photograph face checker in individual,
       -- which means it searches every card every time. this may be faster?
-      if context.initial_scoring_step and G.GAME.current_round.hands_played == 0 then
+      if context.initial_scoring_step and not card.ability.extra.used then
         card.ability.extra.active = true
         card.ability.extra.used = false
         card.ability.extra.first_star = nil
@@ -61,7 +61,7 @@ if PB_UTIL.should_load_spectrum_items() then
           }
         end
       end
-      if context.after and card.ability.extra.active and card.ability.extra.used then
+      if context.end_of_round and context.main_eval and card.ability.extra.active and card.ability.extra.used then
         card.ability.extra.active = false
         card.ability.extra.used = false
       end

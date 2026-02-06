@@ -39,7 +39,8 @@ function Game.init_game_object(self)
     find_jimbo_unlock = false,
     max_consumeables = 0,
     let_it_happen_unlock_check = false,
-    journal_destroying_cards = false,
+    jester_destroying_cards = false,
+    coin_collection_adding_money = false,
 
     weather_radio_hand = 'High Card',
     joke_master_hand = 'High Card',
@@ -435,17 +436,4 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
     })
   end
   return calculate_individual_effect_ref(effect, scored_card, key, amount, from_edition)
-end
-
--- Check if money has been added
--- Used by Coin Collection to add dollars
-local ease_dollars_ref = ease_dollars
-function ease_dollars(mod, instant)
-  if to_big(mod) > to_big(0) and next(SMODS.find_card("j_paperback_coin_collection")) then
-    for _, c in ipairs(SMODS.find_card("j_paperback_coin_collection")) do
-      mod = to_big(mod) + to_big(c.ability.extra.dollars)
-      SMODS.calculate_effect({ message = "+$" .. c.ability.extra.dollars }, c)
-    end
-  end
-  return ease_dollars_ref(mod, instant)
 end

@@ -1,27 +1,39 @@
 SMODS.Joker {
-    key = "coin_collection",
-    config = {
-        extra = {
-            dollars = 1
-        }
-    },
-    rarity = 1,
-    pos = { x = 7, y = 11 },
-    atlas = "jokers_atlas",
-    cost = 6,
-    -- it would be a lot of work to make it blueprint compatible
-    blueprint_compat = false,
-    eternal_compat = true,
-    perishable_compat = true,
-    paperback_credit = {
-        coder = { 'thermo' }
-    },
+  key = "coin_collection",
+  config = {
+    extra = {
+      dollars = 1
+    }
+  },
+  rarity = 1,
+  pos = { x = 7, y = 11 },
+  atlas = "jokers_atlas",
+  cost = 6,
 
-    loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                card.ability.extra.dollars
-            }
-        }
-    end,
+  blueprint_compat = true,
+  eternal_compat = true,
+  perishable_compat = true,
+  paperback_credit = {
+    coder = { 'thermo' }
+  },
+
+  loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        card.ability.extra.dollars
+      }
+    }
+  end,
+
+  calculate = function(self, card, context)
+    if not G.GAME.paperback.coin_collection_adding_money and context.money_altered and context.amount > 0 then
+      G.GAME.paperback.coin_collection_adding_money = true
+      return {
+        dollars = card.ability.extra.dollars,
+        func = function()
+          G.GAME.paperback.coin_collection_adding_money = false
+        end
+      }
+    end
+  end
 }
