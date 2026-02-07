@@ -3,6 +3,7 @@ SMODS.Blind {
   boss = {
     showdown = true, min = 1
   },
+  dollars = 8,
   in_pool = function(self)
     if G.playing_cards then
       local count = 0
