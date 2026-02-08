@@ -925,6 +925,11 @@ PB_UTIL.ENABLED_DECKS = {
 }
 
 PB_UTIL.ENABLED_CHALLENGES = {
+  "trial_of_cups",
+  "trial_of_wands",
+  "trial_of_swords",
+  "trial_of_pentacles",
+
   'hide_and_seek',
   'white_nights_and_dark_days',
   'suburbia_overture',
@@ -932,7 +937,7 @@ PB_UTIL.ENABLED_CHALLENGES = {
   'borderline',
   'all_smiles',
   'joker_of_the_day',
-  'foodie',
+  'foodie'
 }
 
 PB_UTIL.ENABLED_STICKERS = {
@@ -1333,11 +1338,4 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
 --- @alias Special_Paperclip  "platinum"
 PB_UTIL.SPECIAL_PAPERCLIPS = {
   "platinum_clip"
-}
-
-PB_UTIL.ENABLED_CHALLENGES = {
-  "trial_of_cups",
-  "trial_of_wands",
-  "trial_of_swords",
-  "trial_of_pentacles"
 }

@@ -4013,10 +4013,59 @@ return {
   },
   misc = {
     challenge_names = {
+      -- Trials
       c_paperback_trial_of_cups = "Trial of Cups",
       c_paperback_trial_of_wands = "Trial of Wands",
       c_paperback_trial_of_swords = "Trial of Swords",
-      c_paperback_trial_of_pentacles = "Trial of Pentacles"
+      c_paperback_trial_of_pentacles = "Trial of Pentacles",
+
+      -- Regular Challenges
+      c_paperback_joker_of_the_day = "Joker of the Day",
+      c_paperback_white_nights_and_dark_days = "White Nights and Dark Days",
+      c_paperback_hard_cover = "Hard Cover",
+      c_paperback_borderline = "Borderline",
+      c_paperback_all_smiles = "All Smiles",
+      c_paperback_hide_and_seek = "Hide and Seek",
+      c_paperback_suburbia_overture = "Suburbia Overture",
+      c_paperback_foodie = "Foodie"
+    },
+    v_text = {
+      ch_c_cup_trial_1 = {
+        "When a {C:attention}Boss Blind{} is defeated, {C:attention}destroy{}"
+      },
+      ch_c_cup_trial_2 = {
+        "the leftmost {C:attention}Joker{} and create a new one"
+      },
+      ch_c_cup_trial_3 = {
+        "of the same rarity or higher if possible"
+      },
+      ch_c_cup_trial_4 = {
+        "{C:inactive}(Cannot upgrade to {C:legendary}Legendary{C:inactive}){}"
+      },
+      ch_c_wand_trial = {
+        "Gain 1 {C:attention}Joker slot{} when a {C:attention}Boss Blind{} is defeated"
+      },
+      ch_c_sword_trial_1 = {
+        "The 5 {C:attention}lowest-ranking{} cards in your deck are"
+      },
+      ch_c_sword_trial_2 = {
+        "{C:attention}destroyed{} when a {C:attention}Boss Blind{} is defeated"
+      },
+      ch_c_paperback_banned_vanilla_jokers = {
+        "All {C:attention}base{} Jokers are banned"
+      },
+      ch_c_paperback_banned_non_common_jokers = {
+        "All {C:attention}non-Common{} Jokers are banned"
+      },
+      ch_c_paperback_only_food_jokers = {
+        "All {C:attention}non-Food{} Jokers are banned"
+      },
+      ch_c_paperback_2x_blind_size = {
+        "{C:red}X2{} base Blind size"
+      },
+      ch_c_paperback_non_faces_banned_ante = {
+        "All {C:attention}non-face cards{} are {C:red}debuffed{} after Ante 4"
+      },
     },
     dictionary = {
       -- Badge under cards
@@ -4208,30 +4257,6 @@ return {
       paperback_a_minus_consumable_slot = "-#1# Consumable Slots",
       paperback_a_ante = "#1# Ante",
     },
-    v_text = {
-      ch_c_scaling = { "{C:attention}Increased{} blind scaling" },
-      ch_c_cup_trial_1 = {
-        "When a {C:attention}Boss Blind{} is defeated, {C:attention}destroy{}"
-      },
-      ch_c_cup_trial_2 = {
-        "the leftmost {C:attention}Joker{} and create a new one"
-      },
-      ch_c_cup_trial_3 = {
-        "of the same rarity or higher if possible"
-      },
-      ch_c_cup_trial_4 = {
-        "{C:inactive}(Cannot upgrade to {C:legendary}Legendary{C:inactive}){}"
-      },
-      ch_c_wand_trial = {
-        "Gain 1 {C:attention}Joker slot{} when a {C:attention}Boss Blind{} is defeated"
-      },
-      ch_c_sword_trial_1 = {
-        "The 5 {C:attention}lowest-ranking{} cards in your deck are"
-      },
-      ch_c_sword_trial_2 = {
-        "{C:attention}destroyed{} when a {C:attention}Boss Blind{} is defeated"
-      }
-    },
     ranks = {
       paperback_Apostle = 'Apostle',
     },
@@ -4285,32 +4310,5 @@ return {
       paperback_temporary = "Temporary",
       paperback_corroded = "Corroded",
     },
-    challenge_names = {
-      c_paperback_joker_of_the_day = "Joker of the Day",
-      c_paperback_white_nights_and_dark_days = "White Nights and Dark Days",
-      c_paperback_hard_cover = "Hard Cover",
-      c_paperback_borderline = "Borderline",
-      c_paperback_all_smiles = "All Smiles",
-      c_paperback_hide_and_seek = "Hide and Seek",
-      c_paperback_suburbia_overture = "Suburbia Overture",
-      c_paperback_foodie = "Foodie"
-    },
-    v_text = {
-      ch_c_paperback_banned_vanilla_jokers = {
-        "All {C:attention}base{} Jokers are banned"
-      },
-      ch_c_paperback_banned_non_common_jokers = {
-        "All {C:attention}non-Common{} Jokers are banned"
-      },
-      ch_c_paperback_only_food_jokers = {
-        "All {C:attention}non-Food{} Jokers are banned"
-      },
-      ch_c_paperback_2x_blind_size = {
-        "{C:red}X2{} base Blind size"
-      },
-      ch_c_paperback_non_faces_banned_ante = {
-        "All {C:attention}non-face cards{} are {C:red}debuffed{} after Ante 4"
-      },
-    }
   }
 }
