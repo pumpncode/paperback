@@ -1308,6 +1308,46 @@ function PB_UTIL.check_jimbocards_at_0()
   return false
 end
 
+-- Creates an array of card prototypes that are valid for creating challenge decks
+---@param t { suits: string[], ranks: string[] }
+---@return { s:string, r:string }[]
+function PB_UTIL.create_deck(t)
+  local cards = {}
+  local suits = t.suits or {}
+  local ranks = t.ranks or {}
+
+  for _, suit in ipairs(suits) do
+    for _, rank in ipairs(ranks) do
+      if SMODS.Suits[suit] and SMODS.Ranks[rank] then
+        cards[#cards + 1] = {
+          s = SMODS.Suits[suit].card_key,
+          r = SMODS.Ranks[rank].card_key
+        }
+      end
+    end
+  end
+
+  return cards
+end
+
+-- Returns a function meant to be used for banned_cards inside
+-- a challenge that handles keys that might not exist
+---@param list string[]
+---@return fun(): {id:string}[]
+function PB_UTIL.banned_challenge_centers(list)
+  return function()
+    local banned = {}
+
+    for _, v in ipairs(list) do
+      if G.P_CENTERS[v] then
+        banned[#banned + 1] = { id = v }
+      end
+    end
+
+    return banned
+  end
+end
+
 --- Logic for the Suit Drink Jokers
 --- @param check (boolean) whether to only check for the suit presence
 --- @param card (Card)

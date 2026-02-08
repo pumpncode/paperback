@@ -924,6 +924,17 @@ PB_UTIL.ENABLED_DECKS = {
   'shimmering',
 }
 
+PB_UTIL.ENABLED_CHALLENGES = {
+  'hide_and_seek',
+  'white_nights_and_dark_days',
+  'suburbia_overture',
+  'hard_cover',
+  'borderline',
+  'all_smiles',
+  'joker_of_the_day',
+  'foodie',
+}
+
 PB_UTIL.ENABLED_STICKERS = {
   'energized',
   'temporary',

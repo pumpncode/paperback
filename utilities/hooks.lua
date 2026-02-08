@@ -415,6 +415,22 @@ function SMODS.is_eternal(card, ...)
       or card.config.center.paperback and card.config.center.paperback.indestructible
 end
 
+-- Debuff non-face cards if All Smiles challenge rule is active
+local debuff_card_ref = Blind.debuff_card
+function Blind.debuff_card(self, card, from_blind)
+  local ret = debuff_card_ref(self, card, from_blind)
+  if card.area ~= G.jokers then
+    if G.GAME.modifiers.paperback_non_faces_banned_ante and (G.GAME.round_resets.ante >= G.GAME.modifiers.paperback_non_faces_banned_ante) then
+      if not card:is_face(true) then
+        card:set_debuff(true)
+        if card.debuff then card.debuffed_by_blind = true end
+      end
+    end
+  end
+
+  return ret
+end
+
 -- Keep track of which antes we have been in
 -- Used by Torii to know whether we should allow rewinding current ante
 local ease_ante_ref = ease_ante

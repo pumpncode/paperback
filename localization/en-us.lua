@@ -4284,6 +4284,33 @@ return {
       paperback_energized = "Energized",
       paperback_temporary = "Temporary",
       paperback_corroded = "Corroded",
+    },
+    challenge_names = {
+      c_paperback_joker_of_the_day = "Joker of the Day",
+      c_paperback_white_nights_and_dark_days = "White Nights and Dark Days",
+      c_paperback_hard_cover = "Hard Cover",
+      c_paperback_borderline = "Borderline",
+      c_paperback_all_smiles = "All Smiles",
+      c_paperback_hide_and_seek = "Hide and Seek",
+      c_paperback_suburbia_overture = "Suburbia Overture",
+      c_paperback_foodie = "Foodie"
+    },
+    v_text = {
+      ch_c_paperback_banned_vanilla_jokers = {
+        "All {C:attention}base{} Jokers are banned"
+      },
+      ch_c_paperback_banned_non_common_jokers = {
+        "All {C:attention}non-Common{} Jokers are banned"
+      },
+      ch_c_paperback_only_food_jokers = {
+        "All {C:attention}non-Food{} Jokers are banned"
+      },
+      ch_c_paperback_2x_blind_size = {
+        "{C:red}X2{} base Blind size"
+      },
+      ch_c_paperback_non_faces_banned_ante = {
+        "All {C:attention}non-face cards{} are {C:red}debuffed{} after Ante 4"
+      },
     }
   }
 }
