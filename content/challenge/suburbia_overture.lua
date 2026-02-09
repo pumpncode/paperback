@@ -9,6 +9,19 @@ SMODS.Challenge {
     }
   },
 
+  restrictions = {
+    banned_cards = PB_UTIL.banned_challenge_centers {
+      'c_paperback_nine_of_cups',
+      'c_paperback_king_of_wands',
+      'c_soul',
+    },
+
+    banned_tags = {
+      { id = 'tag_rare' },
+      { id = 'tag_uncommon' },
+    },
+  },
+
   apply = function(self)
     G.E_MANAGER:add_event(Event {
       func = function()
