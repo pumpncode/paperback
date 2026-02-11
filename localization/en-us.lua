@@ -3319,7 +3319,7 @@ return {
         name = "Tomorrow's Fortune",
         text = {
           "All {C:attention}Booster Packs{} contain",
-          "{C:attention}1{} more card to choose from"
+          "{C:attention}#1#{} more card to choose from"
         }
       },
       c_paperback_fluorescent_lamp = {
