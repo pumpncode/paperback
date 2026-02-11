@@ -26,7 +26,7 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not G.GAME.paperback.coin_collection_adding_money and context.money_altered and context.amount > 0 then
+    if not G.GAME.paperback.coin_collection_adding_money and context.money_altered and to_number(context.amount) > 0 then
       G.GAME.paperback.coin_collection_adding_money = true
       return {
         dollars = card.ability.extra.dollars,
