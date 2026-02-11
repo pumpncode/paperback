@@ -23,7 +23,9 @@ SMODS.Joker {
   },
 
   loc_vars = function(self, info_queue, card)
-    return { vars = { card.ability.extra.rounds_left } }
+    return {
+      vars = { card.ability.extra.rounds_left, },
+  }
   end,
 
   calculate = function(self, card, context)
