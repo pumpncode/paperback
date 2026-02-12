@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       xchips = 1,
-      a_xchips = 0.15,
+      a_xchips = 0.1,
       suit = "Spades",
       req = 5
     }
