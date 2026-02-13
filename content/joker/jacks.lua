@@ -34,7 +34,7 @@ SMODS.Joker {
         mult = card.ability.extra.mult
       }
     end
-    if context.discard and PB_UTIL.is_rank(context.other_card, card.ability.extra.rank) then
+    if not context.blueprint and context.discard and PB_UTIL.is_rank(context.other_card, card.ability.extra.rank) then
       card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.change
       return {
         message = localize('k_upgrade_ex'),
