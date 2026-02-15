@@ -989,7 +989,7 @@ end
 function PB_UTIL.get_random_visible_hand(seed)
   local hands = {}
   for k, _ in pairs(SMODS.PokerHands) do
-    if SMODS.is_poker_hand_visible(k) then hands[#hands + 1] = k end
+    if G.GAME.hands[k] and SMODS.is_poker_hand_visible(k) then hands[#hands + 1] = k end
   end
   return pseudorandom_element(hands, pseudoseed(seed)) or 'High Card'
 end
