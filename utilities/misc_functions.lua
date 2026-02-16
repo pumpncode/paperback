@@ -349,9 +349,11 @@ end
 --- Creates and redeems the specified voucher
 ---@param key string
 function PB_UTIL.redeem_voucher(key)
+  local x = G.shop_vouchers and (G.shop_vouchers.T.x + G.shop_vouchers.T.w / 2) or G.hand.T.x
+  local y = G.shop_vouchers and G.shop_vouchers.T.y or (G.hand.T.y + G.ROOM.T.y + 9)
+
   local voucher = Card(
-    G.shop_vouchers.T.x + G.shop_vouchers.T.w / 2,
-    G.shop_vouchers.T.y,
+    x, y,
     G.CARD_W, G.CARD_H, G.P_CARDS.empty,
     G.P_CENTERS[key],
     { bypass_discovery_center = true, bypass_discovery_ui = true }
