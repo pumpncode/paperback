@@ -46,14 +46,18 @@ SMODS.Joker {
         -- Copy the consumable
         G.E_MANAGER:add_event(Event({
           trigger = 'after',
+          delay = 0.5,
+          blocking = false,
           func = function()
             -- Give the negative consumable
-            local copy = copy_card(bought_card)
-            copy:add_to_deck()
-            copy:set_edition('e_negative', true)
-            G.consumeables:emplace(copy)
+            if G.STATE ~= G.STATES.PLAY_TAROT then
+              local copy = copy_card(bought_card)
+              copy:add_to_deck()
+              copy:set_edition('e_negative', true)
+              G.consumeables:emplace(copy)
 
-            return true
+              return true
+            end
           end
         }))
 
