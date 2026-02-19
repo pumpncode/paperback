@@ -14,6 +14,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = false,
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
@@ -46,5 +50,24 @@ SMODS.Joker {
         mult = card.ability.extra.mult
       }
     end
-  end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+      },
+      text_config = { colour = G.C.MULT },
+      reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "joke_master_hand", colour = G.C.ORANGE },
+        { text = ")" },
+      },
+      calc_function = function(card)
+        card.joker_display_values.joke_master_hand =
+            localize(G.GAME.paperback.joke_master_hand, 'poker_hands')
+      end
+    }
+  end,
 }

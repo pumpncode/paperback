@@ -8,9 +8,15 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  unlocked = false,
+  paperback_credit = {
+    coder = { 'srockw' },
+    artist = { 'nevernamed' }
+  },
 
+  -- Also see SMODS.calculate_main_scoring hook
   calculate = function(self, card, context)
-    if context.final_scoring_step then
+    if context.paperback and context.paperback.nichola then
       local ctx = {
         cardarea = G.play,
         full_hand = G.play.cards,
@@ -20,7 +26,17 @@ SMODS.Joker {
       }
 
       for _, v in ipairs(G.hand.cards) do
-        if v:can_calculate() and v:is_face() then
+        if v:can_calculate(true) and v:is_face(true) and v.debuff then
+          -- Copied from SMODS.calculate_main_scoring
+          G.GAME.blind.triggered = true
+          G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = (function()
+              SMODS.juice_up_blind(); return true
+            end)
+          }))
+          card_eval_status_text(v, 'debuff')
+        elseif v:can_calculate() and v:is_face() then
           SMODS.score_card(v, ctx)
         end
       end

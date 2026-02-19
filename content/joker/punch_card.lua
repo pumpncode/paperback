@@ -14,6 +14,10 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

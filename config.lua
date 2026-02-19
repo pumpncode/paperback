@@ -8,6 +8,8 @@ return {
   vouchers_enabled = true,
   tags_enabled = true,
   ranks_enabled = true,
+  ego_gifts_enabled = true,
   spectrals_enabled = true,
-  plague_doctor_quotes_enabled = true
+  plague_doctor_quotes_enabled = true,
+  show_credits = true
 }

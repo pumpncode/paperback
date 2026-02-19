@@ -1,7 +1,7 @@
 SMODS.Joker {
   key = 'ghost_cola',
   config = {},
-  rarity = 3,
+  rarity = 2,
   pos = { x = 5, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
@@ -16,12 +16,17 @@ SMODS.Joker {
     Food = true
   },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' },
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_negative
 
     return {
       vars = {
         localize { type = 'name_text', set = 'Tag', key = 'tag_negative', nodes = {} },
+        localize ('k_spectral')
       }
     }
   end,

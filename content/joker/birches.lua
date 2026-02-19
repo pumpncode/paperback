@@ -19,6 +19,9 @@ SMODS.Joker {
   paperback = {
     requires_stars = true,
   },
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
 
   loc_vars = PB_UTIL.panorama_loc_vars,
   calculate = PB_UTIL.panorama_logic,

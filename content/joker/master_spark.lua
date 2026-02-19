@@ -17,6 +17,10 @@ SMODS.Joker {
     requires_spectrum_or_suit = true
   },
 
+  paperback_credit = {
+    coder = { 'srockw' },
+  },
+
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.e_polychrome
   end,

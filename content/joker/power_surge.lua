@@ -3,7 +3,7 @@ SMODS.Joker {
   config = {
     extra = {
       rank = 7,
-      xMult = 2,
+      xMult = 1.5,
       odds = 4,
     }
   },
@@ -15,6 +15,10 @@ SMODS.Joker {
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
+
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
 
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
