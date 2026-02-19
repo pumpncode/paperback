@@ -138,7 +138,7 @@ SMODS.current_mod.extra_tabs = function()
     for _, entry in ipairs(v.entries) do
       parsed[#parsed + 1] = {
         n = G.UIT.R,
-        config = { align = 'cm', minh = 0.25 },
+        config = { align = 'cm', minh = 0.175 },
         nodes = {
           { n = G.UIT.T, config = { text = entry, colour = v.color, scale = 0.4 } }
         }
@@ -157,7 +157,7 @@ SMODS.current_mod.extra_tabs = function()
         nodes = {
           {
             n = G.UIT.C,
-            config = { padding = 0.5 },
+            config = { padding = 0.25 },
             nodes = {
               {
                 n = G.UIT.R,
@@ -171,7 +171,7 @@ SMODS.current_mod.extra_tabs = function()
           },
           {
             n = G.UIT.C,
-            config = { padding = 0.5 },
+            config = { padding = 0.25 },
             nodes = {
               {
                 n = G.UIT.R,
@@ -185,7 +185,7 @@ SMODS.current_mod.extra_tabs = function()
           },
           {
             n = G.UIT.C,
-            config = { padding = 0.5 },
+            config = { padding = 0.25 },
             nodes = {
               {
                 n = G.UIT.R,
@@ -204,7 +204,7 @@ SMODS.current_mod.extra_tabs = function()
         nodes = {
           {
             n = G.UIT.C,
-            config = { padding = 0.5 },
+            config = { padding = 0.25 },
             nodes = {
               {
                 n = G.UIT.R,

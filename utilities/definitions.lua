@@ -136,7 +136,8 @@ PB_UTIL.credits = {
       'Fennex',
       "MaveBoy",
       'Dylan Hall',
-      "Ari"
+      "Ari",
+      "ThermoDyn",
     }
   },
   developers = {
