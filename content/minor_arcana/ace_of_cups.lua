@@ -6,6 +6,10 @@ PB_UTIL.MinorArcana {
   },
   atlas = 'minor_arcana_atlas',
   pos = { x = 0, y = 0 },
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
+
   paperback = {
     requires_paperclips = true
   }

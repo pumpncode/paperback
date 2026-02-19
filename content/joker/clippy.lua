@@ -13,6 +13,9 @@ SMODS.Joker {
   paperback = {
     requires_paperclips = true
   },
+  paperback_credit = {
+    coder = { 'dowfrin' },
+  },
 
   calculate = function(self, card, context)
     local unclipped = {}

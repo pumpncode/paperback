@@ -13,6 +13,10 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
+  paperback_credit = {
+    coder = { 'aa7' },
+  },
+
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.h_size = card.ability.extra.h_size or 0
   end,

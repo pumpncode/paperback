@@ -16,6 +16,10 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  paperback_credit = {
+    coder = { 'srockw' },
+    artist = { 'scruby' }
+  },
 
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
@@ -67,21 +71,6 @@ SMODS.Joker {
             end
           })
         end
-
-        if PB_UTIL.chance(card, 'dd_edition_roll') and not v.edition then
-          local edition = poll_edition('dd_edition', nil, true, true)
-
-          G.E_MANAGER:add_event(Event {
-            trigger = 'after',
-            delay = 0.5,
-            func = function()
-              v:set_edition(edition, true)
-              v:juice_up()
-              card:juice_up()
-              return true
-            end
-          })
-        end
       end
 
       card.ability.extra.hands_left = card.ability.extra.hands_left - 1
@@ -91,7 +80,7 @@ SMODS.Joker {
 
         return {
           message = localize('paperback_consumed_ex'),
-          colour = G.C.MULT
+          colour = G.C.RED
         }
       end
     end

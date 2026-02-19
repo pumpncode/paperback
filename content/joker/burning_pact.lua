@@ -14,6 +14,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -25,18 +28,15 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.pre_discard and #context.full_hand == card.ability.extra.required_cards and not context.blueprint then
+    if context.pre_discard and (#context.full_hand == card.ability.extra.required_cards) and not context.blueprint then
       card.ability.extra.active = true
     end
 
-    if context.paperback and context.paperback.drawing_cards and card.ability.extra.active then
-      return {
-        draw_extra = card.ability.extra.cards
-      }
-    end
-
-    if context.hand_drawn and not context.blueprint then
+    if context.drawing_cards and card.ability.extra.active and not context.blueprint then
       card.ability.extra.active = false
+      return {
+        modify = card.ability.extra.cards + context.amount
+      }
     end
   end
 }

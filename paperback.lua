@@ -1,6 +1,111 @@
 PB_UTIL = {}
 
+-- By Eremel from Stocking Stuffer's PotatoPatch utils
+PB_UTIL.CREDITS = {}
+
+PB_UTIL.CREDITS.generate_string = function(developers, prefix)
+  if type(developers) ~= 'table' then return end
+
+  local amount = #developers
+  local credit_string = {
+    n = G.UIT.R,
+    config = { align = 'tm' },
+    nodes = {
+      { n = G.UIT.R, config = { align = 'cm' }, nodes = { { n = G.UIT.T, config = { text = localize(prefix), shadow = true, colour = G.C.UI.BACKGROUND_WHITE, scale = 0.27 } } } }
+    }
+  }
+
+  for i, name in ipairs(developers) do
+    local target_row = math.ceil(i / 3)
+    local dev = PB_UTIL.Developers[name] or {}
+    if target_row > #credit_string.nodes then
+      table.insert(credit_string.nodes,
+        { n = G.UIT.R, config = { align = 'cm' }, nodes = {} })
+    end
+    table.insert(credit_string.nodes[target_row].nodes, {
+      n = G.UIT.O,
+      config = {
+        object = DynaText({
+          string = dev.loc and localize(dev.loc) or dev.name or name,
+          colours = { dev and dev.colour or G.C.UI.BACKGROUND_WHITE },
+          scale = 0.27,
+          silent = true,
+          shadow = true,
+          y_offset = -0.6,
+        })
+      }
+    })
+    if i < amount then
+      table.insert(credit_string.nodes[target_row].nodes,
+        { n = G.UIT.T, config = { text = localize(i + 1 == amount and 'paperback_and_spacer' or 'paperback_comma_spacer'), shadow = true, colour = G.C.UI.BACKGROUND_WHITE, scale = 0.27 } })
+    end
+  end
+
+  return credit_string
+end
+
+local card_popup_ref = G.UIDEF.card_h_popup
+function G.UIDEF.card_h_popup(card)
+  local ret_val = card_popup_ref(card)
+
+  if PB_UTIL.config.show_credits then
+    local obj = card.config.center and card.config.center.paperback_credit
+    local target = ret_val.nodes[1].nodes[1].nodes[1].nodes
+    local owned = function(card)
+      if next(SMODS.find_card(card.config.center.key, true)) then
+        if PB_UTIL.find(SMODS.find_card(card.config.center.key), card) then
+          return true
+        end
+      end
+      return false
+    end
+
+
+    if obj then
+      if (not obj.hidden) or
+      (obj.hidden and owned(card)) then
+        if obj.artist then
+          local str = PB_UTIL.CREDITS.generate_string(obj.artist, 'paperback_art_credit')
+          if str then
+            table.insert(target, str)
+          end
+        else
+          local str = PB_UTIL.CREDITS.generate_string({ 'papermoonqueen' }, 'paperback_art_credit')
+          if str then
+            table.insert(target, str)
+          end
+        end
+        if obj.coder then
+          local str = PB_UTIL.CREDITS.generate_string(obj.coder, 'paperback_code_credit')
+          if str then
+            table.insert(target, str)
+          end
+        end
+        if obj.composer then
+          local str = PB_UTIL.CREDITS.generate_string(obj.composer, 'paperback_music_credit')
+          if str then
+            table.insert(target, str)
+          end
+        end
+      end
+    end
+  end
+  return ret_val
+end
+
+PB_UTIL.Developers = { internal_count = 0 }
+PB_UTIL.Developer = Object:extend()
+function PB_UTIL.Developer:init(args)
+  self.name = args.name
+  self.colour = args.colour
+  self.loc = args.loc and type(args.loc) == 'boolean' and 'paperback_dev_' .. args.name or args.loc
+
+  PB_UTIL.Developers[args.name] = self
+  PB_UTIL.Developers.internal_count = PB_UTIL.Developers.internal_count + 1
+end
+
 -- Load utility functions into PB_UTIL
+SMODS.load_file("utilities/developers.lua")()
 SMODS.load_file("utilities/definitions.lua")()
 SMODS.load_file("utilities/misc_functions.lua")()
 SMODS.load_file("utilities/ui.lua")()
@@ -22,16 +127,16 @@ if PB_UTIL.config.minor_arcana_enabled then
     primary_colour = G.C.PAPERBACK_MINOR_ARCANA,
     secondary_colour = G.C.PAPERBACK_MINOR_ARCANA, -- Color of the collection button and badge
     shop_rate = 0,                                 -- These will not appear in the shop
-    default = 'c_paperback_two_of_cups',           -- Card to spawn if pool is empty
+    default = 'c_paperback_ace_of_cups',           -- Card to spawn if pool is empty
     collection_rows = { 7, 7 }
   }
 
   -- Register the sprite for undiscovered Minor Arcana
   SMODS.UndiscoveredSprite {
-    key           = 'minor_arcana',
+    key = 'minor_arcana',
     prefix_config = { key = true },
-    atlas         = "minor_arcana_atlas",
-    pos           = { x = 0, y = 8 }
+    atlas = "minor_arcana_atlas",
+    pos = { x = 0, y = 8 }
   }
 
   -- Register Minor Arcana cards
@@ -54,6 +159,35 @@ if PB_UTIL.config.minor_arcana_enabled then
       end
     end
   }
+end
+
+-- Load E.G.O Gifts if they are enabled
+if PB_UTIL.config.ego_gifts_enabled then
+  -- Register the consumable type to be used by E.G.O Gifts
+  SMODS.ConsumableType {
+    key = 'ego_gift',
+    prefix_config = { key = true },                -- Add the prefix of the mod to the key
+    primary_colour = G.C.PAPERBACK_EGO_GIFT_YELLOW,
+    secondary_colour = G.C.PAPERBACK_EGO_GIFT_RED, -- Color of the collection button and badge
+    shop_rate = 0,                                 -- These will not appear in the shop
+    default = 'c_paperback_dark_vestige',          -- Card to spawn if pool is empty
+    collection_rows = { 6, 6 },
+  }
+
+  -- Register the sprite for undiscovered E.G.O Gifts
+  SMODS.UndiscoveredSprite {
+    key = 'ego_gift',
+    prefix_config = { key = true },
+    atlas = "ego_gift_atlas",
+    pos = { x = 7, y = 1 },
+    no_overlay = true,
+  }
+
+  -- Register E.G.O Gift cards
+  PB_UTIL.register_items(PB_UTIL.ENABLED_EGO_GIFTS, "content/ego_gift")
+
+  -- Register E.G.O Gift boosters
+  PB_UTIL.register_items(PB_UTIL.ENABLED_EGO_GIFT_BOOSTERS, "content/booster")
 end
 
 -- Load Spectral cards if they are enabled
@@ -112,6 +246,9 @@ end
 
 -- Load custom Decks
 PB_UTIL.register_items(PB_UTIL.ENABLED_DECKS, "content/deck")
+
+-- Load custom Challenges
+PB_UTIL.register_items(PB_UTIL.ENABLED_CHALLENGES, "content/challenge")
 
 -- Register DeckSkins for Friends of Paperback
 for _, data in ipairs(PB_UTIL.DECK_SKINS) do
@@ -215,6 +352,11 @@ for _, v in ipairs(objects) do
       end
 
       return ret, dupes
+    end
+
+    -- Add an extra button if it exists in the config
+    if config.extra_button then
+      PB_UTIL.setup_extra_button(obj, config.extra_button)
     end
   end
 end

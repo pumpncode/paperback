@@ -20,6 +20,10 @@ SMODS.Joker {
     requires_crowns = true,
   },
 
+  paperback_credit = {
+    coder = { 'oppositewolf' }
+  },
+
   loc_vars = PB_UTIL.panorama_loc_vars,
   calculate = PB_UTIL.panorama_logic,
   joker_display_def = PB_UTIL.panorama_joker_display_def

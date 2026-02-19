@@ -13,6 +13,9 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  paperback_credit = {
+    coder = { 'srockw' }
+  },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.enhancement]
@@ -64,6 +67,8 @@ SMODS.Joker {
           for _ = 1, card.ability.extra.cards do
             draw_card(G.play, G.hand, 90, 'up')
           end
+
+          save_run()
 
           return true
         end
